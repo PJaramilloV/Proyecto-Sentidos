@@ -1,0 +1,25 @@
+# SConstruct db
+*.dblite
+
+# Godot Serialisations
+api.json
+
+# Visual Studio Cache
+.vs/
+
+# VSCode Cache
+.vscode/
+
+# Mac stuff
+.DS_Store
+
+# Binaries
+build/
+*.obj
+*.os
+*.so
+*.dll
+*.exp
+*.lib
+*.a
+*.dylib
