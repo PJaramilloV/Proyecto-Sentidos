@@ -1,0 +1,3 @@
+# Hito 1
+## 1. Historia
+El protagonista se encuentra colgando de una celda, la cual por la antigüedad tiene deja una pequeña apertura lo suficientemente grande como para que este pase por agachado. Este procede se escapa y cae al piso, donde se percata que todo a su alrededor esta muy oscuro, excepto por una antorcha que le da luz, este la tome y recorre por un largo pasillo donde finalmente se le apaga, sigue avanzando y se puede divisar un pequeño haz de luz que le señala un altar donde se ve una criatura igual de pequeña que el haz, la cual le ofrece ayuda en forma de un contrato. La criatura no puede 
