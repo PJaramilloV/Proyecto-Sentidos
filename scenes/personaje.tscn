@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/rogue.glb" type="PackedScene" id=1]
+[ext_resource path="res://scenes/personaje.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="BoxShape" id=2]
+
+[sub_resource type="CapsuleShape" id=3]
+
+[node name="rogue" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="shape0" parent="Rogue/Skeleton/Akai /static_collision" index="0"]
+visible = false
+
+[node name="ManoDerecha" type="BoneAttachment" parent="Rogue/Skeleton" index="1"]
+transform = Transform( 0.441084, -0.878944, -0.181378, 0.0828002, -0.161382, 0.98341, -0.893638, -0.448785, 0.00159376, -0.165301, -0.202749, -0.965294 )
+bone_name = "RightHand"
+
+[node name="RigidBody" type="RigidBody" parent="Rogue/Skeleton/ManoDerecha" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Rogue/Skeleton/ManoDerecha/RigidBody" index="0"]
+transform = Transform( 0.102, -2.6077e-10, 8.19657e-18, 8.31205e-10, 0.032, -1.00583e-09, 1.34996e-24, 5.96046e-10, 0.054, -0.07, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="ManoIzquierda" type="BoneAttachment" parent="Rogue/Skeleton" index="2"]
+transform = Transform( -0.739226, 0.177905, -0.649531, 0.523676, 0.758275, -0.388303, 0.423442, -0.62719, -0.653702, 0.0331262, 0.539257, -0.906232 )
+bone_name = "LeftHand"
+
+[node name="RigidBody" type="RigidBody" parent="Rogue/Skeleton/ManoIzquierda" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Rogue/Skeleton/ManoIzquierda/RigidBody" index="0"]
+transform = Transform( 0.102, -2.6077e-10, 8.19657e-18, 8.31205e-10, 0.032, -1.00583e-09, 1.34996e-24, 5.96046e-10, 0.054, 0.08, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="PieDerecho" type="BoneAttachment" parent="Rogue/Skeleton" index="3"]
+transform = Transform( 0.501782, -0.00216013, -0.864988, 0.864987, -0.00111118, 0.501788, -0.0020443, -0.999996, 0.00131208, 0.0560658, 0.0251932, -0.141902 )
+bone_name = "RightFoot"
+
+[node name="RigidBody" type="RigidBody" parent="Rogue/Skeleton/PieDerecho" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Rogue/Skeleton/PieDerecho/RigidBody" index="0"]
+transform = Transform( 0.075, 0, 0, 0, 0.09, 0, 0, 0, 0.168, -0.021, -0.023, 0.077 )
+shape = SubResource( 2 )
+
+[node name="PieIzquierdo" type="BoneAttachment" parent="Rogue/Skeleton" index="4"]
+transform = Transform( 0.880942, -0.30404, -0.362624, 0.467116, 0.436039, 0.7692, -0.0757491, -0.84701, 0.526149, 0.225075, 0.0552424, -0.284451 )
+bone_name = "LeftFoot"
+
+[node name="RigidBody" type="RigidBody" parent="Rogue/Skeleton/PieIzquierdo" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Rogue/Skeleton/PieIzquierdo/RigidBody" index="0"]
+transform = Transform( 0.075, 0, 0, 0, 0.09, 0, 0, 0, 0.168, 0.014, -0.036, 0.077 )
+shape = SubResource( 2 )
+
+[node name="Cuerpo" type="BoneAttachment" parent="Rogue/Skeleton" index="5"]
+transform = Transform( 0.731022, -0.25094, -0.634531, 0.674891, 0.403016, 0.618138, 0.100611, -0.880114, 0.463973, 0.15517, -0.0147513, -1.06516 )
+bone_name = "Spine"
+
+[node name="RigidBody" type="RigidBody" parent="Rogue/Skeleton/Cuerpo" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Rogue/Skeleton/Cuerpo/RigidBody" index="0"]
+transform = Transform( 0.215, 0, 0, 0, 0.021715, -0.343386, 0, 0.175663, 0.0424485, 0, 0.083, 0.041 )
+shape = SubResource( 3 )

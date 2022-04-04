@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://test/Boricchan.gd" type="Script" id=1]
+[ext_resource path="res://scenes/personaje.tscn" type="PackedScene" id=2]
 [ext_resource path="res://test/StaticBody2.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleMesh" id=6]
@@ -36,6 +37,7 @@ extents = Vector3( 2071.18, 459.997, 1 )
 
 [sub_resource type="Environment" id=12]
 background_mode = 1
+background_color = Color( 1, 1, 1, 1 )
 ambient_light_energy = 0.99
 ambient_light_sky_contribution = 0.0
 
@@ -102,3 +104,6 @@ shape = SubResource( 11 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 12 )
+
+[node name="rogue" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.06309, 0, 0 )
