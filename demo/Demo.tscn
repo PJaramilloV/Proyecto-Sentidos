@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://test/Boricchan.gd" type="Script" id=1]
+[ext_resource path="res://demo/Boricchan.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleShape" id=7]
 
@@ -41,8 +41,9 @@ ambient_light_sky_contribution = 0.0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10992, 5.23869, 0.704402 )
 collision_layer = 2
 script = ExtResource( 1 )
-jump_strength = 4.0
-gravity = 5.0
+speed = 3.0
+jump_strength = 10.0
+gravity = 10.0
 timing = 0.5
 
 [node name="hitbox" type="CollisionShape" parent="Boricchan"]
@@ -78,7 +79,6 @@ collision_mask = 2
 shape = SubResource( 14 )
 
 [node name="CSGCylinder" type="CSGCylinder" parent="piso/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 use_in_baked_light = true
 sides = 36
 

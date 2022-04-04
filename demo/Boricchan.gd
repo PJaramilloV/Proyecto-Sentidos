@@ -40,12 +40,9 @@ func _physics_process(delta):
 		var look_direction = Vector2(_velocity.x, _velocity.z)
 		_model.rotation.y = -look_direction.angle()
 
-
-	var collision_info = move_and_collide(_velocity * delta)
-	print(_timer)
-	print(collision_info)
-	if collision_info:
-		if collision_info.collider.get_collision_layer() == 1 and _timer > timing:
+	if get_slide_count() != 0:
+		var col = get_slide_collision(0)
+		if col.collider.get_collision_layer() == 1 and _timer > timing:
 			var light = load("res://assets/lights.tscn").instance()
 			var position = _light.to_global(_light.translation)
 			# position.y += 0.1
