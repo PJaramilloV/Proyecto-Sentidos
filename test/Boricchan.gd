@@ -3,11 +3,16 @@ extends KinematicBody
 export var speed := 1.0
 export var jump_strength := 1.0
 export var gravity := 2.0
+export var timing := 100000.0
 
 var _velocity := Vector3.ZERO
 var _snap_vector := Vector3.DOWN
+var _timer := 0.0
+
 
 onready var _model: Spatial = $capsula
+onready var _light: Spatial = $PlayerLight
+
 
 func _physics_process(delta):
 	var move_direction := Vector3.ZERO
@@ -35,8 +40,22 @@ func _physics_process(delta):
 		var look_direction = Vector2(_velocity.x, _velocity.z)
 		_model.rotation.y = -look_direction.angle()
 
+
+	var collision_info = move_and_collide(_velocity * delta)
+	print(_timer)
+	print(collision_info)
+	if collision_info:
+		if collision_info.collider.get_collision_layer() == 1 and _timer > timing:
+			var light = load("res://assets/lights.tscn").instance()
+			var position = _light.to_global(_light.translation)
+			# position.y += 0.1
+			light.translate(position)
+			print(position)
+			get_parent().add_child(light)
+			_timer = 0.0
+
 func _process(delta):
-	pass
+	_timer += delta
 
 
 # Declare member variables here. Examples:
