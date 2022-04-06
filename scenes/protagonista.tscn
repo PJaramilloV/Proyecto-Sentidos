@@ -5397,19 +5397,19 @@ blend_point_1/pos = 1.4
 min_space = 0.0
 max_space = 1.4
 
-[sub_resource type="AnimationNodeAnimation" id=25]
+[sub_resource type="AnimationNodeAnimation" id=33]
 animation = "Idle Retarget -loop"
 
-[sub_resource type="AnimationNodeAnimation" id=26]
+[sub_resource type="AnimationNodeAnimation" id=34]
 animation = "Jogging Retarget -loop"
 
-[sub_resource type="AnimationNodeBlendSpace1D" id=18]
-blend_point_0/node = SubResource( 25 )
+[sub_resource type="AnimationNodeBlendSpace1D" id=35]
+blend_point_0/node = SubResource( 33 )
 blend_point_0/pos = 0.0
-blend_point_1/node = SubResource( 26 )
-blend_point_1/pos = 3.0
+blend_point_1/node = SubResource( 34 )
+blend_point_1/pos = 1.8
 min_space = 0.0
-max_space = 3.0
+max_space = 1.84
 
 [sub_resource type="AnimationNodeAnimation" id=31]
 animation = "Jump Up Retarget"
@@ -5425,11 +5425,11 @@ input_1/name = "state 1"
 input_1/auto_advance = false
 
 [sub_resource type="AnimationNodeBlendTree" id=27]
-graph_offset = Vector2( -259.896, 160.485 )
+graph_offset = Vector2( -392.896, 54.985 )
 nodes/Crouching/node = SubResource( 22 )
 nodes/Crouching/position = Vector2( -100, 240 )
-nodes/IdleWalk/node = SubResource( 18 )
-nodes/IdleWalk/position = Vector2( -95, 126 )
+nodes/IdleWalk/node = SubResource( 35 )
+nodes/IdleWalk/position = Vector2( -100, 100 )
 nodes/Jump/node = SubResource( 31 )
 nodes/Jump/position = Vector2( 120, 320 )
 nodes/JumpShot/node = SubResource( 32 )
@@ -5437,7 +5437,7 @@ nodes/JumpShot/position = Vector2( 340, 240 )
 nodes/StandCrouch/node = SubResource( 30 )
 nodes/StandCrouch/position = Vector2( 140, 140 )
 nodes/output/position = Vector2( 540, 200 )
-node_connections = [ "output", 0, "JumpShot", "StandCrouch", 0, "IdleWalk", "StandCrouch", 1, "Crouching", "JumpShot", 0, "StandCrouch", "JumpShot", 1, "Jump" ]
+node_connections = [ "output", 0, "JumpShot", "JumpShot", 0, "StandCrouch", "JumpShot", 1, "Jump", "StandCrouch", 0, "IdleWalk", "StandCrouch", 1, "Crouching" ]
 
 [node name="rogue" type="KinematicBody"]
 script = ExtResource( 2 )
@@ -5500,7 +5500,7 @@ bones/10/name = "LeftHand"
 bones/10/parent = 9
 bones/10/rest = Transform( 0.985083, -0.162594, 0.0562976, 0.127302, 0.468581, -0.874199, 0.115759, 0.86833, 0.48229, 0.293474, 6.00815e-05, 0.0223358 )
 bones/10/enabled = true
-bones/10/bound_children = [  ]
+bones/10/bound_children = [ NodePath("ManoIzquierdaBone") ]
 bones/11/name = "LeftHandThumb1"
 bones/11/parent = 10
 bones/11/rest = Transform( 0.959255, -0.14148, -0.244564, 0.0941895, 0.97621, -0.195296, 0.266376, 0.164303, 0.949761, 0.0471481, -0.0184752, 0.0362842 )
@@ -5620,7 +5620,7 @@ bones/34/name = "RightHand"
 bones/34/parent = 33
 bones/34/rest = Transform( 0.368513, 0.896381, -0.246365, -0.726889, 0.112636, -0.677456, -0.579512, 0.42873, 0.693078, -0.293473, -3.17991e-05, 0.0223362 )
 bones/34/enabled = true
-bones/34/bound_children = [  ]
+bones/34/bound_children = [ NodePath("ManoDerechaBone") ]
 bones/35/name = "RightHandThumb1"
 bones/35/parent = 34
 bones/35/rest = Transform( 0.957112, 0.0812155, 0.278097, -0.227603, 0.804693, 0.54833, -0.17925, -0.588111, 0.788667, -0.047141, -0.0184939, 0.0362847 )
@@ -5735,7 +5735,7 @@ bones/57/name = "LeftFoot"
 bones/57/parent = 56
 bones/57/rest = Transform( 0.834751, 0.395133, -0.383486, -0.119348, 0.809734, 0.574532, 0.53754, -0.433824, 0.723082, -0.00170641, -0.483503, -0.0343512 )
 bones/57/enabled = true
-bones/57/bound_children = [  ]
+bones/57/bound_children = [ NodePath("PieIzquierdoBone") ]
 bones/58/name = "LeftToeBase"
 bones/58/parent = 57
 bones/58/rest = Transform( 0.999444, 0.0310149, -0.0122342, -0.0201326, 0.853903, 0.520042, 0.0265759, -0.519507, 0.854053, 0.0184943, -0.116771, 0.155177 )
@@ -5760,7 +5760,7 @@ bones/62/name = "RightFoot"
 bones/62/parent = 61
 bones/62/rest = Transform( 0.991348, 0.130702, -0.0121468, -0.0984165, 0.801308, 0.5901, 0.086861, -0.5838, 0.807236, 0.00197705, -0.483286, -0.0320027 )
 bones/62/enabled = true
-bones/62/bound_children = [  ]
+bones/62/bound_children = [ NodePath("PieDerechoBone") ]
 bones/63/name = "RightToeBase"
 bones/63/parent = 62
 bones/63/rest = Transform( 0.999622, 0.026293, 0.0080967, -0.0260871, 0.812423, 0.582485, 0.00873736, -0.582476, 0.8128, -0.0184616, -0.116772, 0.153817 )
@@ -5778,7 +5778,7 @@ skin = SubResource( 2 )
 material/0 = null
 
 [node name="ManoDerechaBone" type="BoneAttachment" parent="Rogue/Skeleton"]
-transform = Transform( 0.0856406, -0.99074, -0.105297, -0.083682, -0.112463, 0.990123, -0.992801, -0.0759848, -0.092535, -0.206852, -0.0225677, -1.0236 )
+transform = Transform( 0.0460315, -0.992561, -0.112655, -0.041176, -0.114562, 0.992559, -0.998086, -0.0410515, -0.0461394, -0.283954, -0.0344668, -1.0273 )
 bone_name = "RightHand"
 
 [node name="StaticBody" type="StaticBody" parent="Rogue/Skeleton/ManoDerechaBone"]
@@ -5788,7 +5788,7 @@ transform = Transform( 0.096, 3.17814e-10, -7.67181e-18, -7.82311e-10, 0.039, 0,
 shape = SubResource( 23 )
 
 [node name="ManoIzquierdaBone" type="BoneAttachment" parent="Rogue/Skeleton"]
-transform = Transform( 0.207573, 0.978197, -0.00577658, 0.40354, -0.0802513, 0.911429, 0.8911, -0.19152, -0.411401, 0.36114, 0.0399279, -1.05354 )
+transform = Transform( 0.231357, 0.972659, -0.019947, 0.406763, -0.0780892, 0.910183, 0.883747, -0.218692, -0.41371, 0.278801, 0.0651636, -1.06183 )
 bone_name = "LeftHand"
 
 [node name="StaticBody" type="StaticBody" parent="Rogue/Skeleton/ManoIzquierdaBone"]
@@ -5798,19 +5798,21 @@ transform = Transform( 0.096, 3.17814e-10, -7.67181e-18, -7.82311e-10, 0.039, 0,
 shape = SubResource( 23 )
 
 [node name="PieDerechoBone" type="BoneAttachment" parent="Rogue/Skeleton"]
-transform = Transform( 0.991405, 0.00081493, -0.130788, 0.130789, -0.000692114, 0.991408, 0.000717442, -0.999998, -0.000792339, -0.0597196, -0.0928559, -0.12177 )
+transform = Transform( 0.991384, 2.83755e-05, -0.130953, 0.130953, 2.77013e-05, 0.991386, 3.22096e-05, -0.999999, 2.43038e-05, -0.0597642, -0.0928741, -0.121657 )
 bone_name = "RightFoot"
 
 [node name="PieDerechoRay" type="RayCast" parent="Rogue/Skeleton/PieDerechoBone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.118, 0.019 )
+enabled = true
 cast_to = Vector3( 0, -0.043, 0 )
 
 [node name="PieIzquierdoBone" type="BoneAttachment" parent="Rogue/Skeleton"]
-transform = Transform( 0.868242, -0.000618648, 0.496134, -0.496131, 0.000480153, 0.868244, -0.000776874, -0.999999, 0.000112116, 0.197771, 0.0388215, -0.121701 )
+transform = Transform( 0.868041, -0.000650987, 0.496485, -0.496484, 0.000266021, 0.868042, -0.0006984, -0.999999, -9.06494e-05, 0.197724, 0.0388216, -0.12185 )
 bone_name = "LeftFoot"
 
 [node name="PieIzquierdoRay" type="RayCast" parent="Rogue/Skeleton/PieIzquierdoBone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.118, 0.019 )
+enabled = true
 cast_to = Vector3( 0, -0.043, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -5830,14 +5832,14 @@ cast_to = Vector3( 0, -0.043, 0 )
 "anims/Turn Right Retarget -loop" = SubResource( 17 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 0.316, 0, 0, 0, 0.04, 0, 0, 0, 0.217, 0, 0.056, 0 )
+transform = Transform( 0.316, 0, 0, 0, 0.105394, 0, 0, 0, 0.217, 0, 0.110237, 0 )
 shape = SubResource( 24 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 27 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/Crouching/blend_position = 0.00104322
-parameters/IdleWalk/blend_position = 0.0
+parameters/Crouching/blend_position = 0.493145
+parameters/IdleWalk/blend_position = 0
 parameters/JumpShot/active = false
 parameters/StandCrouch/current = 0
