@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://tiles.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://woman.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/protagonista.tscn" type="PackedScene" id=3]
 
 [node name="Spatial" type="Spatial"]
 
@@ -18,3 +19,6 @@ __meta__ = {
 
 [node name="woman" parent="." instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.9366, 0.0592108, 2.31993 )
+
+[node name="rogue" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8854, 0.298699, 3.8867 )

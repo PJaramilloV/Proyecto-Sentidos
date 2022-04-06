@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://demo/Boricchan.gd" type="Script" id=1]
-
-[sub_resource type="CapsuleShape" id=7]
+[ext_resource path="res://test/Boricchan.gd" type="Script" id=1]
+[ext_resource path="res://scenes/protagonista.tscn" type="PackedScene" id=2]
+[ext_resource path="res://test/StaticBody2.gd" type="Script" id=3]
+[ext_resource path="res://test/Camera.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleMesh" id=6]
 
@@ -30,16 +31,10 @@ albedo_color = Color( 0.572549, 0.184314, 0.184314, 1 )
 [sub_resource type="BoxShape" id=11]
 extents = Vector3( 2071.18, 459.997, 1 )
 
-[sub_resource type="Environment" id=12]
-background_mode = 1
-ambient_light_energy = 0.99
-ambient_light_sky_contribution = 0.0
-
 [node name="Spatial" type="Spatial"]
 
 [node name="Boricchan" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10992, 5.23869, 0.704402 )
-collision_layer = 2
+visible = false
 script = ExtResource( 1 )
 speed = 3.0
 jump_strength = 10.0
@@ -50,10 +45,7 @@ timing = 0.5
 transform = Transform( 0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0.485539, 0 )
 shape = SubResource( 7 )
 
-[node name="Camera" type="Camera" parent="Boricchan"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.763222, 4.46866 )
-
-[node name="PlayerLight" type="OmniLight" parent="Boricchan"]
+[node name="OmniLight" type="OmniLight" parent="Boricchan"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.397505, 0 )
 light_energy = 3.674
 shadow_enabled = true
@@ -102,5 +94,10 @@ collision_mask = 2
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.46405 )
 shape = SubResource( 11 )
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 12 )
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06309, 1.70782, 2.704 )
+script = ExtResource( 4 )
+offset = Vector3( 0, 1, 2.704 )
+
+[node name="rogue" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.06309, 1.19832, 0 )
