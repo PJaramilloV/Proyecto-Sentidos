@@ -5437,7 +5437,7 @@ nodes/JumpShot/position = Vector2( 340, 240 )
 nodes/StandCrouch/node = SubResource( 30 )
 nodes/StandCrouch/position = Vector2( 140, 140 )
 nodes/output/position = Vector2( 540, 200 )
-node_connections = [ "output", 0, "JumpShot", "JumpShot", 0, "StandCrouch", "JumpShot", 1, "Jump", "StandCrouch", 0, "IdleWalk", "StandCrouch", 1, "Crouching" ]
+node_connections = [ "output", 0, "JumpShot", "StandCrouch", 0, "IdleWalk", "StandCrouch", 1, "Crouching", "JumpShot", 0, "StandCrouch", "JumpShot", 1, "Jump" ]
 
 [node name="rogue" type="KinematicBody"]
 script = ExtResource( 2 )
@@ -5778,7 +5778,7 @@ skin = SubResource( 2 )
 material/0 = null
 
 [node name="ManoDerechaBone" type="BoneAttachment" parent="Rogue/Skeleton"]
-transform = Transform( 0.115749, -0.978209, -0.172328, -0.056744, -0.179722, 0.982076, -0.991651, -0.103897, -0.076307, -0.230795, -0.0149397, -1.01135 )
+transform = Transform( 0.0786945, -0.991289, -0.105545, -0.0831275, -0.112028, 0.990219, -0.993422, -0.0691525, -0.0912161, -0.214967, -0.0232197, -1.02094 )
 bone_name = "RightHand"
 
 [node name="StaticBody" type="StaticBody" parent="Rogue/Skeleton/ManoDerechaBone"]
@@ -5788,7 +5788,7 @@ transform = Transform( 0.096, 3.17814e-10, -7.67181e-18, -7.82311e-10, 0.039, 0,
 shape = SubResource( 23 )
 
 [node name="ManoIzquierdaBone" type="BoneAttachment" parent="Rogue/Skeleton"]
-transform = Transform( 0.23511, 0.967363, 0.0944489, 0.379927, -0.180911, 0.907147, 0.894633, -0.177396, -0.410063, 0.337801, 0.00270931, -1.05043 )
+transform = Transform( 0.211547, 0.977263, -0.0139696, 0.40888, -0.075512, 0.909452, 0.887725, -0.198105, -0.415559, 0.355711, 0.0415869, -1.05562 )
 bone_name = "LeftHand"
 
 [node name="StaticBody" type="StaticBody" parent="Rogue/Skeleton/ManoIzquierdaBone"]
@@ -5798,7 +5798,7 @@ transform = Transform( 0.096, 3.17814e-10, -7.67181e-18, -7.82311e-10, 0.039, 0,
 shape = SubResource( 23 )
 
 [node name="PieDerechoBone" type="BoneAttachment" parent="Rogue/Skeleton"]
-transform = Transform( 0.991388, 2.43448e-06, -0.130922, 0.130922, 2.87592e-06, 0.99139, 2.88221e-06, -0.999999, 2.96533e-06, -0.0597452, -0.0928691, -0.121686 )
+transform = Transform( 0.991394, 0.000160744, -0.130878, 0.130879, -3.66867e-05, 0.991396, 0.000154597, -0.999999, -5.70714e-05, -0.0597387, -0.0929006, -0.121763 )
 bone_name = "RightFoot"
 
 [node name="PieDerechoRay" type="RayCast" parent="Rogue/Skeleton/PieDerechoBone"]
@@ -5807,7 +5807,7 @@ enabled = true
 cast_to = Vector3( 0, -0.043, 0 )
 
 [node name="PieIzquierdoBone" type="BoneAttachment" parent="Rogue/Skeleton"]
-transform = Transform( 0.868047, -0.000689849, 0.496475, -0.496473, 0.000330389, 0.868048, -0.000764374, -0.999999, -5.35324e-05, 0.197739, 0.0387862, -0.121697 )
+transform = Transform( 0.86828, -0.000835512, 0.496067, -0.496064, 0.00050135, 0.868282, -0.000975559, -0.999999, 2.28286e-05, 0.197757, 0.0387956, -0.121706 )
 bone_name = "LeftFoot"
 
 [node name="PieIzquierdoRay" type="RayCast" parent="Rogue/Skeleton/PieIzquierdoBone"]
