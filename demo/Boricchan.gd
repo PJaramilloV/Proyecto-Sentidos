@@ -36,7 +36,6 @@ func _physics_process(delta):
 
 	_velocity = move_and_slide_with_snap(_velocity, _snap_vector, Vector3.UP, true)
 
-		# !!!! lerp !!!! Vec3 position pos jugador + mov -> rogue gire hacia ese Vec3 en look at
 	if _velocity.length() > 0.2:
 		var look_direction = Vector2(_velocity.x, _velocity.z)
 		_model.rotation.y = -look_direction.angle()
