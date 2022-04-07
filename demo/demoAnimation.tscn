@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/CameraProtagonista.gd" type="Script" id=1]
+[ext_resource path="res://scenes/protagonista.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/StaticBody2.gd" type="Script" id=3]
+
+[sub_resource type="CubeMesh" id=8]
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 0.266667, 0.184314, 0.0588235, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=10]
+points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.0470588, 0.690196, 0.0235294, 1 )
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 2071.18, 459.997, 1 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="piso" type="StaticBody" parent="."]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, -0.5, 0 )
+
+[node name="CSGCylinder" type="MeshInstance" parent="piso"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42438, -0.858818 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="piso"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42438, -0.858818 )
+shape = SubResource( 10 )
+
+[node name="bloqueVerde" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 3, -4.60441, 1.38341, 0 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="bloqueVerde"]
+shape = SubResource( 3 )
+
+[node name="CSGBox" type="CSGBox" parent="bloqueVerde"]
+width = 1.0
+height = 1.0
+depth = 1.0
+material = SubResource( 5 )
+
+[node name="muroInvisible" type="StaticBody" parent="."]
+
+[node name="hitbox" type="CollisionShape" parent="muroInvisible"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.25, 0, 0, 2.46405 )
+shape = SubResource( 11 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06309, 1.70782, 2.704 )
+script = ExtResource( 1 )
+offset = Vector3( 0, 1, 2.5 )
+
+[node name="rogue" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.06309, 1.19832, 0 )
