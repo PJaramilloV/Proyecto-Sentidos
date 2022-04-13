@@ -1,8 +1,0 @@
-[gd_resource type="HeightMapShape" format=2]
-
-[resource]
-resource_local_to_scene = true
-resource_name = "surface"
-map_width = 5
-map_depth = 4
-map_data = PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )

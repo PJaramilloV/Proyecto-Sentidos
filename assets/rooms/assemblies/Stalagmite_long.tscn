@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/rooms/pieces/Cave_Prop_Stalagmite_Connected_Top.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/rooms/pieces/Cave_Prop_Stalagmite_Connected_Mid.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/rooms/pieces/Cave_Prop_Stalagmite_Connected_Base.obj" type="ArrayMesh" id=3]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( 0, 0, -0.75, -0.375, 0, -0.649569, 0, 1, -0.150059, 0.375, 0, -0.649569, -0.649569, 0, -0.375, -0.0750294, 1, -0.129943, 0.0748826, 1, -0.129943, 0.129796, 1, -0.0750294, 0.649423, 0, -0.375, -0.75, 0, 0, -0.150059, 1, 0, -0.129943, 1, -0.0750294, 0.149912, 1, 0, 0.75, 0, 0, -0.649569, 0, 0.375, -0.129943, 1, 0.0748826, 0.129796, 1, 0.0748826, 0.649423, 0, 0.375, -0.375, 0, 0.649423, -0.0750294, 1, 0.129796, 0.0748826, 1, 0.129796, 0.375, 0, 0.649423, 0, 0, 0.75, 0, 1, 0.149912 )
+
+[sub_resource type="CylinderShape" id=2]
+
+[sub_resource type="ConvexPolygonShape" id=3]
+points = PoolVector3Array( 0, 1, -0.75, 0, 0, -0.150059, -0.375, 1, -0.649569, 0.375, 1, -0.649569, -0.0750294, 0, -0.129943, 0.0748826, 0, -0.129943, -0.649569, 1, -0.375, 0.649423, 1, -0.375, 0.129796, 0, -0.0750294, -0.129943, 0, -0.0750294, -0.75, 1, 0, -0.150059, 0, 0, 0.75, 1, 0, 0.149912, 0, 0, -0.649569, 1, 0.375, -0.129943, 0, 0.0748826, 0.649423, 1, 0.375, 0.129796, 0, 0.0748826, -0.375, 1, 0.649423, -0.0750294, 0, 0.129796, 0.375, 1, 0.649423, 0.0748826, 0, 0.129796, 0, 1, 0.75, 0, 0, 0.149912 )
+
+[node name="Stalagmite_long" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="Stalagmite" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1.328, 0, 0, 0, 1.244, 0, 0, 0, 1.687, 0, 0, 0 )
+mesh = ExtResource( 3 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="Cave_Prop_Stalagmite_Connected_Mid" type="MeshInstance" parent="StaticBody/Stalagmite"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.981869, 0 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("../../../front_cover/front_wall")
+material/0 = null
+
+[node name="Cave_Prop_Stalagmite_Connected_Top" type="MeshInstance" parent="StaticBody/Stalagmite/Cave_Prop_Stalagmite_Connected_Mid"]
+transform = Transform( 1, -7.10543e-15, -1.42109e-14, 3.34075e-22, 1, -1.69407e-21, -1.42109e-14, 1.00974e-28, 1, 0, 0.983946, 0 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../../../../front_cover/front_wall")
+material/0 = null
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1.328, 0, 0, 0, 0.513, 0, 0, 0, 1.687, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.242, 0, 0, 0, 1.378, 0, 0, 0, 0.261, 0, 1.75, 0 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -1.328, 1.68051e-22, -2.5473e-07, 4.15589e-22, 0.537, 0, 2.00522e-07, -2.5375e-29, -1.687, 0, 3.16, 0 )
+shape = SubResource( 3 )

@@ -1,0 +1,129 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Inner_2x2_Top.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Hill_Corner_Inner_2x2.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/rooms/pieces/Cave_Prop_Entrance_1.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Inner_2x2_Base.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Inner_2x2_Mid.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Outer_2x2_Top.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Outer_2x2_Base.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Outer_3x3_Mid.obj" type="ArrayMesh" id=8]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="BoxShape" id=2]
+
+[node name="Separator_wall" type="Spatial"]
+
+[node name="Door support" type="MeshInstance" parent="."]
+mesh = ExtResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+
+[node name="inner_corner" type="Spatial" parent="."]
+transform = Transform( -2.81501e-08, 0, -0.793, 0, 1.785, 0, 0.644, 0, -3.46631e-08, -2.636, 0.928, 0.874 )
+
+[node name="StaticBody" type="StaticBody" parent="inner_corner"]
+
+[node name="CollisionShape" type="CollisionShape" parent="inner_corner/StaticBody"]
+transform = Transform( 0.447, 0, -6.95442e-15, 0, 1.062, 0, 3.55271e-15, 0, 0.875, -0.472, 0.44, -0.573 )
+shape = SubResource( 1 )
+
+[node name="Cave_Terrain_Corner_Inner_2x2_Mid" type="MeshInstance" parent="inner_corner/StaticBody"]
+mesh = ExtResource( 5 )
+skeleton = NodePath("../../../Ceiling")
+material/0 = null
+
+[node name="Cave_Terrain_Corner_Inner_2x2_Base" type="MeshInstance" parent="inner_corner/StaticBody"]
+transform = Transform( 0.775903, 0, 0.129995, 0, 1, 0, -0.0798396, 0, 1.26333, -0.205459, -0.635051, 0.44582 )
+mesh = ExtResource( 4 )
+skeleton = NodePath("../Cave_Terrain_Corner_Inner_2x2_Mid")
+material/0 = null
+
+[node name="Cave_Terrain_Corner_Inner_2x2_Top" type="MeshInstance" parent="inner_corner/StaticBody"]
+transform = Transform( 0.836675, 0, 0.145132, 0, 1, 0, -0.110953, 0, 1.09442, -0.0460811, 0.589, 0.095 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../Cave_Terrain_Corner_Inner_2x2_Base")
+material/0 = null
+
+[node name="CollisionShape2" type="CollisionShape" parent="inner_corner/StaticBody"]
+transform = Transform( -8.73393e-09, 0, 0.765625, 0, 1.12784, 0, -0.199809, 0, -3.34665e-08, 0.227508, 0.549707, 0.122979 )
+shape = SubResource( 1 )
+
+[node name="separating_wall" type="Spatial" parent="."]
+
+[node name="StaticBody" type="StaticBody" parent="separating_wall"]
+
+[node name="Cave_Terrain_Hill_Corner_Inner_2x2" type="MeshInstance" parent="separating_wall/StaticBody"]
+transform = Transform( 1.636, 0, 0, 0, -0.102521, -0.961628, 0, 0.968589, -0.101784, 0.829533, 3.362, 0.209 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cave_Terrain_Hill_Corner_Inner_2x3" type="MeshInstance" parent="separating_wall/StaticBody"]
+transform = Transform( -0.00128417, 3.53265e-06, 0.544, 1.1679, -0.00320297, 0.000598159, 0.015146, 0.246979, -2.3779e-08, 0.826603, 1.67616, 0.358076 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("../Cave_Terrain_Hill_Corner_Inner_2x2")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="separating_wall/StaticBody"]
+transform = Transform( 1.745, 0, 0, 0, 0.982, 0, 0, 0, 0.438, -0.453329, 2.717, 0.16658 )
+shape = SubResource( 2 )
+
+[node name="Cave_Terrain_Hill_Corner_Inner_2x4" type="MeshInstance" parent="separating_wall/StaticBody"]
+transform = Transform( 1.267, 0, 0, 0, -0.113332, -0.831671, 0, 0.754536, -0.124917, 0.160653, 3.2945, 0.452249 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("../Cave_Terrain_Hill_Corner_Inner_2x2")
+material/0 = null
+
+[node name="outer_corner" type="Spatial" parent="."]
+
+[node name="StaticBody" type="StaticBody" parent="outer_corner"]
+
+[node name="CollisionShape" type="CollisionShape" parent="outer_corner/StaticBody"]
+transform = Transform( 0.776, 0, 0, 0, 1.931, 0, 0, 0, 0.437, 1.176, 1.767, 0.149015 )
+shape = SubResource( 1 )
+
+[node name="Cave_Terrain_Corner_Outer_3x3_Mid" type="MeshInstance" parent="outer_corner/StaticBody"]
+transform = Transform( -0.01859, 0, -0.322358, 0, 1.992, 0, 0.294414, 0, -0.0203545, 1.72036, 0.776699, 0.41212 )
+mesh = ExtResource( 8 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cave_Terrain_Corner_Outer_2x2_Base" type="MeshInstance" parent="outer_corner/StaticBody"]
+transform = Transform( -0.0380623, 0, -0.688629, 0, 0.772, 0, 0.602799, 0, -0.0434818, 1.54444, 0.0180695, 0.241536 )
+mesh = ExtResource( 7 )
+skeleton = NodePath("../Cave_Terrain_Corner_Outer_3x3_Mid")
+material/0 = null
+
+[node name="Cave_Terrain_Corner_Outer_2x2_Top" type="MeshInstance" parent="outer_corner/StaticBody"]
+transform = Transform( -0.0388816, 0, -0.777452, 0, 1, 0, 0.615774, 0, -0.0490903, 1.489, 2.6982, 0.24 )
+mesh = ExtResource( 6 )
+skeleton = NodePath("../Cave_Terrain_Corner_Outer_3x3_Mid")
+material/0 = null

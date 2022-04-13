@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://scripts/CameraProtagonista.gd" type="Script" id=1]
-[ext_resource path="res://scenes/protagonista.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/StaticBody2.gd" type="Script" id=3]
 
 [sub_resource type="CubeMesh" id=8]
@@ -54,10 +53,4 @@ material = SubResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.25, 0, 0, 2.46405 )
 shape = SubResource( 11 )
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06309, 1.70782, 2.704 )
-script = ExtResource( 1 )
-offset = Vector3( 0, 1, 2.5 )
-
-[node name="rogue" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.06309, 1.19832, 0 )
+[node name="Player" parent="." instance=ExtResource( 1 )]

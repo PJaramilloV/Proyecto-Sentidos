@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Side_Top.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Hill_Corner_Inner_2x2.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Side_Base.obj" type="ArrayMesh" id=3]
+
+[sub_resource type="ConcavePolygonShape" id=1]
+data = PoolVector3Array( 0.5, 0, 0.5, 0.191, 0.0489, 0.5, 0.5, 0, -0.5, 0.5, 0, -0.5, 0.191, 0.0489, 0.5, 0.191, 0.0489, -0.5, 0.191, 0.0489, 0.5, -0.0878, 0.191, 0.5, 0.191, 0.0489, -0.5, 0.191, 0.0489, -0.5, -0.0878, 0.191, 0.5, -0.0878, 0.191, -0.5, -0.0878, 0.191, 0.5, -0.309, 0.4122, 0.5, -0.0878, 0.191, -0.5, -0.0878, 0.191, -0.5, -0.309, 0.4122, 0.5, -0.309, 0.4122, -0.5, -0.309, 0.4122, 0.5, -0.4511, 0.691, 0.5, -0.309, 0.4122, -0.5, -0.309, 0.4122, -0.5, -0.4511, 0.691, 0.5, -0.4511, 0.691, -0.5, -0.4511, 0.691, 0.5, -0.5, 1, 0.5, -0.4511, 0.691, -0.5, -0.4511, 0.691, -0.5, -0.5, 1, 0.5, -0.5, 1, -0.5 )
+
+[sub_resource type="BoxShape" id=2]
+
+[node name="back_cover" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, -3.9045e-21, -6.52149e-08, 0, 1, -4.58704e-12, 7.45058e-09, 5.24053e-13, 8.753, -2.791, 5.96046e-08, 5.20489 )
+shape = SubResource( 1 )
+
+[node name="back_edge" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1, -3.9045e-21, -6.52149e-08, 0, 1, -4.58704e-12, 7.45058e-09, 5.24053e-13, 8.753, -2.791, 5.96046e-08, 5.20489 )
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../..")
+material/0 = null
+
+[node name="back_wall" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 0.0573475, 0.9961, -0.292639, -0.998347, 0.0574769, -8.4555e-10, 0.00385426, 0.0669467, 4.35418, -3.40615, 0.916662, 2.98527 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("../back_edge")
+material/0 = null
+
+[node name="back_top_edge" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 0.997498, 0, -0.304137, 0, 1.374, 0, 0.0706966, 0, 4.29124, -2.44049, 2.34884, 3.06774 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../../..")
+material/0 = null
+
+[node name="back_top_edge2" type="MeshInstance" parent="StaticBody/back_top_edge"]
+transform = Transform( 0.99751, 0, 0.0705225, 0, 1, 0, -0.0705225, 0, 0.99751, 0.0522625, 0, 0.957741 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../../..")
+material/0 = null
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -4.36114e-08, 0.997711, -0.553562, -1, -4.37114e-08, 0, -2.95554e-09, 0.0676148, 8.16826, -2.91334, 3.23966, 5.32073 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.119333, 0.0972432, -0.174117, -0.0116787, 0.995253, 0, 0.00481586, 0.00392439, 4.31449, -3.25052, 1.64883, 5.20722 )
+shape = SubResource( 2 )

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/rooms/pieces/Cave_Prop_Stalagmite_Tiny.obj" type="ArrayMesh" id=1]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( 0, 0, -0.75, -0.375, 0, -0.649569, -0.0375881, 0.559769, -0.065045, 0, 0.559769, -0.0750294, 0.0374413, 0.559769, -0.065045, 0.375, 0, -0.649569, -0.649569, 0, -0.375, -0.065045, 0.559769, -0.0375881, 0, 0.6, 0, 0.0648982, 0.559769, -0.0375881, 0.649423, 0, -0.375, -0.75, 0, 0, -0.0750294, 0.559769, 0, -0.065045, 0.559769, 0.0374413, -0.0375881, 0.559769, 0.0648982, 0, 0.559769, 0.0748826, 0.0374413, 0.559769, 0.0648982, 0.0648982, 0.559769, 0.0374413, 0.0748826, 0.559769, 0, 0.75, 0, 0, -0.649569, 0, 0.375, -0.375, 0, 0.649423, 0, 0, 0.75, 0.375, 0, 0.649423, 0.649423, 0, 0.375 )
+
+[node name="Stalagmite_small" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1.54, 0, 0, 0, 0.676, 0, 0, 0, 1.766, 0, 0, 0 )
+
+[node name="Stalagmite_tiny" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00251911, 0.00582027, 0.0011439 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../../../..")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00251911, 0.00582027, 0.0011439 )
+shape = SubResource( 1 )
