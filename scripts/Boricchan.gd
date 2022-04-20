@@ -8,10 +8,12 @@ export var timing := 100000.0
 var _velocity := Vector3.ZERO
 var _snap_vector := Vector3.DOWN
 var _timer := 0.0
-
+var held_object: Object
 
 onready var _model: Spatial = $capsula
 onready var _light: Spatial = $PlayerLight
+onready var _raycast := get_node("capsula/RayCast")
+onready var _hold_position := get_node("capsula/HoldPosition")
 
 
 func _physics_process(delta):
@@ -39,6 +41,24 @@ func _physics_process(delta):
 	if _velocity.length() > 0.2:
 		var look_direction = Vector2(_velocity.x, _velocity.z)
 		_model.rotation.y = -look_direction.angle()
+
+	
+	if Input.is_action_just_pressed("grab"):
+		
+		if held_object:
+			held_object.mode = RigidBody.MODE_RIGID
+			held_object.collision_mask = 2
+			held_object =  null
+			
+		else:
+			if _raycast.get_collider():
+				held_object = _raycast.get_collider()
+				held_object.mode = RigidBody.MODE_KINEMATIC
+				held_object.collision_mask=0
+
+	
+	if held_object:
+		held_object.global_transform.origin = _hold_position.global_transform.origin
 
 	if get_slide_count() != 0:
 		var col = get_slide_collision(0)
