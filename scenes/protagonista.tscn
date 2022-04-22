@@ -5383,36 +5383,36 @@ tracks/51/keys = PoolRealArray( 0, 1, 0.0578074, 0.393263, -0.367672, -0.389226,
 
 [sub_resource type="CylinderShape" id=36]
 
-[sub_resource type="AnimationNodeAnimation" id=28]
+[sub_resource type="AnimationNodeAnimation" id=44]
 animation = "CrouchIdle Retarget -loop"
 
-[sub_resource type="AnimationNodeAnimation" id=29]
-animation = "Crouch Walk Retarget -loop"
+[sub_resource type="AnimationNodeAnimation" id=45]
+animation = "CrouchWalk Retarget -loop"
 
 [sub_resource type="AnimationNodeBlendSpace1D" id=22]
-blend_point_0/node = SubResource( 28 )
+blend_point_0/node = SubResource( 44 )
 blend_point_0/pos = 0.0
-blend_point_1/node = SubResource( 29 )
+blend_point_1/node = SubResource( 45 )
 blend_point_1/pos = 1.4
 min_space = 0.0
 max_space = 1.4
 
-[sub_resource type="AnimationNodeAnimation" id=33]
+[sub_resource type="AnimationNodeAnimation" id=46]
 animation = "Idle Retarget -loop"
 
-[sub_resource type="AnimationNodeAnimation" id=34]
-animation = "Jogging Retarget -loop"
+[sub_resource type="AnimationNodeAnimation" id=47]
+animation = "JoggingRetarget -loop"
 
 [sub_resource type="AnimationNodeBlendSpace1D" id=35]
-blend_point_0/node = SubResource( 33 )
+blend_point_0/node = SubResource( 46 )
 blend_point_0/pos = 0.0
-blend_point_1/node = SubResource( 34 )
+blend_point_1/node = SubResource( 47 )
 blend_point_1/pos = 1.8
 min_space = 0.0
 max_space = 1.84
 
 [sub_resource type="AnimationNodeAnimation" id=31]
-animation = "Jump Up Retarget"
+animation = "JumpUp Retarget"
 
 [sub_resource type="AnimationNodeOneShot" id=32]
 
@@ -5425,7 +5425,7 @@ input_1/name = "state 1"
 input_1/auto_advance = false
 
 [sub_resource type="AnimationNodeBlendTree" id=27]
-graph_offset = Vector2( -318, 108 )
+graph_offset = Vector2( -578.183, 63.5903 )
 nodes/Crouching/node = SubResource( 22 )
 nodes/Crouching/position = Vector2( -100, 240 )
 nodes/IdleWalk/node = SubResource( 35 )
