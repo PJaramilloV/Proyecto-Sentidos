@@ -1,0 +1,39 @@
+1. añadir:
+
+- raycast
+- spatial
+
+y colocarlos de hijo según corresponda a la hitbox o algo que gire
+
+2. Ajustar raycast y spatial a la hitbox de los pies, apuntado hacia el frente
+
+3. Agregar el código
+
+var held_object: Object
+onready var _raycast := get_node("capsula/RayCast")
+onready var _hold_position := get_node("capsula/HoldPosition")
+
+#en func _physics_process(delta):
+
+	if Input.is_action_just_pressed("grab"):
+		if held_object:
+			held_object.mode = RigidBody.MODE_RIGID
+			held_object.collision_mask = 2
+			held_object =  null
+		else:
+			if _raycast.get_collider():
+				held_object = _raycast.get_collider()
+				held_object.mode = RigidBody.MODE_KINEMATIC
+				held_object.collision_mask=0
+	
+	if held_object:
+		held_object.global_transform.origin = _hold_position.global_transform.origin
+
+4. definir el botón "grab" en el mapa de controles
+
+5. añadir rigidbody al mundo
+
+6. cambiar la mask (1 y 2) del rigidbody y del raycast (2)
+
+Rigidbody: layer 2 y mask 2
+raycast: collision mask 2

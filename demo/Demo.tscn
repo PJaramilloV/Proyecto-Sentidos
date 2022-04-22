@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/Boricchan.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Camera.gd" type="Script" id=2]
@@ -38,6 +38,14 @@ background_mode = 1
 ambient_light_energy = 0.99
 ambient_light_sky_contribution = 0.0
 
+[sub_resource type="CubeMesh" id=16]
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_color = Color( 0.2, 0.847059, 0.0431373, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=17]
+points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+
 [node name="Spatial" type="Spatial"]
 
 [node name="Boricchan" type="KinematicBody" parent="."]
@@ -70,6 +78,16 @@ transform = Transform( -4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -
 width = 0.352118
 height = 2.04248
 depth = 0.690716
+
+[node name="RayCast" type="RayCast" parent="Boricchan/capsula"]
+transform = Transform( 5.1, 1.49012e-07, -3.13314e-16, 1.74679e-14, -2.19781e-07, 4.93, 2.98023e-07, -5.028, -2.15497e-07, 1.801, -0.029, -1.533 )
+enabled = true
+exclude_parent = false
+cast_to = Vector3( 0, -0.568, 0 )
+collision_mask = 2
+
+[node name="HoldPosition" type="Spatial" parent="Boricchan/capsula"]
+transform = Transform( 5, 0, 0, 0, -2.18557e-07, 5, 0, -5, -2.18557e-07, 2.299, 0.004, -0.438 )
 
 [node name="piso" type="StaticBody" parent="."]
 transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
@@ -114,3 +132,30 @@ environment = SubResource( 12 )
 stream = ExtResource( 4 )
 volume_db = -0.5
 script = ExtResource( 3 )
+
+[node name="RigidBody" type="RigidBody" parent="."]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.1, 0, 0, 0 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="MeshInstance" type="MeshInstance" parent="RigidBody"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+mesh = SubResource( 16 )
+material/0 = SubResource( 18 )
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+shape = SubResource( 17 )
+
+[node name="Mesa" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.7, 0, 0, 0, 1, -3.51126, 0.33941, 0.461534 )
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Mesa"]
+shape = SubResource( 3 )
+
+[node name="CSGBox" type="CSGBox" parent="Mesa/CollisionShape"]
+width = 1.0
+height = 1.0
+depth = 1.0
+material = SubResource( 15 )
