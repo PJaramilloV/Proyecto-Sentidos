@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/Footprint.gd" type="Script" id=1]
 
 [sub_resource type="QuadMesh" id=1]
-size = Vector2( 0.01, 0.005 )
+size = Vector2( 0.1, 0.05 )
 
 [sub_resource type="SpatialMaterial" id=2]
 

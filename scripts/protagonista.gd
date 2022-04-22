@@ -31,7 +31,9 @@ func _physics_process(delta):
 	
 	#_velocity.x = move_direction.x * speed
 	#_velocity.z = move_direction.z * speed
-	_velocity.y -= gravity * delta
+	#var gravity_resistance = get_floor_normal() if is_on_floor() else Vector3.UP
+	_velocity.y -= gravity * delta 
+	#_velocity -= gravity_resistance * gravity * delta
 	
 	_velocity = transform.basis * move_direction * speed * delta + Vector3(0, _velocity.y, 0)
 	
@@ -58,7 +60,10 @@ func _physics_process(delta):
 	if just_landed:
 		_snap_vector = Vector3.DOWN
 	
-	_velocity = move_and_slide_with_snap(_velocity, _snap_vector, Vector3.UP, true)
+	if Input.get_action_strength("right") + Input.get_action_strength("left")  + Input.get_action_strength("back") + Input.get_action_strength("forward") == 0:
+		_velocity = move_and_slide(_velocity, Vector3.UP, true)
+	else:
+		_velocity = move_and_slide(_velocity, Vector3.UP, false)
 	
 	var vel = sqrt((_velocity.x * _velocity.x)+(_velocity.z * _velocity.z))
 
@@ -88,6 +93,10 @@ func _physics_process(delta):
 		rightfootray.get_collider().add_child(b)
 		b.global_transform.origin = rightfootray.get_collision_point()
 		b.look_at(rightfootray.get_collision_point() + rightfootray.get_collision_normal(), Vector3.UP)	
+	# jugar con mutiplayer lookip por algo
+	# poner planos
+	# rehacer todos los assets (plz no)
+	print(_velocity)
 
 func _process(delta):
 	pass

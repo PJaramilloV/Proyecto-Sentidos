@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/rooms/pieces/Shared_Prop_Boulder_3.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/rooms/assemblies/Sloped_Floor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/rooms/assemblies/Sloped_back_wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/rooms/pieces/Tesselated_slope.obj" type="ArrayMesh" id=4]
+
+[node name="Slope" type="Spatial"]
+
+[node name="Back_wall" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.35859e-07, 0, -3.02639 )
+
+[node name="Floor" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.28408e-07, 0, -3.03323 )
+
+[node name="Front_wall" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4331e-07, 0, -2.69569 )
+
+[node name="Tesselated_slope" type="MeshInstance" parent="Front_wall"]
+transform = Transform( -7.56644e-08, 0.403, 1.77636e-15, -1.64518, -1.67424e-08, 0.584291, 0.538269, 5.47775e-09, 1.78585, 3.0965, -3.03213, 1.47635 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="Shared_Prop_Boulder_3" type="MeshInstance" parent="Front_wall"]
+transform = Transform( 2, 0, 0, 0, 0.511836, -1.9334, 0, 1.9334, 0.511836, 3.16747, -0.0767852, 0.0499535 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Shared_Prop_Boulder_4" type="MeshInstance" parent="Front_wall"]
+transform = Transform( 2, 0, 0, 0, -0.472862, 1.9433, 0, -1.9433, -0.472862, 3.16747, 1.13849, 5.72215 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Floor2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, -0.998997, 0.0452627, 0, -0.0447702, -1.00999, 4.28408e-07, 4.97725, 3.02456 )
