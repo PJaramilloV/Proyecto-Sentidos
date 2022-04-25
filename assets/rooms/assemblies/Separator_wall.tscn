@@ -136,7 +136,7 @@ material/0 = null
 [node name="StaticBody" type="StaticBody" parent="connector"]
 
 [node name="floor" type="MeshInstance" parent="connector/StaticBody"]
-transform = Transform( 4.057, 0, 0, 0, 1, 0, 0, 0, 1.523, -0.760699, 0.0209659, 0.580437 )
+transform = Transform( 5.719, 0, 0, 0, 1, 0, 0, 0, 1.523, -0.303485, 0.0209659, 0.580437 )
 mesh = ExtResource( 9 )
 skeleton = NodePath("../..")
 material/0 = null
@@ -154,5 +154,5 @@ skeleton = NodePath("../..")
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="connector/StaticBody"]
-transform = Transform( 1.442, 0, 0, 0, 0.1, 0, 0, 0, 0.778, -0.170327, -0.0790971, 0.577991 )
+transform = Transform( 2.705, 0, 0, 0, 0.1, 0, 0, 0, 0.778, -0.170327, -0.0790971, 0.577991 )
 shape = SubResource( 3 )
