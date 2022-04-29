@@ -69,7 +69,7 @@ func _physics_process(delta):
 	#### Fin tomar objetos ####
 	
 	#### Lanzar objectos ####
-	if Input.is_action_just_pressed("throw") and held_object:
+	if Input.is_action_just_pressed("throw") and is_on_floor() and held_object:
 		#print(self.global_transform.origin)
 		print("toi lanzando")
 		print((get_viewport().get_mouse_position().x-500)/50)
