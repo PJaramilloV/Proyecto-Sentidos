@@ -67,7 +67,18 @@ func _physics_process(delta):
 	if held_object:
 		held_object.global_transform.origin = _hold_position.global_transform.origin
 	#### Fin tomar objetos ####
-
+	
+	#### Lanzar objectos ####
+	if Input.is_action_just_pressed("throw") and held_object:
+		#print(self.global_transform.origin)
+		print("toi lanzando")
+		print((get_viewport().get_mouse_position().x-500)/50)
+		print((380-get_viewport().get_mouse_position().y)*1.5/30)
+		held_object.mode = RigidBody.MODE_RIGID
+		held_object.collision_mask=2
+		held_object.take_damage(self)
+		held_object =  null
+		
 	
 	if get_slide_count() != 0:
 		var col = get_slide_collision(0)
