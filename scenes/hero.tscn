@@ -2638,7 +2638,7 @@ skin = SubResource( 2 )
 material/0 = null
 
 [node name="ManoDerechaBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.306817, -0.532158, -0.789093, -0.441638, -0.654819, 0.613324, -0.8431, 0.536671, -0.0341107, -0.669516, 1.15773, -0.0537475 )
+transform = Transform( -0.302148, -0.51739, -0.800632, -0.452089, -0.661651, 0.59819, -0.839238, 0.542698, -0.0339887, -0.66272, 1.15582, -0.049147 )
 bone_name = "hand.R_end"
 
 [node name="StaticBody" type="StaticBody" parent="Hero/Skeleton/ManoDerechaBone"]
@@ -2649,7 +2649,7 @@ transform = Transform( 0.07, 0, -9.31323e-10, 1.86265e-09, 0.116, -2.32831e-10, 
 shape = SubResource( 42 )
 
 [node name="ManoIzquierdaBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.977201, 0.0193034, 0.211432, 0.202755, -0.210559, 0.956322, 0.0629794, 0.977391, 0.201846, 0.374851, 1.27983, 0.639056 )
+transform = Transform( -0.975037, 0.0090725, 0.221855, 0.214559, -0.218673, 0.951916, 0.0571501, 0.975756, 0.211269, 0.374198, 1.28402, 0.640957 )
 bone_name = "hand.L_end"
 
 [node name="StaticBody" type="StaticBody" parent="Hero/Skeleton/ManoIzquierdaBone"]
@@ -2660,7 +2660,7 @@ transform = Transform( 0.07, 0, 0, -1.11759e-08, 0.116, 0, -2.79397e-09, 0, 0.05
 shape = SubResource( 42 )
 
 [node name="PieDerechoBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.00321281, -0.984584, -0.174897, 0.0496458, -0.174839, 0.983346, -0.998764, -0.00552411, 0.0494405, -0.282556, 0.0395445, -0.387063 )
+transform = Transform( -0.00362825, -0.98461, -0.17474, 0.0497525, -0.174702, 0.983365, -0.998757, -0.00512635, 0.0496191, -0.281546, 0.0400772, -0.38845 )
 bone_name = "toe.R"
 
 [node name="PieDerechoRay" type="RayCast" parent="Hero/Skeleton/PieDerechoBone"]
@@ -2669,7 +2669,7 @@ enabled = true
 cast_to = Vector3( 0, 0, -0.11 )
 
 [node name="PieIzquierdoBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.864316, -0.483701, -0.137809, -0.0683156, -0.158558, 0.984985, -0.498288, 0.860753, 0.103999, 0.0911517, 0.0130884, 0.631002 )
+transform = Transform( -0.86453, -0.484004, -0.135382, -0.0658849, -0.157906, 0.985255, -0.498244, 0.860702, 0.104626, 0.0913109, 0.0131432, 0.630421 )
 bone_name = "toe.L"
 
 [node name="PieIzquierdoRay" type="RayCast" parent="Hero/Skeleton/PieIzquierdoBone"]

@@ -1,9 +1,9 @@
 extends KinematicBody
 
-export var speed := 250.0
-export var jump_strength := 3.0
+export var speed := 500.0
+export var jump_strength := 7.0  # 6 tentativo, post grappling
 export var gravity := 10.0
-export var walk_speed := 220.0
+export var walk_speed := 440.0
 export var crouch_speed := 100.0
 
 var _velocity := Vector3.ZERO
