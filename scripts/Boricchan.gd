@@ -9,14 +9,19 @@ var _velocity := Vector3.ZERO
 var _snap_vector := Vector3.DOWN
 var _timer := 0.0
 var held_object: Object
+var objeto_recuperado_area: Object
+
+
+
 
 onready var _model: Spatial = $capsula
 onready var _light: Spatial = $PlayerLight
-onready var _raycast := get_node("capsula/RayCast")
+onready var area_grab = $area_grab
 onready var _hold_position := get_node("capsula/HoldPosition")
 
-
 func _physics_process(delta):
+
+
 	var move_direction := Vector3.ZERO
 	move_direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	move_direction.z = Input.get_action_strength("back") - Input.get_action_strength("forward")
@@ -42,24 +47,39 @@ func _physics_process(delta):
 		var look_direction = Vector2(_velocity.x, _velocity.z)
 		_model.rotation.y = -look_direction.angle()
 
-	
+	#### Tomar objetos ####
 	if Input.is_action_just_pressed("grab"):
-		
-		if held_object:
+		if held_object: #solo entra si ya se tiene el objeto tomado
 			held_object.mode = RigidBody.MODE_RIGID
-			held_object.collision_mask = 2
-			held_object =  null
+			#held_object.collision_mask = 4
+			held_object.collision_mask=2
 			
+			held_object =  null
 		else:
-			if _raycast.get_collider():
-				held_object = _raycast.get_collider()
+			#se pasa inmediatamente acá si se apreta la F y no se tiene un objeto tomado
+			
+			if objeto_recuperado_area: #se pasa acá si es que el area colisiona y guarda el body con el que choca
+				
+				held_object = objeto_recuperado_area
 				held_object.mode = RigidBody.MODE_KINEMATIC
 				held_object.collision_mask=0
-
-	
+	#se pasa acá  cuando se toma un objeto, justo despues de entrar al tomado
 	if held_object:
 		held_object.global_transform.origin = _hold_position.global_transform.origin
-
+	#### Fin tomar objetos ####
+	
+	#### Lanzar objectos ####
+	if Input.is_action_just_pressed("throw") and is_on_floor() and held_object:
+		#print(self.global_transform.origin)
+		print("toi lanzando")
+		print((get_viewport().get_mouse_position().x-500)/50)
+		print((380-get_viewport().get_mouse_position().y)*1.5/30)
+		held_object.mode = RigidBody.MODE_RIGID
+		held_object.collision_mask=2
+		held_object.take_damage(self)
+		held_object =  null
+		
+	
 	if get_slide_count() != 0:
 		var col = get_slide_collision(0)
 		if col.collider.get_collision_layer() == 1 and _timer > timing:
@@ -67,7 +87,7 @@ func _physics_process(delta):
 			var position = _light.to_global(_light.translation)
 			# position.y += 0.1
 			light.translate(position)
-			print(position)
+			#print(position)
 			get_parent().add_child(light)
 			_timer = 0.0
 
@@ -82,9 +102,19 @@ func _process(delta):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	area_grab.connect("body_entered",self,"_on_area_grab_entered")
+	area_grab.connect("body_exited",self,"_on_area_grab_exited")
+	
+func _on_area_grab_entered(body: Node):
+	print("colisioné con un objeto tomable")
+	objeto_recuperado_area=body
+
+	
+func _on_area_grab_exited(body: Node):
+	print("salí del área")
+	objeto_recuperado_area=null
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+
+
