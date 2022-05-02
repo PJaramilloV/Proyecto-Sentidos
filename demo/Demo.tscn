@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scripts/Boricchan.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Camera.gd" type="Script" id=2]
@@ -41,13 +41,42 @@ background_mode = 1
 ambient_light_energy = 0.99
 ambient_light_sky_contribution = 0.0
 
-[sub_resource type="CubeMesh" id=16]
+[sub_resource type="GDScript" id=20]
+script/source = "extends RigidBody
 
-[sub_resource type="SpatialMaterial" id=18]
+
+func take_damage(instigator: Node):
+	
+	# el primero es para lanzar los objetos hacia adelante del personaje
+	#apply_central_impulse((self.global_transform.origin - instigator.global_transform.origin)*5)
+	var eje_x = get_viewport().get_mouse_position().x
+	var eje_y = get_viewport().get_mouse_position().y
+	var raton = Vector3(clamp((eje_x-500)/50, -4.3, 4.3),clamp((380-eje_y)/30, -3.5, 5),0)
+	apply_central_impulse(raton)
+	
+	
+	
+	
+	
+"
+
+[sub_resource type="CubeMesh" id=21]
+
+[sub_resource type="SpatialMaterial" id=22]
 albedo_color = Color( 0.2, 0.847059, 0.0431373, 1 )
 
 [sub_resource type="ConvexPolygonShape" id=17]
 points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+
+[sub_resource type="CubeMesh" id=23]
+
+[sub_resource type="SpatialMaterial" id=24]
+albedo_color = Color( 0.2, 0.847059, 0.0431373, 1 )
+
+[sub_resource type="CubeMesh" id=16]
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_color = Color( 0.2, 0.847059, 0.0431373, 1 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -136,6 +165,37 @@ environment = SubResource( 12 )
 stream = ExtResource( 4 )
 volume_db = -0.5
 script = ExtResource( 3 )
+
+[node name="objeto3" type="RigidBody" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.32539, 4, 0 )
+collision_layer = 10
+collision_mask = 10
+script = SubResource( 20 )
+
+[node name="MeshInstance" type="MeshInstance" parent="objeto3"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+mesh = SubResource( 21 )
+material/0 = SubResource( 22 )
+
+[node name="CollisionShape" type="CollisionShape" parent="objeto3"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+shape = SubResource( 17 )
+
+[node name="objeto2" type="RigidBody" parent="."]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.03707, 4.85523, 0.102139 )
+collision_layer = 10
+collision_mask = 10
+script = ExtResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="objeto2"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+mesh = SubResource( 23 )
+skeleton = NodePath("../../objeto2")
+material/0 = SubResource( 24 )
+
+[node name="CollisionShape" type="CollisionShape" parent="objeto2"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+shape = SubResource( 17 )
 
 [node name="objeto" type="RigidBody" parent="."]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1, 4, 0 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://assets/Material_001.material" type="Material" id=1]
 [ext_resource path="res://scripts/hero.gd" type="Script" id=2]
@@ -2397,7 +2397,7 @@ min_space = 0.0
 max_space = 1.84
 
 [sub_resource type="AnimationNodeAnimation" id=31]
-animation = "JumpUp Retarget"
+animation = "HardLanding Retarget"
 
 [sub_resource type="AnimationNodeOneShot" id=32]
 
@@ -2410,13 +2410,13 @@ input_1/name = "state 1"
 input_1/auto_advance = false
 
 [sub_resource type="AnimationNodeBlendTree" id=48]
-graph_offset = Vector2( -410.319, 67.641 )
+graph_offset = Vector2( -566.307, 42.3415 )
 nodes/Crouching/node = SubResource( 22 )
 nodes/Crouching/position = Vector2( -100, 240 )
 nodes/IdleWalk/node = SubResource( 35 )
 nodes/IdleWalk/position = Vector2( -100, 100 )
 nodes/Jump/node = SubResource( 31 )
-nodes/Jump/position = Vector2( 120, 320 )
+nodes/Jump/position = Vector2( 20, 380 )
 nodes/JumpShot/node = SubResource( 32 )
 nodes/JumpShot/position = Vector2( 340, 240 )
 nodes/StandCrouch/node = SubResource( 30 )
@@ -2424,8 +2424,17 @@ nodes/StandCrouch/position = Vector2( 140, 140 )
 nodes/output/position = Vector2( 540, 200 )
 node_connections = [ "output", 0, "JumpShot", "StandCrouch", 0, "IdleWalk", "StandCrouch", 1, "Crouching", "JumpShot", 0, "StandCrouch", "JumpShot", 1, "Jump" ]
 
+[sub_resource type="AnimationNodeBlendTree" id=49]
+graph_offset = Vector2( 859.931, -113.785 )
+nodes/output/position = Vector2( 880, 100 )
+
+[sub_resource type="AnimationNodeStateMachine" id=50]
+states/Walk/node = SubResource( 49 )
+states/Walk/position = Vector2( 243, 123 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=51]
+
 [node name="hero" type="KinematicBody"]
-collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="Hero" type="Spatial" parent="."]
@@ -2495,7 +2504,7 @@ bones/12/name = "hand.L_end"
 bones/12/parent = 11
 bones/12/rest = Transform( 1, 8.75443e-08, -1.14832e-06, -8.75444e-08, 1, -1.30385e-07, 1.14832e-06, 1.30385e-07, 1, -1.41561e-07, 0.179361, 2.6077e-08 )
 bones/12/enabled = true
-bones/12/bound_children = [  ]
+bones/12/bound_children = [ NodePath("ManoIzquierdaBone") ]
 bones/13/name = "shoulder.R"
 bones/13/parent = 3
 bones/13/rest = Transform( 0.0265092, -0.957268, -0.287986, 0.308469, -0.266195, 0.913229, -0.950865, -0.113044, 0.288231, -0.0226273, 0.169669, 0.0967544 )
@@ -2520,7 +2529,7 @@ bones/17/name = "hand.R_end"
 bones/17/parent = 16
 bones/17/rest = Transform( 1, 1.22935e-07, 2.00421e-06, -1.22935e-07, 1, -7.45068e-09, -2.00421e-06, 7.45043e-09, 1, -2.98023e-08, 0.179361, 5.96046e-08 )
 bones/17/enabled = true
-bones/17/bound_children = [  ]
+bones/17/bound_children = [ NodePath("ManoDerechaBone") ]
 bones/18/name = "breast.L"
 bones/18/parent = 3
 bones/18/rest = Transform( -1, 1.91509e-09, -1.66002e-07, -1.65989e-07, -0.0285596, 0.999592, -2.82662e-09, 0.999593, 0.0285595, 0.146397, -0.0228232, 0.0327098 )
@@ -2580,7 +2589,7 @@ bones/29/name = "toe.L"
 bones/29/parent = 28
 bones/29/rest = Transform( -0.954959, 0.184327, 0.232543, -0.119395, 0.47875, -0.869795, -0.271657, -0.858383, -0.435179, -1.18073e-07, 0.159805, 1.01165e-07 )
 bones/29/enabled = true
-bones/29/bound_children = [  ]
+bones/29/bound_children = [ NodePath("PieIzquierdoBone") ]
 bones/30/name = "toe.L_end"
 bones/30/parent = 29
 bones/30/rest = Transform( 1, -1.22239e-09, 2.05832e-05, 1.22234e-09, 1, 2.21206e-09, -2.05832e-05, -2.21203e-09, 1, 5.93718e-08, 0.0830897, 7.56577e-09 )
@@ -2615,7 +2624,7 @@ bones/36/name = "toe.R"
 bones/36/parent = 35
 bones/36/rest = Transform( -0.958, -0.218271, -0.185993, 0.0855561, 0.4015, -0.911854, 0.273707, -0.889469, -0.365963, 7.35071e-08, 0.159806, 3.18686e-08 )
 bones/36/enabled = true
-bones/36/bound_children = [  ]
+bones/36/bound_children = [ NodePath("PieDerechoBone") ]
 bones/37/name = "toe.R_end"
 bones/37/parent = 36
 bones/37/rest = Transform( 1, 3.63214e-08, -2.05776e-05, -3.63214e-08, 1, 2.21214e-09, 2.05776e-05, -2.21139e-09, 1, 1.51339e-08, 0.0830897, 1.12926e-08 )
@@ -2638,29 +2647,27 @@ skin = SubResource( 2 )
 material/0 = null
 
 [node name="ManoDerechaBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.302148, -0.51739, -0.800632, -0.452089, -0.661651, 0.59819, -0.839238, 0.542698, -0.0339887, -0.66272, 1.15582, -0.049147 )
+transform = Transform( -0.824309, 0.453887, 0.338376, 0.286687, 0.850051, -0.441838, -0.488183, -0.267204, -0.830829, 0.0433324, 2.91519, 0.275019 )
 bone_name = "hand.R_end"
 
 [node name="StaticBody" type="StaticBody" parent="Hero/Skeleton/ManoDerechaBone"]
-collision_layer = 2
 
 [node name="ManoDerecha" type="CollisionShape" parent="Hero/Skeleton/ManoDerechaBone/StaticBody"]
 transform = Transform( 0.07, 0, -9.31323e-10, 1.86265e-09, 0.116, -2.32831e-10, 1.86265e-09, 2.32831e-09, 0.058, -0.00399998, -0.042, 0.00600004 )
 shape = SubResource( 42 )
 
 [node name="ManoIzquierdaBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.975037, 0.0090725, 0.221855, 0.214559, -0.218673, 0.951916, 0.0571501, 0.975756, 0.211269, 0.374198, 1.28402, 0.640957 )
+transform = Transform( -0.861111, -0.389335, -0.32696, -0.286165, 0.902717, -0.321263, 0.420233, -0.183079, -0.888756, 0.40342, 2.09371, 0.28846 )
 bone_name = "hand.L_end"
 
 [node name="StaticBody" type="StaticBody" parent="Hero/Skeleton/ManoIzquierdaBone"]
-collision_layer = 2
 
 [node name="ManoDerecha" type="CollisionShape" parent="Hero/Skeleton/ManoIzquierdaBone/StaticBody"]
 transform = Transform( 0.07, 0, 0, -1.11759e-08, 0.116, 0, -2.79397e-09, 0, 0.058, 0.004, -0.042, 0.006 )
 shape = SubResource( 42 )
 
 [node name="PieDerechoBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.00362825, -0.98461, -0.17474, 0.0497525, -0.174702, 0.983365, -0.998757, -0.00512635, 0.0496191, -0.281546, 0.0400772, -0.38845 )
+transform = Transform( -0.90317, -0.387275, -0.185216, -0.416601, 0.686601, 0.595841, -0.103584, 0.615306, -0.781457, -0.0540771, 0.182503, 0.424471 )
 bone_name = "toe.R"
 
 [node name="PieDerechoRay" type="RayCast" parent="Hero/Skeleton/PieDerechoBone"]
@@ -2669,7 +2676,7 @@ enabled = true
 cast_to = Vector3( 0, 0, -0.11 )
 
 [node name="PieIzquierdoBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.86453, -0.484004, -0.135382, -0.0658849, -0.157906, 0.985255, -0.498244, 0.860702, 0.104626, 0.0913109, 0.0131432, 0.630421 )
+transform = Transform( -0.72161, 0.658768, 0.212849, 0.687003, 0.643436, 0.337674, 0.08549, 0.389895, -0.916886, 0.608977, 1.0897, 0.521943 )
 bone_name = "toe.L"
 
 [node name="PieIzquierdoRay" type="RayCast" parent="Hero/Skeleton/PieIzquierdoBone"]
@@ -2700,8 +2707,13 @@ shape = SubResource( 43 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 48 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/Crouching/blend_position = 0.493145
 parameters/IdleWalk/blend_position = 0.0
 parameters/JumpShot/active = false
 parameters/StandCrouch/current = 0
+
+[node name="AnimationTree2" type="AnimationTree" parent="."]
+tree_root = SubResource( 50 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 51 )
