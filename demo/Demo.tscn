@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/Boricchan.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Camera.gd" type="Script" id=2]
@@ -41,13 +41,18 @@ background_mode = 1
 ambient_light_energy = 0.99
 ambient_light_sky_contribution = 0.0
 
-[sub_resource type="CubeMesh" id=16]
+[sub_resource type="CubeMesh" id=23]
 
-[sub_resource type="SpatialMaterial" id=18]
+[sub_resource type="SpatialMaterial" id=24]
 albedo_color = Color( 0.2, 0.847059, 0.0431373, 1 )
 
 [sub_resource type="ConvexPolygonShape" id=17]
 points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+
+[sub_resource type="CubeMesh" id=16]
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_color = Color( 0.2, 0.847059, 0.0431373, 1 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -136,6 +141,38 @@ environment = SubResource( 12 )
 stream = ExtResource( 4 )
 volume_db = -0.5
 script = ExtResource( 3 )
+
+[node name="objeto3" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42634, 6.06904, -0.596089 )
+collision_layer = 10
+collision_mask = 10
+script = ExtResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="objeto3"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+mesh = SubResource( 23 )
+skeleton = NodePath("../../objeto3")
+material/0 = SubResource( 24 )
+
+[node name="CollisionShape" type="CollisionShape" parent="objeto3"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+shape = SubResource( 17 )
+
+[node name="objeto2" type="RigidBody" parent="."]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.03707, 4.85523, 0.102139 )
+collision_layer = 10
+collision_mask = 10
+script = ExtResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="objeto2"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+mesh = SubResource( 23 )
+skeleton = NodePath("../../objeto2")
+material/0 = SubResource( 24 )
+
+[node name="CollisionShape" type="CollisionShape" parent="objeto2"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+shape = SubResource( 17 )
 
 [node name="objeto" type="RigidBody" parent="."]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1, 4, 0 )
