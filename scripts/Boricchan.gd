@@ -20,6 +20,7 @@ onready var _model: Spatial = $capsula
 onready var _light: Spatial = $PlayerLight
 onready var area_grab = $area_grab
 onready var _hold_position := get_node("capsula/HoldPosition")
+onready var _mat := preload("res://assets/cubotest.tres")
 
 func _physics_process(delta):
 
@@ -50,20 +51,28 @@ func _physics_process(delta):
 		_model.rotation.y = -look_direction.angle()
 
 	if !(_objects.empty()):
+		var selected = _objects[_pointer]
 		if Input.is_action_just_released("scroll_up"):
+			selected.restore()
 			_pointer += 1
 		if Input.is_action_just_released("scroll_down"):
+			selected.restore()
 			_pointer -= 1
 		if _pointer < 0:
 			_pointer = _objects.size() - 1
 		if _pointer >= _objects.size():
 			_pointer = 0
+			
+		selected = _objects[_pointer]
 		
 		print(_pointer)
-		var selected = _objects[_pointer].get_node("MeshInstance")
-		var mat = selected.get_surface_material(0)
-		mat.albedo_color = Color(1,0,0)
-		#selected.set_material_override()
+		#var selected = _objects[_pointer]
+		#var mat = preload
+		#mat.albedo_color = Color(1,0,0)
+		var cant = selected.material_count
+		for i in range(cant):
+			selected.get_node("MeshInstance").set_surface_material(i, _mat)
+			#selected.set_material_override()
 
 	#### Tomar objetos ####
 	if Input.is_action_just_pressed("grab"):
@@ -138,7 +147,12 @@ func _on_area_grab_entered(body: Node):
 func _on_area_grab_exited(body: Node):
 	print("salí del área")
 	objeto_recuperado_area=null
+	body.restore()
 	_objects.erase(body)
+	if _pointer >= _objects.size():
+			_pointer -= 1
+	if _pointer < 0:
+			_pointer = 0
 	#_pointer -= 1
 
 
