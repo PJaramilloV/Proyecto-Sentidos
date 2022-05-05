@@ -85,20 +85,20 @@ func _physics_process(delta):
 	if leftfootray.is_colliding():
 		var b = decal.instance()
 		leftfootray.get_collider().add_child(b)
-		var error = leftfootray.get_collision_normal()*(0.05)
-		b.global_transform.origin = leftfootray.get_collision_point()  + error
+		var correction = leftfootray.get_collision_normal()*(0.05)
+		b.global_transform.origin = leftfootray.get_collision_point()  + correction
 		b.look_at(leftfootray.get_collision_point() + leftfootray.get_collision_normal(), Vector3.UP)
 
 	if rightfootray.is_colliding():
 		var b = decal.instance()
 		rightfootray.get_collider().add_child(b)
-		var error = leftfootray.get_collision_normal()*(0.05)
-		b.global_transform.origin = rightfootray.get_collision_point() + error
+		var correction = leftfootray.get_collision_normal()*(0.05)
+		b.global_transform.origin = rightfootray.get_collision_point() + correction
 		b.look_at(rightfootray.get_collision_point() + rightfootray.get_collision_normal(), Vector3.UP)	
 	# jugar con mutiplayer lookip por algo
 	# poner planos
 	# rehacer todos los assets (plz no)
-	print(_velocity)
+	#print(_velocity)
 
 func _process(delta):
 	pass
