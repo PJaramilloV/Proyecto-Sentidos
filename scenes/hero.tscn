@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/Material_001.material" type="Material" id=1]
 [ext_resource path="res://scripts/hero.gd" type="Script" id=2]
@@ -2409,20 +2409,24 @@ input_0/auto_advance = false
 input_1/name = "state 1"
 input_1/auto_advance = false
 
+[sub_resource type="AnimationNodeTimeScale" id=49]
+
 [sub_resource type="AnimationNodeBlendTree" id=48]
-graph_offset = Vector2( -410.319, 67.641 )
+graph_offset = Vector2( -566.307, 107.841 )
 nodes/Crouching/node = SubResource( 22 )
 nodes/Crouching/position = Vector2( -100, 240 )
 nodes/IdleWalk/node = SubResource( 35 )
 nodes/IdleWalk/position = Vector2( -100, 100 )
 nodes/Jump/node = SubResource( 31 )
-nodes/Jump/position = Vector2( 120, 320 )
+nodes/Jump/position = Vector2( 20, 380 )
 nodes/JumpShot/node = SubResource( 32 )
 nodes/JumpShot/position = Vector2( 340, 240 )
 nodes/StandCrouch/node = SubResource( 30 )
 nodes/StandCrouch/position = Vector2( 140, 140 )
+nodes/TimeScale/node = SubResource( 49 )
+nodes/TimeScale/position = Vector2( 635, 113 )
 nodes/output/position = Vector2( 540, 200 )
-node_connections = [ "output", 0, "JumpShot", "StandCrouch", 0, "IdleWalk", "StandCrouch", 1, "Crouching", "JumpShot", 0, "StandCrouch", "JumpShot", 1, "Jump" ]
+node_connections = [ "output", 0, "JumpShot", "JumpShot", 0, "StandCrouch", "JumpShot", 1, "Jump", "StandCrouch", 0, "IdleWalk", "StandCrouch", 1, "Crouching" ]
 
 [node name="hero" type="KinematicBody"]
 collision_layer = 2
@@ -2638,7 +2642,7 @@ skin = SubResource( 2 )
 material/0 = null
 
 [node name="ManoDerechaBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.302148, -0.51739, -0.800632, -0.452089, -0.661651, 0.59819, -0.839238, 0.542698, -0.0339887, -0.66272, 1.15582, -0.049147 )
+transform = Transform( -0.30389, -0.514653, -0.801736, -0.455405, -0.660693, 0.596732, -0.836813, 0.546455, -0.0335962, -0.660899, 1.15014, -0.0480202 )
 bone_name = "hand.R_end"
 
 [node name="StaticBody" type="StaticBody" parent="Hero/Skeleton/ManoDerechaBone"]
@@ -2649,7 +2653,7 @@ transform = Transform( 0.07, 0, -9.31323e-10, 1.86265e-09, 0.116, -2.32831e-10, 
 shape = SubResource( 42 )
 
 [node name="ManoIzquierdaBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.975037, 0.0090725, 0.221855, 0.214559, -0.218673, 0.951916, 0.0571501, 0.975756, 0.211269, 0.374198, 1.28402, 0.640957 )
+transform = Transform( -0.974506, 0.00911013, 0.224172, 0.216465, -0.224498, 0.950127, 0.0589821, 0.974432, 0.216804, 0.367907, 1.2712, 0.638843 )
 bone_name = "hand.L_end"
 
 [node name="StaticBody" type="StaticBody" parent="Hero/Skeleton/ManoIzquierdaBone"]
@@ -2660,7 +2664,7 @@ transform = Transform( 0.07, 0, 0, -1.11759e-08, 0.116, 0, -2.79397e-09, 0, 0.05
 shape = SubResource( 42 )
 
 [node name="PieDerechoBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.00362825, -0.98461, -0.17474, 0.0497525, -0.174702, 0.983365, -0.998757, -0.00512635, 0.0496191, -0.281546, 0.0400772, -0.38845 )
+transform = Transform( -0.00339282, -0.984474, -0.175511, 0.049924, -0.17546, 0.983222, -0.99875, -0.005427, 0.0497427, -0.282223, 0.0395915, -0.387466 )
 bone_name = "toe.R"
 
 [node name="PieDerechoRay" type="RayCast" parent="Hero/Skeleton/PieDerechoBone"]
@@ -2669,7 +2673,7 @@ enabled = true
 cast_to = Vector3( 0, 0, -0.11 )
 
 [node name="PieIzquierdoBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.86453, -0.484004, -0.135382, -0.0658849, -0.157906, 0.985255, -0.498244, 0.860702, 0.104626, 0.0913109, 0.0131432, 0.630421 )
+transform = Transform( -0.864532, -0.484322, -0.13423, -0.064725, -0.157565, 0.985386, -0.498393, 0.860586, 0.104873, 0.0911973, 0.0128038, 0.630956 )
 bone_name = "toe.L"
 
 [node name="PieIzquierdoRay" type="RayCast" parent="Hero/Skeleton/PieIzquierdoBone"]
@@ -2705,3 +2709,4 @@ parameters/Crouching/blend_position = 0.493145
 parameters/IdleWalk/blend_position = 0.0
 parameters/JumpShot/active = false
 parameters/StandCrouch/current = 0
+parameters/TimeScale/scale = 1.0

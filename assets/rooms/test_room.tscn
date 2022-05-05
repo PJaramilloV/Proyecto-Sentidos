@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/rooms/assemblies/Stalagmite.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/assemblies/Stalagmite_small.tscn" type="PackedScene" id=2]
@@ -16,9 +16,6 @@
 [ext_resource path="res://assets/rooms/assemblies/vertical_wall.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/rooms/assemblies/Platform_square.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/out_of_bounds.tscn" type="PackedScene" id=16]
-[ext_resource path="res://assets/furniture/Wood_Basic.material" type="Material" id=17]
-[ext_resource path="res://assets/small/torch.obj" type="ArrayMesh" id=18]
-[ext_resource path="res://assets/furniture/table.obj" type="ArrayMesh" id=19]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.538104, 35.6974, 199.487 )
@@ -342,23 +339,10 @@ transform = Transform( 1, 0, 0, 0, -1, 6.78401e-08, 0, -8.74228e-08, -0.776, 3.3
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62159e-07, 0.475731, -5.9975 )
 
 [node name="Player" parent="." instance=ExtResource( 10 )]
-transform = Transform( -7.64949e-08, 0, -1.75, 0, 1.75, 0, 1.75, 0, -7.64949e-08, 0.50645, 1.59431, 1.72458 )
+transform = Transform( -7.64949e-08, 0, -1.75, 0, 1.75, 0, 1.75, 0, -7.64949e-08, 0.50645, 0.400462, 1.72458 )
 
 [node name="Floor" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.776, -2.70074e-07, 0.560863, -6.1786 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.776, 34.8286, 0.560863, 6.30653 )
 
-[node name="torch" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.776, -3.10859, 20.3947, -20.7521 )
-mesh = ExtResource( 18 )
-skeleton = NodePath("../Floor")
-material/0 = ExtResource( 17 )
-material/1 = ExtResource( 17 )
-
-[node name="OmniLight" type="OmniLight" parent="torch"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.28866, -2.23168, 1.69379, 1.54974 )
-light_energy = 16.0
-
-[node name="table" type="MeshInstance" parent="torch"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00698423, 0.0450916, 0.080534 )
-mesh = ExtResource( 19 )
-material/0 = ExtResource( 17 )
+[node name="Items" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07281e-06, 21.185, -24.543 )
