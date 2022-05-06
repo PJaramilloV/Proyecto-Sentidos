@@ -71,9 +71,13 @@ func _physics_process(delta):
 		_model.rotation.y = lerp_angle(_model.rotation.y, atan2(_velocity.x, _velocity.z), delta * _angular_acceleration)
 
 	if Input.is_action_pressed("crouch"):
+		$CollisionShape.disabled = true
+		$CollisionShapeCrouch.disabled = false
 		speed = lerp(speed, move_direction.length()*crouch_speed, 0.05)
 		$AnimationTree.set("parameters/StandCrouch/current", 1)
 	else :
+		$CollisionShape.disabled = false
+		$CollisionShapeCrouch.disabled = true
 		speed = lerp(speed, move_direction.length()*walk_speed, 0.05)
 		$AnimationTree.set("parameters/StandCrouch/current", 0)
 
@@ -84,14 +88,14 @@ func _physics_process(delta):
 	# Surface Painting
 	if leftfootray.is_colliding():
 		var b = decal.instance()
-		leftfootray.get_collider().add_child(b)
+		get_parent().add_child(b)
 		var correction = leftfootray.get_collision_normal()*(0.05)
-		b.global_transform.origin = leftfootray.get_collision_point()  + correction
+		b.global_transform.origin = leftfootray.get_collision_point() + correction
 		b.look_at(leftfootray.get_collision_point() + leftfootray.get_collision_normal(), Vector3.UP)
 
 	if rightfootray.is_colliding():
 		var b = decal.instance()
-		rightfootray.get_collider().add_child(b)
+		get_parent().add_child(b)
 		var correction = leftfootray.get_collision_normal()*(0.05)
 		b.global_transform.origin = rightfootray.get_collision_point() + correction
 		b.look_at(rightfootray.get_collision_point() + rightfootray.get_collision_normal(), Vector3.UP)	

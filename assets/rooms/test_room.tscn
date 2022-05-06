@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/rooms/assemblies/Stalagmite.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/assemblies/Stalagmite_small.tscn" type="PackedScene" id=2]
@@ -19,6 +19,11 @@
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.538104, 35.6974, 199.487 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 1
+ambient_light_energy = 0.99
+ambient_light_sky_contribution = 0.0
 
 [node name="Spatial" type="Spatial"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
@@ -282,7 +287,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37131e-07, 0, 7.71265 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.89621e-09, 0, -0.112001 )
 
 [node name="Platform_square2" parent="World/High_chasm_opposite_side/platforms" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.728, -2.18159e-07, 1.6014, -4.99087 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.728, -2.38564e-07, 1.39257, -5.45767 )
 
 [node name="Platform_square3" parent="World/High_chasm_opposite_side/platforms" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.587, -5.4277e-08, 3.60896, -1.2417 )
@@ -339,10 +344,13 @@ transform = Transform( 1, 0, 0, 0, -1, 6.78401e-08, 0, -8.74228e-08, -0.776, 3.3
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62159e-07, 0.475731, -5.9975 )
 
 [node name="Player" parent="." instance=ExtResource( 10 )]
-transform = Transform( -7.64949e-08, 0, -1.75, 0, 1.75, 0, 1.75, 0, -7.64949e-08, 0.50645, 0.400462, 1.72458 )
+transform = Transform( -7.64949e-08, 0, -1.75, 0, 1.75, 0, 1.75, 0, -7.64949e-08, 0.506449, 0.923327, 24.3648 )
 
 [node name="Floor" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.776, 34.8286, 0.560863, 6.30653 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.776, 0.737987, 0.560863, 21.6807 )
 
 [node name="Items" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07281e-06, 21.185, -24.543 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
