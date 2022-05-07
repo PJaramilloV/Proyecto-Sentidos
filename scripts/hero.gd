@@ -12,11 +12,18 @@ var _snap_vector := Vector3.DOWN
 var _prep_jump := true
 var _jump_timer : float
 var _crouching := false
+var held_object: Object
+var _objects := []
+var _pointer := 0
 
 onready var _model: Spatial = $Hero
 onready var _stand_shape: CollisionShape = $CollisionShape
 onready var _crouch_shape: CollisionShape = $CollisionShapeCrouch
 
+onready var area_grab = $area_grab
+onready var _mat := preload("res://assets/cubotest.tres")
+
+onready var righthand = $Hero/Skeleton/ManoDerechaBone/StaticBody/ManoDerecha
 onready var leftfootray = $Hero/Skeleton/PieIzquierdoBone/PieIzquierdoRay
 onready var rightfootray = $Hero/Skeleton/PieDerechoBone/PieDerechoRay
 
@@ -28,25 +35,16 @@ func _physics_process(delta):
 	var move_direction := Vector3.ZERO
 	move_direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	move_direction.z = Input.get_action_strength("back") - Input.get_action_strength("forward")
-	#move_direction = move_direction.rotated(Vector3.UP, )
 	move_direction = move_direction.normalized()
 	
-	#_velocity.x = move_direction.x * speed
-	#_velocity.z = move_direction.z * speed
-	#var gravity_resistance = get_floor_normal() if is_on_floor() else Vector3.UP
 	_velocity.y -= gravity * delta 
-	#_velocity -= gravity_resistance * gravity * delta
 	
 	_velocity = transform.basis * move_direction * speed * delta + Vector3(0, _velocity.y, 0)
-	
-	#print(_velocity.length())
 	
 	var just_landed := is_on_floor() and _snap_vector == Vector3.ZERO
 	var is_jumping := is_on_floor() and Input.is_action_just_pressed("jump") and _prep_jump
 	
 	if is_jumping:
-		#_velocity.y = jump_strength
-		#_snap_vector = Vector3.ZERO
 		_prep_jump = false
 		$AnimationTree.set("parameters/JumpShot/active", true)
 	
@@ -93,19 +91,82 @@ func _physics_process(delta):
 	$AnimationTree.set("parameters/IdleWalk/blend_position", vel)
 	$AnimationTree.set("parameters/Crouching/blend_position", vel)
 	
+	### Objetos ###
+	
+	### Coloreo ###
+	if !(_objects.empty()):
+		var selected = _objects[_pointer]
+		if Input.is_action_just_released("scroll_up"):
+			selected.restore()
+			_pointer += 1
+		if Input.is_action_just_released("scroll_down"):
+			selected.restore()
+			_pointer -= 1
+		if _pointer < 0:
+			_pointer = _objects.size() - 1
+		if _pointer >= _objects.size():
+			_pointer = 0
+			
+		selected = _objects[_pointer]
+		
+		print(_pointer)
+		#var selected = _objects[_pointer]
+		#var mat = preload
+		#mat.albedo_color = Color(1,0,0)
+		var cant = selected.material_count
+		for i in range(cant):
+			selected.get_node("MeshInstance").set_surface_material(i, _mat)
+			#selected.set_material_override()
+
+	#### Tomar objetos ####
+	if Input.is_action_just_pressed("grab"):
+		if held_object: #solo entra si ya se tiene el objeto tomado
+			held_object.mode = RigidBody.MODE_RIGID
+			#held_object.collision_mask = 4
+			held_object.collision_mask=2
+			
+			held_object =  null
+		else:
+			#se pasa inmediatamente acá si se apreta la F y no se tiene un objeto tomado
+			
+			#if objeto_recuperado_area: #se pasa acá si es que el area colisiona y guarda el body con el que choca
+			if !(_objects.empty()):
+				
+				held_object = _objects[_pointer]
+				held_object.mode = RigidBody.MODE_KINEMATIC
+				held_object.collision_mask=0
+	#se pasa acá  cuando se toma un objeto, justo despues de entrar al tomado
+	if held_object:
+		held_object.global_transform.origin = righthand.global_transform.origin
+	#### Fin tomar objetos ####
+	
+	#### Lanzar objectos ####
+	if Input.is_action_just_pressed("throw") and is_on_floor() and held_object:
+		#print(self.global_transform.origin)
+		print("toi lanzando")
+		print((get_viewport().get_mouse_position().x-500)/50)
+		print((380-get_viewport().get_mouse_position().y)*1.5/30)
+		held_object.mode = RigidBody.MODE_RIGID
+		held_object.collision_mask=2
+		held_object.take_damage(self)
+		held_object =  null
+		
+	### Objetos ###
+	
 	# jugar con mutiplayer lookip por algo
 	# poner planos
 	# rehacer todos los assets (plz no)
-	#print(_velocity)
 
 func _process(delta):
 	pass
 
 
 func _ready():
-	pass # Replace with function body.
+	#pass # Replace with function body.
+	area_grab.connect("body_entered",self,"_on_area_grab_entered")
+	area_grab.connect("body_exited",self,"_on_area_grab_exited")
 
-# Surface Painting
+### Surface Painting ###
 func rightstep():
 	var b = decal.instance()
 	get_parent().add_child(b)
@@ -119,3 +180,17 @@ func leftstep():
 	var correction = leftfootray.get_collision_normal()*(0.05)
 	b.global_transform.origin = leftfootray.get_collision_point() + correction
 	b.look_at(leftfootray.get_collision_point() + leftfootray.get_collision_normal(), Vector3.UP)
+### Surface Painting ###
+
+func _on_area_grab_entered(body: Node):
+	print("colisioné con un objeto tomable")
+	_objects.append(body)
+
+func _on_area_grab_exited(body: Node):
+	print("salí del área")
+	body.restore()
+	_objects.erase(body)
+	if _pointer >= _objects.size():
+			_pointer -= 1
+	if _pointer < 0:
+			_pointer = 0

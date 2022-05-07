@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://assets/Material_001.material" type="Material" id=1]
 [ext_resource path="res://scripts/hero.gd" type="Script" id=2]
@@ -2517,7 +2517,7 @@ nodes/StandCrouch/position = Vector2( 120, 140 )
 nodes/TimeScale/node = SubResource( 49 )
 nodes/TimeScale/position = Vector2( 380, 80 )
 nodes/output/position = Vector2( 560, 200 )
-node_connections = [ "JumpShot", 0, "StandCrouch", "JumpShot", 1, "Jump", "output", 0, "JumpShot", "StandCrouch", 0, "IdleWalk", "StandCrouch", 1, "Crouching" ]
+node_connections = [ "output", 0, "JumpShot", "StandCrouch", 0, "IdleWalk", "StandCrouch", 1, "Crouching", "JumpShot", 0, "StandCrouch", "JumpShot", 1, "Jump" ]
 
 [sub_resource type="AnimationNodeAnimation" id=55]
 animation = "CrouchIdle Retarget -loop"
@@ -2603,6 +2603,8 @@ graph_offset = Vector2( -472.6, -136.28 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=51]
 
+[sub_resource type="SphereShape" id=77]
+
 [node name="hero" type="KinematicBody"]
 collision_layer = 2
 script = ExtResource( 2 )
@@ -2674,7 +2676,7 @@ bones/12/name = "hand.L_end"
 bones/12/parent = 11
 bones/12/rest = Transform( 1, 8.75443e-08, -1.14832e-06, -8.75444e-08, 1, -1.30385e-07, 1.14832e-06, 1.30385e-07, 1, -1.41561e-07, 0.179361, 2.6077e-08 )
 bones/12/enabled = true
-bones/12/bound_children = [ NodePath("ManoIzquierdaBone") ]
+bones/12/bound_children = [  ]
 bones/13/name = "shoulder.R"
 bones/13/parent = 3
 bones/13/rest = Transform( 0.0265092, -0.957268, -0.287986, 0.308469, -0.266195, 0.913229, -0.950865, -0.113044, 0.288231, -0.0226273, 0.169669, 0.0967544 )
@@ -2699,7 +2701,7 @@ bones/17/name = "hand.R_end"
 bones/17/parent = 16
 bones/17/rest = Transform( 1, 1.22935e-07, 2.00421e-06, -1.22935e-07, 1, -7.45068e-09, -2.00421e-06, 7.45043e-09, 1, -2.98023e-08, 0.179361, 5.96046e-08 )
 bones/17/enabled = true
-bones/17/bound_children = [ NodePath("ManoDerechaBone") ]
+bones/17/bound_children = [  ]
 bones/18/name = "breast.L"
 bones/18/parent = 3
 bones/18/rest = Transform( -1, 1.91509e-09, -1.66002e-07, -1.65989e-07, -0.0285596, 0.999592, -2.82662e-09, 0.999593, 0.0285595, 0.146397, -0.0228232, 0.0327098 )
@@ -2759,7 +2761,7 @@ bones/29/name = "toe.L"
 bones/29/parent = 28
 bones/29/rest = Transform( -0.954959, 0.184327, 0.232543, -0.119395, 0.47875, -0.869795, -0.271657, -0.858383, -0.435179, -1.18073e-07, 0.159805, 1.01165e-07 )
 bones/29/enabled = true
-bones/29/bound_children = [ NodePath("PieIzquierdoBone") ]
+bones/29/bound_children = [  ]
 bones/30/name = "toe.L_end"
 bones/30/parent = 29
 bones/30/rest = Transform( 1, -1.22239e-09, 2.05832e-05, 1.22234e-09, 1, 2.21206e-09, -2.05832e-05, -2.21203e-09, 1, 5.93718e-08, 0.0830897, 7.56577e-09 )
@@ -2794,7 +2796,7 @@ bones/36/name = "toe.R"
 bones/36/parent = 35
 bones/36/rest = Transform( -0.958, -0.218271, -0.185993, 0.0855561, 0.4015, -0.911854, 0.273707, -0.889469, -0.365963, 7.35071e-08, 0.159806, 3.18686e-08 )
 bones/36/enabled = true
-bones/36/bound_children = [ NodePath("PieDerechoBone") ]
+bones/36/bound_children = [  ]
 bones/37/name = "toe.R_end"
 bones/37/parent = 36
 bones/37/rest = Transform( 1, 3.63214e-08, -2.05776e-05, -3.63214e-08, 1, 2.21214e-09, 2.05776e-05, -2.21139e-09, 1, 1.51339e-08, 0.0830897, 1.12926e-08 )
@@ -2817,7 +2819,7 @@ skin = SubResource( 2 )
 material/0 = null
 
 [node name="ManoDerechaBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.314965, -0.531153, -0.786556, -0.437121, -0.654427, 0.616967, -0.842449, 0.538143, -0.0260562, -0.674243, 1.14798, -0.0577556 )
+transform = Transform( -0.322509, -0.566414, -0.758393, -0.408765, -0.639306, 0.651303, -0.853754, 0.520056, -0.0253475, -0.693293, 1.14228, -0.0662138 )
 bone_name = "hand.R_end"
 
 [node name="StaticBody" type="StaticBody" parent="Hero/Skeleton/ManoDerechaBone"]
@@ -2828,7 +2830,7 @@ transform = Transform( 0.07, 0, -9.31323e-10, 1.86265e-09, 0.116, -2.32831e-10, 
 shape = SubResource( 42 )
 
 [node name="ManoIzquierdaBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.977037, 0.0346638, 0.210228, 0.197958, -0.217241, 0.955833, 0.078803, 0.975503, 0.205391, 0.368916, 1.25841, 0.633709 )
+transform = Transform( -0.982714, 0.0902126, 0.161657, 0.14359, -0.179729, 0.973179, 0.116848, 0.979571, 0.16367, 0.380031, 1.2486, 0.628965 )
 bone_name = "hand.L_end"
 
 [node name="StaticBody" type="StaticBody" parent="Hero/Skeleton/ManoIzquierdaBone"]
@@ -2839,7 +2841,7 @@ transform = Transform( 0.07, 0, 0, -1.11759e-08, 0.116, 0, -2.79397e-09, 0, 0.05
 shape = SubResource( 42 )
 
 [node name="PieDerechoBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.00319371, -0.984497, -0.175385, 0.0497431, -0.175325, 0.983255, -0.998759, -0.00558437, 0.0495305, -0.284223, 0.0387003, -0.38499 )
+transform = Transform( -0.00292052, -0.98453, -0.175206, 0.0497618, -0.175132, 0.983288, -0.998759, -0.00584746, 0.0495019, -0.287773, 0.0372168, -0.381332 )
 bone_name = "toe.R"
 
 [node name="PieDerechoRay" type="RayCast" parent="Hero/Skeleton/PieDerechoBone"]
@@ -2848,7 +2850,7 @@ enabled = true
 cast_to = Vector3( 0, 0, -0.2 )
 
 [node name="PieIzquierdoBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.864914, -0.48344, -0.134947, -0.0653203, -0.158162, 0.985252, -0.497653, 0.860972, 0.105217, 0.0904885, 0.0126998, 0.633039 )
+transform = Transform( -0.864674, -0.483282, -0.137037, -0.0675571, -0.158448, 0.985055, -0.497771, 0.861009, 0.104356, 0.0888614, 0.0123935, 0.636006 )
 bone_name = "toe.L"
 
 [node name="PieIzquierdoRay" type="RayCast" parent="Hero/Skeleton/PieIzquierdoBone"]
@@ -2895,3 +2897,12 @@ parameters/TimeScale/scale = 1.0
 tree_root = SubResource( 50 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 51 )
+
+[node name="area_grab" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.713291, 0 )
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionPolygon" type="CollisionShape" parent="area_grab"]
+transform = Transform( 1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, 0.483, 0 )
+shape = SubResource( 77 )
