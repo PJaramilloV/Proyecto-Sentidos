@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://assets/Material_001.material" type="Material" id=1]
 [ext_resource path="res://scripts/hero.gd" type="Script" id=2]
@@ -302,6 +302,17 @@ tracks/21/loop_wrap = true
 tracks/21/imported = false
 tracks/21/enabled = true
 tracks/21/keys = PoolRealArray( 0, 1, 0.051236, 0.434332, -0.458067, -0.585921, 8.91928e-05, -0.130247, 0.799833, 1, 1, 1, 0.0666667, 1, 0.0472897, 0.456152, -0.490511, -0.589112, -0.00341926, -0.133701, 0.796906, 1, 1, 1, 0.133333, 1, 0.0495636, 0.47515, -0.542305, -0.589449, -0.0106961, -0.129756, 0.797245, 1, 1, 1, 0.2, 1, 0.0567442, 0.487195, -0.60313, -0.578361, -0.0232781, -0.109441, 0.808071, 1, 1, 1, 0.266667, 1, 0.0690342, 0.483989, -0.673329, -0.561203, -0.0380382, -0.0830681, 0.822621, 1, 1, 1, 0.333333, 1, 0.0804894, 0.466802, -0.73639, -0.541943, -0.0537783, -0.0531926, 0.837004, 1, 1, 1, 0.4, 1, 0.0968897, 0.446274, -0.773038, -0.52502, -0.0688461, -0.0219957, 0.848015, 1, 1, 1, 0.466667, 1, 0.114496, 0.43358, -0.788238, -0.515392, -0.0823011, 0.00787113, 0.852957, 1, 1, 1, 0.533333, 1, 0.132425, 0.428563, -0.793241, -0.522092, -0.0920845, 0.0336223, 0.847237, 1, 1, 1, 0.6, 1, 0.150259, 0.423059, -0.763524, -0.548819, -0.0856895, 0.0533505, 0.829824, 1, 1, 1, 0.666667, 1, 0.176601, 0.415918, -0.709616, -0.569567, -0.0824368, 0.0783797, 0.814036, 1, 1, 1, 0.733333, 1, 0.200858, 0.418518, -0.659944, -0.563543, -0.0897799, 0.108257, 0.814027, 1, 1, 1, 0.8, 1, 0.225052, 0.435406, -0.610937, -0.539234, -0.102718, 0.125818, 0.826345, 1, 1, 1, 0.866667, 1, 0.246752, 0.47265, -0.573191, -0.513782, -0.13634, 0.14057, 0.835272, 1, 1, 1, 0.933333, 1, 0.265331, 0.526565, -0.518481, -0.493698, -0.182517, 0.162962, 0.834502, 1, 1, 1, 1, 1, 0.28622, 0.572599, -0.480412, -0.497142, -0.235034, 0.19121, 0.813048, 1, 1, 1, 1.06667, 1, 0.307763, 0.611083, -0.458723, -0.511949, -0.28838, 0.208373, 0.781874, 1, 1, 1, 1.13333, 1, 0.325414, 0.632704, -0.462543, -0.525948, -0.309991, 0.207584, 0.764325, 1, 1, 1, 1.2, 1, 0.349045, 0.634969, -0.501122, -0.54531, -0.299572, 0.189702, 0.759544, 1, 1, 1, 1.26667, 1, 0.377624, 0.630844, -0.576729, -0.549285, -0.281615, 0.170095, 0.768145, 1, 1, 1, 1.33333, 1, 0.410556, 0.635874, -0.672965, -0.522694, -0.295683, 0.173614, 0.780526, 1, 1, 1, 1.4, 1, 0.435001, 0.629984, -0.734778, -0.515767, -0.295398, 0.17228, 0.785521, 1, 1, 1, 1.46667, 1, 0.443517, 0.619495, -0.756216, -0.499236, -0.265333, 0.151833, 0.810746, 1, 1, 1, 1.53333, 1, 0.443393, 0.596203, -0.766521, -0.50677, -0.230875, 0.114411, 0.822673, 1, 1, 1, 1.6, 1, 0.412688, 0.566024, -0.740553, -0.535636, -0.186334, 0.061844, 0.821309, 1, 1, 1, 1.66667, 1, 0.365474, 0.535363, -0.687731, -0.571329, -0.153732, -0.00171716, 0.806193, 1, 1, 1, 1.73333, 1, 0.297492, 0.497973, -0.610449, -0.613127, -0.125558, -0.0611267, 0.777544, 1, 1, 1, 1.8, 1, 0.210943, 0.486029, -0.531677, -0.611845, -0.0877086, -0.116898, 0.77736, 1, 1, 1, 1.86667, 1, 0.128651, 0.470376, -0.466693, -0.601889, -0.0582126, -0.136675, 0.78464, 1, 1, 1, 1.93333, 1, 0.0802188, 0.441749, -0.431273, -0.600197, -0.0249059, -0.127077, 0.7893, 1, 1, 1, 2, 1, 0.0552368, 0.434283, -0.448, -0.588058, -0.00394308, -0.128322, 0.798565, 1, 1, 1, 2.01667, 1, 0.0512359, 0.434332, -0.458067, -0.585921, 8.9216e-05, -0.130247, 0.799833, 1, 1, 1 )
+tracks/22/type = "method"
+tracks/22/path = NodePath(".")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "ClimbUp Retarget -loop"
@@ -620,6 +631,29 @@ tracks/21/loop_wrap = true
 tracks/21/imported = false
 tracks/21/enabled = true
 tracks/21/keys = PoolRealArray( 0, 1, 0, 0, 0, 7.45058e-08, 5.58794e-09, 1.11759e-08, 1, 1, 1, 1, 0.0666667, 1, 1.71289e-05, -0.000297576, 0.000249624, -3.28849e-05, 0.00013377, 9.64372e-05, 1, 1, 1, 1, 0.133333, 1, 0.000228271, -0.000719219, 0.00023073, -0.000569083, -0.000164156, -4.42232e-05, 1, 1, 1, 1, 0.2, 1, 0.000398047, -0.00095503, 6.93798e-05, -0.000722109, -0.00032936, -0.00026613, 1, 1, 1, 1, 0.266667, 1, 0.000663124, -0.00116639, 0.000101209, -0.000977686, -0.000486747, -0.000285401, 0.999999, 1, 1, 1, 0.333333, 1, 0.000868626, -0.00147197, 0.000157475, -0.00156892, -0.000660495, -0.000364428, 0.999999, 1, 1, 1, 0.4, 1, 0.00102513, -0.00194509, 0.000169218, -0.00201592, -0.00063376, -0.000697257, 0.999998, 1, 1, 1, 0.466667, 1, 0.00124077, -0.00260858, 9.05991e-06, -0.00231378, -0.000522888, -0.00126593, 0.999996, 1, 1, 1, 0.533333, 1, 0.00140684, -0.00321631, -0.000137031, -0.00256593, -0.000708513, -0.00171806, 0.999995, 1, 1, 1, 0.6, 1, 0.00160673, -0.00374232, -0.00015831, -0.00308048, -0.000913441, -0.00200915, 0.999993, 1, 1, 1, 0.666667, 1, 0.00184762, -0.0042301, -0.000201106, -0.00355745, -0.00123332, -0.00220123, 0.999991, 1, 1, 1, 0.733333, 1, 0.00215614, -0.00466953, -0.000256896, -0.00388957, -0.00149272, -0.00238937, 0.999988, 1, 1, 1, 0.8, 1, 0.00237478, -0.00508714, -0.00039643, -0.00423572, -0.00184285, -0.00256503, 0.999986, 1, 1, 1, 0.866667, 1, 0.00259811, -0.00541265, -0.000422239, -0.00449595, -0.00182743, -0.0026406, 0.999985, 1, 1, 1, 0.933333, 1, 0.00288424, -0.00559634, -0.000339806, -0.00483512, -0.00195455, -0.00263555, 0.999983, 1, 1, 1, 1, 1, 0.00316896, -0.00576261, -0.0003227, -0.00519962, -0.00241495, -0.00283535, 0.99998, 1, 1, 1, 1.06667, 1, 0.003404, -0.00603655, -0.000305414, -0.00530755, -0.0028383, -0.00312622, 0.999977, 1, 1, 1, 1.13333, 1, 0.00367939, -0.00644988, -0.000286639, -0.00551891, -0.00324317, -0.00340414, 0.999974, 1, 1, 1, 1.2, 1, 0.0036461, -0.00664353, -0.000264049, -0.00555683, -0.00380752, -0.00329514, 0.999972, 1, 1, 1, 1.26667, 1, 0.00342878, -0.00643665, -0.000185966, -0.00552652, -0.00411873, -0.00290513, 0.999972, 1, 1, 1, 1.33333, 1, 0.00316512, -0.00617652, -0.00014019, -0.00526205, -0.00422434, -0.00248676, 0.999974, 1, 1, 1, 1.4, 1, 0.00284471, -0.00584736, -0.000116169, -0.00502609, -0.00414953, -0.00189505, 0.999977, 1, 1, 1, 1.46667, 1, 0.00247813, -0.00547455, -0.000116646, -0.00472888, -0.00393072, -0.00117216, 0.999981, 1, 1, 1, 1.53333, 1, 0.00207268, -0.00507367, -0.000137389, -0.00433562, -0.00355904, -0.000434753, 0.999984, 1, 1, 1, 1.66667, 1, 0.00117127, -0.00425597, -0.000230789, -0.00357972, -0.00259692, 0.00104885, 0.99999, 1, 1, 1, 1.73333, 1, 0.000690483, -0.00387284, -0.000297666, -0.00316415, -0.00206483, 0.00152306, 0.999992, 1, 1, 1, 1.8, 1, 0.00019747, -0.00353171, -0.000375569, -0.00286039, -0.00155828, 0.00217978, 0.999992, 1, 1, 1, 1.86667, 1, -0.000298589, -0.00323664, -0.00045985, -0.00261588, -0.00110989, 0.00293374, 0.999992, 1, 1, 1, 1.93333, 1, -0.000769071, -0.00308685, -0.000572324, -0.00244092, -0.00080516, 0.00339507, 0.999991, 1, 1, 1, 2, 1, -0.000931062, -0.00296097, -0.000537515, -0.00229772, -0.000120042, 0.00322762, 0.999992, 1, 1, 1, 2.06667, 1, -0.00105654, -0.00288215, -0.00027287, -0.0019649, 0.000479195, 0.00311847, 0.999993, 1, 1, 1, 2.13333, 1, -0.00118192, -0.00255728, -0.000104427, -0.00150107, 0.000555591, 0.0025692, 0.999995, 1, 1, 1, 2.2, 1, -0.00125328, -0.00200808, -7.18236e-05, -0.00104773, 0.000593052, 0.0019066, 0.999998, 1, 1, 1, 2.26667, 1, -0.00124922, -0.00152543, -4.01735e-05, -0.000568244, 0.000391941, 0.00129881, 0.999999, 1, 1, 1, 2.33333, 1, -0.00112749, -0.00111291, 0.000126719, 1.57324e-05, 0.000440599, 0.000785273, 1, 1, 1, 1, 2.4, 1, -0.000810482, -0.000773773, 0.000251412, 0.000164508, 0.000585424, 0.000382942, 1, 1, 1, 1, 2.46667, 1, -0.000323631, -0.000342414, 9.67979e-05, 5.64001e-05, 0.000338061, 2.49178e-06, 1, 1, 1, 1, 2.51667, 1, -1.93715e-07, 9.08971e-07, 1.07288e-06, 4.00823e-06, 1.82894e-05, 1.0237e-05, 1, 1, 1, 1 )
+tracks/22/type = "method"
+tracks/22/path = NodePath(".")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0, 0.00217629, 1.26874, 1.27091 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "leftstep"
+}, {
+"args": [  ],
+"method": "rightstep"
+}, {
+"args": [  ],
+"method": "leftstep"
+}, {
+"args": [  ],
+"method": "rightstep"
+} ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "CrouchStand Retarget"
@@ -937,6 +971,23 @@ tracks/21/loop_wrap = true
 tracks/21/imported = false
 tracks/21/enabled = true
 tracks/21/keys = PoolRealArray( 0, 1, 0.208895, 0.138094, -0.381729, -0.166352, -0.311184, 0.273941, 0.894677, 1, 1, 1, 0.0666667, 1, 0.212203, 0.143646, -0.411418, -0.162489, -0.312257, 0.294861, 0.888341, 1, 1, 1, 0.133333, 1, 0.221382, 0.140101, -0.426539, -0.161445, -0.323906, 0.31, 0.879159, 1, 1, 1, 0.2, 1, 0.222842, 0.135556, -0.403113, -0.148838, -0.321843, 0.302969, 0.884576, 1, 1, 1, 0.266667, 1, 0.222529, 0.133479, -0.356103, -0.141879, -0.318364, 0.296659, 0.889105, 1, 1, 1, 0.333333, 1, 0.228896, 0.1346, -0.31497, -0.149622, -0.332234, 0.296056, 0.882941, 1, 1, 1, 0.4, 1, 0.236014, 0.133056, -0.296874, -0.151693, -0.350309, 0.287809, 0.878316, 1, 1, 1, 0.466667, 1, 0.241452, 0.138366, -0.30924, -0.149089, -0.359128, 0.279206, 0.877977, 1, 1, 1, 0.533333, 1, 0.248415, 0.147837, -0.344799, -0.139237, -0.355527, 0.270219, 0.883853, 1, 1, 1, 0.6, 1, 0.254918, 0.147852, -0.384899, -0.142095, -0.360631, 0.269191, 0.881641, 1, 1, 1, 0.666667, 1, 0.256364, 0.142776, -0.408741, -0.158105, -0.362657, 0.273367, 0.876786, 1, 1, 1, 0.733333, 1, 0.248665, 0.130915, -0.403583, -0.17592, -0.344028, 0.265733, 0.883223, 1, 1, 1, 0.8, 1, 0.233175, 0.12322, -0.377538, -0.184436, -0.322859, 0.256554, 0.892147, 1, 1, 1, 0.866667, 1, 0.21996, 0.125882, -0.34232, -0.169228, -0.322763, 0.255613, 0.89546, 1, 1, 1, 0.933333, 1, 0.213293, 0.115749, -0.316305, -0.165042, -0.328715, 0.252554, 0.894944, 1, 1, 1, 1, 1, 0.209515, 0.117139, -0.331, -0.173373, -0.319487, 0.252978, 0.896589, 1, 1, 1, 1.06667, 1, 0.208612, 0.134189, -0.371453, -0.168172, -0.31255, 0.267539, 0.895798, 1, 1, 1, 1.08333, 1, 0.208808, 0.138121, -0.381708, -0.166352, -0.311184, 0.273941, 0.894678, 1, 1, 1 )
+tracks/22/type = "method"
+tracks/22/path = NodePath(".")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0.265507, 0.866164 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "leftstep"
+}, {
+"args": [  ],
+"method": "rightstep"
+} ]
+}
 
 [sub_resource type="Animation" id=8]
 resource_name = "FallingIdle Retarget -loop"
@@ -1413,6 +1464,29 @@ tracks/21/loop_wrap = true
 tracks/21/imported = false
 tracks/21/enabled = true
 tracks/21/keys = PoolRealArray( 0, 1, 0.0507712, 0.423718, -0.344288, -0.387825, -0.315598, 0.202535, 0.842003, 1, 1, 1, 0.0666667, 1, 0.0510297, 0.423625, -0.34445, -0.388003, -0.31586, 0.202622, 0.841802, 1, 1, 1, 0.133333, 1, 0.0513778, 0.423683, -0.344603, -0.388316, -0.316062, 0.202494, 0.841612, 1, 1, 1, 0.2, 1, 0.051594, 0.424049, -0.344658, -0.388843, -0.315985, 0.202028, 0.84151, 1, 1, 1, 0.266667, 1, 0.0516538, 0.424662, -0.344663, -0.389694, -0.315782, 0.201488, 0.841322, 1, 1, 1, 0.333333, 1, 0.0516445, 0.425588, -0.344728, -0.390499, -0.315696, 0.201107, 0.841072, 1, 1, 1, 0.4, 1, 0.0517162, 0.426744, -0.344742, -0.391102, -0.315847, 0.200977, 0.840767, 1, 1, 1, 0.466667, 1, 0.0520116, 0.427739, -0.344533, -0.391876, -0.316039, 0.200847, 0.840365, 1, 1, 1, 0.533333, 1, 0.0522584, 0.428542, -0.344309, -0.392921, -0.315865, 0.200356, 0.840059, 1, 1, 1, 0.6, 1, 0.0523017, 0.429469, -0.344389, -0.393753, -0.315705, 0.199765, 0.839871, 1, 1, 1, 0.666667, 1, 0.0523594, 0.430475, -0.344623, -0.394064, -0.316108, 0.199717, 0.839585, 1, 1, 1, 0.733333, 1, 0.0524303, 0.431368, -0.344686, -0.394299, -0.316532, 0.199819, 0.83929, 1, 1, 1, 0.8, 1, 0.0523737, 0.43223, -0.344551, -0.394726, -0.31651, 0.199639, 0.839141, 1, 1, 1, 0.866667, 1, 0.0522154, 0.43315, -0.344393, -0.395166, -0.316308, 0.199378, 0.839072, 1, 1, 1, 0.933333, 1, 0.0520485, 0.433938, -0.344272, -0.395369, -0.316236, 0.199361, 0.839007, 1, 1, 1, 1, 1, 0.0519215, 0.434384, -0.344214, -0.395186, -0.316394, 0.199576, 0.838983, 1, 1, 1, 1.06667, 1, 0.0517893, 0.434492, -0.344246, -0.394714, -0.316521, 0.199771, 0.839111, 1, 1, 1, 1.13333, 1, 0.051696, 0.434206, -0.344188, -0.394268, -0.316545, 0.199874, 0.839287, 1, 1, 1, 1.2, 1, 0.0516698, 0.433494, -0.34398, -0.393955, -0.316413, 0.199862, 0.839486, 1, 1, 1, 1.26667, 1, 0.0516135, 0.432702, -0.343963, -0.393682, -0.316159, 0.199653, 0.83976, 1, 1, 1, 1.33333, 1, 0.0514824, 0.432073, -0.344264, -0.393128, -0.316084, 0.199807, 0.840011, 1, 1, 1, 1.4, 1, 0.0514432, 0.431304, -0.34443, -0.392466, -0.316256, 0.200284, 0.840142, 1, 1, 1, 1.46667, 1, 0.0513978, 0.430305, -0.344239, -0.392082, -0.316127, 0.200458, 0.840329, 1, 1, 1, 1.53333, 1, 0.0512098, 0.429469, -0.344078, -0.391812, -0.315845, 0.200452, 0.840562, 1, 1, 1, 1.6, 1, 0.0509881, 0.428816, -0.344175, -0.391337, -0.315915, 0.200842, 0.840664, 1, 1, 1, 1.66667, 1, 0.0508546, 0.427966, -0.344303, -0.390775, -0.316145, 0.201342, 0.840719, 1, 1, 1, 1.73333, 1, 0.050787, 0.426875, -0.344346, -0.390255, -0.316141, 0.201564, 0.840909, 1, 1, 1, 1.8, 1, 0.050704, 0.425837, -0.344424, -0.389776, -0.315882, 0.201591, 0.841222, 1, 1, 1, 1.86667, 1, 0.0506635, 0.425052, -0.344525, -0.389333, -0.315596, 0.201701, 0.841508, 1, 1, 1, 1.93333, 1, 0.0507361, 0.424557, -0.344458, -0.388917, -0.31559, 0.202019, 0.841626, 1, 1, 1, 2, 1, 0.0508215, 0.424257, -0.344301, -0.388579, -0.315767, 0.202352, 0.841636, 1, 1, 1, 2.06667, 1, 0.0508155, 0.42402, -0.344236, -0.388284, -0.315784, 0.202512, 0.841727, 1, 1, 1, 2.13333, 1, 0.0507665, 0.423808, -0.344269, -0.387969, -0.315598, 0.202547, 0.841934, 1, 1, 1, 2.18333, 1, 0.0507642, 0.423718, -0.344291, -0.387813, -0.315542, 0.202602, 0.842014, 1, 1, 1 )
+tracks/22/type = "method"
+tracks/22/path = NodePath(".")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0, 0.00217628, 1.13167, 1.13385 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "leftstep"
+}, {
+"args": [  ],
+"method": "rightstep"
+}, {
+"args": [  ],
+"method": "leftstep"
+}, {
+"args": [  ],
+"method": "rightstep"
+} ]
+}
 
 [sub_resource type="Animation" id=11]
 resource_name = "JoggingRetarget -loop"
@@ -1572,6 +1646,23 @@ tracks/21/loop_wrap = true
 tracks/21/imported = false
 tracks/21/enabled = true
 tracks/21/keys = PoolRealArray( 0, 1, 0.0259537, 0.46958, -0.362203, -0.267305, -0.0307628, 0.00635873, 0.9631, 1, 1, 1, 0.0666667, 1, 0.0297563, 0.467293, -0.394933, -0.26818, -0.0323357, 0.00751149, 0.962797, 1, 1, 1, 0.133333, 1, 0.0353664, 0.467924, -0.426394, -0.262521, -0.0372704, 0.00617727, 0.964186, 1, 1, 1, 0.2, 1, 0.0363242, 0.483891, -0.434734, -0.275696, -0.0344345, -0.00612814, 0.960608, 1, 1, 1, 0.266667, 1, 0.0303268, 0.479918, -0.414008, -0.274796, -0.0242546, -0.0243722, 0.960888, 1, 1, 1, 0.333333, 1, 0.0257296, 0.454292, -0.382719, -0.2611, -0.0382189, -0.0288601, 0.964123, 1, 1, 1, 0.4, 1, 0.0261934, 0.426518, -0.376715, -0.255226, -0.0567773, -0.0271299, 0.964832, 1, 1, 1, 0.466667, 1, 0.0385976, 0.424212, -0.400526, -0.241346, -0.0569743, -0.0271315, 0.968385, 1, 1, 1, 0.533333, 1, 0.04943, 0.432892, -0.430591, -0.233343, -0.0596322, -0.018824, 0.970382, 1, 1, 1, 0.6, 1, 0.056377, 0.457169, -0.449791, -0.232884, -0.0654772, -0.00170613, 0.970296, 1, 1, 1, 0.666667, 1, 0.055538, 0.470397, -0.437703, -0.257318, -0.0559193, 0.0154545, 0.964584, 1, 1, 1, 0.733333, 1, 0.0498087, 0.466162, -0.403818, -0.273855, -0.0408622, 0.0161711, 0.960766, 1, 1, 1, 0.8, 1, 0.0426588, 0.456311, -0.364601, -0.283831, -0.0261692, 0.0125796, 0.958435, 1, 1, 1, 0.866667, 1, 0.0367329, 0.444312, -0.347202, -0.271958, -0.0211139, 0.0130373, 0.961989, 1, 1, 1, 0.933333, 1, 0.0280418, 0.462615, -0.357185, -0.267109, -0.0282097, 0.00783117, 0.963222, 1, 1, 1, 0.95, 1, 0.0259571, 0.469581, -0.362205, -0.267305, -0.0307628, 0.00635873, 0.9631, 1, 1, 1 )
+tracks/22/type = "method"
+tracks/22/path = NodePath(".")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0.265507, 0.731234 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "leftstep"
+}, {
+"args": [  ],
+"method": "rightstep"
+} ]
+}
 
 [sub_resource type="Animation" id=12]
 resource_name = "JumpUp Retarget"
@@ -2399,7 +2490,7 @@ max_space = 1.84
 [sub_resource type="AnimationNodeAnimation" id=31]
 animation = "JumpUp Retarget"
 
-[sub_resource type="AnimationNodeOneShot" id=32]
+[sub_resource type="AnimationNodeOneShot" id=54]
 
 [sub_resource type="AnimationNodeTransition" id=30]
 input_count = 2
@@ -2412,24 +2503,103 @@ input_1/auto_advance = false
 [sub_resource type="AnimationNodeTimeScale" id=49]
 
 [sub_resource type="AnimationNodeBlendTree" id=48]
-graph_offset = Vector2( -211.6, 109.958 )
+graph_offset = Vector2( -16.2212, 90.1038 )
 nodes/Crouching/node = SubResource( 22 )
 nodes/Crouching/position = Vector2( -100, 240 )
 nodes/IdleWalk/node = SubResource( 35 )
 nodes/IdleWalk/position = Vector2( -100, 100 )
 nodes/Jump/node = SubResource( 31 )
-nodes/Jump/position = Vector2( 20, 380 )
-nodes/JumpShot/node = SubResource( 32 )
-nodes/JumpShot/position = Vector2( 340, 240 )
+nodes/Jump/position = Vector2( 100, 340 )
+nodes/JumpShot/node = SubResource( 54 )
+nodes/JumpShot/position = Vector2( 340, 220 )
 nodes/StandCrouch/node = SubResource( 30 )
-nodes/StandCrouch/position = Vector2( 140, 140 )
+nodes/StandCrouch/position = Vector2( 120, 140 )
 nodes/TimeScale/node = SubResource( 49 )
-nodes/TimeScale/position = Vector2( 635, 113 )
-nodes/output/position = Vector2( 540, 200 )
-node_connections = [ "output", 0, "JumpShot", "JumpShot", 0, "StandCrouch", "JumpShot", 1, "Jump", "StandCrouch", 0, "IdleWalk", "StandCrouch", 1, "Crouching" ]
+nodes/TimeScale/position = Vector2( 380, 80 )
+nodes/output/position = Vector2( 560, 200 )
+node_connections = [ "JumpShot", 0, "StandCrouch", "JumpShot", 1, "Jump", "output", 0, "JumpShot", "StandCrouch", 0, "IdleWalk", "StandCrouch", 1, "Crouching" ]
+
+[sub_resource type="AnimationNodeAnimation" id=55]
+animation = "CrouchIdle Retarget -loop"
+
+[sub_resource type="AnimationNodeAnimation" id=56]
+animation = "CrouchStand Retarget"
+
+[sub_resource type="AnimationNodeAnimation" id=57]
+animation = "CrouchWalk Retarget -loop"
+
+[sub_resource type="AnimationNodeAnimation" id=58]
+animation = "FallingIdle Retarget -loop"
+
+[sub_resource type="AnimationNodeAnimation" id=59]
+animation = "HardLanding Retarget"
+
+[sub_resource type="AnimationNodeAnimation" id=60]
+animation = "Idle Retarget -loop"
+
+[sub_resource type="AnimationNodeAnimation" id=61]
+animation = "JoggingRetarget -loop"
+
+[sub_resource type="AnimationNodeAnimation" id=62]
+animation = "JumpUp Retarget"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=63]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=64]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=65]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=66]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=67]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=68]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=69]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=70]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=71]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=72]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=73]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=74]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=75]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=76]
+xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachine" id=50]
-graph_offset = Vector2( -243.6, 0 )
+"states/CrouchIdle Retarget -loop/node" = SubResource( 55 )
+"states/CrouchIdle Retarget -loop/position" = Vector2( 33.4, 183 )
+"states/CrouchStand Retarget/node" = SubResource( 56 )
+"states/CrouchStand Retarget/position" = Vector2( -242.6, 183 )
+"states/CrouchWalk Retarget -loop/node" = SubResource( 57 )
+"states/CrouchWalk Retarget -loop/position" = Vector2( 335.4, 183 )
+"states/FallingIdle Retarget -loop/node" = SubResource( 58 )
+"states/FallingIdle Retarget -loop/position" = Vector2( 9.39999, -20 )
+"states/HardLanding Retarget/node" = SubResource( 59 )
+"states/HardLanding Retarget/position" = Vector2( 329.4, -20 )
+"states/Idle Retarget -loop/node" = SubResource( 60 )
+"states/Idle Retarget -loop/position" = Vector2( 33.4, 78 )
+"states/JoggingRetarget -loop/node" = SubResource( 61 )
+"states/JoggingRetarget -loop/position" = Vector2( 305.4, 78 )
+"states/JumpUp Retarget/node" = SubResource( 62 )
+"states/JumpUp Retarget/position" = Vector2( -258.6, -20 )
+transitions = [ "Idle Retarget -loop", "JoggingRetarget -loop", SubResource( 63 ), "JoggingRetarget -loop", "Idle Retarget -loop", SubResource( 64 ), "CrouchIdle Retarget -loop", "CrouchWalk Retarget -loop", SubResource( 65 ), "CrouchWalk Retarget -loop", "CrouchIdle Retarget -loop", SubResource( 66 ), "JoggingRetarget -loop", "CrouchWalk Retarget -loop", SubResource( 67 ), "CrouchWalk Retarget -loop", "JoggingRetarget -loop", SubResource( 68 ), "Idle Retarget -loop", "JumpUp Retarget", SubResource( 69 ), "JumpUp Retarget", "FallingIdle Retarget -loop", SubResource( 70 ), "FallingIdle Retarget -loop", "HardLanding Retarget", SubResource( 71 ), "HardLanding Retarget", "Idle Retarget -loop", SubResource( 72 ), "FallingIdle Retarget -loop", "Idle Retarget -loop", SubResource( 73 ), "CrouchStand Retarget", "Idle Retarget -loop", SubResource( 74 ), "CrouchIdle Retarget -loop", "CrouchStand Retarget", SubResource( 75 ), "Idle Retarget -loop", "CrouchIdle Retarget -loop", SubResource( 76 ) ]
+graph_offset = Vector2( -472.6, -136.28 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=51]
 
@@ -2504,7 +2674,7 @@ bones/12/name = "hand.L_end"
 bones/12/parent = 11
 bones/12/rest = Transform( 1, 8.75443e-08, -1.14832e-06, -8.75444e-08, 1, -1.30385e-07, 1.14832e-06, 1.30385e-07, 1, -1.41561e-07, 0.179361, 2.6077e-08 )
 bones/12/enabled = true
-bones/12/bound_children = [  ]
+bones/12/bound_children = [ NodePath("ManoIzquierdaBone") ]
 bones/13/name = "shoulder.R"
 bones/13/parent = 3
 bones/13/rest = Transform( 0.0265092, -0.957268, -0.287986, 0.308469, -0.266195, 0.913229, -0.950865, -0.113044, 0.288231, -0.0226273, 0.169669, 0.0967544 )
@@ -2529,7 +2699,7 @@ bones/17/name = "hand.R_end"
 bones/17/parent = 16
 bones/17/rest = Transform( 1, 1.22935e-07, 2.00421e-06, -1.22935e-07, 1, -7.45068e-09, -2.00421e-06, 7.45043e-09, 1, -2.98023e-08, 0.179361, 5.96046e-08 )
 bones/17/enabled = true
-bones/17/bound_children = [  ]
+bones/17/bound_children = [ NodePath("ManoDerechaBone") ]
 bones/18/name = "breast.L"
 bones/18/parent = 3
 bones/18/rest = Transform( -1, 1.91509e-09, -1.66002e-07, -1.65989e-07, -0.0285596, 0.999592, -2.82662e-09, 0.999593, 0.0285595, 0.146397, -0.0228232, 0.0327098 )
@@ -2589,7 +2759,7 @@ bones/29/name = "toe.L"
 bones/29/parent = 28
 bones/29/rest = Transform( -0.954959, 0.184327, 0.232543, -0.119395, 0.47875, -0.869795, -0.271657, -0.858383, -0.435179, -1.18073e-07, 0.159805, 1.01165e-07 )
 bones/29/enabled = true
-bones/29/bound_children = [  ]
+bones/29/bound_children = [ NodePath("PieIzquierdoBone") ]
 bones/30/name = "toe.L_end"
 bones/30/parent = 29
 bones/30/rest = Transform( 1, -1.22239e-09, 2.05832e-05, 1.22234e-09, 1, 2.21206e-09, -2.05832e-05, -2.21203e-09, 1, 5.93718e-08, 0.0830897, 7.56577e-09 )
@@ -2624,7 +2794,7 @@ bones/36/name = "toe.R"
 bones/36/parent = 35
 bones/36/rest = Transform( -0.958, -0.218271, -0.185993, 0.0855561, 0.4015, -0.911854, 0.273707, -0.889469, -0.365963, 7.35071e-08, 0.159806, 3.18686e-08 )
 bones/36/enabled = true
-bones/36/bound_children = [  ]
+bones/36/bound_children = [ NodePath("PieDerechoBone") ]
 bones/37/name = "toe.R_end"
 bones/37/parent = 36
 bones/37/rest = Transform( 1, 3.63214e-08, -2.05776e-05, -3.63214e-08, 1, 2.21214e-09, 2.05776e-05, -2.21139e-09, 1, 1.51339e-08, 0.0830897, 1.12926e-08 )
@@ -2647,7 +2817,7 @@ skin = SubResource( 2 )
 material/0 = null
 
 [node name="ManoDerechaBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.325072, -0.547314, -0.771215, -0.427168, -0.642589, 0.636086, -0.843715, 0.536212, -0.0249074, -0.686384, 1.14824, -0.0622398 )
+transform = Transform( -0.314965, -0.531153, -0.786556, -0.437121, -0.654427, 0.616967, -0.842449, 0.538143, -0.0260562, -0.674243, 1.14798, -0.0577556 )
 bone_name = "hand.R_end"
 
 [node name="StaticBody" type="StaticBody" parent="Hero/Skeleton/ManoDerechaBone"]
@@ -2658,7 +2828,7 @@ transform = Transform( 0.07, 0, -9.31323e-10, 1.86265e-09, 0.116, -2.32831e-10, 
 shape = SubResource( 42 )
 
 [node name="ManoIzquierdaBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.980393, 0.0577244, 0.188407, 0.173063, -0.204967, 0.963345, 0.094226, 0.977066, 0.190959, 0.373451, 1.25179, 0.630732 )
+transform = Transform( -0.977037, 0.0346638, 0.210228, 0.197958, -0.217241, 0.955833, 0.078803, 0.975503, 0.205391, 0.368916, 1.25841, 0.633709 )
 bone_name = "hand.L_end"
 
 [node name="StaticBody" type="StaticBody" parent="Hero/Skeleton/ManoIzquierdaBone"]
@@ -2669,22 +2839,22 @@ transform = Transform( 0.07, 0, 0, -1.11759e-08, 0.116, 0, -2.79397e-09, 0, 0.05
 shape = SubResource( 42 )
 
 [node name="PieDerechoBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.00174296, -0.984605, -0.174796, 0.0483059, -0.174674, 0.983443, -0.998834, -0.00673021, 0.047865, -0.285914, 0.0379693, -0.383162 )
+transform = Transform( -0.00319371, -0.984497, -0.175385, 0.0497431, -0.175325, 0.983255, -0.998759, -0.00558437, 0.0495305, -0.284223, 0.0387003, -0.38499 )
 bone_name = "toe.R"
 
 [node name="PieDerechoRay" type="RayCast" parent="Hero/Skeleton/PieDerechoBone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.118, 0.019 )
 enabled = true
-cast_to = Vector3( 0, 0, -0.11 )
+cast_to = Vector3( 0, 0, -0.2 )
 
 [node name="PieIzquierdoBone" type="BoneAttachment" parent="Hero/Skeleton"]
-transform = Transform( -0.86486, -0.48362, -0.134648, -0.0648866, -0.158279, 0.985261, -0.497803, 0.860849, 0.105508, 0.0898014, 0.0125179, 0.634368 )
+transform = Transform( -0.864914, -0.48344, -0.134947, -0.0653203, -0.158162, 0.985252, -0.497653, 0.860972, 0.105217, 0.0904885, 0.0126998, 0.633039 )
 bone_name = "toe.L"
 
 [node name="PieIzquierdoRay" type="RayCast" parent="Hero/Skeleton/PieIzquierdoBone"]
 transform = Transform( 1, 1.49012e-08, 7.45058e-09, -1.49012e-08, 1, 0, -3.72529e-09, 0, 1, 0, -0.118, 0.019 )
 enabled = true
-cast_to = Vector3( 0, 0, -0.11 )
+cast_to = Vector3( 0, 0, -0.2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/ClimbDown Retarget -loop" = SubResource( 3 )
@@ -2715,7 +2885,7 @@ disabled = true
 tree_root = SubResource( 48 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/Crouching/blend_position = 0.493145
+parameters/Crouching/blend_position = 0.00107692
 parameters/IdleWalk/blend_position = 0.0
 parameters/JumpShot/active = false
 parameters/StandCrouch/current = 0

@@ -14,6 +14,8 @@ var _jump_timer : float
 var _crouching := false
 
 onready var _model: Spatial = $Hero
+onready var _stand_shape: CollisionShape = $CollisionShape
+onready var _crouch_shape: CollisionShape = $CollisionShapeCrouch
 
 onready var leftfootray = $Hero/Skeleton/PieIzquierdoBone/PieIzquierdoRay
 onready var rightfootray = $Hero/Skeleton/PieDerechoBone/PieDerechoRay
@@ -68,37 +70,29 @@ func _physics_process(delta):
 	var vel = sqrt((_velocity.x * _velocity.x)+(_velocity.z * _velocity.z))
 
 	if vel > 0.2:
-		_model.rotation.y = lerp_angle(_model.rotation.y, atan2(_velocity.x, _velocity.z), delta * _angular_acceleration)
+		var rotate = lerp_angle(_model.rotation.y, atan2(_velocity.x, _velocity.z), delta * _angular_acceleration)
+		_model.rotation.y = rotate
+		_stand_shape.rotation.y = rotate
+		_crouch_shape.rotation.y = rotate
 
-	if Input.is_action_pressed("crouch"):
-		$CollisionShape.disabled = true
-		$CollisionShapeCrouch.disabled = false
+	if Input.is_action_pressed("crouch") and is_on_floor():
+		_stand_shape.disabled = true
+		_crouch_shape.disabled = false
 		speed = lerp(speed, move_direction.length()*crouch_speed, 0.05)
 		$AnimationTree.set("parameters/StandCrouch/current", 1)
 	else :
-		$CollisionShape.disabled = false
-		$CollisionShapeCrouch.disabled = true
-		speed = lerp(speed, move_direction.length()*walk_speed, 0.05)
+		_stand_shape.disabled = false
+		_crouch_shape.disabled = true
 		$AnimationTree.set("parameters/StandCrouch/current", 0)
+		if !_prep_jump:
+			speed = lerp(speed, move_direction.length()*50, 0.05)
+		else:
+			speed = lerp(speed, move_direction.length()*walk_speed, 0.05)
 
 	# Animations
 	$AnimationTree.set("parameters/IdleWalk/blend_position", vel)
 	$AnimationTree.set("parameters/Crouching/blend_position", vel)
 	
-	# Surface Painting
-	if leftfootray.is_colliding():
-		var b = decal.instance()
-		get_parent().add_child(b)
-		var correction = leftfootray.get_collision_normal()*(0.05)
-		b.global_transform.origin = leftfootray.get_collision_point() + correction
-		b.look_at(leftfootray.get_collision_point() + leftfootray.get_collision_normal(), Vector3.UP)
-
-	if rightfootray.is_colliding():
-		var b = decal.instance()
-		get_parent().add_child(b)
-		var correction = leftfootray.get_collision_normal()*(0.05)
-		b.global_transform.origin = rightfootray.get_collision_point() + correction
-		b.look_at(rightfootray.get_collision_point() + rightfootray.get_collision_normal(), Vector3.UP)	
 	# jugar con mutiplayer lookip por algo
 	# poner planos
 	# rehacer todos los assets (plz no)
@@ -110,3 +104,18 @@ func _process(delta):
 
 func _ready():
 	pass # Replace with function body.
+
+# Surface Painting
+func rightstep():
+	var b = decal.instance()
+	get_parent().add_child(b)
+	var correction = rightfootray.get_collision_normal()*(0.05)
+	b.global_transform.origin = rightfootray.get_collision_point() + correction
+	b.look_at(rightfootray.get_collision_point() + rightfootray.get_collision_normal(), Vector3.UP)
+
+func leftstep():
+	var b = decal.instance()
+	get_parent().add_child(b)
+	var correction = leftfootray.get_collision_normal()*(0.05)
+	b.global_transform.origin = leftfootray.get_collision_point() + correction
+	b.look_at(leftfootray.get_collision_point() + leftfootray.get_collision_normal(), Vector3.UP)
