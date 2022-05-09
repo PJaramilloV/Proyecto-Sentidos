@@ -622,7 +622,7 @@ transform = Transform( 0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, -
 transform = Transform( 1, 0, 0, 0, 0.983252, 0.182253, 0, -0.182253, 0.983252, -4.66953, 0.968886, -19.5795 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( -6.86269e-08, 0, 1.57, 0, 1.57, 0, -1.57, 0, -6.86269e-08, 0, 0.627967, 5.07332 )
+transform = Transform( -6.86269e-08, 0, 1.57, 0, 1.57, 0, -1.57, 0, -6.86269e-08, -0.0238957, 0.627967, -89.2435 )
 
 [node name="FRONTAL_BOUND" type="StaticBody" parent="."]
 

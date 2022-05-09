@@ -5,6 +5,7 @@ export var jump_strength := 7.0  # 6 tentativo, post grappling
 export var gravity := 10.0
 export var walk_speed := 440.0
 export var crouch_speed := 100.0
+export var decal_correction := 0.01
 
 var _velocity := Vector3.ZERO
 var _angular_acceleration := 10
@@ -33,8 +34,8 @@ onready var decal = preload("res://scenes/Footprint.tscn")
 
 func _physics_process(delta):
 	var move_direction := Vector3.ZERO
-	move_direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
-	move_direction.z = Input.get_action_strength("back") - Input.get_action_strength("forward")
+	move_direction.z = - Input.get_action_strength("right") + Input.get_action_strength("left")
+	move_direction.x = Input.get_action_strength("back") - Input.get_action_strength("forward")
 	move_direction = move_direction.normalized()
 	
 	_velocity.y -= gravity * delta 
@@ -68,7 +69,7 @@ func _physics_process(delta):
 	var vel = sqrt((_velocity.x * _velocity.x)+(_velocity.z * _velocity.z))
 
 	if vel > 0.2:
-		var rotate = lerp_angle(_model.rotation.y, atan2(_velocity.x, _velocity.z), delta * _angular_acceleration)
+		var rotate = lerp_angle(_model.rotation.y, atan2(_velocity.x, _velocity.z), delta * _angular_acceleration) -0.25
 		_model.rotation.y = rotate
 		_stand_shape.rotation.y = rotate
 		_crouch_shape.rotation.y = rotate
@@ -170,14 +171,14 @@ func _ready():
 func rightstep():
 	var b = decal.instance()
 	get_parent().add_child(b)
-	var correction = rightfootray.get_collision_normal()*(0.05)
+	var correction = rightfootray.get_collision_normal()*decal_correction
 	b.global_transform.origin = rightfootray.get_collision_point() + correction
 	b.look_at(rightfootray.get_collision_point() + rightfootray.get_collision_normal(), Vector3.UP)
 
 func leftstep():
 	var b = decal.instance()
 	get_parent().add_child(b)
-	var correction = leftfootray.get_collision_normal()*(0.05)
+	var correction = leftfootray.get_collision_normal()*decal_correction
 	b.global_transform.origin = leftfootray.get_collision_point() + correction
 	b.look_at(leftfootray.get_collision_point() + leftfootray.get_collision_normal(), Vector3.UP)
 ### Surface Painting ###
