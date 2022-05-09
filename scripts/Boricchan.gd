@@ -120,8 +120,8 @@ func _physics_process(delta):
 			_timer = 0.0
 	
 	#print(_pointer)
-	if _objects.empty():
-		print("aaaaaaaaaaaaaaaa")
+	#if _objects.empty():
+		#print("aaaaaaaaaaaaaaaa")
 
 func _process(delta):
 	_timer += delta
