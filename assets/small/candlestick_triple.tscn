@@ -54,3 +54,6 @@ shape = SubResource( 2 )
 [node name="CollisionShape3" type="CollisionShape" parent="RigidBody" index="3"]
 transform = Transform( 0.102, 0, 0, 0, 0.228, 0, 0, 0, 0.102, -0.259697, 0.30946, 0 )
 shape = SubResource( 2 )
+
+[node name="Candlestick_Triple" parent="." index="1"]
+mesh = null

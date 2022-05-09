@@ -40,6 +40,7 @@ points = PoolVector3Array( 2.04738, 2.48825, -0.795392, 2.04738, 2.01651, -0.795
 
 [node name="Stairs_Low" type="MeshInstance" parent="StaticBody" index="0"]
 transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 0, 0, 0 )
+use_in_baked_light = true
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = null
@@ -48,3 +49,6 @@ material/1 = null
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="1"]
 transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 0, 0, 0 )
 shape = SubResource( 2 )
+
+[node name="Stairs_Low" parent="." index="1"]
+mesh = null

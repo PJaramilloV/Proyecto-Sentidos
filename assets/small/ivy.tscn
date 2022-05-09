@@ -32,3 +32,6 @@ shape = SubResource( 2 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = null
+
+[node name="Ivy_Branch" parent="." index="1"]
+mesh = null

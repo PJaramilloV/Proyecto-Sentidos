@@ -149,3 +149,15 @@ material/1 = null
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="4"]
 transform = Transform( 0.383, 0, 0, 0, 0.23, 0, 0, 0, 0.198, -0.0370584, 0.225296, -0.0298811 )
 shape = SubResource( 5 )
+
+[node name="Book_Big_Red" parent="." index="1"]
+mesh = null
+
+[node name="Book_Big_Green" parent="." index="2"]
+mesh = null
+
+[node name="Book_Big_DeepRed" parent="." index="3"]
+mesh = null
+
+[node name="Book_Big_Brown" parent="." index="4"]
+mesh = null

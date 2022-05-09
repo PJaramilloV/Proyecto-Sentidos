@@ -25,6 +25,7 @@ surfaces/0 = {
 [node name="StaticBody" type="StaticBody" parent="." index="0"]
 
 [node name="Jail_Gate" type="MeshInstance" parent="StaticBody" index="0"]
+use_in_baked_light = true
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = null
@@ -40,3 +41,6 @@ shape = SubResource( 2 )
 [node name="CollisionShape4" type="CollisionShape" parent="StaticBody" index="3"]
 transform = Transform( 0.725, 0, 0, 0, 1.079, 0, 0, 0, 0.121, 1.2727, 1.15104, 0 )
 shape = SubResource( 2 )
+
+[node name="Jail_Gate" parent="." index="1"]
+mesh = null

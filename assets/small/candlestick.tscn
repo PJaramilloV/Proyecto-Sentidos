@@ -46,3 +46,6 @@ mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = null
 material/1 = null
+
+[node name="Candlestick" parent="." index="1"]
+mesh = null

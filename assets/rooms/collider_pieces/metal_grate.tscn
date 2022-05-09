@@ -26,9 +26,13 @@ points = PoolVector3Array( -1.75986, 3.89189, 0.0198831, -1.75986, 3.89189, -0.0
 [node name="StaticBody" type="StaticBody" parent="." index="0"]
 
 [node name="Portcullis_Metal" type="MeshInstance" parent="StaticBody" index="0"]
+use_in_baked_light = true
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="1"]
 shape = SubResource( 2 )
+
+[node name="Portcullis_Metal" parent="." index="1"]
+mesh = null

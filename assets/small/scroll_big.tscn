@@ -33,3 +33,6 @@ transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 0, 0, 0 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = null
+
+[node name="Scroll_Big" parent="." index="1"]
+mesh = null

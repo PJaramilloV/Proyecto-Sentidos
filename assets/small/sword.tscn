@@ -46,3 +46,6 @@ material/1 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody" index="1"]
 shape = SubResource( 2 )
+
+[node name="Sword" parent="." index="1"]
+mesh = null

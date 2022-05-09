@@ -26,9 +26,13 @@ points = PoolVector3Array( -0.0553757, 0.569362, -0.0177052, -0.0341638, 0.56936
 [node name="StaticBody" type="StaticBody" parent="." index="0"]
 
 [node name="Jail_Door_Left" type="MeshInstance" parent="StaticBody" index="0"]
+use_in_baked_light = true
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="1"]
 shape = SubResource( 2 )
+
+[node name="Jail_Door_Left" parent="." index="1"]
+mesh = null

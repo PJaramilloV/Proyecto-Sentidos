@@ -32,3 +32,6 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody" index="1"]
 transform = Transform( 0.077, 0, 0, 0, 0.061, 0, 0, 0, 0.077, 0, 0.0617906, 0 )
 shape = SubResource( 2 )
+
+[node name="Inkwell" parent="." index="1"]
+mesh = null

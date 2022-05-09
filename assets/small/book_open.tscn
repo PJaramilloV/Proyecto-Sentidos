@@ -42,7 +42,11 @@ surfaces/1 = {
 shape = SubResource( 2 )
 
 [node name="Book_Open" type="MeshInstance" parent="RigidBody" index="1"]
+generate_lightmap = false
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = null
 material/1 = null
+
+[node name="Book_Open" parent="." index="1"]
+mesh = null
