@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/rooms/pieces/Cave_Prop_Support_Wall_Boards_1.obj" type="ArrayMesh" id=1]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( -0.5, 0.1, -0.500087, -0.5, 0.887398, -0.507185, -0.40001, 0.1, -0.500087, -0.5, 0.1, 1.49989, -0.40001, 0.887398, -0.507185, -0.5, 0.912449, 1.492, -0.40001, 0.1, 1.49989, -0.5, 0.612473, 1.50719, -0.40001, 0.912449, 1.492, -0.40001, 0.612473, 1.50719 )
+
+[node name="wooden_wall_boards" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="Cave_Prop_Support_Wall_Boards_1" type="MeshInstance" parent="StaticBody"]
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 1 )

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/rooms/pieces/Cave_Prop_Support_Corner_Brace_1.obj" type="ArrayMesh" id=1]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( 0.199979, 1.14995, 0.6, 0.315, 1.04998, 0.6, 0.199979, 1.14995, 0.4, -0.287904, 0.725703, 0.6, 0.315, 1.04998, 0.4, 0.29582, 1.0333, 0.6, -0.287904, 0.725703, 0.4, -0.172941, 0.625736, 0.6, 0.195965, 0.946473, 0.4, 0.249788, 0.993275, 0.587882, -0.172941, 0.625736, 0.4, 0.140963, 0.898645, 0.408927 )
+
+[node name="wooden_beam_corner" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="Cave_Prop_Support_Corner_Brace_1" type="MeshInstance" parent="StaticBody"]
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 1 )

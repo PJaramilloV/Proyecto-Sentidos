@@ -1,0 +1,105 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/rooms/pieces/Mountain_1.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/rooms/pieces/Cave_Cliff_Terrain_Entrance_Round_Top_Center.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/rooms/pieces/Cave_Cliff_Terrain_Entrance_Round_Top.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://assets/rooms/pieces/Cave_Cliff_Terrain_Entrance_Round_Top_Center_FLIPPED_NORMALS.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://assets/rooms/pieces/Shared_Prop_Boulder_5.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Floor_Raised.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://assets/rooms/pieces/Mountain_4.obj" type="ArrayMesh" id=7]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( -0.5, 0, 0.5, -0.5, 0.308927, 0.450959, -0.5, 1, -0.5, 0.249927, 0, 0.495204, 0.499902, 0, 0.5, 0.499902, 2, 0.5, -0.5, 0.587706, 0.308927, -0.5, 0.950861, -0.191073, 0.499902, 2, -0.5, -4.89354e-05, 1, -0.5, 0.249927, 1.13391, -0.5, 0.408379, 1.13391, -0.366092, 0.524496, 1.5, -0.366092, 0.70742, 1.5, 0, 0.75, 2, 0, -0.5, 0.808927, 0.0877056, 0.566954, 2, -0.366092, 0.432973, 1.5, -0.5 )
+
+[sub_resource type="BoxShape" id=2]
+
+[node name="chasm_side_edge" type="Spatial"]
+transform = Transform( 0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, 0, 0, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="edge3" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1.91069e-15, 4.37114e-08, -4.682, 1, -4.37114e-08, 0, -4.37114e-08, -1, -2.04657e-07, -9.55068, 3.46687, 0.727189 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("../edge")
+material/0 = null
+
+[node name="rock1" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1.233, 0, 3.55271e-15, 0, 1, 0, -4.38049e-15, 0, 1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="rock2" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 5.89079e-08, 0.194135, 1.03713, -8.78221e-08, -1.18318, 0.170171, 1.018, -1.13306e-07, -4.53345e-08, -0.443598, 0.339061, 0 )
+mesh = ExtResource( 7 )
+skeleton = NodePath("../rock1")
+material/0 = null
+
+[node name="chasm_side_wall" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 17.579, 3.2336e-15, -2.49191e-21, 0, -4.37114e-08, -17.63, -5.68434e-14, 1, -7.70632e-07, -8.60131, -5.26811, 0.0578384 )
+mesh = ExtResource( 6 )
+skeleton = NodePath("../rock2")
+material/0 = null
+
+[node name="rock3" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 0.550914, 0.873715, 9.28517, 0, 4.5654, -1.7931, -5.78282, 0.0832366, 0.884574, -0.905762, -15.3297, 0 )
+mesh = ExtResource( 5 )
+skeleton = NodePath("../rock2")
+material/0 = null
+
+[node name="edge" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 2.44759e-15, 4.37114e-08, -3.456, 1.281, -4.37114e-08, 2.74021e-23, -5.59943e-08, -1, -1.51067e-07, -13.5494, 3.3268, 0.741968 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="edge2" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1.91069e-15, 5.02681e-08, -5.093, 1, -5.02681e-08, 0, -4.37114e-08, -1.15, -2.22622e-07, -4.85242, 3.47732, 0.738578 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("../edge")
+material/0 = null
+
+[node name="edge_back_corner" type="MeshInstance" parent="StaticBody"]
+transform = Transform( -1.10151e-07, -2.12924e-14, -3.226, 1.2755e-07, -3.226, 0, 1.459, 2.82026e-07, -2.43556e-07, -16.8374, 7.1535, 0.262042 )
+mesh = ExtResource( 3 )
+skeleton = NodePath("../edge3")
+material/0 = null
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -1.10151e-07, -2.12924e-14, -3.226, 1.2755e-07, -3.226, 0, 1.459, 2.82026e-07, -2.43556e-07, -17.2922, 7.1535, 0.262042 )
+shape = SubResource( 1 )
+
+[node name="Cave_Cliff_Terrain_Entrance_Round_Top_Center" type="MeshInstance" parent="StaticBody"]
+transform = Transform( -0.416441, 2.99309, -2.08664e-07, 0, 1.37035e-07, 5, -1.33663, -0.932531, 6.50115e-08, -18.1719, -1.6607, 2.11535 )
+mesh = ExtResource( 4 )
+skeleton = NodePath("../edge_back_corner")
+material/0 = null
+
+[node name="Cave_Cliff_Terrain_Entrance_Round_Top_Center2" type="MeshInstance" parent="StaticBody"]
+transform = Transform( -0.416441, 2.99309, -2.08664e-07, 0, 1.37035e-07, 5, -1.33663, -0.932531, 6.50115e-08, -18.1719, -6.61104, 2.11535 )
+mesh = ExtResource( 4 )
+skeleton = NodePath("../edge_back_corner")
+material/0 = null
+
+[node name="Cave_Cliff_Terrain_Entrance_Round_Top_Center3" type="MeshInstance" parent="StaticBody"]
+transform = Transform( -0.416441, 2.99309, -2.08664e-07, 0, 1.37035e-07, 5, -1.33663, -0.932531, 6.50115e-08, -18.1719, -11.6089, 2.11535 )
+mesh = ExtResource( 4 )
+skeleton = NodePath("../edge_back_corner")
+material/0 = null
+
+[node name="Cave_Cliff_Terrain_Entrance_Round_Top_Center6" type="MeshInstance" parent="StaticBody"]
+transform = Transform( -0.522775, 1.35872, -1.02869e-07, 0, 6.81898e-08, 2.702, -0.926716, -0.766474, 5.803e-08, -18.1395, 2.09061, 2.24553 )
+mesh = ExtResource( 4 )
+skeleton = NodePath("../edge_back_corner")
+material/0 = null
+
+[node name="Cave_Cliff_Terrain_Entrance_Round_Top_Center7" type="MeshInstance" parent="StaticBody"]
+transform = Transform( -0.881441, 0.797213, 0.103696, -7.77822e-09, -0.0689904, 3.81952, 0.595951, 1.17912, 0.153371, -18.3666, 5.13008, 1.13784 )
+mesh = ExtResource( 4 )
+skeleton = NodePath("../edge_back_corner")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 7.879, 0, 0, 0, 8.289, 0, 0, 0, 0.591, -9.38037, -5.68595, 0.15109 )
+shape = SubResource( 2 )
