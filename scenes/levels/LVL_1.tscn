@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://assets/rooms/assemblies/Platform_square.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -7,16 +7,10 @@
 [ext_resource path="res://assets/rooms/hallway_cave_double_decker.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/rooms/hallway_cave.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/rooms/chasm_wide.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/rooms/assemblies/back_wall.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/rooms/assemblies/Floor.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/rooms/assemblies/Separator_wall.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/rooms/refuge.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/rooms/assemblies/front_cover.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/rooms/assemblies/Separator_wall_with door_open.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/rooms/chasm_wide_extension.tscn" type="PackedScene" id=13]
-[ext_resource path="res://assets/rooms/assemblies/s-corner.tscn" type="PackedScene" id=14]
-[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Inner_2x2_Top.obj" type="ArrayMesh" id=15]
-[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Outer_2x2_Top.obj" type="ArrayMesh" id=16]
-[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Side_Top.obj" type="ArrayMesh" id=17]
 [ext_resource path="res://assets/rooms/assemblies/wooden_beam_vertical.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/boulders/boulder_long.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/boulders/boulder_egg.tscn" type="PackedScene" id=20]
@@ -50,6 +44,7 @@
 [ext_resource path="res://assets/small/skull.tscn" type="PackedScene" id=48]
 [ext_resource path="res://assets/furniture/ladder.tscn" type="PackedScene" id=49]
 [ext_resource path="res://assets/small/bone.tscn" type="PackedScene" id=50]
+[ext_resource path="res://assets/rooms/assemblies/patch.tscn" type="PackedScene" id=51]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -66,7 +61,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00858688, 0.812272, 0.05427
 [node name="hallway_cave" parent="world" instance=ExtResource( 6 )]
 
 [node name="Separator_wall" parent="world/hallway_cave" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, -0.0479531, 0.601, 7.19006 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0.294735, 0.601, 7.19006 )
 
 [node name="decor" type="Spatial" parent="world/hallway_cave"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.301284, 0, 0 )
@@ -76,6 +71,9 @@ transform = Transform( -1.051, 7.1337e-08, 0, -9.18813e-08, -0.816, 0, 0, 0, 1.0
 
 [node name="Stalagmite_long" parent="world/hallway_cave/decor" instance=ExtResource( 38 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71313, 0.601003, -2.48369 )
+
+[node name="patch2" parent="world/hallway_cave" instance=ExtResource( 51 )]
+transform = Transform( 0.999355, -0.035729, -0.00716216, 0.0354228, 0.997202, -0.135486, 0.00582259, 0.065668, 2.05352, -3.04748, 1.55565, -6.30415 )
 
 [node name="chasm_slim_small" parent="world" instance=ExtResource( 4 )]
 
@@ -319,160 +317,7 @@ transform = Transform( 1, 0, 0, 0, 0.997069, -0.0765102, 0, 0.0765102, 0.997069,
 [node name="refuge" type="Spatial" parent="world"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.543201, -91.6504 )
 
-[node name="room" type="Spatial" parent="world/refuge"]
-
-[node name="Floor" parent="world/refuge/room" instance=ExtResource( 9 )]
-transform = Transform( 2.423, 0, 0, 0, 0.203, 0, 0, 0, 1.457, -3.06002, 0, -23.8429 )
-
-[node name="Separator_wall_L" parent="world/refuge/room" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0.196994, 0.00017494, 0.0361481 )
-
-[node name="s-corner" parent="world/refuge/room/Separator_wall_L" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 0.806, 0, 0, 0, 1, -3.11426, 0, -1.14248 )
-
-[node name="inclined_ceiling" type="Spatial" parent="world/refuge/room/Separator_wall_L/s-corner"]
-
-[node name="Cave_Terrain_Corner_Outer_2x2_Top" type="MeshInstance" parent="world/refuge/room/Separator_wall_L/s-corner/inclined_ceiling"]
-transform = Transform( -8.74228e-08, 0, -2, 0, 1.24069, 0, 2, 0, -8.74228e-08, -0.42274, 4.6402, 3.18748 )
-mesh = ExtResource( 16 )
-skeleton = NodePath("../../..")
-material/0 = null
-
-[node name="Cave_Terrain_Corner_Inner_2x2_Top" type="MeshInstance" parent="world/refuge/room/Separator_wall_L/s-corner/inclined_ceiling"]
-transform = Transform( -3.27835e-08, 0, -0.75, 0, 1.24069, 0, 0.75, 0, -3.27835e-08, -2.16174, 4.63524, 4.42048 )
-mesh = ExtResource( 15 )
-skeleton = NodePath("../../..")
-material/0 = null
-
-[node name="s-corner2" parent="world/refuge/room/Separator_wall_L" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 0.806, 0, 0, 0, 1, -6.10466, 0, 1.65939 )
-
-[node name="inclined_ceiling" type="Spatial" parent="world/refuge/room/Separator_wall_L/s-corner2"]
-
-[node name="Cave_Terrain_Corner_Outer_2x2_Top2" type="MeshInstance" parent="world/refuge/room/Separator_wall_L/s-corner2/inclined_ceiling"]
-transform = Transform( -8.74228e-08, 0, -2, 0, 1.24069, 0, 2, 0, -8.74228e-08, -0.43272, 4.6402, 3.19341 )
-mesh = ExtResource( 16 )
-skeleton = NodePath("../../..")
-material/0 = null
-
-[node name="Cave_Terrain_Corner_Inner_2x2_Top3" type="MeshInstance" parent="world/refuge/room/Separator_wall_L/s-corner2/inclined_ceiling"]
-transform = Transform( -2.18557e-08, 0, -0.5, 0, 1.24069, 0, 0.5, 0, -2.18557e-08, -2.15628, 4.63524, 4.45007 )
-mesh = ExtResource( 15 )
-skeleton = NodePath("../../..")
-material/0 = null
-
-[node name="incline_celing" type="Spatial" parent="world/refuge/room/Separator_wall_L"]
-
-[node name="Cave_Terrain_Corner_Inner_2x2_Top2" type="MeshInstance" parent="world/refuge/room/Separator_wall_L/incline_celing"]
-transform = Transform( -3.27835e-08, 0, -0.75, 0, 1, 0, 0.75, 0, -3.27835e-08, -2.69329, 3.736, 1.12926 )
-mesh = ExtResource( 15 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cave_Terrain_Corner_Outer_2x2_Top3" type="MeshInstance" parent="world/refuge/room/Separator_wall_L/incline_celing"]
-transform = Transform( -4.9525e-08, 0, -1.682, 0, 1, 0, 1.133, 0, -7.35226e-08, 1.82615, 3.69073, 0.591293 )
-mesh = ExtResource( 16 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cave_Terrain_Side_Top" type="MeshInstance" parent="world/refuge/room/Separator_wall_L/incline_celing"]
-transform = Transform( -5.00495e-08, 0, -3.787, 0, 0.992, 0, 1.145, 0, -1.65535e-07, -0.81812, 3.69074, 1.70855 )
-mesh = ExtResource( 17 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cave_Terrain_Side_Top2" type="MeshInstance" parent="world/refuge/room/Separator_wall_L/incline_celing"]
-transform = Transform( -3.0904e-08, 0, -2.861, 0, 0.992, 0, 0.707, 0, -1.25058e-07, -0.293241, 2.69062, 0.849106 )
-mesh = ExtResource( 17 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="back_cover" parent="world/refuge/room" instance=ExtResource( 8 )]
-transform = Transform( 0.999918, 0, 0.015273, 0, 1, 0, -0.0128453, 0, 1.1889, -6.25149, 1.94907e-05, -17.6244 )
-
-[node name="incline_ceiling" type="Spatial" parent="world/refuge/room/back_cover"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.33859, 0, 5.07362 )
-
-[node name="Cave_Terrain_Side_Top" type="MeshInstance" parent="world/refuge/room/back_cover/incline_ceiling"]
-transform = Transform( 1.145, 0, 0, 0, 1.047, 0, 0, 0, 9.799, 0.82003, 3.69074, -0.279259 )
-mesh = ExtResource( 17 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="front_cover" type="Spatial" parent="world/refuge/room"]
-
-[node name="front_cover" parent="world/refuge/room/front_cover" instance=ExtResource( 11 )]
-transform = Transform( 1, 8.74228e-08, 0, -8.74228e-08, 1, 0, 0, 0, -0.883, -0.0468292, 0.101236, -0.114426 )
-
-[node name="front_cover2" parent="world/refuge/room/front_cover" instance=ExtResource( 11 )]
-transform = Transform( 1, 8.74228e-08, 0, -8.74228e-08, 1, 0, 0, 0, 0.883, -0.0468292, 0.101236, -23.6949 )
-
-[node name="Separator_wall_R" parent="world/refuge/room" instance=ExtResource( 3 )]
-transform = Transform( 1, 8.74228e-08, 0, -8.74228e-08, 1, 0, 0, 0, 1, 0.202418, -0.0172703, -23.2984 )
-
-[node name="s-corner" parent="world/refuge/room/Separator_wall_R" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 0.806, 0, 0, 0, 1, -3.11968, 0.0174453, -1.14391 )
-
-[node name="inclined_ceiling" type="Spatial" parent="world/refuge/room/Separator_wall_R/s-corner"]
-
-[node name="Cave_Terrain_Corner_Outer_2x2_Top2" type="MeshInstance" parent="world/refuge/room/Separator_wall_R/s-corner/inclined_ceiling"]
-transform = Transform( -8.74228e-08, 0, -2, 0, 1.24069, 0, 2, 0, -8.74228e-08, -0.43272, 4.6402, 3.19341 )
-mesh = ExtResource( 16 )
-skeleton = NodePath("../../..")
-material/0 = null
-
-[node name="Cave_Terrain_Corner_Inner_2x2_Top3" type="MeshInstance" parent="world/refuge/room/Separator_wall_R/s-corner/inclined_ceiling"]
-transform = Transform( -2.18557e-08, 0, -0.5, 0, 1.24069, 0, 0.5, 0, -2.18557e-08, -2.15628, 4.63524, 4.45007 )
-mesh = ExtResource( 15 )
-skeleton = NodePath("../../..")
-material/0 = null
-
-[node name="s-corner2" parent="world/refuge/room/Separator_wall_R" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 0.806, 0, 0, 0, 1, -6.11008, 0.0174452, 1.65796 )
-
-[node name="inclined_ceiling" type="Spatial" parent="world/refuge/room/Separator_wall_R/s-corner2"]
-
-[node name="Cave_Terrain_Corner_Outer_2x2_Top2" type="MeshInstance" parent="world/refuge/room/Separator_wall_R/s-corner2/inclined_ceiling"]
-transform = Transform( -8.74228e-08, 0, -2, 0, 1.24069, 0, 2, 0, -8.74228e-08, -0.43272, 4.6402, 3.19341 )
-mesh = ExtResource( 16 )
-skeleton = NodePath("../../..")
-material/0 = null
-
-[node name="Cave_Terrain_Corner_Inner_2x2_Top3" type="MeshInstance" parent="world/refuge/room/Separator_wall_R/s-corner2/inclined_ceiling"]
-transform = Transform( -2.18557e-08, 0, -0.5, 0, 1.24069, 0, 0.5, 0, -2.18557e-08, -2.15628, 4.63524, 4.45007 )
-mesh = ExtResource( 15 )
-skeleton = NodePath("../../..")
-material/0 = null
-
-[node name="incline_celing" type="Spatial" parent="world/refuge/room/Separator_wall_R"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.008461 )
-
-[node name="Cave_Terrain_Corner_Inner_2x2_Top2" type="MeshInstance" parent="world/refuge/room/Separator_wall_R/incline_celing"]
-transform = Transform( -3.27835e-08, 0, -0.75, 0, 1, 0, 0.75, 0, -3.27835e-08, -2.69329, 3.736, 1.12926 )
-mesh = ExtResource( 15 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cave_Terrain_Corner_Outer_2x2_Top3" type="MeshInstance" parent="world/refuge/room/Separator_wall_R/incline_celing"]
-transform = Transform( -4.9525e-08, 0, -1.682, 0, 1, 0, 1.133, 0, -7.35226e-08, 1.82615, 3.69073, 0.591293 )
-mesh = ExtResource( 16 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cave_Terrain_Side_Top" type="MeshInstance" parent="world/refuge/room/Separator_wall_R/incline_celing"]
-transform = Transform( -5.00495e-08, 0, -3.787, 0, 0.992, 0, 1.145, 0, -1.65535e-07, -0.81812, 3.69074, 1.70855 )
-mesh = ExtResource( 17 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cave_Terrain_Side_Top2" type="MeshInstance" parent="world/refuge/room/Separator_wall_R/incline_celing"]
-transform = Transform( -3.0904e-08, 0, -2.861, 0, 0.992, 0, 0.707, 0, -1.25058e-07, -0.293241, 2.69062, 0.849106 )
-mesh = ExtResource( 17 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="ceiling" parent="world/refuge/room" instance=ExtResource( 9 )]
-transform = Transform( 2.423, 0, 0, 0, -0.203, 1.27375e-07, 0, -1.77468e-08, -1.457, -3.06, 4.548, 0.778999 )
+[node name="room" parent="world/refuge" instance=ExtResource( 8 )]
 
 [node name="decor" type="Spatial" parent="world/refuge"]
 
@@ -637,7 +482,6 @@ shape = SubResource( 1 )
 
 [node name="BakedLightmap" type="BakedLightmap" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.29514, 0, -107.119 )
-visible = false
 extents = Vector3( 10, 10, 19.5605 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
