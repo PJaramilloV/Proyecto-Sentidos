@@ -113,6 +113,7 @@ surfaces/1 = {
 }
 
 [sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.382442, 0.231219, 0.215267 )
 
 [node name="book_collection" instance=ExtResource( 1 )]
 
@@ -147,7 +148,7 @@ material/0 = null
 material/1 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="4"]
-transform = Transform( 0.383, 0, 0, 0, 0.23, 0, 0, 0, 0.198, -0.0370584, 0.225296, -0.0298811 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0370584, 0.225296, -0.0298811 )
 shape = SubResource( 5 )
 
 [node name="Book_Big_Red" parent="." index="1"]

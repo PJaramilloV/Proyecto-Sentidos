@@ -3,8 +3,6 @@
 [ext_resource path="res://assets/small/raw_files/key_silver.gltf" type="PackedScene" id=1]
 [ext_resource path="res://assets/small/raw_files/Metal_Polished.material" type="Material" id=2]
 
-[sub_resource type="CylinderShape" id=2]
-
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "key_silver_Key_Silver"
 surfaces/0 = {
@@ -20,19 +18,21 @@ surfaces/0 = {
 "vertex_count": 320
 }
 
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.0613583, 0.0116638, 0.129621 )
+
 [node name="key_silver" instance=ExtResource( 1 )]
 
 [node name="RigidBody" type="RigidBody" parent="." index="0"]
 
-[node name="CollisionShape" type="CollisionShape" parent="RigidBody" index="0"]
-transform = Transform( 0.057, 0, 0, 0, -5.68248e-09, -0.013, 0, 0.13, -5.68248e-10, 0, 0.00110622, 0.0769994 )
-shape = SubResource( 2 )
-
-[node name="Key_Silver" type="MeshInstance" parent="RigidBody" index="1"]
-transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 0 )
+[node name="Key_Silver" type="MeshInstance" parent="RigidBody" index="0"]
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, -0.0761837 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody" index="1"]
+shape = SubResource( 2 )
 
 [node name="Key_Silver" parent="." index="1"]
 mesh = null

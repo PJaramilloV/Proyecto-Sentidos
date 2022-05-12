@@ -4,6 +4,8 @@
 [ext_resource path="res://assets/small/raw_files/Paper.material" type="Material" id=2]
 
 [sub_resource type="CylinderShape" id=2]
+radius = 0.0551988
+height = 0.484779
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "scroll_big_Scroll_Big"
@@ -25,11 +27,11 @@ surfaces/0 = {
 [node name="RigidBody" type="RigidBody" parent="." index="0"]
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody" index="0"]
-transform = Transform( 0.087, 0, 0, 0, -1.07093e-08, -0.053, 0, 0.245, -2.3167e-09, 0.0152167, 0.0439165, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 2 )
 
 [node name="Scroll_Big" type="MeshInstance" parent="RigidBody" index="1"]
-transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 0, 0, 0 )
+transform = Transform( 5.96046e-08, 0, -1, 0.0287591, 0.999586, 1.71417e-09, 0.999586, -0.0287591, 5.95799e-08, -0.0195493, -0.0371572, 0 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = null

@@ -55,6 +55,7 @@ surfaces/2 = {
 
 [node name="Torch_Wall" type="MeshInstance" parent="StaticBody" index="0"]
 transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, 0, 0, 0 )
+cast_shadow = 0
 use_in_baked_light = true
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
@@ -74,6 +75,7 @@ shape = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.333339, 0.231772 )
 light_color = Color( 0.843137, 0.639216, 0.380392, 1 )
 light_energy = 1.304
+shadow_enabled = true
 omni_range = 3.963
 omni_attenuation = 2.92817
 

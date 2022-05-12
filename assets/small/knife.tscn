@@ -44,14 +44,15 @@ surfaces/2 = {
 "vertex_count": 70
 }
 
-[sub_resource type="CylinderShape" id=2]
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.0276127, 0.0131311, 0.156036 )
 
 [node name="knife" instance=ExtResource( 1 )]
 
 [node name="RigidBody" type="RigidBody" parent="." index="0"]
 
 [node name="Knife" type="MeshInstance" parent="RigidBody" index="0"]
-transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 0, 0, 0 )
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 0, 0, 0.0968516 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = null
@@ -59,7 +60,6 @@ material/1 = null
 material/2 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody" index="1"]
-transform = Transform( 0.028, 0, 0, 0, -6.55671e-09, -0.018, 0, 0.15, -7.86805e-10, 0.00295718, 0.00327756, -0.0927217 )
 shape = SubResource( 2 )
 
 [node name="Knife" parent="." index="1"]

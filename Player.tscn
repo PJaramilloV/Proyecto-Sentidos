@@ -14,7 +14,7 @@ offset = Vector3( 0, 1, 2.5 )
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
 
 [node name="OmniLight" type="OmniLight" parent="hero"]
-transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 1.23709, 0 )
-layers = 2
+transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 1.19934, 0 )
 light_cull_mask = 4293918721
+shadow_enabled = true
 omni_range = 1.85928

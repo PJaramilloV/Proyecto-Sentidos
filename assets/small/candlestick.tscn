@@ -38,10 +38,11 @@ surfaces/1 = {
 [node name="RigidBody" type="RigidBody" parent="." index="0"]
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody" index="0"]
-transform = Transform( 0.165, 0, 0, 0, 0.34, 0, 0, 0, 0.165, 0, 0.3387, 0 )
+transform = Transform( 0.165, 0, 0, 0, 0.34, 0, 0, 0, 0.165, 0, 0, 0 )
 shape = SubResource( 2 )
 
 [node name="Candlestick" type="MeshInstance" parent="RigidBody" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.334876, 0 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = null

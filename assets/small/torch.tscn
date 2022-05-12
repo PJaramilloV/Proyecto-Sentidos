@@ -32,6 +32,8 @@ surfaces/1 = {
 }
 
 [sub_resource type="CapsuleShape" id=2]
+radius = 0.04
+height = 0.71
 
 [node name="torch" instance=ExtResource( 1 )]
 
@@ -44,7 +46,7 @@ material/0 = null
 material/1 = null
 
 [node name="torch" type="CollisionShape" parent="RigidBody" index="1"]
-transform = Transform( 1.24577e-08, 0.095, 1.0547e-15, -4.15258e-09, 1.81515e-16, 0.276, 0.095, -1.24577e-08, 1.20643e-08, 0, 0.0447631, 0.000364885 )
+transform = Transform( 7.54979e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -7.54979e-08, -3.30012e-15, 0, 0, 0 )
 shape = SubResource( 2 )
 
 [node name="OmniLight2" type="OmniLight" parent="RigidBody" index="2"]
