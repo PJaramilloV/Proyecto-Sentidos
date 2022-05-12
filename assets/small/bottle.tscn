@@ -38,13 +38,14 @@ surfaces/1 = {
 [node name="RigidBody" type="RigidBody" parent="." index="0"]
 
 [node name="Bottle" type="MeshInstance" parent="RigidBody" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.179013, 0 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = null
 material/1 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody" index="1"]
-transform = Transform( 0.093, 0, 0, 0, 0.175, 0, 0, 0, 0.093, 0, 0.175141, 0 )
+transform = Transform( 0.093, 0, 0, 0, 0.175, 0, 0, 0, 0.093, 0, 0, 0 )
 shape = SubResource( 2 )
 
 [node name="Bottle" parent="." index="1"]

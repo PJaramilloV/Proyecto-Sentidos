@@ -19,18 +19,20 @@ surfaces/0 = {
 }
 
 [sub_resource type="CylinderShape" id=2]
+radius = 0.08
+height = 0.117977
 
 [node name="inkwell" instance=ExtResource( 1 )]
 
 [node name="RigidBody" type="RigidBody" parent="." index="0"]
 
 [node name="Inkwell" type="MeshInstance" parent="RigidBody" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0587201, 0 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody" index="1"]
-transform = Transform( 0.077, 0, 0, 0, 0.061, 0, 0, 0, 0.077, 0, 0.0617906, 0 )
 shape = SubResource( 2 )
 
 [node name="Inkwell" parent="." index="1"]

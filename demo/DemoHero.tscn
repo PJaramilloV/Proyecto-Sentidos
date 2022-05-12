@@ -1,9 +1,9 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=10 format=2]
 
+[ext_resource path="res://demo/cuboverde.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/AudioStreamPlayer.gd" type="Script" id=3]
 [ext_resource path="res://sound/Lonely_Mountain.mp3" type="AudioStream" id=4]
-[ext_resource path="res://scripts/objeto.gd" type="Script" id=5]
 
 [sub_resource type="CylinderShape" id=14]
 margin = 0.01
@@ -23,19 +23,6 @@ extents = Vector3( 2071.18, 459.997, 1 )
 background_mode = 1
 ambient_light_energy = 0.99
 ambient_light_sky_contribution = 0.0
-
-[sub_resource type="CubeMesh" id=23]
-
-[sub_resource type="SpatialMaterial" id=24]
-albedo_color = Color( 0.2, 0.847059, 0.0431373, 1 )
-
-[sub_resource type="ConvexPolygonShape" id=17]
-points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
-
-[sub_resource type="CubeMesh" id=16]
-
-[sub_resource type="SpatialMaterial" id=18]
-albedo_color = Color( 0.2, 0.847059, 0.0431373, 1 )
 
 [node name="Spatial" type="Spatial"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
@@ -82,52 +69,16 @@ stream = ExtResource( 4 )
 volume_db = -0.5
 script = ExtResource( 3 )
 
-[node name="objeto3" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42634, 6.06904, -0.596089 )
-collision_layer = 10
-collision_mask = 10
-script = ExtResource( 5 )
+[node name="objeto" parent="." instance=ExtResource( 1 )]
 
-[node name="MeshInstance" type="MeshInstance" parent="objeto3"]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
-mesh = SubResource( 23 )
-skeleton = NodePath("../../objeto3")
-material/0 = SubResource( 24 )
+[node name="objeto2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.38977, 4, 2.35594e-07 )
 
-[node name="CollisionShape" type="CollisionShape" parent="objeto3"]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
-shape = SubResource( 17 )
+[node name="objeto3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.47819, 4, -0.857282 )
 
-[node name="objeto2" type="RigidBody" parent="."]
-transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.03707, 4.85523, 0.102139 )
-collision_layer = 10
-collision_mask = 10
-script = ExtResource( 5 )
-
-[node name="MeshInstance" type="MeshInstance" parent="objeto2"]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
-mesh = SubResource( 23 )
-skeleton = NodePath("../../objeto2")
-material/0 = SubResource( 24 )
-
-[node name="CollisionShape" type="CollisionShape" parent="objeto2"]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
-shape = SubResource( 17 )
-
-[node name="objeto" type="RigidBody" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1, 4, 0 )
-collision_layer = 10
-collision_mask = 10
-script = ExtResource( 5 )
-
-[node name="MeshInstance" type="MeshInstance" parent="objeto"]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
-mesh = SubResource( 16 )
-material/0 = SubResource( 18 )
-
-[node name="CollisionShape" type="CollisionShape" parent="objeto"]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
-shape = SubResource( 17 )
+[node name="objeto4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.65022, 4, 0.889032 )
 
 [node name="Mesa" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.7, 0, 0, 0, 1, -3.51126, 0.33941, 0.461534 )

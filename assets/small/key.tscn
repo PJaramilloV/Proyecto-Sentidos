@@ -18,20 +18,20 @@ surfaces/0 = {
 "vertex_count": 384
 }
 
-[sub_resource type="CylinderShape" id=2]
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.0613583, 0.0116638, 0.140719 )
 
 [node name="key" instance=ExtResource( 1 )]
 
 [node name="RigidBody" type="RigidBody" parent="." index="0"]
 
 [node name="Key_Golden" type="MeshInstance" parent="RigidBody" index="0"]
-transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 0 )
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, -0.0639321 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody" index="1"]
-transform = Transform( 0.053, 0, 0, 0, -6.16331e-09, -0.012, 0, 0.141, -5.24537e-10, 0, 0.00119201, 0.0622834 )
 shape = SubResource( 2 )
 
 [node name="Key_Golden" parent="." index="1"]

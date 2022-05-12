@@ -22,7 +22,8 @@ onready var _stand_shape: CollisionShape = $CollisionShape
 onready var _crouch_shape: CollisionShape = $CollisionShapeCrouch
 
 onready var area_grab = $area_grab
-onready var _mat := preload("res://assets/cubotest.tres")
+onready var _woutline := preload("res://assets/character/woutline.tres")
+onready var _youtline := preload("res://assets/character/youtline.tres")
 
 onready var righthand = $Hero/Skeleton/ManoDerechaBone/StaticBody/ManoDerecha
 onready var leftfootray = $Hero/Skeleton/PieIzquierdoBone/PieIzquierdoRay
@@ -98,10 +99,10 @@ func _physics_process(delta):
 	if !(_objects.empty()):
 		var selected = _objects[_pointer]
 		if Input.is_action_just_released("scroll_up"):
-			selected.restore()
+			selected.outline(_woutline)
 			_pointer += 1
 		if Input.is_action_just_released("scroll_down"):
-			selected.restore()
+			selected.outline(_woutline)
 			_pointer -= 1
 		if _pointer < 0:
 			_pointer = _objects.size() - 1
@@ -114,10 +115,11 @@ func _physics_process(delta):
 		#var selected = _objects[_pointer]
 		#var mat = preload
 		#mat.albedo_color = Color(1,0,0)
-		var cant = selected.material_count
-		for i in range(cant):
-			selected.get_node("MeshInstance").set_surface_material(i, _mat)
+		#var cant = selected.material_count
+		#for i in range(cant):
+		#	selected.get_node("MeshInstance").set_surface_material(i, _mat)
 			#selected.set_material_override()
+		selected.outline(_youtline)
 
 	#### Tomar objetos ####
 	if Input.is_action_just_pressed("grab"):
@@ -185,11 +187,12 @@ func leftstep():
 
 func _on_area_grab_entered(body: Node):
 	print("colisioné con un objeto tomable")
+	body.outline(_woutline)
 	_objects.append(body)
 
 func _on_area_grab_exited(body: Node):
 	print("salí del área")
-	body.restore()
+	body.outline(null)
 	_objects.erase(body)
 	if _pointer >= _objects.size():
 			_pointer -= 1

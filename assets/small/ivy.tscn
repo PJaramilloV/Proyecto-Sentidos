@@ -4,6 +4,7 @@
 [ext_resource path="res://assets/small/raw_files/Plants.material" type="Material" id=2]
 
 [sub_resource type="BoxShape" id=2]
+extents = Vector3( 1, 0.0477808, 0.314159 )
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "ivy_Ivy_Branch"
@@ -25,10 +26,10 @@ surfaces/0 = {
 [node name="RigidBody" type="RigidBody" parent="." index="0"]
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody" index="0"]
-transform = Transform( 0.16, 0, 0, 0, 0.039, 0, 0, 0, 0.317, -0.00681856, 0.026311, -0.309108 )
 shape = SubResource( 2 )
 
 [node name="Ivy_Branch" type="MeshInstance" parent="RigidBody" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0210558, 0.301801 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = null
