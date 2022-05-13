@@ -10,12 +10,15 @@ export var decal_correction := 0.01
 var _velocity := Vector3.ZERO
 var _angular_acceleration := 10
 var _snap_vector := Vector3.DOWN
+var _hard_land := false
+var _land_timer : float
 var _prep_jump := true
 var _jump_timer : float
 var _crouching := false
 var held_object: Object
 var _objects := []
 var _pointer := 0
+var _falling_speed := 0.0
 
 onready var _model: Spatial = $Hero
 onready var _stand_shape: CollisionShape = $CollisionShape
@@ -47,8 +50,13 @@ func _physics_process(delta):
 	var is_jumping := is_on_floor() and Input.is_action_just_pressed("jump") and _prep_jump
 	
 	if is_jumping:
-		_prep_jump = false
-		$AnimationTree.set("parameters/JumpShot/active", true)
+		if sqrt((_velocity.x * _velocity.x)+(_velocity.z * _velocity.z)) > 0.5:
+			$AnimationTree.set("parameters/RunningJumpShot/active", true)
+			$AnimationTree.set("parameters/Falling/current", 1)
+			_velocity.y = jump_strength * 0.6
+		else:
+			_prep_jump = false
+			$AnimationTree.set("parameters/JumpShot/active", true)
 	
 	if !_prep_jump:
 		_jump_timer += delta
@@ -56,12 +64,36 @@ func _physics_process(delta):
 	if _jump_timer > 0.45:
 		_jump_timer = 0
 		_velocity.y = jump_strength
-		_snap_vector = Vector3.ZERO
 		_prep_jump = true
+		$AnimationTree.set("parameters/Falling/current", 1)
+	
+	if !is_on_floor():
+		_snap_vector = Vector3.ZERO
+	
+	if _falling_speed < -3:
+		$AnimationTree.set("parameters/Falling/current", 1)
 
 	if just_landed:
+		### Apagar todas las oneShot ###
+		$AnimationTree.set("parameters/RunningJumpShot/active", false)
+		$AnimationTree.set("parameters/JumpShot/active", false)
+		### Apagar todas las oneShot ###
+		$AnimationTree.set("parameters/Falling/current", 0)
+		if _falling_speed < -13:
+			_hard_land = true
+			$AnimationTree.set("parameters/HardLandShot/active", true)
 		_snap_vector = Vector3.DOWN
+		_falling_speed = 0
+	else:
+		_falling_speed = _velocity.y
 	
+	if _hard_land:
+		_land_timer += delta
+	
+	if _land_timer > 1:
+		_land_timer = 0
+		_hard_land = false
+
 	if Input.get_action_strength("right") + Input.get_action_strength("left")  + Input.get_action_strength("back") + Input.get_action_strength("forward") == 0:
 		_velocity = move_and_slide(_velocity, Vector3.UP, true)
 	else:
@@ -79,13 +111,16 @@ func _physics_process(delta):
 		_stand_shape.disabled = true
 		_crouch_shape.disabled = false
 		speed = lerp(speed, move_direction.length()*crouch_speed, 0.05)
-		$AnimationTree.set("parameters/StandCrouch/current", 1)
+		$AnimationTree.set("parameters/State/current", 1)
 	else :
 		_stand_shape.disabled = false
 		_crouch_shape.disabled = true
-		$AnimationTree.set("parameters/StandCrouch/current", 0)
+		if is_on_floor():
+			$AnimationTree.set("parameters/State/current", 0)
 		if !_prep_jump:
 			speed = lerp(speed, move_direction.length()*50, 0.05)
+		elif _hard_land:
+			speed = lerp(speed, 0, 0.05)
 		else:
 			speed = lerp(speed, move_direction.length()*walk_speed, 0.05)
 
@@ -112,13 +147,6 @@ func _physics_process(delta):
 		selected = _objects[_pointer]
 		
 		print(_pointer)
-		#var selected = _objects[_pointer]
-		#var mat = preload
-		#mat.albedo_color = Color(1,0,0)
-		#var cant = selected.material_count
-		#for i in range(cant):
-		#	selected.get_node("MeshInstance").set_surface_material(i, _mat)
-			#selected.set_material_override()
 		selected.outline(_youtline)
 
 	#### Tomar objetos ####
