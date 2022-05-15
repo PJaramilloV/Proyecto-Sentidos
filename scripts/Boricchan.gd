@@ -53,6 +53,7 @@ func _physics_process(delta):
 			held_object.mode = RigidBody.MODE_RIGID
 			#held_object.collision_mask = 4
 			held_object.collision_mask=2
+			
 			held_object =  null
 		else:
 			#se pasa inmediatamente acá si se apreta la F y no se tiene un objeto tomado
