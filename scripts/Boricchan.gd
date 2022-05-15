@@ -10,6 +10,8 @@ var _snap_vector := Vector3.DOWN
 var _timer := 0.0
 var held_object: Object
 var objeto_recuperado_area: Object
+var _objects := []
+var _pointer := 0
 
 
 
@@ -18,6 +20,7 @@ onready var _model: Spatial = $capsula
 onready var _light: Spatial = $PlayerLight
 onready var area_grab = $area_grab
 onready var _hold_position := get_node("capsula/HoldPosition")
+onready var _mat := preload("res://assets/cubotest.tres")
 
 func _physics_process(delta):
 
@@ -47,6 +50,30 @@ func _physics_process(delta):
 		var look_direction = Vector2(_velocity.x, _velocity.z)
 		_model.rotation.y = -look_direction.angle()
 
+	if !(_objects.empty()):
+		var selected = _objects[_pointer]
+		if Input.is_action_just_released("scroll_up"):
+			selected.restore()
+			_pointer += 1
+		if Input.is_action_just_released("scroll_down"):
+			selected.restore()
+			_pointer -= 1
+		if _pointer < 0:
+			_pointer = _objects.size() - 1
+		if _pointer >= _objects.size():
+			_pointer = 0
+			
+		selected = _objects[_pointer]
+		
+		print(_pointer)
+		#var selected = _objects[_pointer]
+		#var mat = preload
+		#mat.albedo_color = Color(1,0,0)
+		var cant = selected.material_count
+		for i in range(cant):
+			selected.get_node("MeshInstance").set_surface_material(i, _mat)
+			#selected.set_material_override()
+
 	#### Tomar objetos ####
 	if Input.is_action_just_pressed("grab"):
 		if held_object: #solo entra si ya se tiene el objeto tomado
@@ -58,9 +85,10 @@ func _physics_process(delta):
 		else:
 			#se pasa inmediatamente acá si se apreta la F y no se tiene un objeto tomado
 			
-			if objeto_recuperado_area: #se pasa acá si es que el area colisiona y guarda el body con el que choca
+			#if objeto_recuperado_area: #se pasa acá si es que el area colisiona y guarda el body con el que choca
+			if !(_objects.empty()):
 				
-				held_object = objeto_recuperado_area
+				held_object = _objects[_pointer]
 				held_object.mode = RigidBody.MODE_KINEMATIC
 				held_object.collision_mask=0
 	#se pasa acá  cuando se toma un objeto, justo despues de entrar al tomado
@@ -90,6 +118,10 @@ func _physics_process(delta):
 			#print(position)
 			get_parent().add_child(light)
 			_timer = 0.0
+	
+	#print(_pointer)
+	#if _objects.empty():
+		#print("aaaaaaaaaaaaaaaa")
 
 func _process(delta):
 	_timer += delta
@@ -108,11 +140,20 @@ func _ready():
 func _on_area_grab_entered(body: Node):
 	print("colisioné con un objeto tomable")
 	objeto_recuperado_area=body
+	_objects.append(body)
+	#_pointer += 1
 
 	
 func _on_area_grab_exited(body: Node):
 	print("salí del área")
 	objeto_recuperado_area=null
+	body.restore()
+	_objects.erase(body)
+	if _pointer >= _objects.size():
+			_pointer -= 1
+	if _pointer < 0:
+			_pointer = 0
+	#_pointer -= 1
 
 
 

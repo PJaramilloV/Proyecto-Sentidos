@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/rooms/pieces/Cave_Prop_Support_Wall_Pillar_1.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/rooms/pieces/Cave_Prop_Support_Wall_Pillar_2.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/rooms/pieces/Cave_Prop_Support_Wall_Pillar_4.obj" type="ArrayMesh" id=3]
+
+[sub_resource type="BoxShape" id=1]
+
+[node name="wooden_beam_vertical" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="Cave_Prop_Support_Wall_Pillar_1" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.280273, 0, -0.491795 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="Cave_Prop_Support_Wall_Pillar_2" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28, 0.996756, -0.492 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("../Cave_Prop_Support_Wall_Pillar_1")
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+
+[node name="Cave_Prop_Support_Wall_Pillar_4" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28, 1.95009, -0.492 )
+mesh = ExtResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.125, 0, 0, 0, 1.474, 0, 0, 0, 0.126, 0.006, 1.473, 0.009 )
+shape = SubResource( 1 )

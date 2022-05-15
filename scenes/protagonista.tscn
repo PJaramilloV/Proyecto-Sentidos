@@ -5381,38 +5381,38 @@ tracks/51/imported = false
 tracks/51/enabled = true
 tracks/51/keys = PoolRealArray( 0, 1, 0.0578074, 0.393263, -0.367672, -0.389226, -0.0098569, -0.0767649, 0.917885, 1, 0.999999, 1, 0.0666667, 1, 0.0644453, 0.383841, -0.371762, -0.380987, -0.059693, -0.0604264, 0.920671, 1, 0.999999, 1, 0.133333, 1, 0.0806706, 0.373771, -0.379313, -0.374296, -0.128667, -0.038372, 0.917538, 1, 0.999999, 1, 0.2, 1, 0.101437, 0.365641, -0.389338, -0.371637, -0.184224, -0.0218022, 0.909655, 1, 0.999999, 1, 0.266667, 1, 0.118599, 0.353861, -0.39477, -0.371802, -0.224836, -0.00194919, 0.900671, 1, 0.999999, 1, 0.333333, 1, 0.130684, 0.342613, -0.399621, -0.373699, -0.265808, 0.0183807, 0.888458, 1, 0.999999, 1, 0.4, 1, 0.132733, 0.335471, -0.407998, -0.377263, -0.29919, 0.0297508, 0.875941, 1, 0.999999, 1, 0.466667, 1, 0.131984, 0.326303, -0.41287, -0.375707, -0.336817, 0.0352687, 0.862644, 1, 0.999999, 1, 0.533333, 1, 0.13504, 0.321049, -0.412536, -0.375304, -0.388179, 0.0553309, 0.839882, 1, 0.999999, 1, 0.6, 1, 0.138559, 0.328593, -0.410935, -0.368144, -0.453735, 0.0848539, 0.80709, 1, 0.999999, 1, 0.666667, 1, 0.13709, 0.343228, -0.405579, -0.356167, -0.522219, 0.115888, 0.766161, 1, 1, 1, 0.733333, 1, 0.128653, 0.359936, -0.392119, -0.333133, -0.601177, 0.14666, 0.711407, 1, 1, 1, 0.8, 1, 0.110722, 0.375115, -0.369343, -0.298658, -0.682904, 0.173133, 0.643794, 1, 0.999999, 1, 0.866667, 1, 0.0934706, 0.39528, -0.352669, -0.256592, -0.761433, 0.206734, 0.558249, 1, 1, 1, 0.933333, 1, 0.0789762, 0.416487, -0.338491, 0.216744, 0.821149, -0.241365, -0.469553, 1, 0.999999, 1, 0.95, 1, 0.076666, 0.421669, -0.333517, 0.206541, 0.832857, -0.251016, -0.447974, 1, 1, 1 )
 
-[sub_resource type="BoxShape" id=24]
+[sub_resource type="CylinderShape" id=36]
 
-[sub_resource type="AnimationNodeAnimation" id=28]
+[sub_resource type="AnimationNodeAnimation" id=44]
 animation = "CrouchIdle Retarget -loop"
 
-[sub_resource type="AnimationNodeAnimation" id=29]
-animation = "Crouch Walk Retarget -loop"
+[sub_resource type="AnimationNodeAnimation" id=45]
+animation = "CrouchWalk Retarget -loop"
 
 [sub_resource type="AnimationNodeBlendSpace1D" id=22]
-blend_point_0/node = SubResource( 28 )
+blend_point_0/node = SubResource( 44 )
 blend_point_0/pos = 0.0
-blend_point_1/node = SubResource( 29 )
+blend_point_1/node = SubResource( 45 )
 blend_point_1/pos = 1.4
 min_space = 0.0
 max_space = 1.4
 
-[sub_resource type="AnimationNodeAnimation" id=33]
+[sub_resource type="AnimationNodeAnimation" id=46]
 animation = "Idle Retarget -loop"
 
-[sub_resource type="AnimationNodeAnimation" id=34]
-animation = "Jogging Retarget -loop"
+[sub_resource type="AnimationNodeAnimation" id=47]
+animation = "JoggingRetarget -loop"
 
 [sub_resource type="AnimationNodeBlendSpace1D" id=35]
-blend_point_0/node = SubResource( 33 )
+blend_point_0/node = SubResource( 46 )
 blend_point_0/pos = 0.0
-blend_point_1/node = SubResource( 34 )
+blend_point_1/node = SubResource( 47 )
 blend_point_1/pos = 1.8
 min_space = 0.0
 max_space = 1.84
 
 [sub_resource type="AnimationNodeAnimation" id=31]
-animation = "Jump Up Retarget"
+animation = "JumpUp Retarget"
 
 [sub_resource type="AnimationNodeOneShot" id=32]
 
@@ -5425,7 +5425,7 @@ input_1/name = "state 1"
 input_1/auto_advance = false
 
 [sub_resource type="AnimationNodeBlendTree" id=27]
-graph_offset = Vector2( -318, 108 )
+graph_offset = Vector2( -578.183, 63.5903 )
 nodes/Crouching/node = SubResource( 22 )
 nodes/Crouching/position = Vector2( -100, 240 )
 nodes/IdleWalk/node = SubResource( 35 )
@@ -5440,6 +5440,7 @@ nodes/output/position = Vector2( 540, 200 )
 node_connections = [ "output", 0, "JumpShot", "JumpShot", 0, "StandCrouch", "JumpShot", 1, "Jump", "StandCrouch", 0, "IdleWalk", "StandCrouch", 1, "Crouching" ]
 
 [node name="rogue" type="KinematicBody"]
+collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="Rogue" type="Spatial" parent="."]
@@ -5778,27 +5779,29 @@ skin = SubResource( 2 )
 material/0 = null
 
 [node name="ManoDerechaBone" type="BoneAttachment" parent="Rogue/Skeleton"]
-transform = Transform( 0.0840619, -0.988393, -0.126491, -0.0624034, -0.131911, 0.989292, -0.9945, -0.0752694, -0.0727639, -0.260998, -0.0124844, -1.02831 )
+transform = Transform( -0.0566103, 0.129511, 0.989956, -0.998275, 0.00809968, -0.0581462, -0.01555, -0.99154, 0.12883, -0.185758, 0.432672, -0.256164 )
 bone_name = "RightHand"
 
 [node name="StaticBody" type="StaticBody" parent="Rogue/Skeleton/ManoDerechaBone"]
+collision_layer = 2
 
 [node name="ManoDerecha" type="CollisionShape" parent="Rogue/Skeleton/ManoDerechaBone/StaticBody"]
 transform = Transform( 0.096, 3.17814e-10, -7.67181e-18, -7.82311e-10, 0.039, 0, 1.20737e-17, 3.99706e-26, 0.061, -0.077, -0.007, 0.006 )
 shape = SubResource( 23 )
 
 [node name="ManoIzquierdaBone" type="BoneAttachment" parent="Rogue/Skeleton"]
-transform = Transform( 0.188177, 0.980607, -0.0546641, 0.393471, -0.0242786, 0.91901, 0.899867, -0.194446, -0.390411, 0.291597, 0.0892653, -1.05318 )
+transform = Transform( -0.471449, -0.154846, -0.868187, 0.631478, 0.627927, -0.454899, 0.615599, -0.762711, -0.198255, 0.160634, 0.388584, -0.422785 )
 bone_name = "LeftHand"
 
 [node name="StaticBody" type="StaticBody" parent="Rogue/Skeleton/ManoIzquierdaBone"]
+collision_layer = 2
 
 [node name="ManoDerecha" type="CollisionShape" parent="Rogue/Skeleton/ManoIzquierdaBone/StaticBody"]
 transform = Transform( 0.096, 3.17814e-10, -7.67181e-18, -7.82311e-10, 0.039, 0, 1.20737e-17, 3.99706e-26, 0.061, 0.077, -0.007, 0.006 )
 shape = SubResource( 23 )
 
 [node name="PieDerechoBone" type="BoneAttachment" parent="Rogue/Skeleton"]
-transform = Transform( 0.991386, 3.23821e-05, -0.130937, 0.130936, 2.87145e-05, 0.991388, 3.61851e-05, -0.999999, 2.47955e-05, -0.0597399, -0.0928594, -0.121683 )
+transform = Transform( 0.99801, -0.0360155, -0.0516745, 0.0629221, 0.533073, 0.843724, -0.00283957, -0.845302, 0.534283, -0.0679059, -0.0538436, -0.185955 )
 bone_name = "RightFoot"
 
 [node name="PieDerechoRay" type="RayCast" parent="Rogue/Skeleton/PieDerechoBone"]
@@ -5807,7 +5810,7 @@ enabled = true
 cast_to = Vector3( 0, -0.043, 0 )
 
 [node name="PieIzquierdoBone" type="BoneAttachment" parent="Rogue/Skeleton"]
-transform = Transform( 0.867815, -4.6514e-05, 0.49688, -0.496878, 0.000336513, 0.867817, -0.00020875, -0.999999, 0.000270966, 0.197733, 0.0387153, -0.121717 )
+transform = Transform( 0.904664, 0.153215, 0.397627, -0.425448, 0.37721, 0.822617, -0.0239468, -0.913366, 0.406435, 0.252489, -0.125914, -0.176164 )
 bone_name = "LeftFoot"
 
 [node name="PieIzquierdoRay" type="RayCast" parent="Rogue/Skeleton/PieIzquierdoBone"]
@@ -5832,8 +5835,8 @@ cast_to = Vector3( 0, -0.043, 0 )
 "anims/Turn Right Retarget -loop" = SubResource( 17 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 0.316, 0, 0, 0, 0.105394, 0, 0, 0, 0.217, 0, 0.110237, 0 )
-shape = SubResource( 24 )
+transform = Transform( -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, 0, 0, 0, 0.3, 0.0758914, 0.315126, 0 )
+shape = SubResource( 36 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 27 )

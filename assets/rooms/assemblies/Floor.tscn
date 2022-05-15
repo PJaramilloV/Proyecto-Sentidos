@@ -10,7 +10,7 @@
 transform = Transform( 5.203, 0, 0, 0, 1, 0, 0, 0, 17.255, 0, 0, 8.921 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, -1.00183, 0 )
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, -1, 0 )
 shape = SubResource( 1 )
 
 [node name="Floor" type="MeshInstance" parent="StaticBody"]

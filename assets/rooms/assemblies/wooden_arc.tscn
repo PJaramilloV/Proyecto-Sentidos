@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/rooms/assemblies/wooden_beam_vertical.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/rooms/assemblies/wooden_beam_corner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/rooms/assemblies/wooden_beam_horizontal.tscn" type="PackedScene" id=3]
+
+[node name="wooden_arc" type="Spatial"]
+
+[node name="wooden_beam_vertical" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1.062, 0, 0, 0, 1, 2.04438, 0.47015, 0.775238 )
+
+[node name="wooden_beam_vertical2" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1.069, 0, 0, 0, 1, -1.60821, 0.446662, 0.775238 )
+
+[node name="wooden_beam_corner" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32917, 2.13141, 0.282692 )
+
+[node name="wooden_beam_corner2" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8115, 2.13141, 0.282692 )
+
+[node name="wooden_beam_horizontal" type="Spatial" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.825, 0, 0, 0, 0.5, 0, 0, 0, 0.499, 0.26141, 3.22846, 0.786674 )

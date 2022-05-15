@@ -1,17 +1,18 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Inner_2x2_Top.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/rooms/assemblies/inner_corner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Hill_Corner_Inner_2x2.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://assets/rooms/pieces/Cave_Prop_Entrance_1.obj" type="ArrayMesh" id=3]
-[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Inner_2x2_Base.obj" type="ArrayMesh" id=4]
-[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Inner_2x2_Mid.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Outer_2x2_Top.obj" type="ArrayMesh" id=6]
 [ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Outer_2x2_Base.obj" type="ArrayMesh" id=7]
 [ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Outer_3x3_Mid.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Floor_Normal.obj" type="ArrayMesh" id=9]
+
+[sub_resource type="BoxShape" id=2]
 
 [sub_resource type="BoxShape" id=1]
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=3]
 
 [node name="Separator_wall" type="Spatial"]
 
@@ -46,36 +47,6 @@ material/24 = null
 material/25 = null
 material/26 = null
 
-[node name="inner_corner" type="Spatial" parent="."]
-transform = Transform( -2.81501e-08, 0, -0.793, 0, 1.785, 0, 0.644, 0, -3.46631e-08, -2.636, 0.928, 0.874 )
-
-[node name="StaticBody" type="StaticBody" parent="inner_corner"]
-
-[node name="CollisionShape" type="CollisionShape" parent="inner_corner/StaticBody"]
-transform = Transform( 0.447, 0, -6.95442e-15, 0, 1.062, 0, 3.55271e-15, 0, 0.875, -0.472, 0.44, -0.573 )
-shape = SubResource( 1 )
-
-[node name="Cave_Terrain_Corner_Inner_2x2_Mid" type="MeshInstance" parent="inner_corner/StaticBody"]
-mesh = ExtResource( 5 )
-skeleton = NodePath("../../../Ceiling")
-material/0 = null
-
-[node name="Cave_Terrain_Corner_Inner_2x2_Base" type="MeshInstance" parent="inner_corner/StaticBody"]
-transform = Transform( 0.775903, 0, 0.129995, 0, 1, 0, -0.0798396, 0, 1.26333, -0.205459, -0.635051, 0.44582 )
-mesh = ExtResource( 4 )
-skeleton = NodePath("../Cave_Terrain_Corner_Inner_2x2_Mid")
-material/0 = null
-
-[node name="Cave_Terrain_Corner_Inner_2x2_Top" type="MeshInstance" parent="inner_corner/StaticBody"]
-transform = Transform( 0.836675, 0, 0.145132, 0, 1, 0, -0.110953, 0, 1.09442, -0.0460811, 0.589, 0.095 )
-mesh = ExtResource( 1 )
-skeleton = NodePath("../Cave_Terrain_Corner_Inner_2x2_Base")
-material/0 = null
-
-[node name="CollisionShape2" type="CollisionShape" parent="inner_corner/StaticBody"]
-transform = Transform( -8.73393e-09, 0, 0.765625, 0, 1.12784, 0, -0.199809, 0, -3.34665e-08, 0.227508, 0.549707, 0.122979 )
-shape = SubResource( 1 )
-
 [node name="separating_wall" type="Spatial" parent="."]
 
 [node name="StaticBody" type="StaticBody" parent="separating_wall"]
@@ -107,7 +78,7 @@ material/0 = null
 [node name="StaticBody" type="StaticBody" parent="outer_corner"]
 
 [node name="CollisionShape" type="CollisionShape" parent="outer_corner/StaticBody"]
-transform = Transform( 0.776, 0, 0, 0, 1.931, 0, 0, 0, 0.437, 1.176, 1.767, 0.149015 )
+transform = Transform( 0.776, 0, 0, 0, 1.931, 0, 0, 0, 0.399, 1.176, 1.767, 0.235955 )
 shape = SubResource( 1 )
 
 [node name="Cave_Terrain_Corner_Outer_3x3_Mid" type="MeshInstance" parent="outer_corner/StaticBody"]
@@ -127,3 +98,32 @@ transform = Transform( -0.0388816, 0, -0.777452, 0, 1, 0, 0.615774, 0, -0.049090
 mesh = ExtResource( 6 )
 skeleton = NodePath("../Cave_Terrain_Corner_Outer_3x3_Mid")
 material/0 = null
+
+[node name="connector" type="Spatial" parent="."]
+
+[node name="StaticBody" type="StaticBody" parent="connector"]
+
+[node name="floor" type="MeshInstance" parent="connector/StaticBody"]
+transform = Transform( 5.719, 0, 0, 0, 1, 0, 0, 0, 1.523, -0.303485, 0.0209659, 0.580437 )
+mesh = ExtResource( 9 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="wall" type="MeshInstance" parent="connector/StaticBody"]
+transform = Transform( -1.04208e-07, 11, -1.20042e-07, 2.384, 4.80825e-07, -5.02135e-22, -1.5735e-14, 1.66095e-06, 0.795, -1.55124, 1.11907, 0.234214 )
+mesh = ExtResource( 9 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="floor2" type="MeshInstance" parent="connector/StaticBody"]
+transform = Transform( -4.057, 1.50996e-07, 0, -6.1259e-07, -1, 0, 0, 0, 0.508, -0.760699, 1.74328, 0.0978549 )
+mesh = ExtResource( 9 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="connector/StaticBody"]
+transform = Transform( 2.705, 0, 0, 0, 0.1, 0, 0, 0, 0.778, -0.170327, -0.0790971, 0.577991 )
+shape = SubResource( 3 )
+
+[node name="inner_corner2" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1.8927e-08, 0, -1, 0, 1.68, 0, 0.433, 0, -4.37114e-08, -2.63929, -0.156556, 0.73908 )

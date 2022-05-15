@@ -1,0 +1,491 @@
+[gd_scene load_steps=49 format=2]
+
+[ext_resource path="res://assets/rooms/assemblies/Platform_square.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/rooms/assemblies/Separator_wall_with door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/rooms/chasm_slim_small.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/rooms/hallway_cave_double_decker.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/rooms/hallway_cave.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/rooms/chasm_wide.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/rooms/refuge.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/levels/test1.lmbake" type="BakedLightmapData" id=9]
+[ext_resource path="res://assets/rooms/assemblies/front_cover.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/rooms/assemblies/Separator_wall_with door_open.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/rooms/chasm_wide_extension.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/rooms/assemblies/wooden_beam_vertical.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/boulders/boulder_long.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/boulders/boulder_egg.tscn" type="PackedScene" id=20]
+[ext_resource path="res://assets/boulders/boulder_sphere.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/rooms/assemblies/wooden_arc.tscn" type="PackedScene" id=22]
+[ext_resource path="res://assets/rooms/assemblies/wooden_ceiling_boards.tscn" type="PackedScene" id=23]
+[ext_resource path="res://assets/furniture/shelf.tscn" type="PackedScene" id=24]
+[ext_resource path="res://assets/furniture/carpet.tscn" type="PackedScene" id=25]
+[ext_resource path="res://assets/small/plate.tscn" type="PackedScene" id=26]
+[ext_resource path="res://assets/boulders/boulder_capsule.tscn" type="PackedScene" id=27]
+[ext_resource path="res://assets/small/candlestick.tscn" type="PackedScene" id=28]
+[ext_resource path="res://assets/boulders/boulder_sharp.tscn" type="PackedScene" id=29]
+[ext_resource path="res://assets/furniture/cauldron_empty.tscn" type="PackedScene" id=30]
+[ext_resource path="res://assets/small/candlestick_triple.tscn" type="PackedScene" id=31]
+[ext_resource path="res://assets/furniture/fire_wood.tscn" type="PackedScene" id=32]
+[ext_resource path="res://assets/small/jug.tscn" type="PackedScene" id=33]
+[ext_resource path="res://assets/furniture/torch_wall.tscn" type="PackedScene" id=34]
+[ext_resource path="res://assets/furniture/table.tscn" type="PackedScene" id=35]
+[ext_resource path="res://assets/small/spear.tscn" type="PackedScene" id=36]
+[ext_resource path="res://assets/furniture/stool.tscn" type="PackedScene" id=37]
+[ext_resource path="res://assets/rooms/assemblies/Stalagmite_long.tscn" type="PackedScene" id=38]
+[ext_resource path="res://assets/rooms/assemblies/Stalagmite_small.tscn" type="PackedScene" id=39]
+[ext_resource path="res://assets/small/scroll_small.tscn" type="PackedScene" id=40]
+[ext_resource path="res://assets/furniture/chimney_fireplace.tscn" type="PackedScene" id=41]
+[ext_resource path="res://assets/furniture/barrel.tscn" type="PackedScene" id=42]
+[ext_resource path="res://assets/small/book_open.tscn" type="PackedScene" id=43]
+[ext_resource path="res://assets/furniture/chair.tscn" type="PackedScene" id=44]
+[ext_resource path="res://assets/rooms/assemblies/Stalagmite.tscn" type="PackedScene" id=45]
+[ext_resource path="res://assets/boulders/boulder.tscn" type="PackedScene" id=46]
+[ext_resource path="res://assets/small/bottle.tscn" type="PackedScene" id=47]
+[ext_resource path="res://assets/small/skull.tscn" type="PackedScene" id=48]
+[ext_resource path="res://assets/furniture/ladder.tscn" type="PackedScene" id=49]
+[ext_resource path="res://assets/small/bone.tscn" type="PackedScene" id=50]
+[ext_resource path="res://assets/rooms/assemblies/patch.tscn" type="PackedScene" id=51]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 1
+ambient_light_energy = 0.99
+ambient_light_sky_contribution = 0.0
+
+[node name="Spatial" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00858688, 0.812272, 0.0542755 )
+
+[node name="world" type="Spatial" parent="."]
+
+[node name="hallway_cave" parent="world" instance=ExtResource( 6 )]
+
+[node name="Separator_wall" parent="world/hallway_cave" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0.294735, 0.601, 7.19006 )
+
+[node name="decor" type="Spatial" parent="world/hallway_cave"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.301284, 0, 0 )
+
+[node name="Stalagmite" parent="world/hallway_cave/decor" instance=ExtResource( 45 )]
+transform = Transform( -1.051, 7.1337e-08, 0, -9.18813e-08, -0.816, 0, 0, 0, 1.007, 0.703646, 4.18997, 2.31021 )
+
+[node name="Stalagmite_long" parent="world/hallway_cave/decor" instance=ExtResource( 38 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71313, 0.601003, -2.48369 )
+
+[node name="patch2" parent="world/hallway_cave" instance=ExtResource( 51 )]
+transform = Transform( 0.999355, -0.035729, -0.00716216, 0.0354228, 0.997202, -0.135486, 0.00582259, 0.065668, 2.05352, -3.04748, 1.55565, -6.30415 )
+
+[node name="chasm_slim_small" parent="world" instance=ExtResource( 4 )]
+
+[node name="decor" type="Spatial" parent="world/chasm_slim_small"]
+
+[node name="ladder" parent="world/chasm_slim_small/decor" instance=ExtResource( 49 )]
+transform = Transform( -0.544229, -0.766214, -0.34166, 0.521658, 0.00987792, -0.853098, 0.65703, -0.64251, 0.394325, -1.14347, -7.24174, 2.43058 )
+
+[node name="ladder2" parent="world/chasm_slim_small/decor" instance=ExtResource( 49 )]
+transform = Transform( -4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -0.31433, 0.674308, -3.97057 )
+
+[node name="Stalagmite" parent="world/chasm_slim_small/decor" instance=ExtResource( 45 )]
+transform = Transform( -1.051, 7.1337e-08, 0, -9.18813e-08, -0.816, 0, 0, 0, 1.007, 0.930205, 4.18684, 1.74094 )
+
+[node name="Stalagmite2" parent="world/chasm_slim_small/decor" instance=ExtResource( 45 )]
+transform = Transform( -1.051, 7.1337e-08, 0, -9.18813e-08, -0.816, 0, 0, 0, 1.007, -1.01819, 4.18684, -0.082428 )
+
+[node name="boulder6" parent="world/chasm_slim_small/decor" instance=ExtResource( 46 )]
+transform = Transform( 1.336, 0, 0, 0, 1.053, 0, 0, 0, 1.517, 1.72958, -8.38102, 2.90834 )
+
+[node name="boulder_capsule" parent="world/chasm_slim_small/decor" instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56789, -8.46314, -2.74525 )
+
+[node name="hallway_cave_double_decker" parent="world" instance=ExtResource( 5 )]
+
+[node name="decor" type="Spatial" parent="world/hallway_cave_double_decker"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.432393, 0, -2.85131 )
+
+[node name="upper" type="Spatial" parent="world/hallway_cave_double_decker/decor"]
+transform = Transform( 1.527, 0, 0, 0, 1.426, 0, 0, 0, 1.283, 0, 0, 0 )
+
+[node name="boulder" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.311357, 0.579489, -2.93659 )
+
+[node name="boulder_capsule" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.236595, 0.579489, -3.53657 )
+
+[node name="boulder_long" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.541586, 0.579489, -3.94757 )
+
+[node name="boulder_sphere" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 21 )]
+transform = Transform( 1.383, 0, 0, 0, 1.31, 0, 0, 0, 1.599, 0.0941683, 0.579537, -4.40602 )
+
+[node name="boulder_long2" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18029, 0.579501, -2.46833 )
+
+[node name="boulder2" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.933199, 0.579489, -4.24124 )
+
+[node name="boulder_sphere2" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5612, 0.579489, -4.08109 )
+
+[node name="boulder_sharp" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, 0.282626, -0.95923, 0, 0.95923, 0.282626, -0.724441, 2.04951, -3.89867 )
+
+[node name="boulder_sharp2" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, 0.888521, -0.412823, 0, 0.509976, 0.888521, -1.90423, 0.865234, -3.90479 )
+
+[node name="boulder_capsule2" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 27 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -1.69989, 2.0883, -4.26689 )
+
+[node name="boulder_long3" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 19 )]
+transform = Transform( 0.1556, 0, 0.914867, 0, 1.327, 0, -1.46677, 0, 0.0970523, -1.27491, 0.406375, -5.31719 )
+
+[node name="boulder3" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01177, 1.36673, -3.73219 )
+
+[node name="boulder_long4" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 19 )]
+transform = Transform( 1.19214, 0.348977, 0.420569, -0.730392, 0.626879, 0.755482, 4.09782e-08, -1.05706, 0.605702, 0.821047, 1.19793, -4.55586 )
+
+[node name="boulder_sharp3" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 29 )]
+transform = Transform( 1.32688, -0.164222, -0.197912, 0.379841, 0.708308, 0.853616, 5.04534e-08, -1.05706, 0.605702, -0.459835, 0.86817, -4.86276 )
+
+[node name="boulder_sphere3" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 21 )]
+transform = Transform( 1.347, 0, 0, 0, 1.303, 0, 0, 0, 1.277, -0.501554, 1.28754, -4.25244 )
+
+[node name="boulder_egg" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, -0.332177, -0.84863, 0, 1.04835, -0.332177, 0.217036, 2.15781, -5.26705 )
+
+[node name="boulder_egg2" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, -0.332177, -0.84863, 0, 1.04835, -0.332177, 0.907905, 0.668917, -6.10994 )
+
+[node name="boulder4" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42366, 0.406373, -6.24767 )
+
+[node name="boulder5" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.313354, 2.28501, -4.77486 )
+
+[node name="boulder_sharp4" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 29 )]
+transform = Transform( -0.448648, 0, -0.750902, 0, 1, 0, 1.06367, 0, -0.448648, -0.135482, 0.406573, -6.71918 )
+
+[node name="boulder_egg3" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.420702, 1.3936, -5.92716 )
+
+[node name="boulder_long5" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 19 )]
+transform = Transform( 0.298774, 0, 0.801832, 0, 1, 0, -1.13582, 0, 0.298774, 0.87958, 2.06445, -5.22208 )
+
+[node name="boulder6" parent="world/hallway_cave_double_decker/decor/upper" instance=ExtResource( 46 )]
+transform = Transform( 0.387, 0, 0, 0, 0.784, 0, 0, 0, 0.825, 0.630559, 0.406374, 0.132499 )
+
+[node name="lower" type="Spatial" parent="world/hallway_cave_double_decker/decor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.47769, 0 )
+
+[node name="Stalagmite_small" parent="world/hallway_cave_double_decker/decor/lower" instance=ExtResource( 39 )]
+transform = Transform( 0.864, 0, 0, 0, 1.325, 0, 0, 0, 0.802, -0.125061, 0.0261955, -0.198933 )
+
+[node name="Stalagmite_small2" parent="world/hallway_cave_double_decker/decor/lower" instance=ExtResource( 39 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -1.44196, 3.62163, -7.63429 )
+
+[node name="Stalagmite" parent="world/hallway_cave_double_decker/decor/lower" instance=ExtResource( 45 )]
+transform = Transform( -1.051, 1.42412e-07, 0, -9.18813e-08, -1.629, 0, 0, 0, 1.007, 0.560634, 3.62163, -4.18974 )
+
+[node name="boulder_egg" parent="world/hallway_cave_double_decker/decor/lower" instance=ExtResource( 20 )]
+transform = Transform( 1.3, 0, 0, 0, 1, 0, 0, 0, 2.131, 1.33042, 0.0326595, -6.94734 )
+
+[node name="hallway_cave_double_decker2" parent="world" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, -39.4012 )
+
+[node name="decor" type="Spatial" parent="world/hallway_cave_double_decker2"]
+
+[node name="lower" type="Spatial" parent="world/hallway_cave_double_decker2/decor"]
+
+[node name="Stalagmite_long" parent="world/hallway_cave_double_decker2/decor/lower" instance=ExtResource( 38 )]
+transform = Transform( 0.541, 0, 0, 0, 1, 0, 0, 0, 0.596, -0.554357, -8.44503, -6.11221 )
+
+[node name="boulder_sharp" parent="world/hallway_cave_double_decker2/decor/lower" instance=ExtResource( 29 )]
+transform = Transform( 0.411053, 0.911611, 0, -0.328578, 0.148158, 0.932784, 0.850336, -0.383424, 0.360436, -0.0708737, -4.85606, -8.85417 )
+
+[node name="boulder_sphere" parent="world/hallway_cave_double_decker2/decor/lower" instance=ExtResource( 21 )]
+transform = Transform( 1.537, 0, 0, 0, 2.812, 0, 0, 0, 2.911, -2.66584, -9.13472, -1.89236 )
+
+[node name="boulder_sharp2" parent="world/hallway_cave_double_decker2/decor/lower" instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, 0.561578, 0.827424, 0, -0.827424, 0.561578, 1.76913, -8.84763, -0.534103 )
+
+[node name="chasm_slim_small_climbable" type="Spatial" parent="world"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, -52.8291 )
+
+[node name="platforms" type="Spatial" parent="world/chasm_slim_small_climbable"]
+
+[node name="chasm_slim_small" parent="world/chasm_slim_small_climbable/platforms" instance=ExtResource( 4 )]
+
+[node name="Platform_square" parent="world/chasm_slim_small_climbable/platforms" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1.80204, 0.346428, 0, -0.665488, 0.938076, -1.83709, -8.54938, -10.9821 )
+
+[node name="Platform_square2" parent="world/chasm_slim_small_climbable/platforms" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.743, 0.960842, -4.58829, -9.32021 )
+
+[node name="Platform_square3" parent="world/chasm_slim_small_climbable/platforms" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 0.816679, -0.0899025, 0, 0.0737201, 0.995951, 0, -2.38719, -15.7706 )
+
+[node name="Platform_square4" parent="world/chasm_slim_small_climbable/platforms" instance=ExtResource( 1 )]
+transform = Transform( 0.661, 8.74228e-08, 0, -5.77865e-08, 1, 0, 0, 0, -1, -0.271217, -0.941615, -3.37998 )
+
+[node name="decor" type="Spatial" parent="world/chasm_slim_small_climbable"]
+
+[node name="Stalagmite_small" parent="world/chasm_slim_small_climbable/decor" instance=ExtResource( 39 )]
+transform = Transform( -1, 1.75283e-07, 0, -8.74228e-08, -2.005, 0, 0, 0, 1, 1.05706, 4.18997, -10.5128 )
+
+[node name="Stalagmite_small2" parent="world/chasm_slim_small_climbable/decor" instance=ExtResource( 39 )]
+transform = Transform( -0.579, 1.98559e-07, 0, -8.74266e-08, -1.315, 0, 0, 0, 0.442, -0.681459, 4.18985, -7.07406 )
+
+[node name="hallway_cave2" parent="world" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.4901 )
+
+[node name="decor" type="Spatial" parent="world/hallway_cave2"]
+
+[node name="Stalagmite_long" parent="world/hallway_cave2/decor" instance=ExtResource( 38 )]
+transform = Transform( 1.086, 0, 0, 0, 1, 0, 0, 0, 1.496, 1.49245, 0.601063, 1.21671 )
+
+[node name="Stalagmite_long2" parent="world/hallway_cave2/decor" instance=ExtResource( 38 )]
+transform = Transform( 0.988948, 0, -0.618171, 0, 1, 0, 0.448752, 0, 1.36231, -0.684913, 0.601063, -1.48434 )
+
+[node name="Stalagmite" parent="world/hallway_cave2/decor" instance=ExtResource( 45 )]
+transform = Transform( -0.725775, 3.6143e-08, -0.486768, -6.9676e-08, -0.454, 0, -0.329333, 1.64005e-08, 1.07273, 0.124196, 4.18997, -4.98785 )
+
+[node name="Stalagmite2" parent="world/hallway_cave2/decor" instance=ExtResource( 45 )]
+transform = Transform( -0.762789, 2.94927e-08, -0.490175, -7.32294e-08, -0.370464, 9.27147e-16, -0.346129, 1.33828e-08, 1.08023, -0.994425, 4.18995, 4.85349 )
+
+[node name="chasm_wide" parent="world" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.071, 0.087, 0.517, -78.174 )
+
+[node name="Platform_square" parent="world/chasm_wide" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.61, -0.148001, -0.577598, 11.355 )
+
+[node name="Platform_square2" parent="world/chasm_wide" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.61, -0.148001, -0.577598, 6.36024 )
+
+[node name="extension" parent="world/chasm_wide" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.75358, 0 )
+
+[node name="extension2" parent="world/chasm_wide" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -18.2916, 0 )
+
+[node name="front_cover" parent="world/chasm_wide" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.75, 0, 1, -3.27835e-08, -0.0468292, -5.00632, 22.3349 )
+
+[node name="front_cover2" parent="world/chasm_wide" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.75, 0, 1, -3.27835e-08, -0.0468292, -15.2752, 22.3349 )
+
+[node name="front_cover3" parent="world/chasm_wide" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, -4.37117e-08, 0.749995, 0, -1.00001, -3.27833e-08, -0.0468292, -25.4023, -5.6195 )
+
+[node name="front_cover4" parent="world/chasm_wide" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, -4.37117e-08, 0.749995, 0, -1.00001, -3.27833e-08, -0.0468292, -15.134, -5.72108 )
+
+[node name="Platform_square3" parent="world/chasm_wide" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.61, -0.148001, -0.577598, 1.64171 )
+
+[node name="hallway_cave3" parent="world" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, -85.65 )
+
+[node name="Separator_wall" parent="world/hallway_cave3" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200479, 0.577299, -5.93185 )
+
+[node name="decor" type="Spatial" parent="world/hallway_cave3"]
+transform = Transform( 1, 0, 0, 0, 1.186, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="wooden_arc" parent="world/hallway_cave3/decor" instance=ExtResource( 22 )]
+
+[node name="wooden_arc" parent="world/hallway_cave3/decor/wooden_arc" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37836e-07, 0, 3.12598 )
+
+[node name="wooden_ceiling_boards" parent="world/hallway_cave3/decor" instance=ExtResource( 23 )]
+transform = Transform( 1.523, 0, 0, 0, 1, 0, 0, 0, 1.835, 0.972773, 2.95085, 1.40334 )
+
+[node name="wooden_ceiling_boards2" parent="world/hallway_cave3/decor" instance=ExtResource( 23 )]
+transform = Transform( 1.523, 0, 0, 0, 1, 0, 0, 0, 1.835, -0.534642, 2.95085, 1.40334 )
+
+[node name="boulder_capsule" parent="world/hallway_cave3/decor" instance=ExtResource( 27 )]
+transform = Transform( 1.523, 0, 0, 0, 1, 0, 0, 0, 1.835, -2.4904, 0.506745, 5.33286 )
+
+[node name="Stalagmite" parent="world/hallway_cave3/decor" instance=ExtResource( 45 )]
+transform = Transform( -1.051, 4.37988e-08, 0, -9.18813e-08, -0.501, 0, 0, 0, 1.007, 0.265374, 3.53274, -1.78692 )
+
+[node name="torch_wall" parent="world/hallway_cave3/decor" instance=ExtResource( 34 )]
+transform = Transform( 1, 0, 0, 0, 0.999248, 0.0387715, 0, -0.0387715, 0.999248, 1.0956, 1.45988, -5.48766 )
+
+[node name="torch_wall2" parent="world/hallway_cave3/decor" instance=ExtResource( 34 )]
+transform = Transform( 1, 0, 0, 0, 0.997069, -0.0765102, 0, 0.0765102, 0.997069, -1.82632, 1.45988, -5.26489 )
+
+[node name="refuge" type="Spatial" parent="world"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.543201, -91.6504 )
+
+[node name="room" parent="world/refuge" instance=ExtResource( 8 )]
+
+[node name="decor" type="Spatial" parent="world/refuge"]
+
+[node name="furniture" type="Spatial" parent="world/refuge/decor"]
+
+[node name="chimney_fireplace" parent="world/refuge/decor/furniture" instance=ExtResource( 41 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.124, 5.36442e-07, -14.0079 )
+
+[node name="fire_wood" parent="world/refuge/decor/furniture" instance=ExtResource( 32 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.22947, 1.60933e-06, -15.7168 )
+
+[node name="fire_wood" parent="world/refuge/decor/furniture/fire_wood" instance=ExtResource( 32 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.981842, 7.15256e-07, 0.0674267 )
+
+[node name="table" parent="world/refuge/decor/furniture" instance=ExtResource( 35 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.09871, 1.13249e-06, -7.2729 )
+
+[node name="stool" parent="world/refuge/decor/furniture/table" instance=ExtResource( 37 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1702, 2.5034e-05, 1.38874 )
+
+[node name="stool2" parent="world/refuge/decor/furniture/table" instance=ExtResource( 37 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0208359, 2.5034e-05, 1.38874 )
+
+[node name="stool3" parent="world/refuge/decor/furniture/table" instance=ExtResource( 37 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1695, 2.5034e-05, 1.38874 )
+
+[node name="stool4" parent="world/refuge/decor/furniture/table" instance=ExtResource( 37 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1702, 2.5034e-05, -1.60208 )
+
+[node name="stool5" parent="world/refuge/decor/furniture/table" instance=ExtResource( 37 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0208359, 2.5034e-05, -1.60208 )
+
+[node name="stool6" parent="world/refuge/decor/furniture/table" instance=ExtResource( 37 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1695, 2.5034e-05, -1.60208 )
+
+[node name="stool7" parent="world/refuge/decor/furniture/table" instance=ExtResource( 37 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.40228, 2.5034e-05, -0.132045 )
+
+[node name="stool8" parent="world/refuge/decor/furniture/table" instance=ExtResource( 37 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45378, 2.5034e-05, -0.132044 )
+
+[node name="carpet" parent="world/refuge/decor/furniture/table" instance=ExtResource( 25 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.0279846, 7.34329e-05, -0.0828404 )
+
+[node name="chair" parent="world/refuge/decor/furniture" instance=ExtResource( 44 )]
+transform = Transform( 3.37128e-08, -0.771258, -0.636522, -1, -4.37114e-08, 0, -2.78233e-08, 0.636522, -0.771258, -5.91376, 0.348706, -12.1312 )
+
+[node name="chair2" parent="world/refuge/decor/furniture" instance=ExtResource( 44 )]
+transform = Transform( 0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, 0.766044, -5.81804, 0, -15.8163 )
+
+[node name="cauldron_empty" parent="world/refuge/decor/furniture" instance=ExtResource( 30 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.21521, 0.447656, -13.0837 )
+
+[node name="torches" type="Spatial" parent="world/refuge/decor/furniture"]
+
+[node name="torch_wall" parent="world/refuge/decor/furniture/torches" instance=ExtResource( 34 )]
+transform = Transform( -1, -5.15427e-09, 8.72707e-08, 0, 0.99826, 0.0589579, -8.74228e-08, 0.0589579, -0.99826, 1.0956, 1.2477, -0.398659 )
+
+[node name="torch_wall2" parent="world/refuge/decor/furniture/torches" instance=ExtResource( 34 )]
+transform = Transform( -1, -1.73016e-09, -8.74057e-08, 0, 0.999804, -0.0197907, 8.74228e-08, -0.0197907, -0.999804, -1.82632, 1.2477, -0.431961 )
+
+[node name="torch_wall3" parent="world/refuge/decor/furniture/torches" instance=ExtResource( 34 )]
+transform = Transform( 1, 0, 0, 0, 0.99993, 0.0117982, 0, -0.0117982, 0.99993, 1.0956, 1.2477, -22.8555 )
+
+[node name="torch_wall4" parent="world/refuge/decor/furniture/torches" instance=ExtResource( 34 )]
+transform = Transform( 1, 0, 0, 0, 0.99993, 0.0117982, 0, -0.0117982, 0.99993, -1.82632, 1.2477, -22.8888 )
+
+[node name="torch_wall5" parent="world/refuge/decor/furniture/torches" instance=ExtResource( 34 )]
+transform = Transform( -4.37114e-08, -0.0117982, 0.99993, 0, 0.99993, 0.0117982, -1, 5.15714e-10, -4.37083e-08, -9.35605, 1.12637, -7.67097 )
+
+[node name="torch_wall6" parent="world/refuge/decor/furniture/torches" instance=ExtResource( 34 )]
+transform = Transform( -4.37114e-08, -0.0117982, 0.99993, 0, 0.99993, 0.0117982, -1, 5.15714e-10, -4.37083e-08, -9.40037, 1.31739, -12.7274 )
+
+[node name="torch_wall7" parent="world/refuge/decor/furniture/torches" instance=ExtResource( 34 )]
+transform = Transform( -1, -1.48004e-10, -8.74226e-08, 0, 0.999999, -0.00169297, 8.74228e-08, -0.00169297, -0.999999, 0.397962, 1.51939, -11.2642 )
+
+[node name="shelf" parent="world/refuge/decor/furniture" instance=ExtResource( 24 )]
+transform = Transform( 0.966367, 0, 0.257167, 0, 1, 0, -0.257167, 0, 0.966367, -4.58332, 9.23872e-06, -20.0336 )
+
+[node name="barrel" parent="world/refuge/decor/furniture" instance=ExtResource( 42 )]
+transform = Transform( 0.966367, 0, 0.257167, 0, 1, 0, -0.257167, 0, 0.966367, -8.52225, 2.64049e-05, -8.3875 )
+
+[node name="barrel" parent="world/refuge/decor/furniture/barrel" instance=ExtResource( 42 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.341572, -2.64645e-05, -0.830467 )
+
+[node name="barrel2" parent="world/refuge/decor/furniture/barrel" instance=ExtResource( 42 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.164242, 0.923071, -0.454361 )
+
+[node name="barrel3" parent="world/refuge/decor/furniture/barrel" instance=ExtResource( 42 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.531435, 0.403656, 1.90092 )
+
+[node name="wooden_beam_vertical" parent="world/refuge/decor/furniture" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1.625, 0, -1, 0, -4.37114e-08, 1.97869, 6.55651e-07, -16.8106 )
+
+[node name="wooden_beam_vertical2" parent="world/refuge/decor/furniture" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1.625, 0, -1, 0, -4.37114e-08, 1.97869, 6.55651e-07, -5.11089 )
+
+[node name="wooden_beam_vertical3" parent="world/refuge/decor/furniture" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1.625, 0, -1, 0, -4.37114e-08, 0.420733, 6.55651e-07, -11.1299 )
+
+[node name="wooden_beam_vertical4" parent="world/refuge/decor/furniture" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1.625, 0, -1, 0, -4.37114e-08, -5.3206, 8.9407e-07, -11.3738 )
+
+[node name="interactuables" type="Spatial" parent="world/refuge/decor"]
+
+[node name="skull" parent="world/refuge/decor/interactuables" instance=ExtResource( 48 )]
+transform = Transform( 0.0777281, -0.132948, 0.98807, 0.99692, -4.35768e-08, -0.0784243, 0.0104264, 0.991123, 0.132539, -3.11049, 0.957935, -9.11522 )
+
+[node name="bones" type="Spatial" parent="world/refuge/decor/interactuables"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.65404, 0, -13.8674 )
+
+[node name="bone" parent="world/refuge/decor/interactuables/bones" instance=ExtResource( 50 )]
+transform = Transform( 0.866113, 0, -0.499849, 0, 1, 0, 0.499849, 0, 0.866113, 0.00570822, 0.018178, 0.760986 )
+
+[node name="bone2" parent="world/refuge/decor/interactuables/bones" instance=ExtResource( 50 )]
+transform = Transform( -0.629185, 0, -0.777256, 0, 1, 0, 0.777256, 0, -0.629185, -0.0196619, 0.0776606, 0.158966 )
+
+[node name="bone3" parent="world/refuge/decor/interactuables/bones" instance=ExtResource( 50 )]
+transform = Transform( 0.601676, 0, 0.79874, 0, 1, 0, -0.79874, 0, 0.601676, -0.307315, 0.63928, 0.55883 )
+
+[node name="bone4" parent="world/refuge/decor/interactuables/bones" instance=ExtResource( 50 )]
+transform = Transform( 0.393259, 0.756835, 0.522061, -0.455369, 0.653606, -0.604515, -0.79874, 0, 0.601676, -0.54061, 0.63928, 0.684967 )
+
+[node name="bone5" parent="world/refuge/decor/interactuables/bones" instance=ExtResource( 50 )]
+transform = Transform( 0.880091, -0.209438, -0.426117, -0.45382, -0.634914, -0.625246, -0.139597, 0.743654, -0.653829, -0.540612, 0.63928, 0.916031 )
+
+[node name="book_open" parent="world/refuge/decor/interactuables" instance=ExtResource( 43 )]
+transform = Transform( 0.977361, 0, 0.211581, 0, 1, 0, -0.211581, 0, 0.977361, -2.23116, 0.869343, -9.07742 )
+
+[node name="bottle" parent="world/refuge/decor/interactuables" instance=ExtResource( 47 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5617, 0.831839, -8.71766 )
+
+[node name="candlestick" parent="world/refuge/decor/interactuables" instance=ExtResource( 28 )]
+transform = Transform( 3.64077e-08, 0.832912, 0.553406, 1, -4.37114e-08, 0, 2.41901e-08, 0.553406, -0.832912, -2.8719, 1.00423, -8.61151 )
+
+[node name="candlestick_triple" parent="world/refuge/decor/interactuables" instance=ExtResource( 31 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.00569, 0.827621, -7.20684 )
+
+[node name="jug" parent="world/refuge/decor/interactuables" instance=ExtResource( 33 )]
+transform = Transform( 0.487844, -0.872931, 0, 0.872931, 0.487844, 0, 0, 0, 1, 0.221241, 0.145388, -13.2097 )
+
+[node name="plate" parent="world/refuge/decor/interactuables" instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75458, 6.55651e-07, -13.3945 )
+
+[node name="scroll_small" parent="world/refuge/decor/interactuables" instance=ExtResource( 40 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36757, 4.17233e-07, -12.0126 )
+
+[node name="scroll_small2" parent="world/refuge/decor/interactuables" instance=ExtResource( 40 )]
+transform = Transform( 0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, -0.401511, 1.7345e-05, -17.3634 )
+
+[node name="spear" parent="world/refuge/decor/interactuables" instance=ExtResource( 36 )]
+transform = Transform( 1, 0, 0, 0, 0.983252, 0.182253, 0, -0.182253, 0.983252, -4.66953, 0.968886, -19.5795 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( -6.86269e-08, 0, 1.57, 0, 1.57, 0, -1.57, 0, -6.86269e-08, -0.0238957, 0.792595, 2.56022 )
+
+[node name="FRONTAL_BOUND" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="FRONTAL_BOUND"]
+transform = Transform( 1, 0, 0, 0, 13.844, 0, 0, 0, 64.187, 3.42112, -4.82089, -53.5774 )
+shape = SubResource( 1 )
+
+[node name="BakedLightmap" type="BakedLightmap" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.29514, 0, -107.119 )
+visible = false
+extents = Vector3( 10, 10, 19.5605 )
+light_data = ExtResource( 9 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )

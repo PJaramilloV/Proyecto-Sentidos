@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Hill_Side_Sharp.obj" type="ArrayMesh" id=1]
+
+[sub_resource type="BoxShape" id=1]
+
+[node name="Floor" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="Cave_Terrain_Hill_Side_Sharp" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 2.504, 0, 0, 0, 1, 0, 0, 0, 1, 1.361, 0.004, 0.551212 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cave_Terrain_Hill_Side_Sharp2" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 2.499, 0, 0, 0, 1, 0, 0, 0, 1, -1.041, 0.004, 0.551212 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cave_Terrain_Hill_Side_Sharp3" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 2.504, 0, 0, 0, 1, 0, 0, 0, 1, 1.361, 0.499, 2.51247 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cave_Terrain_Hill_Side_Sharp4" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 2.499, 0, 0, 0, 1, 0, 0, 0, 1, -1.041, 0.499, 2.51247 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cave_Terrain_Hill_Side_Sharp5" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 2.504, 0, 0, 0, 1, 0, 0, 0, 1, 1.361, 1.001, 4.47354 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cave_Terrain_Hill_Side_Sharp6" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 2.499, 0, 0, 0, 1, 0, 0, 0, 1, -1.041, 1.001, 4.47354 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 2.441, 0, 0, 0, 0.147232, 0.757191, 0, -0.0377726, 2.95142, 0.159772, 0.615178, 3.05508 )
+shape = SubResource( 1 )

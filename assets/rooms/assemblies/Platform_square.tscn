@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/rooms/pieces/Shared_Prop_Boulder_1.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/rooms/pieces/Tesselated_slope.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/rooms/pieces/Shared_Prop_Boulder_6.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://assets/rooms/pieces/Shared_Prop_Boulder_3.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://assets/rooms/assemblies/Floor.tscn" type="PackedScene" id=5]
+
+[sub_resource type="BoxShape" id=1]
+
+[node name="Platform_square" type="Spatial"]
+
+[node name="Floor" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.6, 0, 0, 0, 0.1, 0, 0, 0, 0.3, 0, 0, 0 )
+
+[node name="sharp_rock_R" type="MeshInstance" parent="."]
+transform = Transform( 0.7, 0, 0, 0, 0.0176618, -0.599906, 0, 0.999844, 0.0105971, 1.5248, -0.120678, 3.59854 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="sharp_rock_L" type="MeshInstance" parent="."]
+transform = Transform( 0.7, 0, 0, 0, 0.0446132, -0.599403, 0, -0.999004, -0.0267679, 1.5248, -0.120678, 1.85572 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="Shared_Prop_Boulder_1" type="MeshInstance" parent="."]
+transform = Transform( 0.7, -3.69789e-07, -1.03631e-16, 4.71528e-09, 0.109253, -1.05795, -1.05592e-07, -2.44656, -0.0472433, 1.45726, -0.510912, 2.56787 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../sharp_rock_L")
+material/0 = null
+
+[node name="Shared_Prop_Boulder_2" type="MeshInstance" parent="."]
+transform = Transform( 0.7, -2.87194e-07, 5.13604e-16, 1.60789e-08, 0.289338, 1.25522, 1.04467e-07, 1.87986, -0.193196, 1.45726, -0.485074, 3.04648 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../sharp_rock_L")
+material/0 = null
+
+[node name="Shared_Prop_Boulder_6" type="MeshInstance" parent="."]
+transform = Transform( 0.7, 4.22033e-07, -3.88578e-16, -1.31881e-09, 0.034874, -1.04292, 1.05689e-07, -2.79478, -0.0130138, 1.51293, -0.417455, 3.40499 )
+mesh = ExtResource( 3 )
+skeleton = NodePath("../Shared_Prop_Boulder_2")
+material/0 = null
+
+[node name="bottom" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.6, 0, 0, 0, -0.1, 2.05354e-08, 0, -1.50996e-08, -0.136, 1.19209e-07, -0.89983, 3.89485 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="Tesselated_slope_R" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1.5, -4.52987e-07, 1.98007e-15, 0, 1.31134e-07, 0.3, 2.26494e-07, 3, -1.31134e-08, 0.687991, -0.737076, 3.78745 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Tesselated_slope_L" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1.5, 4.52987e-07, 1.98007e-15, 0, -1.31134e-07, 0.3, 2.26494e-07, -3, -1.31134e-08, 0.700091, -0.737076, 1.59372 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1.488, 0, 0, 0, 0.05323, -0.407622, 0, 0.0317894, 0.682546, 0.123883, -0.513711, 1.09114 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1.488, 0, 0, 0, 0.05323, 0.407622, 0, -0.0317894, 0.682546, 0.123883, -0.513711, 4.29595 )
+shape = SubResource( 1 )
