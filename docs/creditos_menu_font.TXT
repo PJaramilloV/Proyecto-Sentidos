@@ -1,0 +1,3 @@
+imagen fondo main: https://unsplash.com/es/fotos/4PwRZXbXKxY
+
+font titulo: https://fontlibrary.org/en/font/medievalsharp
