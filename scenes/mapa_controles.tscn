@@ -9,6 +9,7 @@
 font_data = ExtResource( 4 )
 
 [node name="Node2D" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="MapaControles" type="Sprite" parent="."]
@@ -30,3 +31,5 @@ margin_right = 104.0
 margin_bottom = 578.0
 custom_fonts/font = SubResource( 1 )
 text = "Back"
+
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://assets/rooms/assemblies/Platform_square.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/rooms/chasm_wide.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/rooms/refuge.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/levels/test1.lmbake" type="BakedLightmapData" id=9]
+[ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/rooms/assemblies/front_cover.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/rooms/assemblies/Separator_wall_with door_open.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/rooms/chasm_wide_extension.tscn" type="PackedScene" id=13]
@@ -489,3 +490,5 @@ light_data = ExtResource( 9 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
+
+[node name="PauseMenu" parent="." instance=ExtResource( 10 )]
