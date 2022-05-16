@@ -4,7 +4,6 @@ onready var start = $Panel/Fondo/Start
 onready var exit = $Panel/Fondo/Exit
 onready var options = $Panel/Fondo/Options
 onready var extras = $Panel/Fondo/Extras
-onready var prueba = $Panel/Fondo/Prueba
 
 var time_in_seconds = 0.2
 
@@ -14,7 +13,6 @@ func _ready():
 	exit.connect("pressed", self, "_on_exit_pressed")
 	options.connect("pressed", self, "_on_options_pressed")
 	extras.connect("pressed", self, "_on_extras_pressed")
-	prueba.connect("pressed", self, "_on_prueba_pressed")
 
 func _on_start_pressed():
 	$AudioStreamPlayer2D.play()
@@ -36,7 +34,5 @@ func _on_extras_pressed():
 	$AudioStreamPlayer2D.play()
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	get_tree().change_scene("res://demo/Demo.tscn")	
-	
-func _on_prueba_pressed():
-	$AudioStreamPlayer2D.play()
+
 

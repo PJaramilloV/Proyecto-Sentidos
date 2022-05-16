@@ -32,9 +32,9 @@ expand = true
 
 [node name="Panel" type="PanelContainer" parent="."]
 margin_left = 398.0
-margin_top = 136.0
+margin_top = 161.0
 margin_right = 625.0
-margin_bottom = 459.0
+margin_bottom = 434.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -42,45 +42,38 @@ size_flags_vertical = 4
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 220.0
-margin_bottom = 316.0
-
-[node name="Prueba" type="Button" parent="Panel/Fondo"]
-margin_right = 213.0
-margin_bottom = 46.0
-size_flags_stretch_ratio = 0.0
-text = "prueba"
+margin_bottom = 266.0
 
 [node name="Title" type="Label" parent="Panel/Fondo"]
-margin_top = 50.0
 margin_right = 213.0
-margin_bottom = 109.0
+margin_bottom = 59.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 custom_fonts/font = SubResource( 1 )
 text = "Profundis"
 
 [node name="Start" type="Button" parent="Panel/Fondo"]
-margin_top = 113.0
+margin_top = 63.0
 margin_right = 213.0
-margin_bottom = 159.0
+margin_bottom = 109.0
 text = "Start"
 
 [node name="Options" type="Button" parent="Panel/Fondo"]
-margin_top = 163.0
+margin_top = 113.0
 margin_right = 213.0
-margin_bottom = 209.0
+margin_bottom = 159.0
 text = "Options"
 
 [node name="Extras" type="Button" parent="Panel/Fondo"]
-margin_top = 213.0
+margin_top = 163.0
 margin_right = 213.0
-margin_bottom = 259.0
+margin_bottom = 209.0
 text = "Extras"
 
 [node name="Exit" type="Button" parent="Panel/Fondo"]
-margin_top = 263.0
+margin_top = 213.0
 margin_right = 213.0
-margin_bottom = 309.0
+margin_bottom = 259.0
 size_flags_stretch_ratio = 0.0
 text = "Exit"
 
