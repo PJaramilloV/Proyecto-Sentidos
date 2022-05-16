@@ -8,7 +8,7 @@ font_data = ExtResource( 1 )
 
 [resource]
 default_font = SubResource( 1 )
-MarginContainer/constants/margin_bottom = 4
+MarginContainer/constants/margin_bottom = 0
 MarginContainer/constants/margin_left = 0
 MarginContainer/constants/margin_right = 0
 MarginContainer/constants/margin_top = 0
