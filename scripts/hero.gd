@@ -19,6 +19,7 @@ var held_object: Object
 var _objects := []
 var _pointer := 0
 var _falling_speed := 0.0
+var checkpoint : Object
 
 onready var _model: Spatial = $Hero
 onready var _stand_shape: CollisionShape = $CollisionShape
@@ -38,8 +39,8 @@ onready var decal = preload("res://scenes/Footprint.tscn")
 
 func _physics_process(delta):
 	var move_direction := Vector3.ZERO
-	move_direction.z = - Input.get_action_strength("right") + Input.get_action_strength("left")
-	move_direction.x = Input.get_action_strength("back") - Input.get_action_strength("forward")
+	move_direction.x =  Input.get_action_strength("right") - Input.get_action_strength("left")
+	move_direction.z = Input.get_action_strength("back") - Input.get_action_strength("forward")
 	move_direction = move_direction.normalized()
 	
 	_velocity.y -= gravity * delta 
@@ -226,3 +227,15 @@ func _on_area_grab_exited(body: Node):
 			_pointer -= 1
 	if _pointer < 0:
 			_pointer = 0
+
+
+
+
+# Almacenar referencia al checkpoint
+func check_point_reached(cp_area: Node):
+	if checkpoint != cp_area:
+		checkpoint = cp_area
+
+# Al morir respawnear el Player desde el checkpoint
+func death():
+	checkpoint.respawn(self.get_parent())
