@@ -17,5 +17,6 @@ func respawn(player: Node):
 	var new_player = hero.instance()
 	new_player.set_scale(Vector3(1.57,1.57,1.57) )
 	new_player.translation = self.translation
+	new_player.get_node("spirit").flash()
 	level.add_child(new_player)
 
