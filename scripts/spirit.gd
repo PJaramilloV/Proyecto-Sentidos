@@ -5,10 +5,12 @@ onready var omni: OmniLight = get_node("OmniLight")
 export var smooth_speed := 2
 export var offset: Vector3
 var flash_t := 0.0
+var angle := 0.0
 	
 func _physics_process(delta) -> void:
 	if(target != null):
-		var destination = target.global_transform.origin + offset
+		angle += delta * 2
+		var destination = target.global_transform.origin + offset + Vector3(0.0, 0.2*sin(angle),0.0 )
 		self.global_transform.origin = lerp(self.global_transform.origin, destination, smooth_speed * delta)
 	
 	if(flash_t > 0):					#    \/ coeficientes obtenidos por algebra
@@ -18,7 +20,7 @@ func _physics_process(delta) -> void:
 		# energy	 : 1.665 (default)  9.09 (peak flash)
 		flash_t -= delta
 		
-		
+
 
 func flash():
 	self.flash_t = 0.5
