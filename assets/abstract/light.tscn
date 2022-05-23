@@ -4,10 +4,11 @@
 
 [node name="OmniLight" type="OmniLight"]
 layers = 2
+light_indirect_energy = 0.0
 light_specular = 0.0
 light_cull_mask = 4293918721
-shadow_enabled = true
 shadow_bias = -0.15
 shadow_reverse_cull_face = true
-omni_attenuation = 0.517634
+omni_range = 10.0
 script = ExtResource( 1 )
+max_timer = 0.5

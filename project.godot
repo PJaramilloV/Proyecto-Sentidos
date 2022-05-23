@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "LightHandler",
+"language": "GDScript",
+"path": "res://dev/scripts/LightHandler.gd"
+}, {
+"base": "Node",
+"class": "VisualHandler",
+"language": "GDScript",
+"path": "res://dev/scripts/VisualHandler.gd"
+} ]
+_global_script_class_icons={
+"LightHandler": "",
+"VisualHandler": ""
+}
+
 [application]
 
 config/name="Proyecto Sentidos"
@@ -71,6 +87,8 @@ scroll_down={
 
 3d_render/layer_1="Enviroment"
 3d_render/layer_2="Player"
+3d_render/layer_3="Enviroment_Light"
+3d_render/layer_4="Light_extra"
 3d_physics/layer_1="Enviroment"
 3d_physics/layer_2="Player"
 

@@ -1,7 +1,7 @@
 [gd_scene format=2]
 
 [node name="OmniLight" type="DirectionalLight"]
-light_energy = 0.2
+light_energy = 0.1
 light_indirect_energy = 0.0
 light_specular = 0.0
 light_bake_mode = 0

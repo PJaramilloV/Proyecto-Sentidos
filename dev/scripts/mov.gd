@@ -9,6 +9,7 @@ var _snap_vector: Vector3 = Vector3.DOWN
 
 onready var _spring_arm: SpringArm = $SpringArm
 onready var _model: Spatial = $CollisionShape
+onready var _light_handler: LightHandler = $LightHandler
 
 func movement(delta: float):
 	var move_direction := Vector3.ZERO
@@ -36,8 +37,23 @@ func movement(delta: float):
 func camera():
 	_spring_arm.translation = translation
 
+func create_light(collision: KinematicCollision):
+	var node = collision.get_collider()
+	for child in node.get_children():
+		if child is VisualHandler:
+			_light_handler.create_light(child, collision.get_position()+collision.get_normal())
+
+func collision_events(delta):
+	if get_slide_count() <= 0:
+		return
+	var last_collision = get_slide_collision(get_slide_count() - 1)
+	if last_collision.get_collider().collision_mask == 1:
+		create_light(last_collision)
+
+
 func _physics_process(delta):
 	movement(delta)
+	collision_events(delta)
 
 func _process(delta):
 	camera()
