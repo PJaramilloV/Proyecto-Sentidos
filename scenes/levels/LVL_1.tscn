@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://assets/rooms/assemblies/Platform_square.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/rooms/assemblies/Separator_wall_with door_open.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/rooms/chasm_wide_extension.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scripts/Killzone.gd" type="Script" id=14]
+[ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/rooms/assemblies/wooden_beam_vertical.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/boulders/boulder_long.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/boulders/boulder_egg.tscn" type="PackedScene" id=20]
@@ -245,7 +246,7 @@ transform = Transform( -1, 1.75283e-07, 0, -8.74228e-08, -2.005, 0, 0, 0, 1, 1.0
 transform = Transform( -0.579, 1.98559e-07, 0, -8.74266e-08, -1.315, 0, 0, 0, 0.442, -0.681459, 4.18985, -7.07406 )
 
 [node name="hallway_cave2" parent="world" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.103666, -54.4901 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.103666, -54.4059 )
 
 [node name="decor" type="Spatial" parent="world/hallway_cave2"]
 
@@ -262,7 +263,7 @@ transform = Transform( -0.725775, 3.6143e-08, -0.486768, -6.9676e-08, -0.454, 0,
 transform = Transform( -0.762789, 2.94927e-08, -0.490175, -7.32294e-08, -0.370464, 9.27147e-16, -0.346129, 1.33828e-08, 1.08023, -0.994425, 4.18995, 4.85349 )
 
 [node name="chasm_wide" parent="world" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.071, 0.087, 0.381, -78.174 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.071, 0.087, 0.381, -78.0898 )
 
 [node name="Platform_square" parent="world/chasm_wide" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.61, -0.148001, -0.577598, 11.355 )
@@ -292,7 +293,7 @@ transform = Transform( 1, 0, 0, 0, -4.37117e-08, 0.749995, 0, -1.00001, -3.27833
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.61, -0.148001, -0.577598, 1.64171 )
 
 [node name="hallway_cave3" parent="world" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03, -85.65 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0879083, -85.5658 )
 
 [node name="Separator_wall" parent="world/hallway_cave3" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200479, 0.577299, -5.93185 )
@@ -324,7 +325,7 @@ transform = Transform( 1, 0, 0, 0, 0.999248, 0.0387715, 0, -0.0387715, 0.999248,
 transform = Transform( 1, 0, 0, 0, 0.997069, -0.0765102, 0, 0.0765102, 0.997069, -1.82632, 1.45988, -5.26489 )
 
 [node name="refuge" type="Spatial" parent="world"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.543201, -91.6504 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.485293, -91.5662 )
 
 [node name="room" parent="world/refuge" instance=ExtResource( 8 )]
 
@@ -508,7 +509,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70004, 0 )
 shape = SubResource( 3 )
 
 [node name="Checkpoint" type="Area" parent="Checkpoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.273, 0.793, -57.9479 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.273, 0.793, -57.8637 )
 collision_layer = 16
 collision_mask = 16
 script = ExtResource( 10 )
@@ -518,7 +519,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70004, 0 )
 shape = SubResource( 3 )
 
 [node name="Checkpoint2" type="Area" parent="Checkpoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.273, 0.793, -79.837 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.273, 0.793, -79.7528 )
 collision_layer = 16
 collision_mask = 16
 script = ExtResource( 10 )
@@ -528,7 +529,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70004, 0 )
 shape = SubResource( 3 )
 
 [node name="Killzones" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.34117 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.25697 )
 
 [node name="Killzone" type="Area" parent="Killzones"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.4431, -64.8749 )
@@ -542,6 +543,8 @@ shape = SubResource( 4 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 5 )
+
+[node name="PauseMenu" parent="." instance=ExtResource( 15 )]
 
 [connection signal="body_entered" from="Checkpoints/Checkpoint_start" to="Checkpoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint" to="Checkpoints/Checkpoint" method="_on_area_entered"]

@@ -4,16 +4,18 @@
 [ext_resource path="res://scenes/hero.tscn" type="PackedScene" id=2]
 
 [node name="Player" type="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="hero" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, 0, 0, 0 )
 
 [node name="OmniLight" type="OmniLight" parent="hero"]
 transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 1.19934, 0 )
+light_energy = 0.943
+light_specular = 0.182
 light_cull_mask = 4293918721
 shadow_enabled = true
-omni_range = 1.85928
+omni_range = 4.14967
+omni_attenuation = 0.812253
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.96982, 1.085, -2.84217e-14 )
