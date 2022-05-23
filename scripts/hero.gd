@@ -54,7 +54,7 @@ func _physics_process(delta):
 		if sqrt((_velocity.x * _velocity.x)+(_velocity.z * _velocity.z)) > 0.5:
 			$AnimationTree.set("parameters/RunningJumpShot/active", true)
 			$AnimationTree.set("parameters/Falling/current", 1)
-			_velocity.y = jump_strength * 0.6
+			_velocity.y = jump_strength * 0.8
 		else:
 			_prep_jump = false
 			$AnimationTree.set("parameters/JumpShot/active", true)
