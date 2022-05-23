@@ -10,7 +10,7 @@ transform = Transform( -1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, 0
 
 [node name="OmniLight" type="OmniLight" parent="hero"]
 transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 1.19934, 0 )
-light_energy = 0.943
+light_energy = 0.393
 light_specular = 0.182
 light_cull_mask = 4293918721
 shadow_enabled = true
