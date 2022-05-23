@@ -1,0 +1,170 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://dev/scripts/mov.gd" type="Script" id=1]
+[ext_resource path="res://dev/scripts/free_camera.gd" type="Script" id=2]
+[ext_resource path="res://dev/light.tscn" type="PackedScene" id=3]
+[ext_resource path="res://dev/global_light.tscn" type="PackedScene" id=4]
+[ext_resource path="res://dev/scripts/light_stack.gd" type="Script" id=5]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1, 0, 1 )
+
+[sub_resource type="PlaneMesh" id=2]
+
+[sub_resource type="BoxShape" id=6]
+
+[sub_resource type="CubeMesh" id=7]
+
+[sub_resource type="ProceduralSky" id=12]
+sky_top_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+sky_horizon_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+sky_energy = 0.0
+ground_bottom_color = Color( 0, 0, 0, 1 )
+ground_horizon_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+ground_energy = 0.0
+sun_energy = 0.0
+
+[sub_resource type="Environment" id=5]
+background_mode = 3
+background_sky = SubResource( 12 )
+background_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+fog_enabled = true
+fog_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+fog_sun_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="SphereShape" id=8]
+
+[sub_resource type="SphereMesh" id=9]
+
+[sub_resource type="BoxShape" id=10]
+
+[sub_resource type="CubeMesh" id=11]
+
+[node name="World" type="Spatial"]
+
+[node name="Instance" type="RigidBody" parent="."]
+mode = 1
+
+[node name="CollisionShape" type="CollisionShape" parent="Instance"]
+transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="MainModel" type="MeshInstance" parent="Instance/CollisionShape"]
+layers = 2
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+material/0 = null
+
+[node name="Player" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53459, 0 )
+script = ExtResource( 1 )
+jump_strength = 40.0
+
+[node name="CollisionShape" type="CollisionShape" parent="Player"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 6 )
+
+[node name="MainModel" type="MeshInstance" parent="Player/CollisionShape"]
+layers = 5
+cast_shadow = 0
+mesh = SubResource( 7 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="SpringArm" type="SpringArm" parent="Player"]
+spring_length = 10.0
+margin = 0.2
+script = ExtResource( 2 )
+
+[node name="Camera" type="Camera" parent="Player/SpringArm"]
+
+[node name="OmniLight" parent="Player" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00557756, -0.050894, 0.000576019 )
+animated = false
+
+[node name="LightStack" type="Node" parent="Player"]
+script = ExtResource( 5 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 5 )
+
+[node name="Obstacle A" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.84669, 0.89134, -5.3899 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Obstacle A"]
+shape = SubResource( 8 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Obstacle A/CollisionShape"]
+layers = 6
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="Obstacle A2" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.03104, 5.80835, 6.87962 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Obstacle A2"]
+shape = SubResource( 8 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Obstacle A2/CollisionShape"]
+layers = 2
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="Obstacle B" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44858, 5.51011, 10.5983 )
+mode = 1
+
+[node name="CollisionShape" type="CollisionShape" parent="Obstacle B"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Obstacle B/CollisionShape"]
+layers = 2
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Obstacle B3" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.539389, 14.7206, 12.0402 )
+mode = 1
+
+[node name="CollisionShape" type="CollisionShape" parent="Obstacle B3"]
+transform = Transform( 10, 0, 0, 0, -4.37114e-07, -1, 0, 10, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Obstacle B3/CollisionShape"]
+layers = 6
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Obstacle B2" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67947, 9.08974, -14.8641 )
+mode = 1
+
+[node name="CollisionShape" type="CollisionShape" parent="Obstacle B2"]
+transform = Transform( 10, 0, 0, 0, -4.37114e-07, -1, 0, 10, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Obstacle B2/CollisionShape"]
+layers = 2
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="GlobalLight" type="Spatial" parent="."]
+transform = Transform( 1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 0, 0, 0 )
+
+[node name="-Y" parent="GlobalLight" instance=ExtResource( 4 )]
+transform = Transform( 0.001, 0, 0, 0, -4.37114e-11, 0.001, 0, -0.001, -4.37114e-11, 0, 0, 0 )
+
+[node name="Y" parent="GlobalLight" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+
+[node name="X" parent="GlobalLight" instance=ExtResource( 4 )]
+
+[node name="-X" parent="GlobalLight" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0 )
+
+[node name="Z" parent="GlobalLight" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
+
+[node name="-Z" parent="GlobalLight" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-11, 0, 0.001, 0, 0.001, 0, -0.001, 0, -4.37114e-11, 0, 0, 0 )
