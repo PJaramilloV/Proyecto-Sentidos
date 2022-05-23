@@ -104,6 +104,7 @@ margin_bottom = 40.0
 text = "Bacan Studios 2022"
 
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
+visible = false
 anchor_left = 0.209
 anchor_top = 0.498
 anchor_right = 0.209

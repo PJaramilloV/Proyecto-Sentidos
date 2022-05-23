@@ -27,7 +27,6 @@ func _on_exit_pressed():
 func _on_options_pressed():
 	$AudioStreamPlayer2D.play()
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
-	print("sas")
 	get_tree().change_scene("res://scenes/mapa_controles.tscn")
 
 func _on_extras_pressed():
