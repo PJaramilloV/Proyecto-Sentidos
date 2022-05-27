@@ -65,7 +65,7 @@ func _physics_process(delta):
 			
 		selected = _objects[_pointer]
 		
-		print(_pointer)
+		#print(_pointer)
 		#var selected = _objects[_pointer]
 		#var mat = preload
 		#mat.albedo_color = Color(1,0,0)
@@ -80,7 +80,7 @@ func _physics_process(delta):
 			held_object.mode = RigidBody.MODE_RIGID
 			#held_object.collision_mask = 4
 			held_object.collision_mask=2
-			
+			held_object.clear_path()
 			held_object =  null
 		else:
 			#se pasa inmediatamente acá si se apreta la F y no se tiene un objeto tomado
@@ -94,14 +94,13 @@ func _physics_process(delta):
 	#se pasa acá  cuando se toma un objeto, justo despues de entrar al tomado
 	if held_object:
 		held_object.global_transform.origin = _hold_position.global_transform.origin
+		held_object.display_predicted_trajectory()
+		
+		
 	#### Fin tomar objetos ####
 	
 	#### Lanzar objectos ####
 	if Input.is_action_just_pressed("throw") and is_on_floor() and held_object:
-		#print(self.global_transform.origin)
-		print("toi lanzando")
-		print((get_viewport().get_mouse_position().x-500)/50)
-		print((380-get_viewport().get_mouse_position().y)*1.5/30)
 		held_object.mode = RigidBody.MODE_RIGID
 		held_object.collision_mask=2
 		held_object.take_damage(self)
@@ -145,7 +144,7 @@ func _on_area_grab_entered(body: Node):
 
 	
 func _on_area_grab_exited(body: Node):
-	print("salí del área")
+	#print("salí del área")
 	objeto_recuperado_area=null
 	body.restore()
 	_objects.erase(body)
@@ -154,8 +153,5 @@ func _on_area_grab_exited(body: Node):
 	if _pointer < 0:
 			_pointer = 0
 	#_pointer -= 1
-
-
-
 
 

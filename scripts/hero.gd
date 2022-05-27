@@ -71,12 +71,13 @@ func _physics_process(delta):
 			
 		selected = _objects[_pointer]
 		
-		print(_pointer)
+		#print(_pointer)
 		selected.outline(_youtline)
 
 	#### Tomar objetos ####
 	if Input.is_action_just_pressed("grab"):
 		if held_object: #solo entra si ya se tiene el objeto tomado
+			held_object.clear_path()
 			held_object.mode = RigidBody.MODE_RIGID
 			held_object.collision_mask=2
 			
@@ -91,10 +92,11 @@ func _physics_process(delta):
 	#se pasa acá  cuando se toma un objeto, justo despues de entrar al tomado
 	if held_object:
 		held_object.global_transform.origin = righthand.global_transform.origin
+		held_object.display_predicted_trajectory()
 	#### Fin tomar objetos ####
 	
 	#### Lanzar objectos ####
-	if Input.is_action_just_pressed("throw") and is_on_floor() and held_object:
+	if Input.is_action_just_pressed("throw") and held_object:
 		held_object.mode = RigidBody.MODE_RIGID
 		held_object.collision_mask=2
 		held_object.take_damage(self)
@@ -133,12 +135,10 @@ func leftstep():
 ### Surface Painting ###
 
 func _on_area_grab_entered(body: Node):
-	print("colisioné con un objeto tomable")
 	body.outline(_woutline)
 	_objects.append(body)
 
 func _on_area_grab_exited(body: Node):
-	print("salí del área")
 	body.outline(null)
 	_objects.erase(body)
 	if _pointer >= _objects.size():
