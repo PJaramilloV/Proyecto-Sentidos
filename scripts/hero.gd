@@ -68,38 +68,30 @@ func _physics_process(delta):
 			_pointer = _objects.size() - 1
 		if _pointer >= _objects.size():
 			_pointer = 0
-			
-		selected = _objects[_pointer]
 		
-		#print(_pointer)
+		# Objeto a pintar con outline amarillo
+		selected = _objects[_pointer]
 		selected.outline(_youtline)
 
 	#### Tomar objetos ####
 	if Input.is_action_just_pressed("grab"):
 		if held_object: #solo entra si ya se tiene el objeto tomado
-			held_object.clear_path()
-			held_object.mode = RigidBody.MODE_RIGID
-			held_object.collision_mask=2
-			
+			held_object.release()
 			held_object =  null
 		else:
 			#se pasa inmediatamente acá si se apreta la F y no se tiene un objeto tomado
 			#if objeto_recuperado_area: #se pasa acá si es que el area colisiona y guarda el body con el que choca
 			if !(_objects.empty()):
 				held_object = _objects[_pointer]
-				held_object.mode = RigidBody.MODE_KINEMATIC
-				held_object.collision_mask=0
+				held_object.grab()
 	#se pasa acá  cuando se toma un objeto, justo despues de entrar al tomado
 	if held_object:
-		held_object.global_transform.origin = righthand.global_transform.origin
-		held_object.display_predicted_trajectory()
+		held_object.display_predicted_trajectory(righthand.global_transform.origin)
 	#### Fin tomar objetos ####
 	
 	#### Lanzar objectos ####
 	if Input.is_action_just_pressed("throw") and held_object:
-		held_object.mode = RigidBody.MODE_RIGID
-		held_object.collision_mask=2
-		held_object.take_damage(self)
+		held_object.throw(self)
 		held_object =  null
 		
 	### Objetos ###

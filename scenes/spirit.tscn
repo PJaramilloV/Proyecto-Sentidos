@@ -45,7 +45,7 @@ light_energy = 1.665
 omni_range = 6.35
 omni_attenuation = 17.1483
 
-[node name="StaticBody" type="StaticBody" parent="."]
+[node name="StaticBody" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00191784, -0.00325298, 0.000960529 )
 collision_layer = 2
 
