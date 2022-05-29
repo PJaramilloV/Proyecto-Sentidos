@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	state.physics_update(delta)
+	#print(state.name)
 
 # Se cambia el estado actual. Se llama a las funciones 'enter' y 'exit' respectivamente.
 # Opcionalmente, se puede pasar un diccionario 'msg' al método 'enter'
