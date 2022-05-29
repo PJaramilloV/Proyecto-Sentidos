@@ -22,6 +22,11 @@ func physics_update(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("Air", {do_jump = true})
+	elif Input.is_action_just_pressed("interact"):
+		if player.leftladderray.is_colliding():
+			state_machine.transition_to("Ladder", {left=true})
+		elif player.rightladderray.is_colliding():
+			state_machine.transition_to("Ladder", {right=true})
 	elif Input.is_action_just_released("crouch"):
 		if is_equal_approx(vel, 0.0):
 			state_machine.transition_to("Idle")
