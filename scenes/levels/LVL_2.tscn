@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/rooms/chasm_wide_deep_alternate_exit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/rooms/assemblies/Slope.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/rooms/assemblies/patch_ceiling.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/rooms/hallway_cave.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/rooms/assemblies/Separator_wall_with door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/rooms/assemblies/patch_wall.tscn" type="PackedScene" id=6]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="world" type="Spatial" parent="."]
+
+[node name="hallway_cave" parent="world" instance=ExtResource( 4 )]
+
+[node name="Separator_wall" parent="world/hallway_cave" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0.294735, 0.601, 7.19006 )
+
+[node name="patch2" parent="world/hallway_cave" instance=ExtResource( 6 )]
+transform = Transform( 0.999355, -0.035729, -0.00716216, 0.0354228, 0.997202, -0.135486, 0.00582259, 0.065668, 2.05352, -3.04748, 1.55565, -6.30415 )
+
+[node name="Slope" parent="world" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, -0.0668821, 0.498736, -8.724 )
+
+[node name="patch_ceiling" parent="world/Slope" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 0.542228, -0.0806512, 0, 0.0438743, 0.996742, 0.122913, 2.60206, -0.46759 )
+
+[node name="Slope2" parent="world" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, -0.0668821, 1.90047, -14.3181 )
+
+[node name="patch_ceiling" parent="world/Slope2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 0.54335, 0.0488672, 0, -0.0265838, 0.998805, 0.122913, 2.61067, -0.46759 )
+
+[node name="patch" parent="world/Slope2" instance=ExtResource( 6 )]
+transform = Transform( 0.259389, 0.062149, -0.963771, 0.113764, 0.989013, 0.0943952, 0.959049, -0.134128, 0.249468, -2.95566, 2.14405, 3.58937 )
+
+[node name="chasm" parent="world" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.246, -33.922 )

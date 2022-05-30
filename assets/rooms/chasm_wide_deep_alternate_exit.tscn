@@ -42,10 +42,10 @@ transform = Transform( 0.31, 0, -2.71011e-08, 0, 0.31, 0, -2.71011e-08, 0, -0.31
 transform = Transform( 0.31, -2.71011e-08, -2.71011e-08, -2.71011e-08, -0.31, 0, -2.71011e-08, 2.36925e-15, -0.31, 2.516, 4.91452, 16.6118 )
 
 [node name="chasm_side_edge3" parent="Left" instance=ExtResource( 3 )]
-transform = Transform( -0.31, 0, 0, 0, 0.291, 1.59984e-08, 0, 2.544e-08, -0.183, -8.63794, -0.955739, 16.2349 )
+transform = Transform( -0.31, 0, 0, 0, 0.291, 1.59984e-08, 0, 2.544e-08, -0.183, -8.63794, -1.21726, 16.2349 )
 
 [node name="chasm_side_edge4" parent="Left" instance=ExtResource( 3 )]
-transform = Transform( -0.31, 0, 0, 0, 0.291, 1.59984e-08, 0, 2.544e-08, -0.183, -8.63794, 6.19344, 16.2349 )
+transform = Transform( -0.31, 0, 0, 0, 0.291, 1.59984e-08, 0, 2.544e-08, -0.183, -8.63794, 5.93192, 16.2349 )
 
 [node name="chasm_side_edge5" parent="Left" instance=ExtResource( 3 )]
-transform = Transform( -0.31, 0, 0, 0, 0.291, 1.59984e-08, 0, 2.544e-08, -0.183, -8.63794, 12.0662, 16.2349 )
+transform = Transform( -0.31, 0, 0, 0, 0.291, 1.59984e-08, 0, 2.544e-08, -0.183, -8.63794, 11.8047, 16.2349 )
