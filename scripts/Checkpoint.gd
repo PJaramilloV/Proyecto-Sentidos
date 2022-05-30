@@ -1,6 +1,6 @@
 extends Area
 
-var hero = preload("res://Player.tscn")
+var hero = preload("res://scenes/Player.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
