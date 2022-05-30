@@ -32,6 +32,6 @@ func _on_options_pressed():
 func _on_extras_pressed():
 	$AudioStreamPlayer2D.play()
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
-	get_tree().change_scene("res://demo/Demo.tscn")	
+	get_tree().change_scene("res://demo/DemoHero.tscn")	
 
 
