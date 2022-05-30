@@ -7,7 +7,6 @@
 [ext_resource path="res://scenes/Interactive/LadderClimb.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Interactive/BraceBorder.tscn" type="PackedScene" id=6]
 
-
 [sub_resource type="CylinderShape" id=14]
 margin = 0.01
 height = 1.0
