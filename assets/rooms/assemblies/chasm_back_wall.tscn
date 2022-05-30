@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Inner_3x3_Mid_ALTERNATIVE.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://scripts/VisualHandler.gd" type="Script" id=2]
 
 [sub_resource type="ConvexPolygonShape" id=1]
 points = PoolVector3Array( 1.74551, 1, -0.155667, 1.45023, 1, 0.103052, 1.74551, 0, -0.155667, -2.49713, 1, -0.155667, 1.12381, 1, 0.321087, 1.45023, 0, 0.103052, -2.49713, 0, -0.155667, -2.20228, 1, 0.103052, 1.12381, 0, 0.321087, 0.772058, 1, 0.49457, -2.20228, 0, 0.103052, -1.87585, 1, 0.321087, 0.772058, 0, 0.49457, 0.400371, 1, 0.620747, -1.87585, 0, 0.321087, -1.5241, 1, 0.49457, 0.400371, 0, 0.620747, 0.0153933, 1, 0.697296, -1.5241, 0, 0.49457, -1.15241, 1, 0.620747, 0.0153933, 0, 0.697296, -0.376229, 1, 0.723013, -1.15241, 0, 0.620747, -0.767435, 1, 0.697296, -0.376229, 0, 0.723013, -0.767435, 0, 0.697296 )
@@ -19,3 +20,6 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 1.62635, 0, -0.707107, 0, 13, 0, 1.62635, 0, 0.707107, 3.68652, -10.755, 4.52597 )
 shape = SubResource( 1 )
+
+[node name="VisualHandler" type="Node" parent="StaticBody"]
+script = ExtResource( 2 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/rooms/pieces/Shared_Prop_Boulder_2.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/rooms/pieces/Mountain_1.obj" type="ArrayMesh" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/rooms/pieces/Shared_Prop_Boulder_5.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Floor_Raised.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://assets/rooms/pieces/Mountain_4.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://scripts/VisualHandler.gd" type="Script" id=7]
 
 [sub_resource type="BoxShape" id=2]
 
@@ -83,3 +84,6 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 8.638, 0, 0, 0, 13.836, 0, 0, 0, 0.591, -8.54787, -10.3176, 0.15109 )
 shape = SubResource( 2 )
+
+[node name="VisualHandler" type="Node" parent="StaticBody"]
+script = ExtResource( 7 )

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/rooms/pieces/Cave_Prop_Stalagmite_Tiny.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://scripts/VisualHandler.gd" type="Script" id=2]
 
 [sub_resource type="ConvexPolygonShape" id=1]
 points = PoolVector3Array( 0, 0, -0.75, -0.375, 0, -0.649569, -0.0375881, 0.559769, -0.065045, 0, 0.559769, -0.0750294, 0.0374413, 0.559769, -0.065045, 0.375, 0, -0.649569, -0.649569, 0, -0.375, -0.065045, 0.559769, -0.0375881, 0, 0.6, 0, 0.0648982, 0.559769, -0.0375881, 0.649423, 0, -0.375, -0.75, 0, 0, -0.0750294, 0.559769, 0, -0.065045, 0.559769, 0.0374413, -0.0375881, 0.559769, 0.0648982, 0, 0.559769, 0.0748826, 0.0374413, 0.559769, 0.0648982, 0.0648982, 0.559769, 0.0374413, 0.0748826, 0.559769, 0, 0.75, 0, 0, -0.649569, 0, 0.375, -0.375, 0, 0.649423, 0, 0, 0.75, 0.375, 0, 0.649423, 0.649423, 0, 0.375 )
@@ -19,3 +20,6 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00251911, 0.00582027, 0.0011439 )
 shape = SubResource( 1 )
+
+[node name="VisualHandler" type="Node" parent="StaticBody"]
+script = ExtResource( 2 )

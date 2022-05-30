@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/rooms/pieces/Shared_Prop_Boulder_5.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Floor_Raised.obj" type="ArrayMesh" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/rooms/pieces/Cave_Cliff_Terrain_Entrance_Round_Top_Center.obj" type="ArrayMesh" id=6]
 [ext_resource path="res://assets/rooms/pieces/Cave_Cliff_Terrain_Entrance_Round_Top.obj" type="ArrayMesh" id=7]
 [ext_resource path="res://assets/rooms/pieces/Cave_Cliff_Terrain_Entrance_Round_Top_Center_FLIPPED_NORMALS.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://scripts/VisualHandler.gd" type="Script" id=9]
 
 [sub_resource type="ConvexPolygonShape" id=1]
 points = PoolVector3Array( -0.5, 0, 0.5, -0.5, 0.308927, 0.450959, -0.5, 1, -0.5, 0.249927, 0, 0.495204, 0.499902, 0, 0.5, 0.499902, 2, 0.5, -0.5, 0.587706, 0.308927, -0.5, 0.950861, -0.191073, 0.499902, 2, -0.5, -4.89354e-05, 1, -0.5, 0.249927, 1.13391, -0.5, 0.408379, 1.13391, -0.366092, 0.524496, 1.5, -0.366092, 0.70742, 1.5, 0, 0.75, 2, 0, -0.5, 0.808927, 0.0877056, 0.566954, 2, -0.366092, 0.432973, 1.5, -0.5 )
@@ -122,3 +123,6 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 7.879, 0, 0, 0, 14.787, 0, 0, 0, 0.591, -9.38037, -10.7286, 0.15109 )
 shape = SubResource( 2 )
+
+[node name="VisualHandler" type="Node" parent="StaticBody"]
+script = ExtResource( 9 )

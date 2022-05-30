@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/rooms/collider_pieces/wood_door_rectangle_L.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/collider_pieces/wood_door_rectangle_R.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/rooms/assemblies/inner_corner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/VisualHandler.gd" type="Script" id=4]
 [ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Outer_2x2_Top.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://assets/rooms/pieces/Cave_Prop_Entrance_1.obj" type="ArrayMesh" id=6]
 [ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Hill_Corner_Inner_2x2.obj" type="ArrayMesh" id=7]
@@ -75,6 +76,9 @@ mesh = ExtResource( 7 )
 skeleton = NodePath("../Cave_Terrain_Hill_Corner_Inner_2x2")
 material/0 = null
 
+[node name="VisualHandler" type="Node" parent="separating_wall/StaticBody"]
+script = ExtResource( 4 )
+
 [node name="outer_corner" type="Spatial" parent="."]
 
 [node name="StaticBody" type="StaticBody" parent="outer_corner"]
@@ -101,6 +105,9 @@ mesh = ExtResource( 5 )
 skeleton = NodePath("../Cave_Terrain_Corner_Outer_3x3_Mid")
 material/0 = null
 
+[node name="VisualHandler" type="Node" parent="outer_corner/StaticBody"]
+script = ExtResource( 4 )
+
 [node name="connector" type="Spatial" parent="."]
 
 [node name="StaticBody" type="StaticBody" parent="connector"]
@@ -126,6 +133,9 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="connector/StaticBody"]
 transform = Transform( 2.705, 0, 0, 0, 0.1, 0, 0, 0, 0.778, -0.170327, -0.0790971, 0.577991 )
 shape = SubResource( 3 )
+
+[node name="VisualHandler" type="Node" parent="connector/StaticBody"]
+script = ExtResource( 4 )
 
 [node name="wood_door_rectangle_R" parent="." instance=ExtResource( 2 )]
 transform = Transform( -0.725, 0, -1.18381e-07, 0, 0.784, 0, 1.09472e-07, 0, -0.784, -1.37367, -0.0125576, 0.660644 )

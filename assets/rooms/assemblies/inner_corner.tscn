@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Inner_2x2_Mid.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Inner_2x2_Top.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Inner_2x2_Base.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://scripts/VisualHandler.gd" type="Script" id=4]
 
 [sub_resource type="ConcavePolygonShape" id=4]
 data = PoolVector3Array( -0.5, 0, -1.5, -0.4616, 0, -1.1098, -0.4616, 1, -1.1098, -0.5, 1, -1.5, -0.5, 0, -1.5, -0.4616, 1, -1.1098, -0.4616, 0, -1.1098, -0.3478, 0, -0.7346, -0.3478, 1, -0.7346, -0.4616, 1, -1.1098, -0.4616, 0, -1.1098, -0.3478, 1, -0.7346, -0.3478, 0, -0.7346, -0.1629, 0, -0.3889, -0.1629, 1, -0.3889, -0.3478, 1, -0.7346, -0.3478, 0, -0.7346, -0.1629, 1, -0.3889, -0.1629, 0, -0.3889, 0.0858, 0, -0.0858, 0.0858, 1, -0.0858, -0.1629, 1, -0.3889, -0.1629, 0, -0.3889, 0.0858, 1, -0.0858, 0.0858, 0, -0.0858, 0.3889, 0, 0.1629, 0.3889, 1, 0.1629, 0.0858, 1, -0.0858, 0.0858, 0, -0.0858, 0.3889, 1, 0.1629, 0.3889, 0, 0.1629, 0.7346, 0, 0.3478, 0.7346, 1, 0.3478, 0.3889, 1, 0.1629, 0.3889, 0, 0.1629, 0.7346, 1, 0.3478, 0.7346, 0, 0.3478, 1.1098, 0, 0.4616, 1.1098, 1, 0.4616, 0.7346, 1, 0.3478, 0.7346, 0, 0.3478, 1.1098, 1, 0.4616, 1.1098, 0, 0.4616, 1.5, 0, 0.5, 1.1098, 1, 0.4616, 1.1098, 1, 0.4616, 1.5, 0, 0.5, 1.5, 1, 0.5 )
@@ -47,3 +48,6 @@ material/0 = null
 [node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 1, 0, 3.55271e-15, 0, 0.56, 0, -3.55271e-15, 0, 1, -0.214, 1.75814, 0.439 )
 shape = SubResource( 6 )
+
+[node name="VisualHandler" type="Node" parent="StaticBody"]
+script = ExtResource( 4 )

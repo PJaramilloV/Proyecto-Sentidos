@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/rooms/pieces/Shared_Prop_Boulder_3.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/rooms/assemblies/Sloped_Floor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/rooms/assemblies/Sloped_back_wall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/rooms/pieces/Tesselated_slope.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://scripts/VisualHandler.gd" type="Script" id=5]
 
 [node name="Slope" type="Spatial"]
 
@@ -30,6 +31,9 @@ material/0 = null
 transform = Transform( 2, 0, 0, 0, -0.472862, 1.9433, 0, -1.9433, -0.472862, 3.16747, 1.13849, 5.72215 )
 mesh = ExtResource( 1 )
 material/0 = null
+
+[node name="VisualHandler" type="Node" parent="Front_wall"]
+script = ExtResource( 5 )
 
 [node name="Floor2" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -0.998997, 0.0452627, 0, -0.0447702, -1.00999, 4.28408e-07, 4.97725, 3.02456 )

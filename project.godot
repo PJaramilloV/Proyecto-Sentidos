@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "LightHandler",
 "language": "GDScript",
-"path": "res://dev/scripts/LightHandler.gd"
+"path": "res://scripts/LightHandler.gd"
 }, {
 "base": "KinematicBody",
 "class": "Player",
@@ -37,7 +37,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "VisualHandler",
 "language": "GDScript",
-"path": "res://dev/scripts/VisualHandler.gd"
+"path": "res://scripts/VisualHandler.gd"
 } ]
 _global_script_class_icons={
 "LightHandler": "",
