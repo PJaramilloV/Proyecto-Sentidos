@@ -54,6 +54,10 @@ config/name="Proyecto Sentidos"
 run/main_scene="res://scenes/main_menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalSettings="*res://scripts/global_settings.gd"
+
 [display]
 
 window/stretch/mode="viewport"
