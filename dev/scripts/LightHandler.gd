@@ -1,10 +1,10 @@
 extends Node
 class_name LightHandler
 
-export var max_lights: int = 32
-export var margin: float = 1.0
+export var max_lights: int = 24
+export var scale: float = 1.5
 
-onready var base_light: PackedScene = preload("res://assets/abstract/light.tscn")
+onready var base_light: PackedScene = preload("res://assets/abstract/step_light.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,10 +12,11 @@ func _ready():
 
 func create_light(handler: VisualHandler, position: Vector3):
 	for child in get_children():
-		var pos = child.translation
-		var dist = position.distance_to(pos)
-		if dist < child.omni_range + margin:
-			return
+		if child.get_light_owner() == handler:
+			var pos = child.translation
+			var dist = position.distance_to(pos)
+			if dist < child.omni_range*scale:
+				return
 
 	var new_light = base_light.instance()
 	new_light.translation = position

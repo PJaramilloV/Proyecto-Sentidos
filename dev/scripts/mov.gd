@@ -41,7 +41,7 @@ func create_light(collision: KinematicCollision):
 	var node = collision.get_collider()
 	for child in node.get_children():
 		if child is VisualHandler:
-			_light_handler.create_light(child, collision.get_position()+collision.get_normal())
+			_light_handler.create_light(child, global_transform.origin)
 
 func collision_events(delta):
 	if get_slide_count() <= 0:
