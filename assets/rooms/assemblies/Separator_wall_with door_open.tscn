@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/rooms/collider_pieces/wood_door_rectangle_R.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/collider_pieces/wood_door_rectangle_L.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Outer_2x2_Base.obj" type="ArrayMesh" id=9]
 [ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Outer_3x3_Mid.obj" type="ArrayMesh" id=10]
 [ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Floor_Normal.obj" type="ArrayMesh" id=11]
+[ext_resource path="res://scripts/VisualHandler.gd" type="Script" id=12]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -81,6 +82,9 @@ material/0 = null
 transform = Transform( -8.73393e-09, 0, 0.765625, 0, 1.12784, 0, -0.199809, 0, -3.34665e-08, 0.227508, 0.549707, 0.122979 )
 shape = SubResource( 1 )
 
+[node name="VisualHandler" type="Node" parent="inner_corner/StaticBody"]
+script = ExtResource( 12 )
+
 [node name="separating_wall" type="Spatial" parent="."]
 
 [node name="StaticBody" type="StaticBody" parent="separating_wall"]
@@ -106,6 +110,9 @@ transform = Transform( 1.267, 0, 0, 0, -0.113332, -0.831671, 0, 0.754536, -0.124
 mesh = ExtResource( 7 )
 skeleton = NodePath("../Cave_Terrain_Hill_Corner_Inner_2x2")
 material/0 = null
+
+[node name="VisualHandler" type="Node" parent="separating_wall/StaticBody"]
+script = ExtResource( 12 )
 
 [node name="outer_corner" type="Spatial" parent="."]
 
@@ -133,6 +140,9 @@ mesh = ExtResource( 5 )
 skeleton = NodePath("../Cave_Terrain_Corner_Outer_3x3_Mid")
 material/0 = null
 
+[node name="VisualHandler" type="Node" parent="outer_corner/StaticBody"]
+script = ExtResource( 12 )
+
 [node name="connector" type="Spatial" parent="."]
 
 [node name="StaticBody" type="StaticBody" parent="connector"]
@@ -158,6 +168,9 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="connector/StaticBody"]
 transform = Transform( 2.705, 0, 0, 0, 0.1, 0, 0, 0, 0.778, -0.170327, -0.0790971, 0.577991 )
 shape = SubResource( 3 )
+
+[node name="VisualHandler" type="Node" parent="connector/StaticBody"]
+script = ExtResource( 12 )
 
 [node name="wood_door_rectangle_R" parent="." instance=ExtResource( 1 )]
 transform = Transform( -0.205875, 0, 0.751726, 0, 0.784, 0, -0.695155, 0, -0.222629, -1.37367, -0.0125576, 0.660644 )
