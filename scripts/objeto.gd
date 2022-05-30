@@ -6,7 +6,7 @@ var throws_before_break = 10
 var thrown = false
 var process_function = 'sleep'
 var air_time = 0
-var air_time_limit = 0.2
+var AIR_TIME_LIMIT = 0.2
 
 # get_active_material && get_surface_materia
 func _ready():
@@ -22,8 +22,7 @@ func sleep(delta):
 # Funcion de timer process_function(delta)
 func timer_run(delta):
 	air_time += delta
-	print(air_time)
-	if(air_time > air_time_limit):
+	if(air_time > AIR_TIME_LIMIT):
 		self.collision_mask=2
 		process_function = 'sleep'
 		air_time = 0
