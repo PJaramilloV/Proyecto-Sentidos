@@ -9,6 +9,14 @@ func enter(msg := {}) -> void:
 	player._crouch_shape.disabled = true
 	if msg.has("hard_land"):
 		_hard_land = true
+	if msg.has("stop"):
+		player.animation_tree.set("parameters/JogStopShot/active", true)
+#	if msg.has("land"):
+#		player.animation_tree.set("parameters/LandShot/active", true)
+
+func exit() -> void:
+	player.animation_tree.set("parameters/JogStopShot/active", false)
+	#player.animation_tree.set("parameters/LandShot/active", false)
 
 func physics_update(delta: float) -> void:
 	if not player.is_on_floor():
@@ -35,5 +43,10 @@ func physics_update(delta: float) -> void:
 			state_machine.transition_to("Air", {do_jump = true})
 		elif Input.is_action_just_pressed("crouch"):
 			state_machine.transition_to("Crouch")
+		elif Input.is_action_just_pressed("interact"):
+			if player.leftladderray.is_colliding():
+				state_machine.transition_to("Ladder", {left=true})
+			elif player.rightladderray.is_colliding():
+				state_machine.transition_to("Ladder", {right=true})
 		elif move_direction != Vector3.ZERO:
 			state_machine.transition_to("Jog")

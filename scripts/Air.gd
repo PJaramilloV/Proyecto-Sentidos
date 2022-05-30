@@ -7,7 +7,7 @@ func enter(msg := {}) -> void:
 	player._stand_shape.disabled = false
 	player._crouch_shape.disabled = true
 	if msg.has("do_jump"):
-		if sqrt((player._velocity.x * player._velocity.x)+(player._velocity.z * player._velocity.z)) > 0.5:
+		if sqrt((player._velocity.x * player._velocity.x)+(player._velocity.z * player._velocity.z)) > 0.5 or msg.has("force"):
 			player.animation_tree.set("parameters/RunningJumpShot/active", true)
 			player.animation_tree.set("parameters/Falling/current", 1)
 			player._velocity.y = player.jump_strength * 0.8
@@ -17,6 +17,9 @@ func enter(msg := {}) -> void:
 
 func exit() -> void:
 	player.animation_tree.set("parameters/Falling/current", 0)
+	### Apagar todas las oneShot ###
+	player.animation_tree.set("parameters/RunningJumpShot/active", false)
+	player.animation_tree.set("parameters/JumpShot/active", false)
 
 func physics_update(delta: float) -> void:
 	var move_direction = player.get_input_direction()
@@ -27,9 +30,6 @@ func physics_update(delta: float) -> void:
 	
 	# Landing.
 	if player.is_on_floor() and _prep_jump:
-		### Apagar todas las oneShot ###
-		player.animation_tree.set("parameters/RunningJumpShot/active", false)
-		player.animation_tree.set("parameters/JumpShot/active", false)
 		### Apagar todas las oneShot ###
 		player.animation_tree.set("parameters/Falling/current", 0)
 		
@@ -42,7 +42,7 @@ func physics_update(delta: float) -> void:
 			return
 		#_snap_vector = Vector3.DOWN
 		else:
-			state_machine.transition_to("Idle")
+			state_machine.transition_to("Idle", {land = true})
 			return
 	else:
 		player._falling_speed = player._velocity.y
@@ -63,3 +63,17 @@ func physics_update(delta: float) -> void:
 		player.speed = lerp(player.speed, move_direction.length()*50, 0.05)
 	else:
 		player.speed = lerp(player.speed, move_direction.length()*player.walk_speed, 0.05)
+		
+	if Input.is_action_just_pressed("interact"):
+		if player.leftladderray.is_colliding():
+			state_machine.transition_to("Ladder", {left=true})
+			return
+		elif player.rightladderray.is_colliding():
+			state_machine.transition_to("Ladder", {right=true})
+			return
+	
+	if Input.is_action_just_pressed("interact") and player._brace:
+		if player.leftborderray.is_colliding():
+			state_machine.transition_to("Brace", {left=true})
+		elif player.rightborderray.is_colliding():
+			state_machine.transition_to("Brace", {right=true})

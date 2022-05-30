@@ -15,6 +15,12 @@ var _objects := []
 var _pointer := 0
 var _falling_speed := 0.0
 var checkpoint : Object
+var _hanging := false
+var _hang_normal := Vector3.ZERO
+var _rotate := true
+
+### Habilidades ###
+var _brace := true # False por defecto, true para testeo/despues de desbloquear
 
 onready var _model: Spatial = $Hero
 onready var _stand_shape: CollisionShape = $CollisionShape
@@ -26,9 +32,22 @@ onready var _youtline := preload("res://assets/character/youtline.tres")
 
 onready var animation_tree = $AnimationTree
 
+### Raycasts ###
 onready var righthand = $Hero/Skeleton/ManoDerechaBone
 onready var leftfootray = $Hero/Skeleton/PieIzquierdoBone/PieIzquierdoRay
 onready var rightfootray = $Hero/Skeleton/PieDerechoBone/PieDerechoRay
+onready var leftfootraydown = $Hero/Skeleton/PieIzquierdoBone/PieIzquierdoRayDown
+onready var rightfootraydown = $Hero/Skeleton/PieDerechoBone/PieDerechoRayDown
+onready var leftpalmray = $Hero/Skeleton/ManoIzquierdaBone/PalmaIzquierdaRay
+onready var rightpalmray = $Hero/Skeleton/ManoDerechaBone/PalmaDerechaRay
+onready var leftladderray = $CollisionShape/Raycasts/LeftLadderRay
+onready var rightladderray = $CollisionShape/Raycasts/RightLadderRay
+onready var centerladderray = $CollisionShape/Raycasts/CenterWorldRay
+onready var leftborderray = $CollisionShape/Raycasts/LeftBorderRay
+onready var rightborderray = $CollisionShape/Raycasts/RightBorderRay
+
+onready var ladderpath = $ClimbLadderPath
+onready var ladderfollow = $ClimbLadderPath/PathFollow
 
 onready var decal = preload("res://scenes/Footprint.tscn")
 
@@ -37,13 +56,20 @@ onready var decal = preload("res://scenes/Footprint.tscn")
 func _physics_process(delta):
 	# Esta parte se queda acá de momento. Al implementar, por ejemplo, trepar, esto hay que moverlo (maybe)
 	if Input.get_action_strength("right") + Input.get_action_strength("left")  + Input.get_action_strength("back") + Input.get_action_strength("forward") == 0:
-		_velocity = move_and_slide(_velocity, Vector3.UP, true)
+		if _hanging:
+			_velocity = move_and_slide(_velocity, _hang_normal, true)
+		else:
+			_velocity = move_and_slide(_velocity, Vector3.UP, true)
 	else:
-		_velocity = move_and_slide(_velocity, Vector3.UP, false)
+			_velocity = move_and_slide(_velocity, Vector3.UP, false)
 	
 	var vel = sqrt((_velocity.x * _velocity.x)+(_velocity.z * _velocity.z))
+	
+	var side = 1
+	if Input.get_action_strength("right") - Input.get_action_strength("left") <= 0:
+		side = -1
 
-	if vel > 0.2:
+	if _rotate and vel > 0.2: # if vel > 0.2
 		var rotate = lerp_angle(_model.rotation.y, atan2(_velocity.x, _velocity.z), delta * _angular_acceleration) -0.25
 		_model.rotation.y = rotate
 		_stand_shape.rotation.y = rotate
@@ -52,6 +78,8 @@ func _physics_process(delta):
 	# Animations
 	$AnimationTree.set("parameters/IdleWalk/blend_position", vel)
 	$AnimationTree.set("parameters/Crouching/blend_position", vel)
+	$AnimationTree.set("parameters/ClimbLadder/blend_position", _velocity.y)
+	$AnimationTree.set("parameters/Brace/blend_position", vel*side)
 	
 	### Objetos ###
 	
@@ -118,12 +146,41 @@ func rightstep():
 	b.global_transform.origin = rightfootray.get_collision_point() + correction
 	b.look_at(rightfootray.get_collision_point() + rightfootray.get_collision_normal(), Vector3.UP)
 
+func leftstepdown():
+	var b = decal.instance()
+	get_parent().add_child(b)
+	var correction = leftfootraydown.get_collision_normal()*decal_correction
+	b.global_transform.origin = leftfootraydown.get_collision_point() + correction
+	b.look_at(leftfootraydown.get_collision_point() + leftfootraydown.get_collision_normal(), Vector3.UP)
+	
+func rightstepdown():
+	var b = decal.instance()
+	get_parent().add_child(b)
+	var correction = rightfootraydown.get_collision_normal()*decal_correction
+	b.global_transform.origin = rightfootraydown.get_collision_point() + correction
+	b.look_at(rightfootraydown.get_collision_point() + rightfootraydown.get_collision_normal(), Vector3.UP)
+
 func leftstep():
 	var b = decal.instance()
 	get_parent().add_child(b)
 	var correction = leftfootray.get_collision_normal()*decal_correction
 	b.global_transform.origin = leftfootray.get_collision_point() + correction
 	b.look_at(leftfootray.get_collision_point() + leftfootray.get_collision_normal(), Vector3.UP)
+
+func rightpalm():
+	var b = decal.instance()
+	get_parent().add_child(b)
+	var correction = rightpalmray.get_collision_normal()*decal_correction
+	b.global_transform.origin = rightpalmray.get_collision_point() + correction
+	b.look_at(rightpalmray.get_collision_point() + rightpalmray.get_collision_normal(), Vector3.UP)
+
+func leftpalm():
+	var b = decal.instance()
+	get_parent().add_child(b)
+	var correction = leftpalmray.get_collision_normal()*decal_correction
+	b.global_transform.origin = leftpalmray.get_collision_point() + correction
+	b.look_at(leftpalmray.get_collision_point() + leftpalmray.get_collision_normal(), Vector3.UP)
+	
 ### Surface Painting ###
 
 func _on_area_grab_entered(body: Node):
