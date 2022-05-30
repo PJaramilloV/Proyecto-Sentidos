@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://resources/tema_1.tres" type="Theme" id=1]
 [ext_resource path="res://images/main_menu_2.jpg" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://music/audio/button-24.wav" type="AudioStream" id=6]
 [ext_resource path="res://images/signo-interrogacion-50015.webm" type="VideoStream" id=7]
 [ext_resource path="res://scripts/VideoPlayer.gd" type="Script" id=8]
+[ext_resource path="res://scenes/FpsLabel.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -117,3 +118,5 @@ rect_min_size = Vector2( 100, 200 )
 stream = ExtResource( 7 )
 autoplay = true
 script = ExtResource( 8 )
+
+[node name="FpsLabel" parent="." instance=ExtResource( 9 )]
