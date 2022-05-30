@@ -5437,7 +5437,7 @@ nodes/JumpShot/position = Vector2( 340, 240 )
 nodes/StandCrouch/node = SubResource( 30 )
 nodes/StandCrouch/position = Vector2( 140, 140 )
 nodes/output/position = Vector2( 540, 200 )
-node_connections = [ "output", 0, "JumpShot", "JumpShot", 0, "StandCrouch", "JumpShot", 1, "Jump", "StandCrouch", 0, "IdleWalk", "StandCrouch", 1, "Crouching" ]
+node_connections = [ "output", 0, "JumpShot", "StandCrouch", 0, "IdleWalk", "StandCrouch", 1, "Crouching", "JumpShot", 0, "StandCrouch", "JumpShot", 1, "Jump" ]
 
 [node name="rogue" type="KinematicBody"]
 collision_layer = 2
