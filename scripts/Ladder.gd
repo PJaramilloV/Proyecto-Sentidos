@@ -14,26 +14,37 @@ func enter(msg := {}) -> void:
 	player._velocity = Vector3.ZERO
 	# Rotación / Mirar la escalera
 	# var pos = player.rightladderray.get_collision_point()
-	if msg.has("left"):
-		var dir = player.leftladderray.get_collision_normal()
+	if msg.has("ray"):
+		var ray = msg.get("ray")
+		var dir = ray.get_collision_normal()
 		player._model.look_at(dir + player._model.global_transform.origin, Vector3.UP)
 		player._stand_shape.look_at(dir + player._stand_shape.global_transform.origin, Vector3.UP)
 		player._crouch_shape.look_at(dir + player._crouch_shape.global_transform.origin, Vector3.UP)
 		dir.x = -dir.x
 		dir.z = -dir.z
 		player._hang_normal = dir
-		var pos = player.leftladderray.get_collision_point() - player.leftladderray.global_transform.origin
+		var pos = ray.get_collision_point() - ray.global_transform.origin
 		player.translate(Vector3(-pos.z, pos.y, -pos.x))
-	elif msg.has("right"):
-		var dir = player.rightladderray.get_collision_normal()
-		player._model.look_at(dir + player._model.global_transform.origin, Vector3.UP)
-		player._stand_shape.look_at(dir + player._stand_shape.global_transform.origin, Vector3.UP)
-		player._crouch_shape.look_at(dir + player._crouch_shape.global_transform.origin, Vector3.UP)
-		dir.x = -dir.x
-		dir.z = -dir.z
-		player._hang_normal = dir
-		var pos = player.rightladderray.get_collision_point() - player.rightladderray.global_transform.origin
-		player.translate(Vector3(-pos.z, pos.y, -pos.x))
+#	if msg.has("left"):
+#		var dir = player.leftladderray.get_collision_normal()
+#		player._model.look_at(dir + player._model.global_transform.origin, Vector3.UP)
+#		player._stand_shape.look_at(dir + player._stand_shape.global_transform.origin, Vector3.UP)
+#		player._crouch_shape.look_at(dir + player._crouch_shape.global_transform.origin, Vector3.UP)
+#		dir.x = -dir.x
+#		dir.z = -dir.z
+#		player._hang_normal = dir
+#		var pos = player.leftladderray.get_collision_point() - player.leftladderray.global_transform.origin
+#		player.translate(Vector3(-pos.z, pos.y, -pos.x))
+#	elif msg.has("right"):
+#		var dir = player.rightladderray.get_collision_normal()
+#		player._model.look_at(dir + player._model.global_transform.origin, Vector3.UP)
+#		player._stand_shape.look_at(dir + player._stand_shape.global_transform.origin, Vector3.UP)
+#		player._crouch_shape.look_at(dir + player._crouch_shape.global_transform.origin, Vector3.UP)
+#		dir.x = -dir.x
+#		dir.z = -dir.z
+#		player._hang_normal = dir
+#		var pos = player.rightladderray.get_collision_point() - player.rightladderray.global_transform.origin
+#		player.translate(Vector3(-pos.z, pos.y, -pos.x))
 
 func exit() -> void:
 	player.animation_tree.set("parameters/LadderTransition/current", 0)

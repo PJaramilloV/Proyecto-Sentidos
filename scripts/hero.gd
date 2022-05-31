@@ -18,9 +18,10 @@ var checkpoint : Object
 var _hanging := false
 var _hang_normal := Vector3.ZERO
 var _rotate := true
+var prev_vel = 0 # Usada en Lerp animation_tree
 
 ### Habilidades ###
-var _brace := true # False por defecto, true para testeo/despues de desbloquear
+export var _brace := true # False por defecto, true para testeo/despues de desbloquear
 
 onready var _model: Spatial = $Hero
 onready var _stand_shape: CollisionShape = $CollisionShape
@@ -42,9 +43,13 @@ onready var leftpalmray = $Hero/Skeleton/ManoIzquierdaBone/PalmaIzquierdaRay
 onready var rightpalmray = $Hero/Skeleton/ManoDerechaBone/PalmaDerechaRay
 onready var leftladderray = $CollisionShape/Raycasts/LeftLadderRay
 onready var rightladderray = $CollisionShape/Raycasts/RightLadderRay
+onready var leftladderray2 = $CollisionShape/Raycasts/LeftLadderRay2
+onready var rightladderray2 = $CollisionShape/Raycasts/RightLadderRay2
 onready var centerladderray = $CollisionShape/Raycasts/CenterWorldRay
 onready var leftborderray = $CollisionShape/Raycasts/LeftBorderRay
 onready var rightborderray = $CollisionShape/Raycasts/RightBorderRay
+onready var leftborderray2 = $CollisionShape/Raycasts/LeftBorderRay2
+onready var rightborderray2 = $CollisionShape/Raycasts/RightBorderRay2
 
 onready var ladderpath = $ClimbLadderPath
 onready var ladderfollow = $ClimbLadderPath/PathFollow
@@ -76,8 +81,10 @@ func _physics_process(delta):
 		_crouch_shape.rotation.y = rotate
 
 	# Animations
-	$AnimationTree.set("parameters/IdleWalk/blend_position", vel)
-	$AnimationTree.set("parameters/Crouching/blend_position", vel)
+	#print(vel)
+	prev_vel = lerp(prev_vel, vel, 0.5)
+	$AnimationTree.set("parameters/IdleWalk/blend_position", prev_vel)
+	$AnimationTree.set("parameters/Crouching/blend_position", prev_vel)
 	$AnimationTree.set("parameters/ClimbLadder/blend_position", _velocity.y)
 	$AnimationTree.set("parameters/Brace/blend_position", vel*side)
 	
@@ -137,6 +144,54 @@ func get_input_direction():
 	move_direction.z = Input.get_action_strength("back") - Input.get_action_strength("forward")
 	move_direction = move_direction.normalized()
 	return move_direction
+
+### Raycasts Colliding ###
+
+func ladderraycasts():
+	var result = []
+	if leftladderray.is_colliding():
+		result.append(true)
+		result.append(leftladderray)
+		return result
+	elif rightladderray.is_colliding():
+		result.append(true)
+		result.append(rightladderray)
+		return result
+	elif leftladderray2.is_colliding():
+		result.append(true)
+		result.append(leftladderray2)
+		return result
+	elif rightladderray2.is_colliding():
+		result.append(true)
+		result.append(rightladderray2)
+		return result
+	else:
+		result.append(false)
+		return result
+
+func braceraycasts():
+	var result = []
+	if leftborderray.is_colliding():
+		result.append(true)
+		result.append(leftborderray)
+		return result
+	elif rightborderray.is_colliding():
+		result.append(true)
+		result.append(rightborderray)
+		return result
+	elif leftborderray2.is_colliding():
+		result.append(true)
+		result.append(leftborderray2)
+		return result
+	elif rightborderray2.is_colliding():
+		result.append(true)
+		result.append(rightborderray2)
+		return result
+	else:
+		result.append(false)
+		return result
+
+### Raycasts Colliding ###
 
 ### Surface Painting ###
 func rightstep():

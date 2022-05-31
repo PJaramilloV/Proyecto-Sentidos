@@ -11,23 +11,15 @@ func enter(msg := {}) -> void:
 	player._rotate = false
 	# Rotación / Mirar el borde
 	var correction = 0.9 # 3.5 # Ajuste a mano de la posicion del pj. !!!Distinto en Demo y LVLs!!!
-	if msg.has("left"):
-		var dir = player.leftborderray.get_collision_normal()
+	if msg.has("ray"):
+		var ray = msg.get("ray")
+		var dir = ray.get_collision_normal()
 		border_normal = dir
 		player._model.look_at(dir + player._model.global_transform.origin, Vector3.UP)
 		player._stand_shape.look_at(dir + player._stand_shape.global_transform.origin, Vector3.UP)
 		player._crouch_shape.look_at(dir + player._crouch_shape.global_transform.origin, Vector3.UP)
-		var pos = player.leftborderray.get_collision_point() - player.leftborderray.global_transform.origin
-		var height = player.leftborderray.get_collider().global_transform.origin.y - player.global_transform.origin.y
-		player.translate(Vector3(-pos.z, height - correction, -pos.x))
-	elif msg.has("right"):
-		var dir = player.rightborderray.get_collision_normal()
-		border_normal = dir
-		player._model.look_at(dir + player._model.global_transform.origin, Vector3.UP)
-		player._stand_shape.look_at(dir + player._stand_shape.global_transform.origin, Vector3.UP)
-		player._crouch_shape.look_at(dir + player._crouch_shape.global_transform.origin, Vector3.UP)
-		var pos = player.rightborderray.get_collision_point() - player.rightborderray.global_transform.origin
-		var height = player.rightborderray.get_collider().global_transform.origin.y - player.global_transform.origin.y
+		var pos = ray.get_collision_point() - ray.global_transform.origin
+		var height = ray.get_collider().global_transform.origin.y - player.global_transform.origin.y
 		player.translate(Vector3(-pos.z, height - correction, -pos.x))
 
 func exit() -> void:
@@ -49,10 +41,6 @@ func physics_update(delta: float) -> void:
 		return
 	
 	if Input.is_action_just_pressed("interact"):
-#			if not player.is_on_floor():
-#				state_machine.transition_to("Air")
-#			else:
-#				state_machine.transition_to("Idle")
-			state_machine.transition_to("Air")
+		state_machine.transition_to("Air")
 	elif Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("Air", {do_jump = true, force = true})
