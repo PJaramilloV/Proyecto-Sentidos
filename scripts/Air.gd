@@ -65,15 +65,12 @@ func physics_update(delta: float) -> void:
 		player.speed = lerp(player.speed, move_direction.length()*player.walk_speed, 0.05)
 		
 	if Input.is_action_just_pressed("interact"):
-		if player.leftladderray.is_colliding():
-			state_machine.transition_to("Ladder", {left=true})
-			return
-		elif player.rightladderray.is_colliding():
-			state_machine.transition_to("Ladder", {right=true})
+		var ladder = player.ladderraycasts()
+		if ladder[0]:
+			state_machine.transition_to("Ladder", {ray=ladder[1]})
 			return
 	
 	if Input.is_action_just_pressed("interact") and player._brace:
-		if player.leftborderray.is_colliding():
-			state_machine.transition_to("Brace", {left=true})
-		elif player.rightborderray.is_colliding():
-			state_machine.transition_to("Brace", {right=true})
+		var brace = player.braceraycasts()
+		if brace[0]:
+			state_machine.transition_to("Brace", {ray=brace[1]})

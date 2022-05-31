@@ -4,6 +4,8 @@ func enter(msg := {}) -> void:
 	player.animation_tree.set("parameters/State/current", 1)
 	player._stand_shape.disabled = true
 	player._crouch_shape.disabled = false
+	if msg.has("standcrouch"):
+		player.animation_tree.set("parameters/SCShot/active", true)
 
 func physics_update(delta: float) -> void:
 	if not player.is_on_floor():
@@ -23,10 +25,9 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("Air", {do_jump = true})
 	elif Input.is_action_just_pressed("interact"):
-		if player.leftladderray.is_colliding():
-			state_machine.transition_to("Ladder", {left=true})
-		elif player.rightladderray.is_colliding():
-			state_machine.transition_to("Ladder", {right=true})
+		var ladder = player.ladderraycasts()
+		if ladder[0]:
+			state_machine.transition_to("Ladder", {ray=ladder[1]})
 	elif Input.is_action_just_released("crouch"):
 		if is_equal_approx(vel, 0.0):
 			state_machine.transition_to("Idle")
