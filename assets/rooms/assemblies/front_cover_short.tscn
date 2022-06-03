@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/rooms/pieces/Shared_Prop_Boulder_1.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/rooms/pieces/Tesselated_slope.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/rooms/pieces/Shared_Prop_Boulder_6.obj" type="ArrayMesh" id=3]
+
+[node name="front_cover_small" type="Spatial"]
+
+[node name="Tesselated_slope" type="MeshInstance" parent="."]
+transform = Transform( -8.84281e-08, 1, -5.83547e-08, 0, -4.37114e-08, -1.335, -2.023, -4.37114e-08, 2.55077e-15, 2.76355, -0.629871, -2.70789 )
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="Shared_Prop_Boulder_6" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1.524, 0, 0, 0, 2.146, 3.21093, -0.415543, -1.13059 )
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="Shared_Prop_Boulder_1" type="MeshInstance" parent="."]
+transform = Transform( -6.7097e-08, 1.076, 0, -1.51669, -4.64725e-08, -0.333996, -0.236369, -7.2425e-09, 2.14313, 2.76596, -0.206398, -2.69542 )
+mesh = ExtResource( 1 )
+material/0 = null
