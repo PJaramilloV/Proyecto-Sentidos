@@ -76,10 +76,10 @@ volume_db = -0.5
 script = ExtResource( 3 )
 
 [node name="objeto" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.0227746, 0, 0.999741, 0, 1, 0, -0.999741, 0, -0.0227746, 1.45616, 0, 1.45512 )
+transform = Transform( -0.0227746, 0, 0.999741, 0, 1, 0, -0.999741, 0, -0.0227746, 1.45616, 1.05742, 1.45512 )
 
 [node name="objeto2" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.0113873, 0, 0.49987, 0, 0.5, 0, -0.49987, 0, -0.0113873, 1.31064, 4, -4.93299 )
+transform = Transform( -0.00569364, 0, 0.249935, 0, 0.25, 0, -0.249935, 0, -0.00569364, 1.31064, 4, -4.93299 )
 
 [node name="objeto3" parent="." instance=ExtResource( 1 )]
 transform = Transform( -0.0113873, 0, 0.49987, 0, 0.5, 0, -0.49987, 0, -0.0113873, 0.542663, 4, -1.0029 )

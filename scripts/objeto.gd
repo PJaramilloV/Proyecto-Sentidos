@@ -2,7 +2,7 @@ extends RigidBody
 var my_material := []
 var material_count
 onready var path = get_parent().get_node("trajectory")
-var throws_before_break = 10
+var throws_before_break = 4
 var thrown = false
 var process_function = 'sleep'
 var air_time = 0
