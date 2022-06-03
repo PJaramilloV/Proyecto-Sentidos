@@ -7,6 +7,7 @@ var thrown = false
 var process_function = 'sleep'
 var air_time = 0
 var AIR_TIME_LIMIT = 0.2
+onready var _light_handler: LightHandler = $LightHandler
 
 # get_active_material && get_surface_materia
 func _ready():
@@ -116,17 +117,24 @@ func display_predicted_trajectory(from_position):
 # Borrar parabola
 func clear_path():
 	path.clear()
+	
+func create_light(collision: StaticBody):
+	var node = collision
+	for child in node.get_children():
+		if child is VisualHandler:
+			_light_handler.create_light(child, global_transform.origin)
 
 # Llamada solo cuando hay una colision monitoreada
 func on_body_collided(surface: StaticBody):
 	if(! thrown): return # Evitar colisiones dobles
 	if(surface is StaticBody): # al colisionar con superficies, ejecutar
-		valid_collision()
+		valid_collision(surface)
 		if(! throws_before_break): # destruir si se tiro "throws_before_break" veces
 			destroy()
 
 # Incluir la generacion de luces aca y sonido (maybe particulas?)
-func valid_collision():
+func valid_collision(surface: StaticBody):
+	create_light(surface)
 	self.contact_monitor = false
 	thrown = false
 	throws_before_break -= 1
