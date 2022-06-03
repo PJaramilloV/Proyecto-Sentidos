@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://demo/cuboverde.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/Interactive/BraceBorder.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/VisualHandler.gd" type="Script" id=8]
+[ext_resource path="res://scripts/LightHandler.gd" type="Script" id=9]
 
 [sub_resource type="CylinderShape" id=14]
 margin = 0.01
@@ -123,3 +124,6 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.42871
 transform = Transform( -0.0941733, 0, 0.999741, 0, 1, 0, -4.13393, 0, -0.0227747, 4.21332, 2.60514, -3.96175 )
 
 [node name="PauseMenu" parent="." instance=ExtResource( 7 )]
+
+[node name="LightHandler" type="Node" parent="."]
+script = ExtResource( 9 )

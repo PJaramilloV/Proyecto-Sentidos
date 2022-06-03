@@ -7,10 +7,16 @@ var thrown = false
 var process_function = 'sleep'
 var air_time = 0
 var AIR_TIME_LIMIT = 0.2
-onready var _light_handler: LightHandler = $LightHandler
+var _light_handler: LightHandler = null
+
+
 
 # get_active_material && get_surface_materia
 func _ready():
+	
+	# light_handler = proyecto -> viewport -> Spatial -> LightHandler
+	_light_handler =  get_tree().root.get_child(1).get_node("LightHandler") 
+	
 	material_count = find_node("MeshInstance").get_surface_material_count()
 	for i in range(material_count):
 		var mat = find_node("MeshInstance").get_surface_material(i)
@@ -118,8 +124,8 @@ func display_predicted_trajectory(from_position):
 func clear_path():
 	path.clear()
 	
-func create_light(collision: StaticBody):
-	var node = collision
+func create_light(surface: StaticBody):
+	var node = surface
 	for child in node.get_children():
 		if child is VisualHandler:
 			_light_handler.create_light(child, global_transform.origin)
