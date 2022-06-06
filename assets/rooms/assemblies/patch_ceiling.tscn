@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/rooms/pieces/Tesselated_slope.obj" type="ArrayMesh" id=1]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( 0.570644, 0.424971, 2.01782, -1.00018, 0.424971, 1.22494, -0.000120878, 0.499951, 2.19636, 0.499906, 0.499951, 2.49648, 0.499906, 0.25, 1.4998, 0.499906, 0.0749804, 0.499902, 0.499906, 0, -0.5, -1.5, 0.5, 1.4998, -1.5, 0.424971, 1, -1.00018, 0.5, 1.79992, -1.5, 0.5, 2.5, -0.000120878, 0.0749804, 0.424726, -1.5, 0, -0.5, -1.5, 0.0749804, -0.000195771 )
+
+[node name="patch_ceiling" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79961, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="Tesselated_slope" type="MeshInstance" parent="StaticBody"]
+transform = Transform( -2.572, 0, 0, 0, -1.18978, -0.0898114, 0, 0.184527, -0.579077, -1.22516, 2.29138, -1.6418 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../../../../..")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -2.572, 0, 0, 0, -1.18978, -0.0898114, 0, 0.184527, -0.579077, -1.22516, 2.29138, -1.6418 )
+shape = SubResource( 1 )

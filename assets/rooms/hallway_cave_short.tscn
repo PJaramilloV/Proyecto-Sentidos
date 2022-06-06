@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Hill_Side_Gentle.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/rooms/assemblies/back_lower_edge.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/rooms/assemblies/Floor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Side_Top.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://assets/rooms/assemblies/front_cover_short.tscn" type="PackedScene" id=5]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( 0.5, 0.5, 3.5, 0.5, 0.424971, 2.5, -0.5, 0.5, 3.5, 0.5, 0.0749804, 0.5, 0.5, 0, -0.5, -0.5, 0.424971, 2.5, -0.5, 0.0749804, 0.5, -0.5, 0, -0.5 )
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( 0.5, 1, -0.5, 0.191, 0.9511, -0.5, 0.5, 1, 0.5, 0.5, 1, 0.5, 0.191, 0.9511, -0.5, 0.191, 0.9511, 0.5, 0.191, 0.9511, -0.5, -0.0878, 0.809, -0.5, 0.191, 0.9511, 0.5, 0.191, 0.9511, 0.5, -0.0878, 0.809, -0.5, -0.0878, 0.809, 0.5, -0.0878, 0.809, -0.5, -0.309, 0.5878, -0.5, -0.0878, 0.809, 0.5, -0.0878, 0.809, 0.5, -0.309, 0.5878, -0.5, -0.309, 0.5878, 0.5, -0.309, 0.5878, -0.5, -0.4511, 0.309, -0.5, -0.309, 0.5878, 0.5, -0.309, 0.5878, 0.5, -0.4511, 0.309, -0.5, -0.4511, 0.309, 0.5, -0.4511, 0.309, -0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, -0.4511, 0.309, 0.5, -0.4511, 0.309, -0.5, -0.5, 0, 0.5 )
+
+[node name="hallway_short" type="Spatial"]
+
+[node name="Floor" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.241, 0.164457, -0.00881338, -4.22473 )
+
+[node name="back_wall_short" type="Spatial" parent="."]
+
+[node name="lower_edge" parent="back_wall_short" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.485, -3.16459, -0.00723028, -4.09987 )
+
+[node name="wall" type="StaticBody" parent="back_wall_short"]
+
+[node name="wall" type="MeshInstance" parent="back_wall_short/wall"]
+transform = Transform( -1.76725e-07, 0.526, 1.80528e-08, 0, -2.29922e-08, 0.413, 4.043, 2.29922e-08, 7.89113e-16, -3.42426, 1.19372, -2.03155 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../../..")
+material/0 = null
+
+[node name="wall_coll" type="CollisionShape" parent="back_wall_short/wall"]
+transform = Transform( -1.76725e-07, 0.526, 1.80528e-08, 0, -2.29922e-08, 0.413, 4.043, 2.29922e-08, 7.89113e-16, -3.42426, 1.19372, -2.03155 )
+shape = SubResource( 1 )
+
+[node name="upper_edge" type="MeshInstance" parent="back_wall_short/wall"]
+transform = Transform( 0.938, 0, 0, 0, 1.072, 0, 0, 0, 3.94, -2.8165, 2.54845, -2.17132 )
+mesh = ExtResource( 4 )
+skeleton = NodePath("../../../../..")
+material/0 = null
+
+[node name="upper_edge_coll" type="CollisionShape" parent="back_wall_short/wall"]
+transform = Transform( 0.938, 0, 0, 0, 1.072, 0, 0, 0, 3.94, -2.8165, 2.54845, -2.17132 )
+shape = SubResource( 2 )
+
+[node name="Ceiling" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1.072, 1.50996e-07, 0, -1.61868e-07, -1, 0, 0, 0, 0.241, -0.218227, 3.50568, -4.22473 )
+
+[node name="front_cover_small" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.036, 0.0143237, -0.00881076, -0.299219 )

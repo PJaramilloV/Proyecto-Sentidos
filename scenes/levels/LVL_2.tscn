@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/rooms/chasm_wide_deep_alternate_exit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/rooms/assemblies/Slope.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/rooms/assemblies/patch_ceiling.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/rooms/hallway_cave.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/rooms/assemblies/Separator_wall_with door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/rooms/assemblies/patch_wall.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/rooms/hallway_cave_short.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/rooms/assemblies/Platform_square.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/rooms/chasm_wide_deep_extension.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/rooms/hallway_cave_short_deep.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Interactive/LadderClimb.tscn" type="PackedScene" id=11]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="world" type="Spatial" parent="."]
+
+[node name="hallway_cave" parent="world" instance=ExtResource( 4 )]
+
+[node name="Separator_wall" parent="world/hallway_cave" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0.294735, 0.601, 7.19006 )
+
+[node name="patch2" parent="world/hallway_cave" instance=ExtResource( 6 )]
+transform = Transform( 0.999355, -0.035729, -0.00716216, 0.0354228, 0.997202, -0.135486, 0.00582259, 0.065668, 2.05352, -3.04748, 1.55565, -6.30415 )
+
+[node name="Slope" parent="world" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, -0.0668821, 0.498736, -8.724 )
+
+[node name="patch_ceiling" parent="world/Slope" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 0.542228, -0.0806512, 0, 0.0438743, 0.996742, 0.122913, 2.60206, -0.46759 )
+
+[node name="Slope2" parent="world" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, -0.0668821, 1.90047, -14.3181 )
+
+[node name="patch_ceiling" parent="world/Slope2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 0.54335, 0.0488672, 0, -0.0265838, 0.998805, 0.122913, 2.61067, -0.46759 )
+
+[node name="patch" parent="world/Slope2" instance=ExtResource( 6 )]
+transform = Transform( 0.259389, 0.0587309, -1.01003, 0.113764, 0.934618, 0.0989263, 0.959049, -0.126751, 0.261443, -2.95566, 2.14405, 3.58937 )
+
+[node name="hallway_short" parent="world" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.405, -17.242 )
+
+[node name="patch" parent="world/hallway_short" instance=ExtResource( 6 )]
+transform = Transform( 0.723864, -0.0866176, -1.1427, 0.226891, 0.81521, 0.158126, 0.651568, -0.187647, 1.21443, -2.77642, 0.863077, -4.27487 )
+
+[node name="chasm" parent="world" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.246, -38.0709 )
+
+[node name="platforms" type="Spatial" parent="world/chasm"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.13184 )
+
+[node name="Platform_square" parent="world/chasm/platforms" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.506, 0, 0, 2.82726 )
+
+[node name="Platform_square2" parent="world/chasm/platforms" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.642, -5.89638, 0, 0.768953 )
+
+[node name="Platform_square3" parent="world/chasm/platforms" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.46, -5.89638, 0, -4.08622 )
+
+[node name="Platform_square4" parent="world/chasm/platforms" instance=ExtResource( 8 )]
+transform = Transform( 0.731, 0, 0, 0, 0.872, 0, 0, 0, 0.46, -5.89638, -5.87027, -8.85392 )
+
+[node name="ladder" parent="world/chasm" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1.604, 0, 0, 0, 1, -5.91021, -2.95459, 0.230045 )
+
+[node name="chasm_extension" parent="world/chasm" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.045, -21.06, 0.202 )
+
+[node name="Slope3" parent="world" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, -5.48287, 3.283, -40.9064 )
+
+[node name="patch_ceiling" parent="world/Slope3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 0.542228, -0.0806512, 0, 0.0438743, 0.996742, 0.122913, 2.60206, -0.46759 )
+
+[node name="Slope4" parent="world" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, -5.48287, 4.7041, -46.2636 )
+
+[node name="patch_ceiling" parent="world/Slope4" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 0.534568, 0.185409, 0, -0.100863, 0.982661, 0.122913, 3.15943, 0.412758 )
+
+[node name="hallway_short2" parent="world" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.499, -5.40981, 6.15071, -49.1285 )
+
+[node name="left_wall" type="Spatial" parent="world/hallway_short2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.73602, 0, 0 )

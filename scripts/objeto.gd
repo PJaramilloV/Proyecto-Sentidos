@@ -2,14 +2,21 @@ extends RigidBody
 var my_material := []
 var material_count
 onready var path = get_parent().get_node("trajectory")
-var throws_before_break = 10
+var throws_before_break = 4
 var thrown = false
 var process_function = 'sleep'
 var air_time = 0
 var AIR_TIME_LIMIT = 0.2
+var _light_handler: LightHandler = null
+
+
 
 # get_active_material && get_surface_materia
 func _ready():
+	
+	# light_handler = proyecto -> viewport -> Spatial -> LightHandler
+	_light_handler =  get_tree().root.get_child(1).get_node("LightHandler") 
+	
 	material_count = find_node("MeshInstance").get_surface_material_count()
 	for i in range(material_count):
 		var mat = find_node("MeshInstance").get_surface_material(i)
@@ -116,17 +123,24 @@ func display_predicted_trajectory(from_position):
 # Borrar parabola
 func clear_path():
 	path.clear()
+	
+func create_light(surface: StaticBody):
+	var node = surface
+	for child in node.get_children():
+		if child is VisualHandler:
+			_light_handler.create_light(child, global_transform.origin)
 
 # Llamada solo cuando hay una colision monitoreada
 func on_body_collided(surface: StaticBody):
 	if(! thrown): return # Evitar colisiones dobles
 	if(surface is StaticBody): # al colisionar con superficies, ejecutar
-		valid_collision()
+		valid_collision(surface)
 		if(! throws_before_break): # destruir si se tiro "throws_before_break" veces
 			destroy()
 
 # Incluir la generacion de luces aca y sonido (maybe particulas?)
-func valid_collision():
+func valid_collision(surface: StaticBody):
+	create_light(surface)
 	self.contact_monitor = false
 	thrown = false
 	throws_before_break -= 1
