@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/rooms/assemblies/chasm_back_wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/assemblies/chasm_side_edge.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/rooms/assemblies/chasm_side_edge_extension.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/rooms/assemblies/chasm_side_edge_no_rocks.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/rooms/assemblies/chasm_side_edge_extension_only_rocks.tscn" type="PackedScene" id=5]
 
 [node name="chasm" type="Spatial"]
 
@@ -18,20 +20,20 @@ transform = Transform( 0.707107, 0, -0.707107, 0, 0.787, 0, 0.707107, 0, 0.70710
 [node name="Right" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1.065, 0, 0, 0, 1.696, -5.28967, 0.696276, 0 )
 
-[node name="chasm_side_edge" parent="Right" instance=ExtResource( 2 )]
-transform = Transform( 0.31, 0, 0, 0, 0.29108, 0, 0, 0, 0.182783, 2.47264, -1.71012, 0 )
-
-[node name="chasm_side_edge3" parent="Right" instance=ExtResource( 3 )]
-transform = Transform( 0.31, 0, 0, 0, 0.29108, -1.59794e-08, 0, 2.5447e-08, 0.182783, 8.02638, -1.66014, 0 )
-
 [node name="chasm_side_edge_top1" parent="Right" instance=ExtResource( 2 )]
 transform = Transform( 0.31, 0, 0, 0, -0.29108, 0, 0, 0, 0.182783, 2.47264, 3.96079, 0 )
 
-[node name="chasm_side_edge4" parent="Right" instance=ExtResource( 3 )]
-transform = Transform( 0.31, 0, 0, 0, 0.29108, -1.59794e-08, 0, 2.5447e-08, 0.182783, 7.82317, 5.60124, -0.101159 )
-
 [node name="chasm_side_edge5" parent="Right" instance=ExtResource( 3 )]
 transform = Transform( 0.31, 0, 0, 0, 0.29108, -1.59794e-08, 0, 2.5447e-08, 0.182783, 7.79684, 10.4868, 0 )
+
+[node name="chasm_side_edge2" parent="Right" instance=ExtResource( 4 )]
+transform = Transform( 0.31, 0, 0, 0, 0.291, 0, 0, 0, 0.183, 2.473, -1.71, 0 )
+
+[node name="chasm_side_edge" parent="Right" instance=ExtResource( 5 )]
+transform = Transform( 0.353, 0, 0, 0, 0.313, 0, 0, 0, 0.183, 8.026, -1.63518, 0 )
+
+[node name="chasm_side_edge3" parent="Right" instance=ExtResource( 5 )]
+transform = Transform( 0.353, 0, 0, 0, 0.313, 0, 0, 0, 0.183, 8.026, 5.71596, 0 )
 
 [node name="Left" type="Spatial" parent="."]
 

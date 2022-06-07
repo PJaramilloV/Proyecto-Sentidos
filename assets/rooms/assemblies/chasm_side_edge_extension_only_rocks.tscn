@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/VisualHandler.gd" type="Script" id=1]
+[ext_resource path="res://assets/rooms/pieces/Shared_Prop_Boulder_2.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/rooms/pieces/Mountain_1.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://assets/rooms/pieces/Shared_Prop_Boulder_5.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Floor_Raised.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://assets/rooms/pieces/Mountain_4.obj" type="ArrayMesh" id=6]
+
+[sub_resource type="BoxShape" id=2]
+
+[node name="chasm_side_edge" type="Spatial"]
+transform = Transform( 0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, 0, 0, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="rock1" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1.233, 0, 3.55271e-15, 0, 1, 0, -4.38049e-15, 0, 1, 0, -2.79705, 0 )
+mesh = ExtResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="rock2" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 5.89079e-08, 0.194135, 1.03713, -8.78221e-08, -1.18318, 0.170171, 1.018, -1.13306e-07, -4.53345e-08, -0.443598, 0.339061, 0 )
+mesh = ExtResource( 6 )
+skeleton = NodePath("../rock1")
+material/0 = null
+
+[node name="chasm_side_wall" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 17.579, 3.2336e-15, -3.91045e-21, 0, -4.37114e-08, -27.666, -5.68434e-14, 1, -1.20932e-06, -8.60131, -10.2195, 0.0578384 )
+mesh = ExtResource( 5 )
+skeleton = NodePath("../rock2")
+material/0 = null
+
+[node name="rock3" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 0.668893, -0.953243, 9.33043, 0, 5.83596, 1.53786, -7.02121, -0.090813, 0.888886, 1.71272, -18.1433, 0 )
+mesh = ExtResource( 4 )
+skeleton = NodePath("../rock2")
+material/0 = null
+
+[node name="rock4" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1.91239, 1.43579, 5.62305, 8.6869e-07, -9.26314, 0.976665, 5.50742, -0.49856, -1.95254, -0.0487518, -15.1818, -0.449402 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("../rock3")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 8.638, 0, 0, 0, 13.836, 0, 0, 0, 0.591, -8.54787, -10.3176, 0.15109 )
+shape = SubResource( 2 )
+
+[node name="VisualHandler" type="Node" parent="StaticBody"]
+script = ExtResource( 1 )
