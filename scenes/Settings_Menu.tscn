@@ -5,7 +5,6 @@
 [ext_resource path="res://scripts/Settings_Menu.gd" type="Script" id=3]
 
 [node name="Settings_Menu" type="Popup"]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 720, 600 )
@@ -104,14 +103,14 @@ margin_bottom = 269.0
 text = "FPS Limit"
 
 [node name="FPSLimit_Option" type="OptionButton" parent="Settings_Tab/Video/MarginContainer/Video_Settings"]
-margin_left = 459.0
+margin_left = 458.0
 margin_top = 226.0
 margin_right = 592.0
 margin_bottom = 272.0
 size_flags_horizontal = 10
-text = "30 FPS"
+text = "60 FPS"
 items = [ "30 FPS", null, false, 0, null, "60 FPS", null, false, 1, null ]
-selected = 0
+selected = 1
 
 [node name="Bloom_Label" type="Label" parent="Settings_Tab/Video/MarginContainer/Video_Settings"]
 margin_top = 296.0

@@ -2,7 +2,7 @@ extends Control
 
 var is_paused = false setget set_is_paused
 var time_in_seconds = 0.2
-
+onready var settings_menu = $Settings_Menu
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
@@ -34,5 +34,4 @@ func _on_Quit_pressed():
 func _on_Options_pause_pressed():
 	$AudioStreamPlayer2D.play()
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
-	self.is_paused = false
-	get_tree().change_scene("res://scenes/mapa_controles.tscn")
+	settings_menu.popup_centered()

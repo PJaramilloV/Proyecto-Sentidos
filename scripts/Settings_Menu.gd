@@ -21,23 +21,32 @@ onready var mouse_sense_slider = $Settings_Tab/Gameplay/Gameplay_Settings/HBoxCo
 
 
 func _ready():
-	popup_centered()
-
+	display_options.select(1 if SaveSettings.game_data.fullscreen_on else 0)
+	GlobalSettings.toggle_fullscreen(SaveSettings.game_data.fullscreen_on)
+	
+	vsync_btn.pressed = SaveSettings.game_data.vsync_on
+	
+	
+	#display_fps_btn.pressed = SaveSettings.game_data.display_fps
+	#GlobalSettings.toggle_fps_display(SaveSettings.game_data.display_fps)
+	
+	max_fps_val.select(1 if SaveSettings.game_data.max_fps == 60 else 0)
+	GlobalSettings.set_max_fps(SaveSettings.game_data.max_fps)
 
 func _on_Display_Option_item_selected(index):
-	pass # Replace with function body.
+	GlobalSettings.toggle_fullscreen(true if index == 1 else false)
 
 
 func _on_Vsync_Button_toggled(button_pressed):
-	pass # Replace with function body.
+	GlobalSettings.toggle_vsync(button_pressed)
 
 
 func _on_FPS_Button_toggled(button_pressed):
-	pass # Replace with function body.
+	GlobalSettings.toggle_fps_display(button_pressed)
 
 
 func _on_FPSLimit_Option_item_selected(index):
-	pass # Replace with function body.
+	GlobalSettings.set_max_fps(30 if index == 0 else 60)
 
 
 func _on_Bloom_Button_toggled(button_pressed):
