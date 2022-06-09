@@ -1,5 +1,6 @@
 extends Label
 
+
 func _ready():
 	GlobalSettings.connect("fps_displayed",self,"_on_fps_displayed")
 	

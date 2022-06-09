@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/boulders/boulder_sphere.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/boulders/boulder.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/boulders/boulder_egg.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/boulders/boulder_sharp.tscn" type="PackedScene" id=4]
+
+[node name="boulder_bulk" type="Spatial"]
+
+[node name="boulder" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.742323, 0.0209675, 0.256226 )
+
+[node name="boulder_egg" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.533634, 0, 1.05916, 0, 1.225, 0, -0.756776, 0, 0.746858, -0.261519, 0.0209045, -0.344985 )
+
+[node name="boulder_sharp" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.807661, -0.445481, 0, 0.287213, 0.297219, -0.00568771, 0.205561, 0.0250955 )
+
+[node name="boulder2" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.852687, 0, 0.614377, 0, 1.1, 0, -0.491103, 0, -1.06672, -0.691966, 0.689941, -0.308364 )
+
+[node name="boulder_sharp2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.7573, 0, -0.290505, 0, 0.764, 0, 0.111264, 0, 0.469124, -0.120841, 0.960926, -0.521484 )
+
+[node name="boulder_sphere" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 0.852, 0, 0, 0, 0.795, -1.3978, -0.0088129, 0.955915 )
+
+[node name="boulder_egg2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.58185, 0.169535, 0.226039, -0.21211, 0.465062, -0.0824011, -0.144764, 3.68804e-09, 1.02925, 0.415833, -0.00879669, 0.626575 )

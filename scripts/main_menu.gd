@@ -4,6 +4,7 @@ onready var start = $Panel/Fondo/Start
 onready var exit = $Panel/Fondo/Exit
 onready var options = $Panel/Fondo/Options
 onready var extras = $Panel/Fondo/Extras
+onready var settings_menu = $Settings_Menu
 
 var time_in_seconds = 0.2
 
@@ -27,7 +28,7 @@ func _on_exit_pressed():
 func _on_options_pressed():
 	$AudioStreamPlayer2D.play()
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
-	get_tree().change_scene("res://scenes/mapa_controles.tscn")
+	settings_menu.popup_centered()
 
 func _on_extras_pressed():
 	$AudioStreamPlayer2D.play()
