@@ -10,7 +10,7 @@ func enter(msg := {}) -> void:
 	player._velocity = Vector3.ZERO
 	player._rotate = false
 	# Rotación / Mirar el borde
-	var correction = 0.9 # 3.5 # Ajuste a mano de la posicion del pj. !!!Distinto en Demo y LVLs!!!
+	var correction = 3.5 # 3.5 # Ajuste a mano de la posicion del pj. !!!Distinto en Demo y LVLs!!!
 	if msg.has("ray"):
 		var ray = msg.get("ray")
 		var dir = ray.get_collision_normal()
@@ -19,7 +19,7 @@ func enter(msg := {}) -> void:
 		player._stand_shape.look_at(dir + player._stand_shape.global_transform.origin, Vector3.UP)
 		player._crouch_shape.look_at(dir + player._crouch_shape.global_transform.origin, Vector3.UP)
 		var pos = ray.get_collision_point() - ray.global_transform.origin
-		var height = ray.get_collider().global_transform.origin.y - player.global_transform.origin.y
+		var height = ray.get_collider().global_transform.origin.y #- player.global_transform.origin.y
 		player.translate(Vector3(-pos.z, height - correction, -pos.x))
 
 func exit() -> void:

@@ -12,13 +12,13 @@
 
 [node name="room" type="Spatial"]
 
-[node name="Floor" type="Spatial" parent="." instance=ExtResource( 3 )]
+[node name="Floor" parent="." instance=ExtResource( 3 )]
 transform = Transform( 2.423, 0, 0, 0, 0.203, 0, 0, 0, 1.457, -3.06002, 0, -23.8429 )
 
-[node name="Separator_wall_L" type="Spatial" parent="." instance=ExtResource( 4 )]
+[node name="Separator_wall_L" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0.196994, 0.00017494, 0.0361481 )
 
-[node name="s-corner" type="Spatial" parent="Separator_wall_L" instance=ExtResource( 5 )]
+[node name="s-corner" parent="Separator_wall_L" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 0.806, 0, 0, 0, 1, -3.11426, 0, -1.14248 )
 
 [node name="inclined_ceiling" type="Spatial" parent="Separator_wall_L/s-corner"]
@@ -35,7 +35,7 @@ mesh = ExtResource( 7 )
 skeleton = NodePath("../../..")
 material/0 = null
 
-[node name="s-corner2" type="Spatial" parent="Separator_wall_L" instance=ExtResource( 5 )]
+[node name="s-corner2" parent="Separator_wall_L" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 0.806, 0, 0, 0, 1, -6.10466, 0, 1.65939 )
 
 [node name="inclined_ceiling" type="Spatial" parent="Separator_wall_L/s-corner2"]
@@ -78,7 +78,7 @@ mesh = ExtResource( 9 )
 skeleton = NodePath("../..")
 material/0 = null
 
-[node name="back_cover" type="Spatial" parent="." instance=ExtResource( 2 )]
+[node name="back_cover" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.999918, 0, 0.015273, 0, 1, 0, -0.0128453, 0, 1.1889, -6.25149, 1.94907e-05, -17.6244 )
 
 [node name="incline_ceiling" type="Spatial" parent="back_cover"]
@@ -92,16 +92,16 @@ material/0 = null
 
 [node name="front_cover" type="Spatial" parent="."]
 
-[node name="front_cover" type="Spatial" parent="front_cover" instance=ExtResource( 1 )]
+[node name="front_cover" parent="front_cover" instance=ExtResource( 1 )]
 transform = Transform( 1, 8.74228e-08, 0, -8.74228e-08, 1, 0, 0, 0, -0.883, -0.0468292, 0.101236, -0.114426 )
 
-[node name="front_cover2" type="Spatial" parent="front_cover" instance=ExtResource( 1 )]
+[node name="front_cover2" parent="front_cover" instance=ExtResource( 1 )]
 transform = Transform( 1, 8.74228e-08, 0, -8.74228e-08, 1, 0, 0, 0, 0.883, -0.0468292, 0.101236, -23.6949 )
 
-[node name="Separator_wall_R" type="Spatial" parent="." instance=ExtResource( 6 )]
+[node name="Separator_wall_R" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 8.74228e-08, 0, -8.74228e-08, 1, 0, 0, 0, 1, 0.202418, -0.0172703, -23.2984 )
 
-[node name="s-corner" type="Spatial" parent="Separator_wall_R" instance=ExtResource( 5 )]
+[node name="s-corner" parent="Separator_wall_R" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 0.806, 0, 0, 0, 1, -3.11968, 0.0174453, -1.14391 )
 
 [node name="inclined_ceiling" type="Spatial" parent="Separator_wall_R/s-corner"]
@@ -118,7 +118,7 @@ mesh = ExtResource( 7 )
 skeleton = NodePath("../../..")
 material/0 = null
 
-[node name="s-corner2" type="Spatial" parent="Separator_wall_R" instance=ExtResource( 5 )]
+[node name="s-corner2" parent="Separator_wall_R" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 0.806, 0, 0, 0, 1, -6.11008, 0.0174452, 1.65796 )
 
 [node name="inclined_ceiling" type="Spatial" parent="Separator_wall_R/s-corner2"]
@@ -162,5 +162,5 @@ mesh = ExtResource( 9 )
 skeleton = NodePath("../..")
 material/0 = null
 
-[node name="ceiling" type="Spatial" parent="." instance=ExtResource( 3 )]
+[node name="ceiling" parent="." instance=ExtResource( 3 )]
 transform = Transform( 2.423, 0, 0, 0, -0.203, 1.27375e-07, 0, -1.77468e-08, -1.457, -3.06, 4.548, 0.778999 )

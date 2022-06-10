@@ -1,0 +1,220 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://assets/rooms/hallway_cave_short.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/rooms/assemblies/inner_corner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/rooms/assemblies/Floor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/rooms/assemblies/front_cover_short.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/rooms/assemblies/front_cover.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/rooms/assemblies/patch_wall.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/rooms/assemblies/Separator_wall_with door_open.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/rooms/assemblies/chasm_side_edge_extension.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/rooms/assemblies/Separator_wall_with door.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/rooms/hallway_cave.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Interactive/LadderClimb.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scripts/Killzone.gd" type="Script" id=13]
+[ext_resource path="res://assets/rooms/chasm_wide.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/rooms/refuge.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/rooms/collider_pieces/pillar.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/small/raw_files/key_silver.gltf" type="PackedScene" id=17]
+[ext_resource path="res://assets/rooms/assemblies/Stalagmite_long.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/small/jug.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=20]
+[ext_resource path="res://assets/boulders/boulder_egg.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/rooms/assemblies/inner_ground_corner_wall.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scripts/Checkpoint.gd" type="Script" id=23]
+[ext_resource path="res://assets/rooms/assemblies/chasm_side_edge_no_rocks.tscn" type="PackedScene" id=24]
+[ext_resource path="res://assets/rooms/assemblies/wooden_beam_horizontal.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scenes/Interactive/BraceBorder.tscn" type="PackedScene" id=26]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 2.1306, 1.73309, 2.05416 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 5.9717, 2.39594, 7.82149 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 6.1756, 0.431309, 6.95413 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 1, 1.4913, 1.15282 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="world" type="Spatial" parent="."]
+
+[node name="hallway_cave" parent="world" instance=ExtResource( 11 )]
+
+[node name="Separator_wall" parent="world/hallway_cave" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0.294735, 0.601, 7.19006 )
+
+[node name="patch2" parent="world/hallway_cave" instance=ExtResource( 6 )]
+transform = Transform( 0.999355, -0.035729, -0.00716216, 0.0354228, 0.997202, -0.135486, 0.00582259, 0.065668, 2.05352, -2.7538, 1.55565, -6.45363 )
+
+[node name="chasm" parent="world" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.533218, -22.389 )
+
+[node name="added_geometry" type="Spatial" parent="world/chasm"]
+
+[node name="chasm" parent="world/chasm/added_geometry" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.288, 0 )
+
+[node name="chasm_side_edge" parent="world/chasm/added_geometry/chasm" instance=ExtResource( 8 )]
+transform = Transform( 0.31, 0, 0, 0, 0.31, 0, 0, 0, -0.31, 2.50376, 5.06916, 16.5128 )
+
+[node name="Floor" parent="world/chasm/added_geometry" instance=ExtResource( 3 )]
+transform = Transform( 1.317, 0, 0, 0, 1, 0, 0, 0, 1, -0.452357, -13.1804, -0.122068 )
+
+[node name="front_cover" parent="world/chasm/added_geometry/Floor" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.278742, 3.05176e-05, 4.06939 )
+
+[node name="front_cover_small" parent="world/chasm/added_geometry/Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1.041, 0, 0, 0, 1, -0.35559, -0.174308, 4.07961 )
+
+[node name="inner_ground_corner_wall" parent="world/chasm/added_geometry/Floor" instance=ExtResource( 22 )]
+transform = Transform( 1.22, 0, 0, 0, 1, 0, 0, 0, 17.5, -1.484, 0, 8.773 )
+
+[node name="high_path" type="Spatial" parent="world"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.655058, -22.4292 )
+
+[node name="hallway_short" parent="world/high_path" instance=ExtResource( 1 )]
+
+[node name="patch2" parent="world/high_path/hallway_short" instance=ExtResource( 6 )]
+transform = Transform( 0.363134, -0.229672, -1.85834, 0.35838, 0.929015, -0.189687, 0.860056, -0.290142, 0.863674, -2.57128, 1.48764, 0.34199 )
+
+[node name="chasm" parent="world/high_path" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.614, 0, -0.0911137, -30.779 )
+
+[node name="geometry" type="Spatial" parent="world/high_path/chasm"]
+
+[node name="Floor" parent="world/high_path/chasm/geometry" instance=ExtResource( 3 )]
+transform = Transform( 1.544, 0, 0, 0, 1, 0, 0, 0, 1, -0.389641, -5.96643, -0.222916 )
+
+[node name="Floor2" parent="world/high_path/chasm/geometry" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 0.996913, -0.0131899, 0, 0.0785113, 0.167481, -0.389641, 0.270796, 15.9484 )
+
+[node name="chasm_side_edge" parent="world/high_path/chasm/geometry" instance=ExtResource( 24 )]
+transform = Transform( 0.313, 2.71011e-08, 0, -2.73633e-08, 0.31, 0, 0, 0, -0.31, 2.28389, -0.946118, 15.9816 )
+
+[node name="traversal" type="Spatial" parent="world/high_path/chasm"]
+
+[node name="ladder" parent="world/high_path/chasm/traversal" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0363197, -4.11544, 15.7019 )
+
+[node name="ladder2" parent="world/high_path/chasm/traversal" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0363197, -1.58307, 15.7019 )
+
+[node name="wooden_beam_horizontal" parent="world/high_path/chasm/traversal" instance=ExtResource( 25 )]
+transform = Transform( -9.94871e-08, 0, 0.492, 0, 0.503, 0, -2.276, 0, -2.1506e-08, -1.94552, 2.45689, 15.1391 )
+
+[node name="brace_border" parent="world/high_path/chasm/traversal/wooden_beam_horizontal" instance=ExtResource( 26 )]
+transform = Transform( 0.843, -1.22297e-06, -3.91687e-13, 3.61487e-07, 2.852, 5.50669e-14, 3.2685e-13, -1.57051e-13, 1, -0.000742435, -0.381972, 0.202695 )
+
+[node name="hallway_short2" parent="world/high_path" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0407791, -30.8451 )
+
+[node name="patch2" parent="world/high_path/hallway_short2" instance=ExtResource( 6 )]
+transform = Transform( 0.363134, -0.229672, -1.85834, 0.35838, 0.929015, -0.189687, 0.860056, -0.290142, 0.863674, -2.57128, 1.48764, 0.34199 )
+
+[node name="Separator_wall" parent="world/high_path/hallway_short2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.264647, 0, -3.86354 )
+
+[node name="relic_room" parent="world/high_path" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0331151, -34.7437 )
+
+[node name="geometry" type="Spatial" parent="world/high_path/relic_room"]
+
+[node name="inner_corner" parent="world/high_path/relic_room/geometry" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1.615, 0, 1, 0, -4.37114e-08, -8.513, -0.00902295, -14.8725 )
+
+[node name="inner_ground_corner_wall" parent="world/high_path/relic_room/geometry" instance=ExtResource( 22 )]
+transform = Transform( -4.37114e-08, 0, -10.132, 0, 0.928, 0, 1, 0, -4.42884e-07, -2.51604, -0.0297357, -15.1091 )
+
+[node name="inner_ground_corner_wall2" parent="world/high_path/relic_room/geometry" instance=ExtResource( 22 )]
+transform = Transform( 4.37114e-08, 3.54623e-15, 10.132, 8.74228e-08, -0.928, 0, 1, 8.11283e-08, -4.42884e-07, -2.51604, 4.5461, -15.1091 )
+
+[node name="Stalagmite_long" parent="world/high_path/relic_room/geometry" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1.222, 0, 0, 0, 1, -7.52093, 0.0338213, -15.1725 )
+
+[node name="front_cover_small" parent="world/high_path/relic_room/geometry" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1.215, 0, 1, -5.31093e-08, -0.235681, 0.100441, -15.4399 )
+
+[node name="boulder_egg" parent="world/high_path/relic_room/geometry" instance=ExtResource( 21 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -8.26924, 3.26633e-05, -12.6485 )
+
+[node name="decor" type="Spatial" parent="world/high_path/relic_room"]
+
+[node name="center" parent="world/high_path/relic_room/decor" instance=ExtResource( 16 )]
+transform = Transform( 6.00001, 0, 6.51926e-09, 0, 1, 0, -6.51926e-09, 0, 6.00001, -3.03918, -4.58455, -11.7408 )
+
+[node name="center2" parent="world/high_path/relic_room/decor" instance=ExtResource( 16 )]
+transform = Transform( 4, 0, 5.58794e-09, 0, 1, 0, -5.58794e-09, 0, 4, -3.03918, -4.24131, -11.7408 )
+
+[node name="pillar2" parent="world/high_path/relic_room/decor" instance=ExtResource( 16 )]
+transform = Transform( 0.672001, 0, 5.82077e-10, 0, 0.462, 0, -5.82077e-10, 0, 0.672001, -3.03908, -0.860283, -11.7405 )
+
+[node name="jug" parent="world/high_path/relic_room/decor" instance=ExtResource( 19 )]
+transform = Transform( -0.931266, 0, 0.36434, 0, 1, 0, -0.36434, 0, -0.931266, -3.02671, 1.45211, -11.7213 )
+
+[node name="key_silver" parent="world/high_path/relic_room" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.12161, 0, -13.8897 )
+
+[node name="low_path" type="Spatial" parent="world"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.2417, -29.6274 )
+
+[node name="hallway_cave" parent="world/low_path" instance=ExtResource( 11 )]
+
+[node name="hallway_cave2" parent="world/low_path" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.2646 )
+
+[node name="Player" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, 0, 1.09585, -25.3573 )
+
+[node name="CheckPoints" type="Spatial" parent="."]
+visible = false
+
+[node name="Checkpoint_start" type="Area" parent="CheckPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.273, 1.06531, 3.00669 )
+collision_layer = 16
+collision_mask = 16
+script = ExtResource( 23 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CheckPoints/Checkpoint_start"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323093, 1.22778, -0.19644 )
+shape = SubResource( 1 )
+
+[node name="Checkpoint" type="Area" parent="CheckPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.06104, 1.70922, -38.732 )
+collision_layer = 16
+collision_mask = 16
+script = ExtResource( 23 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CheckPoints/Checkpoint"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.771, -1.754 )
+shape = SubResource( 2 )
+
+[node name="Killzones" type="Spatial" parent="."]
+visible = false
+
+[node name="Killzone" type="Area" parent="Killzones"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.43778, -17.4431, -32.5728 )
+collision_layer = 16
+collision_mask = 16
+script = ExtResource( 13 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Killzones/Killzone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5009, -1.07726, 7.69326 )
+shape = SubResource( 3 )
+
+[node name="FRONTAL_BOUND" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.2608, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="FRONTAL_BOUND"]
+transform = Transform( 1, 0, 0, 0, 13.844, 0, 0, 0, 64.187, 3.42112, -4.82089, -53.5774 )
+shape = SubResource( 4 )
+
+[node name="PauseMenu" parent="." instance=ExtResource( 20 )]
+
+[connection signal="body_entered" from="CheckPoints/Checkpoint_start" to="CheckPoints/Checkpoint_start" method="_on_area_entered"]
+[connection signal="body_entered" from="CheckPoints/Checkpoint" to="CheckPoints/Checkpoint" method="_on_area_entered"]
+[connection signal="body_entered" from="Killzones/Killzone" to="Killzones/Killzone" method="_on_area_entered"]
