@@ -78,7 +78,7 @@ light_energy = 1.304
 light_cull_mask = 4294967231
 shadow_enabled = true
 omni_range = 3.963
-omni_attenuation = 2.92817
+omni_attenuation = 1.99999
 
 [node name="Torch_Wall" parent="." index="2"]
 use_in_baked_light = true

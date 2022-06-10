@@ -30,7 +30,7 @@ extents = Vector3( 3.64416, 2.02994, 1.41686 )
 extents = Vector3( 3.64416, 2.02994, 1.41686 )
 
 [sub_resource type="BoxShape" id=3]
-extents = Vector3( 25.5928, 0.431309, 92.9979 )
+extents = Vector3( 14.4364, 2.18369, 18.035 )
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 1, 1, 1.09235 )
@@ -203,13 +203,12 @@ shape = SubResource( 2 )
 [node name="Killzones" type="Spatial" parent="."]
 
 [node name="Killzone" type="Area" parent="Killzones"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.43778, -17.4431, -32.5728 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71314, -14.0756, -32.5728 )
 collision_layer = 16
 collision_mask = 16
 script = ExtResource( 12 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Killzones/Killzone"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5009, -1.07726, 7.69326 )
 shape = SubResource( 3 )
 
 [node name="FRONTAL_BOUND" type="StaticBody" parent="."]
