@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/CameraProtagonista.gd" type="Script" id=1]
 [ext_resource path="res://scenes/hero.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/spirit.gd" type="Script" id=3]
 [ext_resource path="res://scenes/spirit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/spirit_aura.material" type="Material" id=5]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=6]
 
 [sub_resource type="CylinderMesh" id=1]
 material = ExtResource( 5 )
@@ -13,6 +14,7 @@ bottom_radius = 0.515
 height = 0.098
 
 [node name="Player" type="Spatial"]
+script = ExtResource( 6 )
 
 [node name="hero" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, 0, 0, 0 )
@@ -27,13 +29,8 @@ shadow_enabled = true
 omni_range = 4.14967
 omni_attenuation = 0.812253
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.96982, 1.085, -2.84217e-14 )
-script = ExtResource( 1 )
-offset = Vector3( 2.5, 1, 0 )
-
 [node name="spirit" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.460805, 1.13689, 0.403548 )
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, -0.460805, 1.13689, 0.403548 )
 script = ExtResource( 3 )
 offset = Vector3( 0, 1.172, 0 )
 
@@ -42,3 +39,8 @@ transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.1492
 layers = 64
 mesh = SubResource( 1 )
 material/0 = null
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.96982, 1.085, -2.84217e-14 )
+script = ExtResource( 1 )
+offset = Vector3( 4, 1.5, 0 )

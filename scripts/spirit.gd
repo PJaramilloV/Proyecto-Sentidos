@@ -8,6 +8,8 @@ var flash_t := 0.0
 var angle := 0.0
 	
 func _physics_process(delta) -> void:
+	#print(target.global_transform.origin)
+	#print(self.global_transform.origin)
 	if(target != null):
 		angle += delta * 2
 		var destination = target.global_transform.origin + offset + Vector3(0.0, 0.2*sin(angle),0.0 )
@@ -24,3 +26,13 @@ func _physics_process(delta) -> void:
 
 func flash():
 	self.flash_t = 0.5
+
+func reset():
+	angle = 0.0
+	print(target.global_transform.origin)
+	#for child in get_children():
+	#	print("ioo")
+	#	child.global_transform.origin = target.global_transform.origin + offset
+	#print("ypooooooooooooooooo")
+	var destination = target.global_transform.origin + offset + Vector3(0.0, 0.2*sin(angle),0.0 )
+	self.global_transform.origin = destination

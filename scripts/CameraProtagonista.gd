@@ -6,6 +6,11 @@ export var offset: Vector3
 	
 func _physics_process(delta) -> void:
 	if(target != null):
-		var destination = target.transform.origin + offset
-		destination.x = max(1.845, destination.x)
-		self.transform.origin = lerp(self.transform.origin, destination, smooth_speed * delta)
+		var destination = target.global_transform.origin + offset
+		destination.x = max(3.845, destination.x)
+		self.global_transform.origin = lerp(self.global_transform.origin, destination, smooth_speed * delta)
+
+func reset():
+	var destination = target.global_transform.origin + offset
+	destination.x = max(3.845, destination.x)
+	self.global_transform.origin = destination
