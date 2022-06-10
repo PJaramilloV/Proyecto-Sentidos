@@ -43,7 +43,7 @@ transform = Transform( 0.566, 0, 0, 0, 0.64, 0, 0, 0, 0.121, 1.43715, 0.660369, 
 shape = SubResource( 2 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="StaticBody" index="4"]
-transform = Transform( 0.598, 0, 0, 0, 0.240143, -0.205895, 0, 0.453322, 0.109071, 0.365494, 1.31074, 0.462331 )
+transform = Transform( 0.598, 0, 0, 0, 0.240143, -0.0777628, 0, 0.453322, 0.0411941, 0.365494, 1.56033, 0.462331 )
 shape = SubResource( 2 )
 
 [node name="Jail_Wall_broken" parent="." index="1"]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/rooms/assemblies/front_cover.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/rooms/assemblies/patch_wall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/rooms/assemblies/back_wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/rooms/assemblies/Floor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/rooms/assemblies/front_cover_short.tscn" type="PackedScene" id=5]
+
+[node name="hallway_cave" type="Spatial"]
+
+[node name="front_cover" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0468295, 0.779436, -6.033 )
+
+[node name="Floor" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.776, 0, 0.601, -6.179 )
+
+[node name="back_cover" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.846, -1.27725e-08, 0.521044, -0.29221 )
+
+[node name="back_cover2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.811, -2.88063e-07, 0.521044, -6.59012 )
+
+[node name="patch" parent="." instance=ExtResource( 2 )]
+
+[node name="ceiling" type="Spatial" parent="."]
+transform = Transform( 0.633, 0, 0, 0, 0.529, 0, 0, 0, 1.008, 2.67145, 4.17087, 1.9021 )
+
+[node name="slanted" parent="ceiling" instance=ExtResource( 4 )]
+transform = Transform( 1.759, -7.57103e-08, 1.59984e-08, 0, -0.5, -0.316965, -1.53777e-07, -0.866025, 0.183, -4.25344, 5.41109, 2.23078 )
+
+[node name="slanted2" parent="ceiling" instance=ExtResource( 4 )]
+transform = Transform( -1.759, 0, 0, 0, -0.5, -0.316965, 0, 0.866025, -0.183, -4.25344, 5.41109, -4.5055 )
+
+[node name="slanted3" parent="ceiling" instance=ExtResource( 4 )]
+transform = Transform( 1.1636e-07, 0.866025, -0.183, 0, -0.5, -0.316965, 2.662, -3.78552e-08, 7.99918e-09, -4.75074, 5.41109, -1.13985 )
+
+[node name="slanted4" parent="ceiling" instance=ExtResource( 4 )]
+transform = Transform( 1.1636e-07, -0.866025, 0.183, 0, -0.5, -0.316965, -2.662, -3.78552e-08, 7.99918e-09, -3.14505, 5.41109, -1.13985 )
+
+[node name="flat" parent="ceiling" instance=ExtResource( 4 )]
+transform = Transform( 1.15398e-07, 0, -0.366, 0, -1, 0, 2.64, 0, 1.59984e-08, 0.161665, 5.15359, -1.0969 )
+
+[node name="front_cover_small" parent="ceiling" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, -0.25794, 1.42206, 0, -0.507325, -0.836481, -2.63306, 5.09534, 2.64479 )
+
+[node name="front_cover_small2" parent="ceiling" instance=ExtResource( 5 )]
+transform = Transform( 0.999999, 0, 0, 0, -0.272084, -1.43524, 0, 0.505417, -0.772644, -2.63306, 0.450277, -7.42766 )
