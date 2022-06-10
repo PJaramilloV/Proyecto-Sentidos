@@ -2,9 +2,9 @@ extends Spatial
 
 export var lives := 5
 
-onready var spiritmesh = get_node("spirit/StaticBody/MeshInstance")
+onready var spiritmesh = get_node("spirit/MeshInstance")
 onready var spiritlight = get_node("spirit/OmniLight")
-onready var spiritcilinder = get_node("spirit/MeshInstance")
+onready var spiritcilinder = get_node("spirit/aura")
 
 # a = (22 y 125)
 var _colors1 = [Color(0.894118, 0.062745, 0, 0.490196), Color(0.752941, 0.403922, 0, 0.490196), Color(0.768627, 0.701961, 0, 0.490196), Color(0.619608, 0.784314, 0.023529, 0.490196), Color(0.894118, 0.062745, 0, 0.490196)]

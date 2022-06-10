@@ -25,8 +25,6 @@ func respawn(player: Node):
 	#player.get_node("hero").get_node("StateMachine").transition_to("Idle", {land = true})
 	#player.get_node("spirit").global_transform.origin = self.global_transform.origin
 	player.get_node("spirit").reset()
-	print(player.get_node("spirit/StaticBody").global_transform.origin)
-	print(player.get_node("spirit/StaticBody/MeshInstance").global_transform.origin)
 	player.get_node("spirit").flash()
 	player.get_node("Camera").reset()
 	player.death()
