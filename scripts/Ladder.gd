@@ -25,30 +25,18 @@ func enter(msg := {}) -> void:
 		player._hang_normal = dir
 		var pos = ray.get_collision_point() - ray.global_transform.origin
 		player.translate(Vector3(-pos.z, pos.y, -pos.x))
-#	if msg.has("left"):
-#		var dir = player.leftladderray.get_collision_normal()
-#		player._model.look_at(dir + player._model.global_transform.origin, Vector3.UP)
-#		player._stand_shape.look_at(dir + player._stand_shape.global_transform.origin, Vector3.UP)
-#		player._crouch_shape.look_at(dir + player._crouch_shape.global_transform.origin, Vector3.UP)
-#		dir.x = -dir.x
-#		dir.z = -dir.z
-#		player._hang_normal = dir
-#		var pos = player.leftladderray.get_collision_point() - player.leftladderray.global_transform.origin
-#		player.translate(Vector3(-pos.z, pos.y, -pos.x))
-#	elif msg.has("right"):
-#		var dir = player.rightladderray.get_collision_normal()
-#		player._model.look_at(dir + player._model.global_transform.origin, Vector3.UP)
-#		player._stand_shape.look_at(dir + player._stand_shape.global_transform.origin, Vector3.UP)
-#		player._crouch_shape.look_at(dir + player._crouch_shape.global_transform.origin, Vector3.UP)
-#		dir.x = -dir.x
-#		dir.z = -dir.z
-#		player._hang_normal = dir
-#		var pos = player.rightladderray.get_collision_point() - player.rightladderray.global_transform.origin
-#		player.translate(Vector3(-pos.z, pos.y, -pos.x))
+	player.leftborderray.enabled = false
+	player.leftborderray2.enabled = false
+	player.rightborderray.enabled = false
+	player.rightborderray2.enabled = false
 
 func exit() -> void:
 	player.animation_tree.set("parameters/LadderTransition/current", 0)
 #	player.animation_tree.set("parameters/ClimbLadderShot/active", false)
+	player.leftborderray.enabled = true
+	player.leftborderray2.enabled = true
+	player.rightborderray.enabled = true
+	player.rightborderray2.enabled = true
 
 func physics_update(delta: float) -> void:
 	if Input.is_action_pressed("forward") and !player.leftfootray.is_colliding() and !player.rightladderray.is_colliding() and !player.centerladderray.is_colliding():

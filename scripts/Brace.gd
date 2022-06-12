@@ -10,7 +10,7 @@ func enter(msg := {}) -> void:
 	player._velocity = Vector3.ZERO
 	player._rotate = false
 	# Rotación / Mirar el borde
-	var correction = 3.5 # 3.5 # Ajuste a mano de la posicion del pj. !!!Distinto en Demo y LVLs!!!
+	var correction = 1.715 # Ajuste a mano de la posicion del pj.
 	if msg.has("ray"):
 		var ray = msg.get("ray")
 		var dir = ray.get_collision_normal()
@@ -20,11 +20,20 @@ func enter(msg := {}) -> void:
 		player._crouch_shape.look_at(dir + player._crouch_shape.global_transform.origin, Vector3.UP)
 		var pos = ray.get_collision_point() - ray.global_transform.origin
 		var height = ray.get_collider().global_transform.origin.y #- player.global_transform.origin.y
-		player.translate(Vector3(-pos.z, height - correction, -pos.x))
+		player.translate(Vector3(-pos.z, 0, -pos.x))
+		player.global_transform.origin.y = height - correction
+	player.leftladderray.enabled = false
+	player.leftladderray2.enabled = false
+	player.rightborderray.enabled = false
+	player.rightborderray2.enabled = false
 
 func exit() -> void:
 	player.animation_tree.set("parameters/BraceTransition/current", 0)
 	player._rotate = true
+	player.leftladderray.enabled = true
+	player.leftladderray2.enabled = true
+	player.rightborderray.enabled = true
+	player.rightborderray2.enabled = true
 
 func physics_update(delta: float) -> void:
 	# (player.leftladderray.is_colliding() or player.rightladderray.is_colliding())

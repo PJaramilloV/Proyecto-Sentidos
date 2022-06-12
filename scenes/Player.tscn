@@ -8,6 +8,7 @@
 
 [node name="Player" type="Spatial"]
 script = ExtResource( 6 )
+startwithspirit = true
 
 [node name="hero" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, 0, 0, 0 )

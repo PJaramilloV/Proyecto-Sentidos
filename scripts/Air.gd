@@ -7,7 +7,11 @@ func enter(msg := {}) -> void:
 	player._stand_shape.disabled = false
 	player._crouch_shape.disabled = true
 	if msg.has("do_jump"):
-		if sqrt((player._velocity.x * player._velocity.x)+(player._velocity.z * player._velocity.z)) > 0.5 or msg.has("force"):
+		if msg.has("force"):
+			player.animation_tree.set("parameters/RunningJumpShot/active", true)
+			player.animation_tree.set("parameters/Falling/current", 1)
+			player._velocity.y = player.jump_strength * 0.9
+		elif sqrt((player._velocity.x * player._velocity.x)+(player._velocity.z * player._velocity.z)) > 0.5:
 			player.animation_tree.set("parameters/RunningJumpShot/active", true)
 			player.animation_tree.set("parameters/Falling/current", 1)
 			player._velocity.y = player.jump_strength * 0.8

@@ -15,7 +15,7 @@ var _light_handler: LightHandler = null
 func _ready():
 	
 	# light_handler = proyecto -> viewport -> Spatial -> LightHandler
-	_light_handler =  get_tree().root.get_child(1).get_node("LightHandler") 
+	_light_handler =  get_tree().root.get_node("Spatial/LightHandler") 
 	
 	material_count = find_node("MeshInstance").get_surface_material_count()
 	for i in range(material_count):
