@@ -483,6 +483,8 @@ transform = Transform( 1, 0, 0, 0, 0.983252, 0.182253, 0, -0.182253, 0.983252, -
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, 0.876112, 0.792595, 4.54906 )
+throw = true
+brace = true
 
 [node name="FRONTAL_BOUND" type="StaticBody" parent="."]
 

@@ -21,7 +21,9 @@ var _rotate := true
 var prev_vel = 0 # Usada en Lerp animation_tree
 
 ### Habilidades ###
-export var _brace := true # False por defecto, true para testeo/despues de desbloquear
+export var _brace := false # False por defecto, true para testeo/despues de desbloquear
+export var _throw := false
+onready var wakeuppath = NodePath("StateMachine/Wakeup")
 
 onready var _model: Spatial = $Hero
 onready var _stand_shape: CollisionShape = $CollisionShape
@@ -137,6 +139,8 @@ func _process(delta):
 func _ready():
 	area_grab.connect("body_entered",self,"_on_area_grab_entered")
 	area_grab.connect("body_exited",self,"_on_area_grab_exited")
+	if _throw:
+		learn_throw()
 
 func get_input_direction():
 	var move_direction := Vector3.ZERO
@@ -250,6 +254,9 @@ func _on_area_grab_exited(body: Node):
 	if _pointer < 0:
 			_pointer = 0
 
+func learn_throw():
+	
+	area_grab.monitoring = true
 
 # Almacenar referencia al checkpoint
 func check_point_reached(cp_area: Node):
