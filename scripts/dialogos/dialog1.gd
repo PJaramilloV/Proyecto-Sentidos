@@ -1,11 +1,15 @@
 extends CanvasLayer
 
-export(String, FILE, "*.json") var dialogue_file
-export(float) var textSpeed = 0.05
+export(String, FILE, "*.json") var dialogue_file #Recuperar el .json, creo
+export(float) var textSpeed = 0.04 #Velocidad en que aparecen los caracteres
 
 var dialogues = []
 var current_dialogue_id = 0
 var finished = false
+
+onready var nom_personaje = $NinePatchRect/Name
+onready var mensaje = $NinePatchRect/Message
+onready var triangulo = $NinePatchRect/Polygon2D
 
 func _ready():
 	$Timer.wait_time = textSpeed
@@ -13,38 +17,38 @@ func _ready():
 
 func play():
 	dialogues = load_dialogue()
-	current_dialogue_id = -1
+	current_dialogue_id = -1 # Para partir desde el índice 0 cuando llame la funcion
 	next_line()
 
-
 func _input(event):
-	if event.is_action_pressed("interact"):
-		if finished:
+	if event.is_action_pressed("interact"): #Apretar la tecla E
+		if finished: #Si ya se mostró todo el texto correspondiente el indice
 			next_line()
 		else:
-			$NinePatchRect/Message.visible_characters = len($NinePatchRect/Message.text)
+			mensaje.visible_characters = len(mensaje.text) #Autocompletar el resto del texto
 
 func next_line():
 	current_dialogue_id += 1
-	if current_dialogue_id >= len(dialogues):
+	if current_dialogue_id >= len(dialogues): #Cuando ya se terminó el texto
 		return
 	
 	finished = false
-	$NinePatchRect/Polygon2D.visible = finished
+	triangulo.visible = finished #Ocultar el triangulo
 	
-	$NinePatchRect/Name.bbcode_text = dialogues[current_dialogue_id]["name"]
-	$NinePatchRect/Message.bbcode_text = dialogues[current_dialogue_id]["text"]
+	nom_personaje.bbcode_text = dialogues[current_dialogue_id]["name"] #Recuperar el nombre del personaje
+	mensaje.bbcode_text = dialogues[current_dialogue_id]["text"] #Recuperar el mensaje
 
-	$NinePatchRect/Message.visible_characters = 0
+	mensaje.visible_characters = 0
 	
-	
-	while $NinePatchRect/Message.visible_characters < len($NinePatchRect/Message.text):
-		$NinePatchRect/Message.visible_characters += 1
+	#Mostrar caracteres de uno en uno segun el tiempo del Timer
+	while mensaje.visible_characters < len(mensaje.text):
+		mensaje.visible_characters += 1
 		$Timer.start()
 		yield($Timer, "timeout")
 	
 	finished = true
-	$NinePatchRect/Polygon2D.visible = finished
+	triangulo.visible = finished #Mostrar el traingulo
+
 func load_dialogue():
 	var file = File.new()
 	if file.file_exists(dialogue_file):
