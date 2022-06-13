@@ -18,9 +18,7 @@ func respawn(player: Node):
 	#new_player.set_scale(Vector3(1.57,1.57,1.57) )
 	#new_player.translation = self.translation
 	#level.add_child(new_player)
-	print(player.get_node("hero/CollisionShape/behind").global_transform.origin)
 	player.get_node("hero").global_transform.origin = self.global_transform.origin
-	print(player.get_node("hero/CollisionShape/behind").global_transform.origin)
 	#player.get_node("hero")._velocity = Vector3.ZERO
 	#player.get_node("hero").get_node("StateMachine").transition_to("Idle", {land = true})
 	#player.get_node("spirit").global_transform.origin = self.global_transform.origin

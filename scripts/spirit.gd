@@ -29,10 +29,5 @@ func flash():
 
 func reset():
 	angle = 0.0
-	print(target.global_transform.origin)
-	#for child in get_children():
-	#	print("ioo")
-	#	child.global_transform.origin = target.global_transform.origin + offset
-	#print("ypooooooooooooooooo")
 	var destination = target.global_transform.origin + offset + Vector3(0.0, 0.2*sin(angle),0.0 )
 	self.global_transform.origin = destination
