@@ -91,7 +91,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.614, 0, -0.0911137, -30.779 )
 transform = Transform( 1.544, 0, 0, 0, 1, 0, 0, 0, 1, -0.389641, -5.96643, -0.222916 )
 
 [node name="Floor2" parent="world/high_path/chasm/geometry" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 0.996913, -0.0131899, 0, 0.0785113, 0.167481, -0.389641, 0.270796, 15.9484 )
+transform = Transform( 1, 0, 0, 0, 0.995371, -0.0186446, 0, 0.0961063, 0.193102, -0.39, 0.407, 15.69 )
 
 [node name="chasm_side_edge" parent="world/high_path/chasm/geometry" instance=ExtResource( 24 )]
 transform = Transform( 0.313, 2.71011e-08, 0, -2.73633e-08, 0.31, 0, 0, 0, -0.31, 2.28389, -0.946118, 15.9816 )

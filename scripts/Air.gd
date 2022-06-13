@@ -27,7 +27,6 @@ func exit() -> void:
 
 func physics_update(delta: float) -> void:
 	var move_direction = player.get_input_direction()
-	
 	player._velocity.y -= player.gravity * delta 
 	
 	player._velocity = player.transform.basis * move_direction * player.speed * delta + Vector3(0, player._velocity.y, 0)

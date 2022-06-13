@@ -18,9 +18,8 @@ func enter(msg := {}) -> void:
 		player._model.look_at(dir + player._model.global_transform.origin, Vector3.UP)
 		player._stand_shape.look_at(dir + player._stand_shape.global_transform.origin, Vector3.UP)
 		player._crouch_shape.look_at(dir + player._crouch_shape.global_transform.origin, Vector3.UP)
-		var pos = ray.get_collision_point() - ray.global_transform.origin
 		var height = ray.get_collider().global_transform.origin.y #- player.global_transform.origin.y
-		player.translate(Vector3(-pos.z, 0, -pos.x))
+		player.global_transform.origin = ray.get_collision_point() + dir * 0.5
 		player.global_transform.origin.y = height - correction
 	player.leftladderray.enabled = false
 	player.leftladderray2.enabled = false
