@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://assets/rooms/hallway_cave_short.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/assemblies/inner_corner.tscn" type="PackedScene" id=2]
@@ -31,18 +31,29 @@
 [ext_resource path="res://assets/rooms/chasm_wide_extension.tscn" type="PackedScene" id=29]
 [ext_resource path="res://assets/furniture/torch_wall.tscn" type="PackedScene" id=30]
 [ext_resource path="res://scenes/Interactive/BigLadderClimb.tscn" type="PackedScene" id=31]
+[ext_resource path="res://assets/boulders/boulder_bulk.tscn" type="PackedScene" id=32]
+[ext_resource path="res://assets/rooms/assemblies/Bridge_end_cut.tscn" type="PackedScene" id=33]
+[ext_resource path="res://assets/boulders/boulder_long.tscn" type="PackedScene" id=34]
+[ext_resource path="res://assets/boulders/boulder_sharp.tscn" type="PackedScene" id=35]
+[ext_resource path="res://assets/boulders/boulder.tscn" type="PackedScene" id=36]
+[ext_resource path="res://assets/rooms/pieces/Cliff_Prop_Bridge_Rope_Middle_NO_ROPE.obj" type="ArrayMesh" id=37]
+[ext_resource path="res://assets/rooms/pieces/Cliff_Prop_Bridge_Rope_Middle_Support.obj" type="ArrayMesh" id=38]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 2.1306, 1.73309, 2.05416 )
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 5.9717, 2.39594, 7.82149 )
+extents = Vector3( 5.9717, 1.64177, 1.1838 )
 
-[sub_resource type="BoxShape" id=3]
-extents = Vector3( 6.1756, 0.431309, 6.95413 )
+[sub_resource type="BoxShape" id=5]
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 1, 2.68862, 1.15282 )
+
+[sub_resource type="Environment" id=6]
+background_mode = 1
+ambient_light_energy = 0.99
+ambient_light_sky_contribution = 0.0
 
 [node name="Spatial" type="Spatial"]
 
@@ -89,17 +100,290 @@ transform = Transform( 1, 0, 0, 0, 1.041, 0, 0, 0, 1, -0.35559, -0.174308, 4.079
 [node name="inner_ground_corner_wall" parent="world/chasm/geometry/Floor" instance=ExtResource( 22 )]
 transform = Transform( 1.22, 0, 0, 0, 1, 0, 0, 0, 17.5, -1.484, 0, 8.773 )
 
-[node name="Platform_square" parent="world/chasm/geometry" instance=ExtResource( 27 )]
+[node name="ledge" type="Spatial" parent="world/chasm/geometry"]
+
+[node name="Platform_square" parent="world/chasm/geometry/ledge" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 0.612, 0, 0, 0, 0.875, -4.65475, 0, 9.95797 )
 
-[node name="Platform_square2" parent="world/chasm/geometry" instance=ExtResource( 27 )]
+[node name="Platform_square2" parent="world/chasm/geometry/ledge" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 0.612, 0, 0, 0, 0.875, -4.65512, 0, 0.312 )
 
-[node name="Platform_square3" parent="world/chasm/geometry" instance=ExtResource( 27 )]
+[node name="Platform_square3" parent="world/chasm/geometry/ledge" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 0.612, 0, 0, 0, 0.875, -4.65475, 0, 13.0757 )
 
-[node name="Platform_square4" parent="world/chasm/geometry" instance=ExtResource( 27 )]
+[node name="Platform_square4" parent="world/chasm/geometry/ledge" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 0.612, 0, 0, 0, 0.875, -4.65512, 0, 3.42976 )
+
+[node name="boulders" type="Spatial" parent="world/chasm/geometry"]
+
+[node name="boulder_bulk" parent="world/chasm/geometry/boulders" instance=ExtResource( 32 )]
+transform = Transform( -0.464413, 0, 1.94533, 0, 2, 0, -1.94533, 0, -0.464413, -2.64766, -13.3231, -1.34381 )
+
+[node name="boulder_long" parent="world/chasm/geometry/boulders/boulder_bulk" instance=ExtResource( 34 )]
+transform = Transform( -0.557712, -0.44588, -0.196282, -0.466175, 0.411481, -0.34321, 0.534081, -0.106446, -0.50454, -1.17913, 0.446205, 0.299201 )
+
+[node name="boulder_egg3" parent="world/chasm/geometry/boulders/boulder_bulk" instance=ExtResource( 21 )]
+transform = Transform( -0.15189, 0.18303, -0.647113, -0.388911, 0.734352, 0.187878, 0.636238, 0.492581, -0.0396426, -1.64065, 0.424757, 0.570858 )
+
+[node name="boulder3" parent="world/chasm/geometry/boulders/boulder_bulk" instance=ExtResource( 36 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84115, 0.0713577, 0.991945 )
+
+[node name="boulder_carpet" type="Spatial" parent="world/chasm/geometry/boulders"]
+
+[node name="boulder_sharp" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.293, 0, 0, 0, 0.251838, 0.971803, 0, -0.516916, 0.473455, -1.28132, -13.1803, 10.3377 )
+
+[node name="boulder_sharp2" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.285165, 0.00348981, 0.24823, -0.067305, 0.014786, 1.05173, 0, -0.574799, 0.0285614, -1.28132, -13.1803, 5.12186 )
+
+[node name="boulder_sharp3" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.28234, 0.0673135, 0.259752, -0.0783156, 0.242675, 0.936445, 0, -0.516916, 0.473455, -1.28132, -13.1803, 6.9594 )
+
+[node name="boulder_sharp4" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.282906, 0.0655328, 0.252881, -0.0708259, 0.034503, 1.04693, 0.028228, -0.57021, 0.0924122, -1.28132, -13.1803, 13.378 )
+
+[node name="boulder_sharp5" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.293, 0, 0, 0, -0.082687, 1.06976, 0, -0.569024, -0.155452, -1.28132, -13.1803, 3.36996 )
+
+[node name="boulder_sharp6" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.279618, -0.0540222, 0.306575, -0.0831066, 0.00761244, 1.03651, -0.0274949, -0.572406, -0.0151493, -0.429358, -13.1803, 11.7844 )
+
+[node name="boulder_sharp7" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.291387, -0.058772, -0.0249415, -0.00223324, -0.166849, 1.03446, -0.0306203, -0.547112, -0.312792, -1.61782, -13.1803, 14.955 )
+
+[node name="boulder_sharp8" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.206062, 0.130277, 0.728422, -0.206177, 0.205133, 0.664238, -0.0296448, -0.521127, 0.443565, -1.12974, -13.1803, 8.42478 )
+
+[node name="boulder_sharp9" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.231105, 0.0188453, 0.663556, -0.180103, 0.0293838, 0.850872, -0.00163234, -0.573939, 0.0653497, -0.938811, -13.1803, 14.8079 )
+
+[node name="boulder_sharp11" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.0742977, -0.196798, 0.177667, -0.0185731, -0.0705743, 1.10251, -0.0293067, -0.454191, -0.248294, -1.33048, -13.1803, 2.45749 )
+
+[node name="boulder_sharp12" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.0790166, 0.0585334, 0.27489, -0.0145085, -0.197228, 1.03157, 0.0164283, -0.455713, -0.411145, -1.85485, -13.1803, 6.17922 )
+
+[node name="boulder_sharp13" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.0791751, 0.056985, 0.267618, -0.0198216, 0.0300027, 1.10795, 0.00789999, -0.495835, 0.097798, -1.28132, -13.1803, 7.92313 )
+
+[node name="boulder_sharp14" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.0815486, -0.0511061, -0.026395, -0.000625002, -0.145086, 1.09474, -0.00856952, -0.47575, -0.331022, -1.61782, -13.1803, 9.50006 )
+
+[node name="boulder_sharp16" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.293, 0, 0, 0, 0.251838, 0.971803, 0, -0.516916, 0.473455, -1.8439, -13.1803, 12.8433 )
+
+[node name="boulder_sharp17" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.206062, 0.130277, 0.728422, -0.206177, 0.205133, 0.664238, -0.0296448, -0.521127, 0.443565, -1.69232, -13.1803, 10.9304 )
+
+[node name="boulder_sharp18" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.0790166, 0.0585334, 0.27489, -0.0145085, -0.197228, 1.03157, 0.0164283, -0.455713, -0.411145, -2.41743, -13.1803, 8.6848 )
+
+[node name="boulder_sharp19" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.0815486, -0.0511061, -0.026395, -0.000625002, -0.145086, 1.09474, -0.00856952, -0.47575, -0.331022, -2.18039, -13.1803, 12.0056 )
+
+[node name="boulder_sharp20" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.263167, 0.22725, -0.208143, 0, 0.251838, 0.971803, 0.12881, -0.464285, 0.425249, -2.77946, -13.1803, 6.76015 )
+
+[node name="boulder_sharp21" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.198113, 0.346113, 0.459252, -0.206177, 0.205133, 0.664238, 0.0639635, -0.410793, 0.718635, -1.80235, -13.1803, 5.10865 )
+
+[node name="boulder_sharp24" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.0791751, 0.056985, 0.267618, -0.0198216, 0.0300027, 1.10795, 0.00789999, -0.495835, 0.097798, -0.549707, -13.1803, 4.6538 )
+
+[node name="boulder_sharp25" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.0815486, -0.0511061, -0.026395, -0.000625002, -0.145086, 1.09474, -0.00856952, -0.47575, -0.331022, -1.44878, -13.1803, 8.73631 )
+
+[node name="boulder_sharp26" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.190727, 0.338219, 0.518748, -0.181329, 0.0259355, 0.847718, 0.12881, -0.464285, 0.425249, -2.04785, -13.1803, 3.49082 )
+
+[node name="boulder_sharp27" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.198113, 0.346113, 0.459252, -0.206177, 0.205133, 0.664238, 0.0639635, -0.410793, 0.718635, -1.07074, -13.1803, 1.83932 )
+
+[node name="boulder_sharp22" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.0637489, 0.252917, 0.427651, -0.0145085, -0.197228, 1.03157, 0.0494933, -0.38358, -0.248433, -1.46643, -13.1803, 2.77295 )
+
+[node name="boulder_sharp23" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.0770128, 0.163249, 0.121818, -0.000625002, -0.145086, 1.09474, 0.0281539, -0.449777, -0.308921, -2.71346, -13.1803, 5.85988 )
+
+[node name="boulder_sharp15" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.0646778, 0.0163872, 0.702228, -0.0504041, 0.0255511, 0.900461, -0.000456833, -0.499078, 0.0691582, -0.938811, -13.1803, 9.35304 )
+
+[node name="boulder_sharp10" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.267585, -0.0221391, -0.438404, 0.115329, -0.0995819, 0.975943, -0.0307642, -0.565878, -0.154592, -1.50662, -13.1803, 4.85518 )
+
+[node name="bridge_cut" type="Spatial" parent="world/chasm/geometry"]
+
+[node name="Bridge_end_cut_R" parent="world/chasm/geometry/bridge_cut" instance=ExtResource( 33 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.80737, 0.138718, -0.531416 )
+
+[node name="Bridge_end_cut_L" parent="world/chasm/geometry/bridge_cut" instance=ExtResource( 33 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.80737, 0.138718, 16.3887 )
+
+[node name="Cliff_Prop_Bridge_Rope_Middle_NO_ROPE" type="MeshInstance" parent="world/chasm/geometry/bridge_cut"]
+transform = Transform( 0.731847, 0.619785, -0.283314, -0.638063, 0.76921, 0.0345227, 0.239325, 0.155507, 0.958406, -2.40236, -13.0785, 12.3624 )
+mesh = ExtResource( 37 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+
+[node name="Cliff_Prop_Bridge_Rope_Middle_NO_ROPE2" type="MeshInstance" parent="world/chasm/geometry/bridge_cut"]
+transform = Transform( 0.834211, 0.539713, 0.113144, -0.547131, 0.83569, 0.0476393, -0.0688419, -0.101646, 0.992436, -2.40236, -13.3947, 10.4586 )
+mesh = ExtResource( 37 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+
+[node name="Cliff_Prop_Bridge_Rope_Middle_NO_ROPE3" type="MeshInstance" parent="world/chasm/geometry/bridge_cut"]
+transform = Transform( 0.834211, 0.539713, 0.113144, -0.547131, 0.83569, 0.0476393, -0.0688419, -0.101646, 0.992436, -2.40236, -13.3947, 9.0332 )
+mesh = ExtResource( 37 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+
+[node name="Cliff_Prop_Bridge_Rope_Middle_NO_ROPE4" type="MeshInstance" parent="world/chasm/geometry/bridge_cut"]
+transform = Transform( 0.834211, 0.539713, 0.113144, -0.380688, 0.712084, -0.589926, -0.398959, 0.44905, 0.799491, -2.40236, -13.2975, 6.94822 )
+mesh = ExtResource( 37 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+
+[node name="Cliff_Prop_Bridge_Rope_Middle_NO_ROPE5" type="MeshInstance" parent="world/chasm/geometry/bridge_cut"]
+transform = Transform( 0.389995, -0.680301, 0.62056, -0.197548, -0.720045, -0.665214, 0.899377, 0.136839, -0.415206, -1.67091, -12.2209, 6.2117 )
+mesh = ExtResource( 37 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+
+[node name="Cliff_Prop_Bridge_Rope_Middle_NO_ROPE6" type="MeshInstance" parent="world/chasm/geometry/bridge_cut"]
+transform = Transform( -0.616933, -0.436034, 0.655185, -0.197548, -0.720045, -0.665214, 0.761819, -0.539823, 0.358082, -1.98303, -12.2209, 4.9753 )
+mesh = ExtResource( 37 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+
+[node name="Cliff_Prop_Bridge_Rope_Middle_NO_ROPE7" type="MeshInstance" parent="world/chasm/geometry/bridge_cut"]
+transform = Transform( 0.60201, 0.385867, -0.699064, 0.239199, 0.748129, 0.61894, 0.761819, -0.539823, 0.358082, -2.27378, -12.8285, 3.43844 )
+mesh = ExtResource( 37 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+
+[node name="Cliff_Prop_Bridge_Rope_Middle_Support" type="MeshInstance" parent="world/chasm/geometry/bridge_cut"]
+transform = Transform( 1, 0, 0, 0, 0.393011, -0.919534, 0, 0.919534, 0.393011, -0.824332, -12.3371, 9.70348 )
+mesh = ExtResource( 38 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+
+[node name="Cliff_Prop_Bridge_Rope_Middle_Support2" type="MeshInstance" parent="world/chasm/geometry/bridge_cut"]
+transform = Transform( 1, 0, 0, 0, 0.164583, -0.986363, 0, 0.986363, 0.164583, -0.824332, -12.3371, 7.16645 )
+mesh = ExtResource( 38 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+
+[node name="Cliff_Prop_Bridge_Rope_Middle_Support3" type="MeshInstance" parent="world/chasm/geometry/bridge_cut"]
+transform = Transform( 0.203402, -0.965744, -0.161142, 0, 0.164583, -0.986363, 0.979095, 0.200629, 0.0334765, -0.824333, -11.8514, 5.48007 )
+mesh = ExtResource( 38 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+
+[node name="Cliff_Prop_Bridge_Rope_Middle_Support4" type="MeshInstance" parent="world/chasm/geometry/bridge_cut"]
+transform = Transform( 0.203402, -0.965744, -0.161142, 0, 0.164583, -0.986363, 0.979095, 0.200629, 0.0334765, -0.824333, -12.7052, 13.6888 )
+mesh = ExtResource( 38 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
 
 [node name="ladder" parent="world/chasm" instance=ExtResource( 31 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33215, -9.4733, 15.4446 )
@@ -286,11 +570,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.2417, -29.6274 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.2646 )
 
 [node name="Player" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, 0, 2.51903, -24.3823 )
+transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, 0, 1.12259, 2.72184 )
 brace = true
 
 [node name="CheckPoints" type="Spatial" parent="."]
-visible = false
 
 [node name="Checkpoint_start" type="Area" parent="CheckPoints"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.273, 1.06531, 3.00669 )
@@ -309,21 +592,20 @@ collision_mask = 16
 script = ExtResource( 23 )
 
 [node name="CollisionShape" type="CollisionShape" parent="CheckPoints/Checkpoint"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.771, -1.754 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.646815, 13.5366 )
 shape = SubResource( 2 )
 
 [node name="Killzones" type="Spatial" parent="."]
-visible = false
 
 [node name="Killzone" type="Area" parent="Killzones"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.43778, -17.4431, -32.5728 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2721, -12.1623, -14.1201 )
 collision_layer = 16
 collision_mask = 16
 script = ExtResource( 13 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Killzones/Killzone"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5009, -1.07726, 7.69326 )
-shape = SubResource( 3 )
+transform = Transform( 1.492, 0, 0, 0, 1.315, 0, 0, 0, 7.311, 0, 0, 0 )
+shape = SubResource( 5 )
 
 [node name="FRONTAL_BOUND" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.2608, 0 )
@@ -333,6 +615,9 @@ transform = Transform( 1, 0, 0, 0, 13.844, 0, 0, 0, 64.187, 3.42112, -4.82089, -
 shape = SubResource( 4 )
 
 [node name="PauseMenu" parent="." instance=ExtResource( 20 )]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 6 )
 
 [connection signal="body_entered" from="CheckPoints/Checkpoint_start" to="CheckPoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="CheckPoints/Checkpoint" to="CheckPoints/Checkpoint" method="_on_area_entered"]
