@@ -10,7 +10,7 @@ var _snap_vector: Vector3 = Vector3.DOWN
 onready var _spring_arm: SpringArm = $SpringArm
 onready var _model: Spatial = $CollisionShape
 onready var _light_handler: LightHandler = $LightHandler
-
+# test
 func movement(delta: float):
 	var move_direction := Vector3.ZERO
 	move_direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")

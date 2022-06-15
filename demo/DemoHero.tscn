@@ -54,7 +54,7 @@ sides = 36
 
 [node name="VisualHandler" type="Node" parent="piso"]
 script = ExtResource( 8 )
-max_lights = 2
+max_lights = 20
 
 [node name="bloqueVerde" type="StaticBody" parent="."]
 transform = Transform( -0.227746, 0, 4.9987, 0, 0.5, 0, -9.99741, 0, -0.113873, 1.79257, 3.02364, -4.04271 )
@@ -72,7 +72,7 @@ material = SubResource( 15 )
 
 [node name="VisualHandler" type="Node" parent="bloqueVerde"]
 script = ExtResource( 8 )
-max_lights = 2
+max_lights = 20
 
 [node name="muroInvisible" type="StaticBody" parent="."]
 transform = Transform( -0.00595153, 0, -0.999982, 0, 1, 0, 0.999982, 0, -0.00595153, 10.2905, 0, 0.345863 )
@@ -133,3 +133,5 @@ transform = Transform( -0.139837, 0, 1.56959, 0, 2.841, 0, -6.13841, 0, -0.03575
 
 [node name="LightHandler" type="Node" parent="."]
 script = ExtResource( 9 )
+max_lights = 10
+scale = 0.0
