@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/small/raw_files/knife.gltf" type="PackedScene" id=1]
+[ext_resource path="res://scripts/objeto.gd" type="Script" id=1]
 [ext_resource path="res://assets/small/raw_files/Metal_Rusty.material" type="Material" id=2]
 [ext_resource path="res://assets/small/raw_files/Wood_Basic.material" type="Material" id=3]
 [ext_resource path="res://assets/small/raw_files/Metal_Polished.material" type="Material" id=4]
 
+[sub_resource type="PhysicsMaterial" id=3]
+
 [sub_resource type="ArrayMesh" id=1]
+resource_local_to_scene = true
 resource_name = "knife_Knife"
 surfaces/0 = {
 "aabb": AABB( -0.044361, -0.0146942, -0.0123033, 0.0974846, 0.0283018, 0.0246067 ),
@@ -47,20 +50,18 @@ surfaces/2 = {
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.0276127, 0.0131311, 0.156036 )
 
-[node name="knife" instance=ExtResource( 1 )]
+[node name="knife" type="RigidBody"]
+collision_layer = 10
+collision_mask = 10
+physics_material_override = SubResource( 3 )
+script = ExtResource( 1 )
 
-[node name="RigidBody" type="RigidBody" parent="." index="0"]
-
-[node name="Knife" type="MeshInstance" parent="RigidBody" index="0"]
-transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 0, 0, 0.0968516 )
+[node name="Mesh" type="MeshInstance" parent="."]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 0, 0, 0.0947491 )
 mesh = SubResource( 1 )
-skeleton = NodePath("../..")
 material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="RigidBody" index="1"]
+[node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 2 )
-
-[node name="Knife" parent="." index="1"]
-mesh = null

@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/small/raw_files/torch.gltf" type="PackedScene" id=1]
+[ext_resource path="res://scripts/objeto.gd" type="Script" id=1]
 [ext_resource path="res://assets/small/raw_files/Ember.material" type="Material" id=2]
 [ext_resource path="res://assets/small/raw_files/Wood_Basic.material" type="Material" id=3]
 
+[sub_resource type="PhysicsMaterial" id=3]
+
 [sub_resource type="ArrayMesh" id=1]
+resource_local_to_scene = true
 resource_name = "torch_Torch"
 surfaces/0 = {
 "aabb": AABB( -0.045761, -0.374676, -0.0528403, 0.0915221, 0.815941, 0.105681 ),
@@ -35,27 +38,25 @@ surfaces/1 = {
 radius = 0.04
 height = 0.71
 
-[node name="torch" instance=ExtResource( 1 )]
+[node name="torch" type="RigidBody"]
+collision_layer = 10
+collision_mask = 10
+physics_material_override = SubResource( 3 )
+script = ExtResource( 1 )
 
-[node name="RigidBody" type="RigidBody" parent="." index="0"]
-
-[node name="Torch" type="MeshInstance" parent="RigidBody" index="0"]
+[node name="Mesh" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
-skeleton = NodePath("../..")
 material/0 = null
 material/1 = null
 
-[node name="torch" type="CollisionShape" parent="RigidBody" index="1"]
+[node name="torch" type="CollisionShape" parent="."]
 transform = Transform( 7.54979e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -7.54979e-08, -3.30012e-15, 0, 0, 0 )
 shape = SubResource( 2 )
 
-[node name="OmniLight2" type="OmniLight" parent="RigidBody" index="2"]
+[node name="OmniLight2" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.333339, 0.231772 )
 light_color = Color( 0.843137, 0.639216, 0.380392, 1 )
 light_energy = 1.304
 light_cull_mask = 4294967231
 omni_range = 3.963
 omni_attenuation = 1.46408
-
-[node name="Torch" parent="." index="1"]
-mesh = null

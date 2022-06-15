@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/small/raw_files/book_open.gltf" type="PackedScene" id=1]
+[ext_resource path="res://scripts/objeto.gd" type="Script" id=1]
 [ext_resource path="res://assets/small/raw_files/Paper.material" type="Material" id=2]
 [ext_resource path="res://assets/small/raw_files/Diffuse_Default.material" type="Material" id=3]
+
+[sub_resource type="PhysicsMaterial" id=3]
 
 [sub_resource type="ConvexPolygonShape" id=2]
 points = PoolVector3Array( -0.315764, 0.012589, -0.191559, -0.315764, 0.012589, 0.191559, -0.315764, 0.0247832, -0.191559, -0.0151453, 0.00074592, -0.191559, -0.315764, 0.0247832, 0.191559, -0.0151453, 0.00074592, 0.191559, -0.252958, 0.0655123, -0.172358, -0.133464, 0.0787527, -0.172358, -0.0419123, 0.0251879, -0.191559, 0.0150835, 0.00074592, -0.191559, -0.133464, 0.0787527, 0.172321, -0.252958, 0.0655123, 0.172321, -0.0419123, 0.0251879, 0.191559, 0.0150835, 0.00074592, 0.191559, 0.133402, 0.0787527, -0.172358, 0.0418505, 0.0251879, -0.191559, 0.315764, 0.012589, -0.191559, 0.133402, 0.0787527, 0.172321, 0.0418505, 0.0251879, 0.191559, 0.315764, 0.012589, 0.191559, 0.252896, 0.0655123, -0.172358, 0.315764, 0.0247832, -0.191559, 0.315764, 0.0247832, 0.191559, 0.252896, 0.0655123, 0.172321 )
 
 [sub_resource type="ArrayMesh" id=1]
+resource_local_to_scene = true
 resource_name = "book_open_Book_Open"
 surfaces/0 = {
 "aabb": AABB( -0.286229, 0.0138904, -0.172354, 0.572458, 0.0648623, 0.344718 ),
@@ -34,19 +37,19 @@ surfaces/1 = {
 "vertex_count": 96
 }
 
-[node name="book_open" instance=ExtResource( 1 )]
+[node name="book_open" type="RigidBody"]
+collision_layer = 10
+collision_mask = 10
+physics_material_override = SubResource( 3 )
+script = ExtResource( 1 )
 
-[node name="RigidBody" type="RigidBody" parent="." index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="RigidBody" index="0"]
+[node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 2 )
 
-[node name="Book_Open" type="MeshInstance" parent="RigidBody" index="1"]
+[node name="Mesh" type="MeshInstance" parent="."]
 generate_lightmap = false
 mesh = SubResource( 1 )
-skeleton = NodePath("../..")
 material/0 = null
 material/1 = null
 
-[node name="Book_Open" parent="." index="1"]
-mesh = null
+[connection signal="body_entered" from="." to="." method="on_body_collided"]

@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/small/raw_files/scroll_small.gltf" type="PackedScene" id=1]
+[ext_resource path="res://scripts/objeto.gd" type="Script" id=1]
 [ext_resource path="res://assets/small/raw_files/Paper.material" type="Material" id=2]
 
+[sub_resource type="PhysicsMaterial" id=3]
+
 [sub_resource type="ArrayMesh" id=1]
+resource_local_to_scene = true
 resource_name = "scroll_small_Scroll_Small"
 surfaces/0 = {
 "aabb": AABB( -0.247193, 0.00137318, -0.0830911, 0.495342, 0.0791516, 0.11502 ),
@@ -22,19 +25,17 @@ surfaces/0 = {
 radius = 0.04
 height = 0.487171
 
-[node name="scroll_small" instance=ExtResource( 1 )]
+[node name="scroll_small" type="RigidBody"]
+collision_layer = 10
+collision_mask = 10
+physics_material_override = SubResource( 3 )
+script = ExtResource( 1 )
 
-[node name="RigidBody" type="RigidBody" parent="." index="0"]
-
-[node name="Scroll_Small" type="MeshInstance" parent="RigidBody" index="0"]
-transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, -0.0206641, -0.0403364, 0 )
+[node name="Mesh" type="MeshInstance" parent="."]
+transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, -0.0195331, -0.0472882, 0 )
 mesh = SubResource( 1 )
-skeleton = NodePath("../..")
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="RigidBody" index="1"]
+[node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 2 )
-
-[node name="Scroll_Small" parent="." index="1"]
-mesh = null
