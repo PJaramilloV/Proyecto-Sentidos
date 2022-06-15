@@ -1,6 +1,6 @@
 # Blender v3.2.0 OBJ File: ''
 # www.blender.org
-mtllib Cliff_Prop_Bridge_Rope_Middle_NO_ROPE.mtl
+mtllib Materials_Modular_Terrain.mtl
 o object1
 v -0.025000 0.529563 -0.121237
 v -0.025000 0.498547 -0.174997

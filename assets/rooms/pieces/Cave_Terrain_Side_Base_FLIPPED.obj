@@ -1,6 +1,6 @@
 # Blender v3.1.2 OBJ File: ''
 # www.blender.org
-mtllib Cave_Terrain_Side_Base_FLIPPED.mtl
+mtllib Materials_Modular_Terrain.mtl
 o object1.006
 v 0.190983 0.048943 0.500000
 v 0.500000 -0.000000 0.500000
@@ -39,7 +39,7 @@ vn -0.4540 -0.8910 -0.0000
 vn -0.7071 -0.7071 -0.0000
 vn -0.8910 -0.4540 -0.0000
 vn -0.9877 -0.1564 -0.0000
-usemtl Rock.005
+usemtl Rock
 s 1
 f 1/1/1 3/2/1 2/3/1
 f 1/1/1 4/4/1 3/2/1

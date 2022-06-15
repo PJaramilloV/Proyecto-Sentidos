@@ -1,6 +1,6 @@
 # Blender v3.1.2 OBJ File: ''
 # www.blender.org
-mtllib Cave_Cliff_Terrain_Entrance_Round_TopALTERNATIVE.mtl
+mtllib Materials_Modular_Terrain.mtl
 o object1.004
 v 0.175567 0.980517 -0.376436
 v 0.067626 0.914121 -0.161423
@@ -281,7 +281,7 @@ vn 0.7344 -0.2907 0.6133
 vn 0.6991 -0.3949 0.5960
 vn 0.8768 0.0331 0.4797
 vn 0.8417 0.0465 0.5379
-usemtl Rock.003
+usemtl Rock
 s 1
 f 1/1/1 2/2/2 3/3/3
 f 1/1/1 3/3/3 4/4/4

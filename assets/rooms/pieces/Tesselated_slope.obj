@@ -1,6 +1,6 @@
 # Blender v3.1.2 OBJ File: ''
 # www.blender.org
-mtllib Tesselated_slope.mtl
+mtllib Materials_Modular_Terrain.mtl
 o object1.007
 v 0.000000 0.075000 0.425000
 v -0.500000 0.250000 1.000000
@@ -146,7 +146,7 @@ vn 0.1317 0.9837 -0.1228
 vn 0.0000 1.0000 0.0000
 vn 0.2321 0.9473 -0.2210
 vn 0.0509 0.9726 -0.2269
-usemtl Rock.006
+usemtl Rock
 s off
 f 1/1/1 2/2/2 3/3/3
 f 4/4/4 5/5/5 3/6/6

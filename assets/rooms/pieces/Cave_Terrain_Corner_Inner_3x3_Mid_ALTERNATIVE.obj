@@ -1,6 +1,6 @@
 # Blender v3.1.2 OBJ File: ''
 # www.blender.org
-mtllib Cave_Terrain_Corner_Inner_3x3_Mid_ALTERNATIVE.mtl
+mtllib Materials_Modular_Terrain.mtl
 o object1
 v -2.497134 1.000000 -0.155667
 v -2.202098 1.000000 0.103073
