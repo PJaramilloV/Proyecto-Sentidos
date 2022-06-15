@@ -255,7 +255,7 @@ func _on_area_grab_exited(body: Node):
 			_pointer = 0
 
 func learn_throw():
-	
+	_throw = true
 	area_grab.monitoring = true
 
 # Almacenar referencia al checkpoint
@@ -266,3 +266,8 @@ func check_point_reached(cp_area: Node):
 # Al morir respawnear el Player desde el checkpoint
 func death():
 	checkpoint.respawn(self.get_parent())
+
+# Mover al personaje en cinemática
+func move_to(pos: Vector3, radius: float):
+	print("omivendo heroe")
+	$StateMachine._move_to(pos, radius)

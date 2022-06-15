@@ -49,3 +49,9 @@ func death():
 
 func spirit():
 	get_node("spirit").visible = true
+
+# Activación de Cutscene
+func cutscene(pos: Vector3, radius: float):
+	print("me veo jiji")
+	statemachine.transition_to("Cutscene")
+	hero.move_to(pos, radius)
