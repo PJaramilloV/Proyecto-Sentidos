@@ -1,7 +1,8 @@
 extends RigidBody
 var my_material := []
-var material_count
+var surface_count
 onready var path = get_parent().get_node("trajectory")
+onready var mesh = find_node("Mesh").mesh
 var throws_before_break = 4
 var thrown = false
 var process_function = 'sleep'
@@ -17,9 +18,9 @@ func _ready():
 	# light_handler = proyecto -> viewport -> Spatial -> LightHandler
 	_light_handler =  get_tree().root.get_node("Spatial/LightHandler") 
 	
-	material_count = find_node("MeshInstance").get_surface_material_count()
-	for i in range(material_count):
-		var mat = find_node("MeshInstance").get_surface_material(i)
+	surface_count = mesh.get_surface_count()
+	for i in range(surface_count):
+		var mat = mesh.surface_get_material(i)
 		my_material.append(mat)
 
 # Funcion nominal process_function(delta)
@@ -30,7 +31,7 @@ func sleep(delta):
 func timer_run(delta):
 	air_time += delta
 	if(air_time > AIR_TIME_LIMIT):
-		self.collision_mask=2
+		self.collision_mask=10
 		process_function = 'sleep'
 		air_time = 0
 
@@ -61,7 +62,7 @@ func deactivate_hold():
 func release():
 	clear_path()
 	self.mode = RigidBody.MODE_RIGID
-	self.collision_mask=2
+	self.collision_mask=10
 	deactivate_hold()
 	
 # Funcion a llamar al lanzar objeto
@@ -78,13 +79,13 @@ func throw(instigator: Node):
 	
 # Restorar material de meshes
 func restore():
-	for i in range(material_count):
-		get_node("MeshInstance").set_surface_material(i, my_material[i])
+	for i in range(surface_count):
+		mesh.surface_set_material(i, my_material[i])
 
 # Aplicar outline al objeto
 func outline(material):
-	for i in range(material_count):
-		var mat = find_node("MeshInstance").get_surface_material(i)
+	for i in range(surface_count):
+		var mat = mesh.surface_get_material(i)
 		mat.set_next_pass(material)
 		#find_node("MeshInstance").set_surface_material(i, material)
 	#var nuevomaterial = SpatialMaterial.new()

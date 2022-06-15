@@ -5,6 +5,7 @@
 [ext_resource path="res://assets/small/raw_files/Wood_Polished.material" type="Material" id=3]
 
 [sub_resource type="ArrayMesh" id=1]
+resource_local_to_scene = true
 resource_name = "bottle_Bottle"
 surfaces/0 = {
 "aabb": AABB( -0.0904875, -5.2411e-08, -0.0904875, 0.180975, 0.330574, 0.221516 ),

@@ -1,6 +1,5 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://demo/cuboverde.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/AudioStreamPlayer.gd" type="Script" id=3]
 [ext_resource path="res://sound/Lonely_Mountain.mp3" type="AudioStream" id=4]
@@ -9,6 +8,7 @@
 [ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/VisualHandler.gd" type="Script" id=8]
 [ext_resource path="res://scripts/LightHandler.gd" type="Script" id=9]
+[ext_resource path="res://assets/boulders/throwables/rock_sphere.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CylinderShape" id=14]
 margin = 0.01
@@ -90,18 +90,6 @@ stream = ExtResource( 4 )
 volume_db = -0.5
 script = ExtResource( 3 )
 
-[node name="objeto" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.00683237, 0, 0.299922, 0, 0.3, 0, -0.299922, 0, -0.00683237, -2.78726, 2.54926, 11.0303 )
-
-[node name="objeto2" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.00683237, 0, 0.299922, 0, 0.3, 0, -0.299922, 0, -0.00683237, 1.31064, 7.91387, -4.93299 )
-
-[node name="objeto3" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.00683237, 0, 0.299922, 0, 0.3, 0, -0.299922, 0, -0.00683237, 0.542663, 7.91387, -1.0029 )
-
-[node name="objeto4" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.23906, 7.91387, -3.21414 )
-
 [node name="Mesa" type="StaticBody" parent="."]
 transform = Transform( -0.0227746, 0, 0.999741, 0, 0.7, 0, -0.999741, 0, -0.0227746, 1.99754, 0.33941, 4.95496 )
 collision_mask = 2
@@ -133,3 +121,6 @@ transform = Transform( -0.139837, 0, 1.56959, 0, 2.841, 0, -6.13841, 0, -0.03575
 
 [node name="LightHandler" type="Node" parent="."]
 script = ExtResource( 9 )
+
+[node name="rock_sphere" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12456, 3.76841, 0 )
