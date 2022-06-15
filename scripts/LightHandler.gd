@@ -29,13 +29,13 @@ func check_overflow():
 		var first_child = get_child(0)
 		first_child.get_light_owner().remove_light()
 		remove_child(first_child)
-		first_child.free()
+		first_child.disappear()
 
 func clear_light(handler: VisualHandler):
 	for child in get_children():
 		if child.get_light_owner() == handler:
 			remove_child(child)
-			child.free()
+			child.disappear()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
