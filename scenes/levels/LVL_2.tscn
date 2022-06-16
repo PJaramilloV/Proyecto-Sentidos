@@ -90,13 +90,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.246, -38.0709 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.13184 )
 
 [node name="Platform_square" parent="world/chasm/platforms" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.431, 0, 0, 3.29365 )
+transform = Transform( 0.565, 0, 0, 0, 1, 0, 0, 0, 0.431, -0.460195, 0, 3.29365 )
 
 [node name="Platform_square2" parent="world/chasm/platforms" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.594, -5.89638, 0, 0.768953 )
 
 [node name="Platform_square3" parent="world/chasm/platforms" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.46, -5.89638, 0, -4.08622 )
+transform = Transform( 0.478, 0, 0, 0, 1, 0, 0, 0, 0.46, -5.89638, 0, -4.08622 )
 
 [node name="Platform_square4" parent="world/chasm/platforms" instance=ExtResource( 8 )]
 transform = Transform( 0.731, 0, 0, 0, 0.872, 0, 0, 0, 0.46, -5.89638, -5.87027, -8.85392 )
@@ -244,27 +244,21 @@ cast_shadow = 0
 
 [node name="rock_egg" parent="." instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3467, 3.5891, -19.1952 )
-is_rock = true
 
 [node name="rock_sphere" parent="." instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01427, 3.57756, -18.2456 )
-is_rock = true
 
 [node name="rock_capsule" parent="." instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.308347, 3.64457, -18.6617 )
-is_rock = true
 
 [node name="rock_capsule2" parent="." instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 0.988425, -0.151709, 0, 0.151709, 0.988425, -1.66536, 2.26786, -12.012 )
-is_rock = true
 
 [node name="rock_egg2" parent="." instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0331454, 0.903282, -4.67291 )
-is_rock = true
 
 [node name="rock_sphere2" parent="." instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.942105, 0.786849, 2.92731 )
-is_rock = true
 
 [connection signal="body_entered" from="CheckPoints/Checkpoint_start" to="CheckPoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="CheckPoints/Checkpoint" to="CheckPoints/Checkpoint" method="_on_area_entered"]
