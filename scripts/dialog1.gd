@@ -16,6 +16,7 @@ onready var triangulo = $NinePatchRect/Polygon2D
 
 func _ready():
 	$Timer.wait_time = textSpeed
+	$NinePatchRect/Polygon2D/AnimationPlayer.play("idle")
 	#play()
 
 func play():
