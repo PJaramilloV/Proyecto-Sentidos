@@ -266,18 +266,6 @@ is_rock = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.942105, 0.786849, 2.92731 )
 is_rock = true
 
-[node name="rock_capsule_test" parent="." instance=ExtResource( 25 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44021, 3.5891, -1.01319 )
-is_rock = true
-
-[node name="rock_egg_test" parent="." instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36327, 3.5891, -1.85156 )
-is_rock = true
-
-[node name="rock_sphere_test" parent="." instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36327, 3.5891, -0.0782261 )
-is_rock = true
-
 [connection signal="body_entered" from="CheckPoints/Checkpoint_start" to="CheckPoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="CheckPoints/Checkpoint" to="CheckPoints/Checkpoint" method="_on_area_entered"]
 [connection signal="body_entered" from="CheckPoints/Checkpoint2" to="CheckPoints/Checkpoint2" method="_on_area_entered"]
