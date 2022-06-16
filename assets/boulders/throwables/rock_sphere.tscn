@@ -10,7 +10,7 @@ points = PoolVector3Array( 0.15539, 0.558336, 0.466276, 0.461242, 0.438048, 0.22
 
 [node name="rock_sphere" type="RigidBody"]
 collision_layer = 10
-collision_mask = 10
+collision_mask = 11
 physics_material_override = SubResource( 3 )
 script = ExtResource( 2 )
 

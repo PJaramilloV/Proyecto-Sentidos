@@ -52,7 +52,7 @@ extents = Vector3( 0.0158487, 0.142569, 0.0104066 )
 
 [node name="fork" type="RigidBody"]
 collision_layer = 10
-collision_mask = 10
+collision_mask = 11
 physics_material_override = SubResource( 3 )
 script = ExtResource( 1 )
 
@@ -66,3 +66,5 @@ material/2 = null
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="on_body_collided"]

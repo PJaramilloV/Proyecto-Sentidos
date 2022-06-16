@@ -39,7 +39,7 @@ points = PoolVector3Array( -0.0558829, 0.7618, -6.41868e-06, -0.0149772, 0.65748
 
 [node name="spear" type="RigidBody"]
 collision_layer = 10
-collision_mask = 10
+collision_mask = 11
 physics_material_override = SubResource( 3 )
 script = ExtResource( 1 )
 
@@ -50,3 +50,5 @@ material/1 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="on_body_collided"]

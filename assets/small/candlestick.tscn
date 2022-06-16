@@ -38,7 +38,7 @@ surfaces/1 = {
 
 [node name="candlestick" type="RigidBody"]
 collision_layer = 10
-collision_mask = 10
+collision_mask = 11
 physics_material_override = SubResource( 3 )
 script = ExtResource( 1 )
 
@@ -51,3 +51,5 @@ material/1 = null
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.165, 0, 0, 0, 0.34, 0, 0, 0, 0.165, 0, 0, 0 )
 shape = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="on_body_collided"]

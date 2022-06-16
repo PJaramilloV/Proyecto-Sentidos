@@ -39,7 +39,7 @@ points = PoolVector3Array( 0.27681, 0.0132256, 0, -5.96046e-08, 0.134046, -5.418
 
 [node name="shield" type="RigidBody"]
 collision_layer = 10
-collision_mask = 10
+collision_mask = 11
 physics_material_override = SubResource( 3 )
 script = ExtResource( 1 )
 
@@ -52,3 +52,5 @@ material/1 = null
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.965926, 0, -0.258819, -0.258819, 0, -0.965926, 0, 1, 0, 0, 0, 0 )
 shape = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="on_body_collided"]

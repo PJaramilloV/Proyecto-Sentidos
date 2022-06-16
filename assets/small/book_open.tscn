@@ -39,7 +39,7 @@ surfaces/1 = {
 
 [node name="book_open" type="RigidBody"]
 collision_layer = 10
-collision_mask = 10
+collision_mask = 11
 physics_material_override = SubResource( 3 )
 script = ExtResource( 1 )
 
