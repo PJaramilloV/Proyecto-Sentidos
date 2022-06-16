@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://assets/rooms/chasm_wide_deep_alternate_exit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/assemblies/Slope.tscn" type="PackedScene" id=2]
@@ -22,6 +22,10 @@
 [ext_resource path="res://assets/boulders/boulder_egg.tscn" type="PackedScene" id=20]
 [ext_resource path="res://assets/boulders/boulder_sharp.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/rooms/assemblies/chasm_side_edge_extension_only_rocks.tscn" type="PackedScene" id=22]
+[ext_resource path="res://assets/boulders/throwables/rock_sphere.tscn" type="PackedScene" id=23]
+[ext_resource path="res://assets/boulders/throwables/rock_egg.tscn" type="PackedScene" id=24]
+[ext_resource path="res://assets/boulders/throwables/rock_capsule.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scripts/LightHandler.gd" type="Script" id=26]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 3.64416, 2.02994, 1.41686 )
@@ -39,6 +43,9 @@ extents = Vector3( 1, 1, 1.09235 )
 background_mode = 1
 ambient_light_energy = 0.99
 ambient_light_sky_contribution = 0.0
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_unshaded = true
 
 [node name="Spatial" type="Spatial"]
 
@@ -167,6 +174,7 @@ transform = Transform( 1, 0, 0, 0, 0.952512, 0, 0, 0, 1, -1.79931, 1.87808, -1.5
 
 [node name="Player" parent="." instance=ExtResource( 13 )]
 transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, -0.357314, 0.792595, 4.54906 )
+throw = true
 
 [node name="CheckPoints" type="Spatial" parent="."]
 
@@ -222,10 +230,44 @@ shape = SubResource( 4 )
 transform = Transform( 2.159, 0, 0, 0, 13.844, 0, 0, 0, 4.944, -0.334627, -4.82089, -43.7247 )
 shape = SubResource( 4 )
 
-[node name="PauseMenu" parent="." instance=ExtResource( 14 )]
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 5 )
+
+[node name="PauseMenu" parent="." instance=ExtResource( 14 )]
+
+[node name="LightHandler" type="Node" parent="."]
+script = ExtResource( 26 )
+
+[node name="trajectory" type="ImmediateGeometry" parent="."]
+material_override = SubResource( 6 )
+cast_shadow = 0
+
+[node name="rock_egg" parent="." instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3467, 3.5891, -19.1952 )
+
+[node name="rock_sphere" parent="." instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01427, 3.57756, -18.2456 )
+
+[node name="rock_capsule" parent="." instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.308347, 3.64457, -18.6617 )
+
+[node name="rock_capsule2" parent="." instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 0.988425, -0.151709, 0, 0.151709, 0.988425, -1.66536, 2.26786, -12.012 )
+
+[node name="rock_egg2" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0331454, 0.903282, -4.67291 )
+
+[node name="rock_sphere2" parent="." instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.942105, 0.786849, 2.92731 )
+
+[node name="rock_capsule_test" parent="." instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44021, 3.5891, -1.01319 )
+
+[node name="rock_egg_test" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36327, 3.5891, -1.85156 )
+
+[node name="rock_sphere_test" parent="." instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36327, 3.5891, -0.0782261 )
 
 [connection signal="body_entered" from="CheckPoints/Checkpoint_start" to="CheckPoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="CheckPoints/Checkpoint" to="CheckPoints/Checkpoint" method="_on_area_entered"]

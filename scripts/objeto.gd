@@ -14,6 +14,7 @@ var _light_handler: LightHandler = null
 
 # get_active_material && get_surface_materia
 func _ready():
+	self.contacts_reported = 1
 	
 	# light_handler = proyecto -> viewport -> Spatial -> LightHandler
 	_light_handler =  get_tree().root.get_node("Spatial/LightHandler") 
@@ -31,7 +32,7 @@ func sleep(delta):
 func timer_run(delta):
 	air_time += delta
 	if(air_time > AIR_TIME_LIMIT):
-		self.collision_mask=10
+		self.collision_mask=11
 		process_function = 'sleep'
 		air_time = 0
 
@@ -62,7 +63,7 @@ func deactivate_hold():
 func release():
 	clear_path()
 	self.mode = RigidBody.MODE_RIGID
-	self.collision_mask=10
+	self.collision_mask=11
 	deactivate_hold()
 	
 # Funcion a llamar al lanzar objeto
