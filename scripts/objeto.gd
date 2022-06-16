@@ -1,15 +1,15 @@
 extends RigidBody
 var my_material := []
-var surface_count
+var mat_count
 onready var path = get_parent().get_node("trajectory")
-onready var mesh = find_node("Mesh").mesh
+onready var mesh = find_node("Mesh")
 var throws_before_break = 4
 var thrown = false
 var process_function = 'sleep'
 var air_time = 0
 var AIR_TIME_LIMIT = 0.2
 var _light_handler: LightHandler = null
-
+export(bool) var is_rock = false
 
 
 # get_active_material && get_surface_materia
@@ -19,10 +19,18 @@ func _ready():
 	# light_handler = proyecto -> viewport -> Spatial -> LightHandler
 	_light_handler =  get_tree().root.get_node("Spatial/LightHandler") 
 	
-	surface_count = mesh.get_surface_count()
-	for i in range(surface_count):
-		var mat = mesh.surface_get_material(i)
-		my_material.append(mat)
+	#mat_count = mesh.mesh.get_surface_count()
+	if is_rock:
+		mat_count = mesh.mesh.get_surface_count()
+		for i in range(mat_count):
+			var mat = mesh.get_surface_material(i)
+			my_material.append(mat)
+	else:
+		mat_count = mesh.get_surface_material_count()
+		for i in range(mat_count):
+			var mat = mesh.mesh.surface_get_material(i)
+			my_material.append(mat)
+		restore()
 
 # Funcion nominal process_function(delta)
 func sleep(delta):
@@ -80,13 +88,14 @@ func throw(instigator: Node):
 	
 # Restorar material de meshes
 func restore():
-	for i in range(surface_count):
-		mesh.surface_set_material(i, my_material[i])
+	for i in range(mat_count):
+		print("añadí maetiral")
+		mesh.set_surface_material(i, my_material[i])
 
 # Aplicar outline al objeto
 func outline(material):
-	for i in range(surface_count):
-		var mat = mesh.surface_get_material(i)
+	for i in range(mat_count):
+		var mat = mesh.get_surface_material(i)
 		mat.set_next_pass(material)
 		#find_node("MeshInstance").set_surface_material(i, material)
 	#var nuevomaterial = SpatialMaterial.new()
