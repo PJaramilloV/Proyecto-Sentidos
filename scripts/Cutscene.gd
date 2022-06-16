@@ -16,10 +16,6 @@ func exit() -> void:
 func physics_update(delta: float) -> void:
 	player._velocity = _cutscene_velocity * delta
 	update_move_vel()
-	
-	### PlaceHolder para salirse ###
-	if Input.is_action_just_pressed("jump"):
-		state_machine.transition_to("Idle")
 
 func update_move_vel() -> void:
 	var player_pos = player.global_transform.origin

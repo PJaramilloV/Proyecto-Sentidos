@@ -254,19 +254,26 @@ func check_point_reached(cp_area: Node):
 func death():
 	checkpoint.respawn(self.get_parent())
 
+### Cutscenes ###
+
 # Mover al personaje en cinemática
 func move_to(pos: Vector3, radius: float):
 	$StateMachine._move_to(pos, radius)
 
+func end_cutscene():
+	$StateMachine.transition_to("Idle")
 
 ### Spawn ###
 func spawn_decal(raycast: RayCast):
-	var b = decal.instance()
-	get_parent().add_child(b)
-	var correction = raycast.get_collision_normal()*decal_correction
-	b.global_transform.origin = raycast.get_collision_point() + correction
-	b.look_at(raycast.get_collision_point() + raycast.get_collision_normal(), Vector3.UP)
-
+	#raycast.enabled = true
+	raycast.force_raycast_update()
+	if raycast.is_colliding():
+		var b = decal.instance()
+		get_parent().add_child(b)
+		var correction = raycast.get_collision_normal()*decal_correction
+		b.global_transform.origin = raycast.get_collision_point() + correction
+		b.look_at(raycast.get_collision_point() + raycast.get_collision_normal(), Vector3.UP)
+	#raycast.enabled = false
 
 func spawn_light(raycast: RayCast):
 	if !raycast.get_collider(): return
@@ -274,3 +281,4 @@ func spawn_light(raycast: RayCast):
 	if visual_h:
 		_light_handler.create_light(visual_h, raycast.get_collision_point() + raycast.get_collision_normal()*light_correction)
 
+### Sound ###
