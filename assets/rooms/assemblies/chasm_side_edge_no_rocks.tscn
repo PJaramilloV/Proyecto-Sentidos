@@ -29,7 +29,7 @@ skeleton = NodePath("")
 material/0 = null
 
 [node name="edge" type="MeshInstance" parent="StaticBody"]
-transform = Transform( 2.44759e-15, 4.37114e-08, -3.977, 1.281, -4.37114e-08, 2.50144e-21, -5.59943e-08, -1, -1.7384e-07, -13.1992, 3.3268, 0.741968 )
+transform = Transform( 2.44759e-15, 4.37114e-08, -4.525, 1.281, -4.37114e-08, 3.10278e-21, -5.59943e-08, -1, -1.97794e-07, -13.0413, 3.3268, 0.741968 )
 mesh = ExtResource( 3 )
 skeleton = NodePath("../..")
 material/0 = null
