@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://assets/rooms/assemblies/patch_ceiling.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=2]
@@ -59,6 +59,11 @@ extents = Vector3( 25.5928, 0.431309, 92.9979 )
 
 [sub_resource type="SpatialMaterial" id=4]
 flags_unshaded = true
+
+[sub_resource type="Environment" id=9]
+background_mode = 1
+ambient_light_energy = 0.99
+ambient_light_sky_contribution = 0.0
 
 [node name="Spatial" type="Spatial"]
 
@@ -410,6 +415,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.627343, 2.79883, -41.3041 )
 
 [node name="rock_egg4" parent="." instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0052563, 0.903987, 2.54218 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 9 )
 
 [connection signal="body_entered" from="Checkpoints/Checkpoint_start" to="Checkpoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint" to="Checkpoints/Checkpoint" method="_on_area_entered"]
