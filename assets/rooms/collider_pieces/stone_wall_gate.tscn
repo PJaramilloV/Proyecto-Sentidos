@@ -26,6 +26,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.91965 )
 mesh = SubResource( 1 )
 material/0 = null
 
+[node name="Dungeon_Big_to_Custom2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, -4.081 )
+mesh = SubResource( 1 )
+material/0 = null
+
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1.148, 0, 0, 0, 2.567, 0, 0, 0, 0.151, 2.80548, 2.38094, 0 )
 shape = SubResource( 2 )

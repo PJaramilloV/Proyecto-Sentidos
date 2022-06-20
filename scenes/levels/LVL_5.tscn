@@ -1,0 +1,571 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://scripts/LightHandler.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Checkpoint.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Killzone.gd" type="Script" id=3]
+[ext_resource path="res://scenes/Interactive/LadderClimb.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/rooms/assemblies/Separator_wall_with door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/rooms/hallway_cave_short_deep.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/rooms/hallway_cave_short.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/rooms/assemblies/platform_vertical.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/rooms/assemblies/Platform_square.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/rooms/assemblies/Bridge_end.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/rooms/chasm_wide_deep.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/rooms/hallway_cave.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/rooms/chasm_slim_small.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/rooms/chasm_slim_small_4_paths.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/rooms/temple_grand.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/rooms/assemblies/chasm_side_edge_no_rocks.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/rooms/assemblies/Bridge_segment.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/rooms/chasm_wide_deep_extension.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/rooms/assemblies/chasm_side_edge_short.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/Interactive/brace_border.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/Interactive/BigLadderClimb.tscn" type="PackedScene" id=22]
+[ext_resource path="res://assets/rooms/assemblies/chasm_side_edge.tscn" type="PackedScene" id=23]
+[ext_resource path="res://assets/rooms/assemblies/Floor.tscn" type="PackedScene" id=24]
+[ext_resource path="res://assets/rooms/assemblies/chasm_back_wall.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=26]
+[ext_resource path="res://assets/rooms/assemblies/front_cover.tscn" type="PackedScene" id=27]
+[ext_resource path="res://assets/rooms/assemblies/chasm_side_edge_extension.tscn" type="PackedScene" id=28]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1, 1.45506, 1.01578 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 3.64416, 2.02994, 1.41686 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 25.5928, 0.431309, 92.9979 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="world" type="Spatial" parent="."]
+
+[node name="hallway_short" parent="world" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.13578 )
+
+[node name="Separator_wall" parent="world/hallway_short" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0.341708, 0, 0 )
+
+[node name="chasm_slim_small" parent="world" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.452, -0.533001 )
+
+[node name="chasm_side_edge" parent="world/chasm_slim_small" instance=ExtResource( 28 )]
+transform = Transform( 0.31, 0, 0, 0, 0.31, 0, 0, 0, -0.31, 2.71585, 3.9947, 3.40125 )
+
+[node name="chasm_slim_small2" parent="world" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.4901, -7.76306 )
+
+[node name="chasm_side_edge" parent="world/chasm_slim_small2" instance=ExtResource( 28 )]
+transform = Transform( 0.31, 0, 0, 0, 0.31, 0, 0, 0, -0.31, 2.71585, 3.9947, 3.40125 )
+
+[node name="hallway_short2" parent="world" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, -3.91049 )
+
+[node name="chasm" parent="world" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.267, -0.251, -28.551 )
+
+[node name="bridge" type="Spatial" parent="world/chasm"]
+transform = Transform( 1.628, 0, 0, 0, 1.628, 0, 0, 0, 1.628, -0.005, 0.012, 0.169 )
+
+[node name="Bridge_end" parent="world/chasm/bridge" instance=ExtResource( 11 )]
+
+[node name="Bridge_segment" parent="world/chasm/bridge" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.518498, -0.832955, 3.97754 )
+
+[node name="Bridge_segment2" parent="world/chasm/bridge" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.518498, -0.832955, 5.00254 )
+
+[node name="Bridge_segment3" parent="world/chasm/bridge" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.518498, -0.832955, 5.99654 )
+
+[node name="Bridge_segment4" parent="world/chasm/bridge" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.518498, -0.832955, 6.99854 )
+
+[node name="Bridge_end2" parent="world/chasm/bridge" instance=ExtResource( 11 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.75816e-07, -0.0182394, 10.8854 )
+
+[node name="chasm_upper" parent="world/chasm" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.21, 0.095 )
+
+[node name="chasm_side_edge" parent="world/chasm/chasm_upper" instance=ExtResource( 28 )]
+transform = Transform( 0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, 2.48278, 5.03703, 0 )
+
+[node name="chasm_lower" parent="world/chasm" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -26.141, 0.0949993 )
+
+[node name="chasm_side_edge" parent="world/chasm/chasm_lower" instance=ExtResource( 28 )]
+transform = Transform( 0.31, 0, 0, 0, 0.31, 0, 0, 0, -0.31, 2.48278, 5.03703, 16.5241 )
+
+[node name="Floor" parent="world/chasm/chasm_lower" instance=ExtResource( 24 )]
+transform = Transform( 2.709, 0, 0, 0, 1, 0, 0, 0, 1, -3.77451, 0, -0.226622 )
+
+[node name="front_cover" parent="world/chasm/chasm_lower/Floor" instance=ExtResource( 27 )]
+transform = Transform( 0.339, 0, 0, 0, 1, 0, 0, 0, 1.26, 1.4892, 0, 0 )
+
+[node name="chasm_extension" parent="world/chasm/chasm_lower" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.267715, 11.6632, 0 )
+
+[node name="lower_path" type="Spatial" parent="world"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -26.1134, -64.813 )
+
+[node name="hallway_cave" parent="world/lower_path" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.764885, 28.8271 )
+
+[node name="chasm_super_wide" type="Spatial" parent="world/lower_path"]
+transform = Transform( 1, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 22.7825 )
+
+[node name="floor" type="Spatial" parent="world/lower_path/chasm_super_wide"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.777, 0 )
+
+[node name="Floor" parent="world/lower_path/chasm_super_wide/floor" instance=ExtResource( 24 )]
+transform = Transform( 1.715, 0, 0, 0, 1, 0, 0, 0, 1.541, -1.26849, 0.241207, -26.9177 )
+
+[node name="front_cover" parent="world/lower_path/chasm_super_wide/floor/Floor" instance=ExtResource( 27 )]
+transform = Transform( 0.645, 0, 0, 0, 1, 0, 0, 0, 0.602, 0.784039, 0, 9.36201 )
+
+[node name="front_cover2" parent="world/lower_path/chasm_super_wide/floor/Floor" instance=ExtResource( 27 )]
+transform = Transform( 0.645, 0, 0, 0, 1, 0, 0, 0, 0.691, 0.784039, 0, 0.601425 )
+
+[node name="Floor2" parent="world/lower_path/chasm_super_wide/floor" instance=ExtResource( 24 )]
+transform = Transform( 1.715, 0, 0, 0, 1, 0, 0, 0, 1.541, -1.26849, 0.241207, -52.4491 )
+
+[node name="front_cover" parent="world/lower_path/chasm_super_wide/floor/Floor2" instance=ExtResource( 27 )]
+transform = Transform( 0.645, 0, 0, 0, 1, 0, 0, 0, 0.602, 0.784039, 0, 9.36201 )
+
+[node name="front_cover2" parent="world/lower_path/chasm_super_wide/floor/Floor2" instance=ExtResource( 27 )]
+transform = Transform( 0.645, 0, 0, 0, 1, 0, 0, 0, 0.691, 0.784039, 0, 0.601425 )
+
+[node name="Floor3" parent="world/lower_path/chasm_super_wide/floor" instance=ExtResource( 24 )]
+transform = Transform( 1.715, 0, 0, 0, 1, 0, 0, 0, 1.541, -1.26849, 0.241207, -70.3203 )
+
+[node name="front_cover" parent="world/lower_path/chasm_super_wide/floor/Floor3" instance=ExtResource( 27 )]
+transform = Transform( 0.645, 0, 0, 0, 1, 0, 0, 0, 0.602, 0.784039, 0, 9.36201 )
+
+[node name="front_cover2" parent="world/lower_path/chasm_super_wide/floor/Floor3" instance=ExtResource( 27 )]
+transform = Transform( 0.645, 0, 0, 0, 1, 0, 0, 0, 0.691, 0.784039, 0, 0.601425 )
+
+[node name="Sides" type="Spatial" parent="world/lower_path/chasm_super_wide"]
+
+[node name="Left" type="Spatial" parent="world/lower_path/chasm_super_wide/Sides"]
+
+[node name="chasm_side_edge_upper" parent="world/lower_path/chasm_super_wide/Sides/Left" instance=ExtResource( 23 )]
+transform = Transform( 0.31, -2.71011e-08, 0, -2.71011e-08, -0.31, 0, 0, 0, -0.31, 2.85239, 4.57664, 0.152977 )
+
+[node name="chasm_side_edge" parent="world/lower_path/chasm_super_wide/Sides/Left/chasm_side_edge_upper" instance=ExtResource( 17 )]
+transform = Transform( 1.105, 0, 0, 0, 1, 0, 0, 0, 1, 1.86277, -24.9241, -0.163391 )
+
+[node name="chasm_side_edge2" parent="world/lower_path/chasm_super_wide/Sides/Left/chasm_side_edge_upper" instance=ExtResource( 17 )]
+transform = Transform( 1.105, 0, 0, 0, 1, 0, 0, 0, 1, 1.86277, -44.77, -0.163391 )
+
+[node name="chasm_side_edge3" parent="world/lower_path/chasm_super_wide/Sides/Left/chasm_side_edge_upper" instance=ExtResource( 20 )]
+transform = Transform( 1, 7.10543e-15, 0, -7.10543e-15, 1, 0, 0, 0, 1, -9.53674e-07, -65.8613, -0.443192 )
+
+[node name="chasm_side_edge_lower" parent="world/lower_path/chasm_super_wide/Sides/Left" instance=ExtResource( 23 )]
+transform = Transform( 0.31, 0, 0, 0, 0.31, 0, 0, 0, -0.31, 2.724, -1.395, 0.153 )
+
+[node name="chasm_side_edge" parent="world/lower_path/chasm_super_wide/Sides/Left/chasm_side_edge_lower" instance=ExtResource( 17 )]
+transform = Transform( 1.105, 0, 0, 0, 1, 0, 0, 0, 1, 1.86277, -24.9241, -0.163391 )
+
+[node name="Right" type="Spatial" parent="world/lower_path/chasm_super_wide/Sides"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, -69.3266 )
+
+[node name="chasm_side_edge_upper" parent="world/lower_path/chasm_super_wide/Sides/Right" instance=ExtResource( 23 )]
+transform = Transform( 0.31, -2.71011e-08, 0, -2.71011e-08, -0.31, 0, 0, 0, -0.31, 2.85239, 4.57664, 0.152977 )
+
+[node name="chasm_side_edge" parent="world/lower_path/chasm_super_wide/Sides/Right/chasm_side_edge_upper" instance=ExtResource( 17 )]
+transform = Transform( 1.105, 0, 0, 0, 1, 0, 0, 0, 1, 1.86277, -24.9241, -0.163391 )
+
+[node name="chasm_side_edge2" parent="world/lower_path/chasm_super_wide/Sides/Right/chasm_side_edge_upper" instance=ExtResource( 17 )]
+transform = Transform( 1.105, 0, 0, 0, 1, 0, 0, 0, 1, 1.86277, -44.77, -0.163391 )
+
+[node name="chasm_side_edge3" parent="world/lower_path/chasm_super_wide/Sides/Right/chasm_side_edge_upper" instance=ExtResource( 20 )]
+transform = Transform( 1, 7.10543e-15, 0, -7.10543e-15, 1, 0, 0, 0, 1, -9.53674e-07, -65.8613, -0.443192 )
+
+[node name="chasm_side_edge_lower" parent="world/lower_path/chasm_super_wide/Sides/Right" instance=ExtResource( 23 )]
+transform = Transform( 0.31, 0, 0, 0, 0.31, 0, 0, 0, -0.31, 2.724, -1.395, 0.153 )
+
+[node name="chasm_side_edge" parent="world/lower_path/chasm_super_wide/Sides/Right/chasm_side_edge_lower" instance=ExtResource( 17 )]
+transform = Transform( 1.105, 0, 0, 0, 1, 0, 0, 0, 1, 1.86277, -24.9241, -0.163391 )
+
+[node name="Back_wall" type="Spatial" parent="world/lower_path/chasm_super_wide"]
+
+[node name="wall" type="Spatial" parent="world/lower_path/chasm_super_wide/Back_wall"]
+transform = Transform( 0.267, 0, 0, 0, 1.8, 0, 0, 0, 3.581, -2.83384, 2.31602, -34.9145 )
+
+[node name="chasm_back_wall" parent="world/lower_path/chasm_super_wide/Back_wall/wall" instance=ExtResource( 25 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0 )
+
+[node name="wall2" type="Spatial" parent="world/lower_path/chasm_super_wide/Back_wall"]
+transform = Transform( 0.267, 0, 0, 0, 1.8, 0, 0, 0, 3.581, -2.83384, 2.31602, -69.7396 )
+
+[node name="chasm_back_wall" parent="world/lower_path/chasm_super_wide/Back_wall/wall2" instance=ExtResource( 25 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0 )
+
+[node name="wall3" type="Spatial" parent="world/lower_path/chasm_super_wide/Back_wall"]
+transform = Transform( 0.267, 0, 0, 0, 1.8, 0, 0, 0, 3.581, -2.83384, 25.3699, -34.9145 )
+
+[node name="chasm_back_wall" parent="world/lower_path/chasm_super_wide/Back_wall/wall3" instance=ExtResource( 25 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0 )
+
+[node name="wall4" type="Spatial" parent="world/lower_path/chasm_super_wide/Back_wall"]
+transform = Transform( 0.267, 0, 0, 0, 1.8, 0, 0, 0, 3.581, -2.83384, 25.3699, -69.7396 )
+
+[node name="chasm_back_wall" parent="world/lower_path/chasm_super_wide/Back_wall/wall4" instance=ExtResource( 25 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0 )
+
+[node name="labyrinth" type="Spatial" parent="world/lower_path"]
+transform = Transform( 1, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.244345, 6.9053 )
+
+[node name="Platform_square_" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 1, -0.805303, 0, 17.7162 )
+
+[node name="platform_vertical_" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 1, 0, 0, 0, 1.374, -0.720416, -0.0526962, 15.6503 )
+
+[node name="Platform_square_2" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 1, -0.805303, -11.291, 10.5263 )
+
+[node name="platform_vertical_x2_" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 2, 0, 0, 0, 1.374, -0.720416, -0.0526962, 8.46046 )
+
+[node name="platform_vertical_2" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 1, 0, 0, 0, 1.374, -0.720416, -11.2286, 8.46046 )
+
+[node name="platform_vertical_3" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 1, 0, 0, 0, 1.374, -0.720416, 5.68497, -3.68849 )
+
+[node name="platform_vertical_x2_2" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 2, 0, 0, 0, 1.374, -0.720416, 16.917, 8.46046 )
+
+[node name="Platform_square_x2_" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 2, -0.805303, 0, -1.20802 )
+
+[node name="Platform_square_3" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 1, -0.805303, 5.65109, -7.74496 )
+
+[node name="Platform_square_4" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 1, -0.805303, 11.5111, -1.92944 )
+
+[node name="platform_vertical_4" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 1, 0, 0, 0, 1.374, -0.720416, 11.4647, 2.52189 )
+
+[node name="Platform_square_5" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 1, -0.805303, 5.8795, 4.38037 )
+
+[node name="platform_vertical_5" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 1, 0, 0, 0, 1.374, -0.720416, 16.9456, -3.68849 )
+
+[node name="Platform_square_6" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 1, -0.805303, 16.792, 4.38037 )
+
+[node name="platform_vertical_6" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 1, 0, 0, 0, 1.374, -0.720416, 22.3482, 8.46046 )
+
+[node name="platform_vertical_x2_3" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 2, 0, 0, 0, 1.374, -0.720416, 16.917, -9.77429 )
+
+[node name="Platform_square_7" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 1, -0.805303, 16.9222, -13.7503 )
+
+[node name="platform_vertical_7" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 1, 0, 0, 0, 1.374, -0.720416, 16.9456, -15.6242 )
+
+[node name="Platform_square_8" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 1, -0.805303, 11.5111, -19.5441 )
+
+[node name="platform_vertical_x2_4" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 2, 0, 0, 0, 1.374, -0.72, 11.237, -15.613 )
+
+[node name="Platform_square_9" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 1, -0.805303, -0.0482292, -13.7503 )
+
+[node name="Platform_square_10" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 1, -0.805303, -5.78324, 4.38037 )
+
+[node name="platform_vertical_x2_5" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 2, 0, 0, 0, 1.374, -0.720416, -5.74509, -3.68285 )
+
+[node name="platform_vertical_8" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 1, 0, 0, 0, 1.374, -0.720416, -5.75363, -15.8761 )
+
+[node name="Platform_square_x2_2" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 2, -0.805303, -5.73017, -13.8419 )
+
+[node name="Platform_square_11" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 1, -0.805303, -11.0902, -13.7503 )
+
+[node name="platform_vertical_9" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 1, 0, 0, 0, 1.374, -0.720416, 22.2079, -22.6004 )
+
+[node name="Platform_square_12" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 1, -0.805303, 16.9723, -25.8364 )
+
+[node name="platform_vertical_10" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 1, 0, 0, 0, 1.374, -0.720416, 16.9456, -27.7015 )
+
+[node name="Platform_square_x2_3" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 2, -0.805303, 5.67849, -32.8902 )
+
+[node name="platform_vertical_x2_6" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 2, 0, 0, 0, 1.374, -0.72, 16.7389, -35.3376 )
+
+[node name="platform_vertical_11" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 1, 0, 0, 0, 1.374, -0.720416, 22.2079, -35.3283 )
+
+[node name="platform_vertical_x2_7" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 2, 0, 0, 0, 1.374, -0.72, 5.75582, -22.7046 )
+
+[node name="platform_vertical_12" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 1, 0, 0, 0, 1.374, -0.720416, -11.0823, -21.9107 )
+
+[node name="Platform_square_13" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 1, -0.805303, -11.0902, -32.7382 )
+
+[node name="Platform_square_14" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 1, -0.805303, -5.3899, -26.0833 )
+
+[node name="platform_vertical_13" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 1, 0, 0, 0, 1.374, -0.720416, 0.130571, -28.2604 )
+
+[node name="platform_vertical_x2_8" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 2, 0, 0, 0, 1.374, -0.720416, -5.74509, -35.2129 )
+
+[node name="platform_vertical_14" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 1, 0, 0, 0, 1.374, -0.720416, -0.00453949, -35.2368 )
+
+[node name="Platform_square_15" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 1, -0.805303, -5.3899, -39.2883 )
+
+[node name="Platform_square_16" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 1, -0.805303, -0.11935, -46.4814 )
+
+[node name="platform_vertical_15" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 1, 0, 0, 0, 1.374, -0.720416, -11.0823, -42.4793 )
+
+[node name="platform_vertical_x2_9" parent="world/lower_path/labyrinth" instance=ExtResource( 8 )]
+transform = Transform( 1.197, 0, 0, 0, 2, 0, 0, 0, 1.374, -0.72, 16.7389, -41.9677 )
+
+[node name="Platform_square_17" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 1, -0.805303, 16.7228, -46.4814 )
+
+[node name="Platform_square_x2_4" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 2, -0.805303, 22.2023, -32.8902 )
+
+[node name="Platform_square_x2_5" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 2, -0.805303, 22.2023, -20.3145 )
+
+[node name="Platform_square_x2_6" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 2, -0.805303, 22.2023, -10.8523 )
+
+[node name="Platform_square_x2_7" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 2, -0.805303, 22.2023, -1.299 )
+
+[node name="Platform_square_18" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 1, -0.805303, 22.345, 10.5263 )
+
+[node name="Platform_square_19" parent="world/lower_path/labyrinth" instance=ExtResource( 9 )]
+transform = Transform( 2.589, 0, 0, 0, 1, 0, 0, 0, 1, -0.805303, -11.291, -1.58571 )
+
+[node name="labyrinth_traversal" type="Spatial" parent="world/lower_path"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22.5875 )
+
+[node name="climb_edges" type="Spatial" parent="world/lower_path/labyrinth_traversal"]
+
+[node name="brace_border" parent="world/lower_path/labyrinth_traversal/climb_edges" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70315, 1.10565, -6.46246 )
+
+[node name="brace_border2" parent="world/lower_path/labyrinth_traversal/climb_edges" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.761, -2.70315, -6.86528, -11.9179 )
+
+[node name="brace_border3" parent="world/lower_path/labyrinth_traversal/climb_edges" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.761, -2.70315, -6.92968, -20.1742 )
+
+[node name="brace_border4" parent="world/lower_path/labyrinth_traversal/climb_edges" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.761, -2.70315, 0.683876, -20.4152 )
+
+[node name="brace_border5" parent="world/lower_path/labyrinth_traversal/climb_edges" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2.088, -2.70315, 12.9202, -16.5606 )
+
+[node name="brace_border6" parent="world/lower_path/labyrinth_traversal/climb_edges" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.263, -2.70315, 12.5346, -35.4443 )
+
+[node name="brace_border7" parent="world/lower_path/labyrinth_traversal/climb_edges" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.263, -2.70315, 0.992702, -35.4443 )
+
+[node name="brace_border8" parent="world/lower_path/labyrinth_traversal/climb_edges" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.71, -2.70315, -6.70749, -31.3831 )
+
+[node name="brace_border9" parent="world/lower_path/labyrinth_traversal/climb_edges" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.078, -2.70315, -2.55751, -45.0829 )
+
+[node name="brace_border10" parent="world/lower_path/labyrinth_traversal/climb_edges" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2.088, -2.70315, 16.4274, -42.8232 )
+
+[node name="ladders" type="Spatial" parent="world/lower_path/labyrinth_traversal"]
+
+[node name="ladder_climbable_x2_" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.163045, -4.43367, -7.63002 )
+
+[node name="ladder_climbable_x1_" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.61172, -9.69107, -4.1058 )
+
+[node name="ladder_climbable_x3_" type="Spatial" parent="world/lower_path/labyrinth_traversal/ladders"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.14834, 0 )
+
+[node name="ladder_climbable_large2" parent="world/lower_path/labyrinth_traversal/ladders/ladder_climbable_x3_" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.163045, 1.58268, 0.0466995 )
+
+[node name="ladder_climbable2" parent="world/lower_path/labyrinth_traversal/ladders/ladder_climbable_x3_" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.172974, -3.56717, 0.0399857 )
+
+[node name="ladder_climbable_x1_2" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.61172, -9.69107, -10.8895 )
+
+[node name="ladder_climbable_x1_3" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.61172, -6.25077, -14.3536 )
+
+[node name="ladder_climbable_x1_7" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.61172, 9.63653, -13.0954 )
+
+[node name="ladder_climbable_x1_4" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.61172, -2.4805, -19.333 )
+
+[node name="ladder_climbable_x1_5" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120589, 1.6057, -15.9364 )
+
+[node name="ladder_climbable_x1_6" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120589, 5.60532, -11.8577 )
+
+[node name="ladder_climbable_x2_2" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 22 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.91525, 7.39709, -19.2933 )
+
+[node name="ladder_climbable_x1_8" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.61172, 5.59581, -30.2241 )
+
+[node name="ladder_climbable_x2_3" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15643, 7.38752, -38.2781 )
+
+[node name="ladder_climbable_x1_9" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56224, -9.74381, -18.2122 )
+
+[node name="ladder_climbable_x1_10" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.61172, -9.69107, -27.8875 )
+
+[node name="ladder_climbable_x1_11" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.61172, -9.69107, -33.2983 )
+
+[node name="ladder_climbable_x1_12" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0704556, -9.69107, -43.2515 )
+
+[node name="ladder_climbable_x1_13" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.61172, -2.19899, -32.3281 )
+
+[node name="ladder_climbable_x2_4" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15643, -4.35471, -38.2781 )
+
+[node name="ladder_climbable_x2_5" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 22 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.80135, 3.32405, -46.5595 )
+
+[node name="ladder_climbable_x3_2" type="Spatial" parent="world/lower_path/labyrinth_traversal/ladders"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.82595, 1.6197, -41.3814 )
+
+[node name="ladder_climbable_large2" parent="world/lower_path/labyrinth_traversal/ladders/ladder_climbable_x3_2" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.163045, 1.58268, 0.0466995 )
+
+[node name="ladder_climbable2" parent="world/lower_path/labyrinth_traversal/ladders/ladder_climbable_x3_2" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.172974, -3.56717, 0.0399857 )
+
+[node name="ladder_climbable_x2_6" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 22 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.80135, 9.44473, -41.5424 )
+
+[node name="ladder_climbable_x3_3" type="Spatial" parent="world/lower_path/labyrinth_traversal/ladders"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04429, -6.14834, -48.2999 )
+
+[node name="ladder_climbable_large2" parent="world/lower_path/labyrinth_traversal/ladders/ladder_climbable_x3_3" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.163045, 1.58268, 0.0466995 )
+
+[node name="ladder_climbable2" parent="world/lower_path/labyrinth_traversal/ladders/ladder_climbable_x3_3" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.172974, -3.56717, 0.0399857 )
+
+[node name="ladder_climbable_x1_14" parent="world/lower_path/labyrinth_traversal/ladders" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05036, 13.2633, -48.2378 )
+
+[node name="upper_path" type="Spatial" parent="world"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29.5789 )
+
+[node name="hallway_short" parent="world/upper_path" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0706881, 0.90576 )
+
+[node name="hallway_short_deep" parent="world/upper_path" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.336, -5.00013, 0, -3.22126 )
+
+[node name="hallway_short_deep2" parent="world/upper_path" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.336, -5.00013, 0, -8.54632 )
+
+[node name="hallway_short_deep3" parent="world/upper_path" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.336, -5.00013, 0, -13.7884 )
+
+[node name="temple" parent="world/upper_path" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.569596, -0.0474826, -19.0083 )
+
+[node name="Player" parent="." instance=ExtResource( 26 )]
+transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, 0.876112, 0.792595, 4.54906 )
+throw = true
+brace = true
+
+[node name="FRONTAL_BOUND" type="StaticBody" parent="."]
+visible = false
+
+[node name="CollisionShape" type="CollisionShape" parent="FRONTAL_BOUND"]
+transform = Transform( 1, 0, 0, 0, 13.844, 0, 0, 0, 64.187, 3.42112, -4.82089, -53.5774 )
+shape = SubResource( 1 )
+
+[node name="Checkpoints" type="Spatial" parent="."]
+visible = false
+
+[node name="Checkpoint_start" type="Area" parent="Checkpoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.273, 0.793, 4.09928 )
+collision_layer = 16
+collision_mask = 16
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Checkpoints/Checkpoint_start"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70004, 0 )
+shape = SubResource( 2 )
+
+[node name="Checkpoint" type="Area" parent="Checkpoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.273, 5.6698, -19.8622 )
+collision_layer = 16
+collision_mask = 16
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Checkpoints/Checkpoint"]
+shape = SubResource( 2 )
+
+[node name="Killzones" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.25697 )
+visible = false
+
+[node name="Killzone" type="Area" parent="Killzones"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -23.0536, -64.8749 )
+collision_layer = 16
+collision_mask = 16
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Killzones/Killzone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5009, 0.935255, 11.4541 )
+shape = SubResource( 3 )
+
+[node name="chasm_slim_small" parent="Killzones/Killzone" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42115, 26.7323, 73.7066 )
+
+[node name="PauseMenu" parent="." instance=ExtResource( 10 )]
+
+[node name="LightHandler" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[connection signal="body_entered" from="Checkpoints/Checkpoint_start" to="Checkpoints/Checkpoint_start" method="_on_area_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint" to="Checkpoints/Checkpoint" method="_on_area_entered"]
+[connection signal="body_entered" from="Killzones/Killzone" to="Killzones/Killzone" method="_on_area_entered"]

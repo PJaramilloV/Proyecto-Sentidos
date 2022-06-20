@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/rooms/assemblies/chasm_side_edge_no_rocks.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/rooms/assemblies/chasm_back_wall.tscn" type="PackedScene" id=2]
+
+[node name="chasm" type="Spatial"]
+
+[node name="Wall" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1.065, 0, 0, 0, 1.696, 0, 0.696276, 0 )
+
+[node name="chasm_back_wall" parent="Wall" instance=ExtResource( 2 )]
+transform = Transform( 1.27279, 0, -1.27279, 0, 0.735, 0, 1.27279, 0, 1.27279, -2.18764, -1.26208, 0 )
+
+[node name="Sides" type="Spatial" parent="."]
+
+[node name="chasm_side_edge_L" parent="Sides" instance=ExtResource( 1 )]
+transform = Transform( 0.383, 0, 0, 0, 0.31, 0, 0, 0, -0.31, 3.90769, -1.12478, 30.08 )
+
+[node name="chasm_side_edge_R" parent="Sides" instance=ExtResource( 1 )]
+transform = Transform( 0.383, 0, 0, 0, 0.31, 0, 0, 0, 0.31, 3.81672, -1.12478, -0.0878727 )

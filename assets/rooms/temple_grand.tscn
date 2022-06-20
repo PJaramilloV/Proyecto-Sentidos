@@ -1,0 +1,337 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/rooms/assemblies/outer_corner.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/rooms/collider_pieces/stone_floor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/rooms/collider_pieces/stone_wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/rooms/collider_pieces/pillar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/rooms/assemblies/inner_corner_tall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/rooms/assemblies/inner_ground_corner_wall.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/rooms/collider_pieces/stone_wall_gate.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/rooms/assemblies/Floor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/rooms/assemblies/front_cover.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Inner_2x2_Mid.obj" type="ArrayMesh" id=10]
+[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Floor_Normal.obj" type="ArrayMesh" id=11]
+[ext_resource path="res://assets/rooms/pieces/Cave_Terrain_Corner_Outer_2x2_Mid.obj" type="ArrayMesh" id=12]
+
+[sub_resource type="ConcavePolygonShape" id=5]
+data = PoolVector3Array( -0.3049, 1, -0.4808, -0.5, 1, -0.5, -0.3049, 0, -0.4808, -0.3049, 0, -0.4808, -0.5, 1, -0.5, -0.5, 0, -0.5, -0.1173, 1, -0.4239, -0.3049, 1, -0.4808, -0.3049, 0, -0.4808, -0.1173, 0, -0.4239, -0.1173, 1, -0.4239, -0.3049, 0, -0.4808, 0.0556, 1, -0.3315, -0.1173, 1, -0.4239, -0.1173, 0, -0.4239, 0.0556, 0, -0.3315, 0.0556, 1, -0.3315, -0.1173, 0, -0.4239, 0.2071, 1, -0.2071, 0.0556, 1, -0.3315, 0.0556, 0, -0.3315, 0.2071, 0, -0.2071, 0.2071, 1, -0.2071, 0.0556, 0, -0.3315, 0.3315, 1, -0.0556, 0.2071, 1, -0.2071, 0.2071, 0, -0.2071, 0.3315, 0, -0.0556, 0.3315, 1, -0.0556, 0.2071, 0, -0.2071, 0.4239, 1, 0.1173, 0.3315, 1, -0.0556, 0.3315, 0, -0.0556, 0.4239, 0, 0.1173, 0.4239, 1, 0.1173, 0.3315, 0, -0.0556, 0.4808, 1, 0.3049, 0.4239, 1, 0.1173, 0.4239, 0, 0.1173, 0.4808, 0, 0.3049, 0.4808, 1, 0.3049, 0.4239, 0, 0.1173, 0.5, 1, 0.5, 0.4808, 1, 0.3049, 0.5, 0, 0.5, 0.5, 0, 0.5, 0.4808, 1, 0.3049, 0.4808, 0, 0.3049 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 1.18573, 1, 1 )
+
+[node name="temple" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28.0034 )
+
+[node name="Floor" parent="." instance=ExtResource( 8 )]
+transform = Transform( 3.622, 0, 0, 0, 1, 0, 0, 0, 1.503, -6.25685, 0.0295632, -26.233 )
+
+[node name="stone_floor" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, 1.75025, 0.0319998, 15.7554 )
+
+[node name="stone_floor2" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, 1.75025, 0.0319998, 13.1006 )
+
+[node name="stone_floor3" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, 1.75025, 0.0319998, 10.4187 )
+
+[node name="stone_floor4" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, 1.75025, 0.0319998, 7.75163 )
+
+[node name="stone_floor5" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, 1.75025, 0.0319998, 5.09675 )
+
+[node name="stone_floor6" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, 1.75025, 0.0319998, 2.41494 )
+
+[node name="stone_floor7" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, 0.456602, 0.0319998, 15.7554 )
+
+[node name="stone_floor8" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, 0.456602, 0.0319998, 13.1006 )
+
+[node name="stone_floor9" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, 0.456602, 0.0319998, 10.4187 )
+
+[node name="stone_floor10" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, 0.456602, 0.0319998, 7.75163 )
+
+[node name="stone_floor11" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, 0.456602, 0.0319998, 5.09675 )
+
+[node name="stone_floor12" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, 0.456602, 0.0319998, 2.41494 )
+
+[node name="stone_floor13" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, -0.831768, 0.0319998, 15.7554 )
+
+[node name="stone_floor14" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, -0.831768, 0.0319998, 13.1006 )
+
+[node name="stone_floor15" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, -0.831768, 0.0319998, 10.4187 )
+
+[node name="stone_floor16" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, -0.831768, 0.0319998, 7.75163 )
+
+[node name="stone_floor17" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, -0.831768, 0.0319998, 5.09675 )
+
+[node name="stone_floor18" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, -0.831768, 0.0319998, 2.41494 )
+
+[node name="stone_floor19" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, -2.13916, 0.0319998, 15.7554 )
+
+[node name="stone_floor20" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, -2.13916, 0.0319998, 13.1006 )
+
+[node name="stone_floor21" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, -2.13916, 0.0319998, 10.4187 )
+
+[node name="stone_floor22" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, -2.13916, 0.0319998, 7.75163 )
+
+[node name="stone_floor23" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, -2.13916, 0.0319998, 5.09675 )
+
+[node name="stone_floor24" parent="Floor" instance=ExtResource( 2 )]
+transform = Transform( 0.322, 0, 0, 0, 1, 0, 0, 0, 0.665336, -2.13916, 0.0319998, 2.41494 )
+
+[node name="front_cover" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0453706, 0.0295649, -12.8369 )
+
+[node name="front_cover2" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0453706, 0.0295649, -26.0847 )
+
+[node name="left_wall" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.98941, 0, 0 )
+
+[node name="inner_corner" parent="left_wall" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1.548, 0, 0, 0, 1, -12.5356, 0.00514972, -3.13147 )
+
+[node name="pillar" parent="left_wall/inner_corner" instance=ExtResource( 4 )]
+transform = Transform( 1.9, 0, 0, 0, 0.695, 0, 0, 0, 1.9, 0.107346, 0.0829539, 0.162136 )
+
+[node name="outer_corner" parent="left_wall" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1.548, 0, -1, 0, -4.37114e-08, -6.45451, -0.0131474, 0.794052 )
+
+[node name="pillar" parent="left_wall/outer_corner" instance=ExtResource( 4 )]
+transform = Transform( 1.9, 0, -2.38241e-14, 0, 0.717, 0, 2.38241e-14, 0, 1.9, 1.752, 0.0948417, 0.523965 )
+
+[node name="pillar2" parent="left_wall/outer_corner" instance=ExtResource( 4 )]
+transform = Transform( 4.932, -4.34717e-07, -6.79934e-07, -7.44711e-07, -2.879, 3.93665e-07, -7.44711e-07, -2.5169e-07, -4.503, 1.587, 16.51, 0.65 )
+
+[node name="inner_corner_wall" type="Spatial" parent="left_wall"]
+transform = Transform( 0.209004, 0, 4.75658, 0, 0.867, 0, -0.977915, 0, 1.0166, -8.99369, 0.00103128, -2.21241 )
+
+[node name="inner_ground_corner_wall" parent="left_wall/inner_corner_wall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, -5.96046e-08, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="stone_wall" parent="left_wall/inner_corner_wall" instance=ExtResource( 3 )]
+transform = Transform( 0.0148163, 0, 0.99989, 0, 1.27682, 0, -0.205569, 0, 0.00304629, -0.116058, 0.152899, -0.179478 )
+
+[node name="outer_corner_extension" type="Spatial" parent="left_wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.39496, 3.55555, -0.269674 )
+
+[node name="StaticBody" type="StaticBody" parent="left_wall/outer_corner_extension"]
+
+[node name="Cave_Terrain_Corner_Outer_2x2_Mid" type="MeshInstance" parent="left_wall/outer_corner_extension/StaticBody"]
+transform = Transform( 2.112, 0, 0, 0, 2, 0, 0, 0, 2.024, 0.624159, 0.0475159, -0.955181 )
+mesh = ExtResource( 12 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="left_wall/outer_corner_extension/StaticBody"]
+transform = Transform( 2.112, 0, 0, 0, 2, 0, 0, 0, 2.024, 0.624159, 0.0475159, -0.955181 )
+shape = SubResource( 5 )
+
+[node name="front_segment" type="Spatial" parent="left_wall"]
+transform = Transform( 2.21, 0, 0, 0, 1, 0, 0, 0, 1, 1.38895, 0, -0.274008 )
+
+[node name="StaticBody" type="StaticBody" parent="left_wall/front_segment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39301, 0, 0 )
+
+[node name="Cave_Terrain_Corner_Inner_2x2_Mid" type="MeshInstance" parent="left_wall/front_segment/StaticBody"]
+transform = Transform( 0.8, 0, 0, 0, 2, 0, 0, 0, 0.478, -2.10181, 3.59912, -0.210871 )
+mesh = ExtResource( 10 )
+skeleton = NodePath("../../../../../..")
+material/0 = null
+
+[node name="Cave_Terrain_Floor_Normal" type="MeshInstance" parent="left_wall/front_segment/StaticBody"]
+transform = Transform( 4.113, 0, 0, 0, -4.37114e-08, 1.923, 0, -1, -8.4057e-08, 0.791633, 4.60121, 0 )
+mesh = ExtResource( 11 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="left_wall/front_segment/StaticBody"]
+transform = Transform( 2.333, 0, 0, 0, 0.897, 0, 0, 0, 0.301, 0, 4.56263, -0.16729 )
+shape = SubResource( 6 )
+
+[node name="pillar" parent="left_wall/front_segment" instance=ExtResource( 4 )]
+transform = Transform( 0.452489, 0, 0, 0, 1, 0, 0, 0, 1.19, 2.32017, 0.182954, -0.080986 )
+
+[node name="stone_wall_gate" parent="left_wall/front_segment" instance=ExtResource( 7 )]
+transform = Transform( 0.448, 0, 0, 0, 1, 0, 0, 0, 1, -1.37109, 0.0295644, -0.201118 )
+
+[node name="stone_wall" parent="left_wall/front_segment" instance=ExtResource( 3 )]
+transform = Transform( 0.269005, 0, 0, 0, 0.979, 0, 0, 0, 0.999996, 1.34467, 0.152899, -0.33251 )
+
+[node name="stone_wall2" parent="left_wall/front_segment" instance=ExtResource( 3 )]
+transform = Transform( 0.269005, 8.55869e-08, 0, -2.35172e-08, 0.979, 0, 0, 0, -0.999996, 1.34461, 0.152899, -0.3734 )
+
+[node name="right_wall" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, -3.98941, 0, -25.3307 )
+
+[node name="inner_corner" parent="right_wall" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1.548, 0, 0, 0, 1, -12.5356, 0.00514972, -3.13147 )
+
+[node name="pillar" parent="right_wall/inner_corner" instance=ExtResource( 4 )]
+transform = Transform( 1.9, 0, 0, 0, 0.695, 0, 0, 0, 1.9, 0.107346, 0.0829539, 0.162136 )
+
+[node name="outer_corner" parent="right_wall" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1.548, 0, -1, 0, -4.37114e-08, -6.45451, -0.0131474, 0.794052 )
+
+[node name="pillar" parent="right_wall/outer_corner" instance=ExtResource( 4 )]
+transform = Transform( 1.9, 0, -2.38241e-14, 0, 0.717, 0, 2.38241e-14, 0, 1.9, 1.752, 0.0948417, 0.523965 )
+
+[node name="pillar2" parent="right_wall/outer_corner" instance=ExtResource( 4 )]
+transform = Transform( 4.932, -4.34717e-07, -6.79934e-07, -7.44711e-07, -2.879, 3.93665e-07, -7.44711e-07, -2.5169e-07, -4.503, 1.587, 16.51, 0.65 )
+
+[node name="inner_corner_wall" type="Spatial" parent="right_wall"]
+transform = Transform( 0.209004, 0, 4.75658, 0, 0.867, 0, -0.977915, 0, 1.0166, -8.99369, 0.00103128, -2.21241 )
+
+[node name="inner_ground_corner_wall" parent="right_wall/inner_corner_wall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, -5.96046e-08, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="stone_wall" parent="right_wall/inner_corner_wall" instance=ExtResource( 3 )]
+transform = Transform( 0.0148163, 0, 0.99989, 0, 1.27682, 0, -0.205569, 0, 0.00304629, -0.116058, 0.152899, -0.179478 )
+
+[node name="outer_corner_extension" type="Spatial" parent="right_wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.39496, 3.55555, -0.269674 )
+
+[node name="StaticBody" type="StaticBody" parent="right_wall/outer_corner_extension"]
+
+[node name="Cave_Terrain_Corner_Outer_2x2_Mid" type="MeshInstance" parent="right_wall/outer_corner_extension/StaticBody"]
+transform = Transform( 2.112, 0, 0, 0, 2, 0, 0, 0, 2.024, 0.624159, 0.0475159, -0.955181 )
+mesh = ExtResource( 12 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="right_wall/outer_corner_extension/StaticBody"]
+transform = Transform( 2.112, 0, 0, 0, 2, 0, 0, 0, 2.024, 0.624159, 0.0475159, -0.955181 )
+shape = SubResource( 5 )
+
+[node name="front_segment" type="Spatial" parent="right_wall"]
+transform = Transform( 2.21, 0, 0, 0, 1, 0, 0, 0, 1, 1.38895, 0, -0.274008 )
+
+[node name="StaticBody" type="StaticBody" parent="right_wall/front_segment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39301, 0, 0 )
+
+[node name="Cave_Terrain_Corner_Inner_2x2_Mid" type="MeshInstance" parent="right_wall/front_segment/StaticBody"]
+transform = Transform( 0.8, 0, 0, 0, 2, 0, 0, 0, 0.478, -2.10181, 3.59912, -0.210871 )
+mesh = ExtResource( 10 )
+skeleton = NodePath("../../../../../..")
+material/0 = null
+
+[node name="Cave_Terrain_Floor_Normal" type="MeshInstance" parent="right_wall/front_segment/StaticBody"]
+transform = Transform( 4.113, 0, 0, 0, -4.37114e-08, 1.923, 0, -1, -8.4057e-08, 0.791633, 4.60121, 0 )
+mesh = ExtResource( 11 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="right_wall/front_segment/StaticBody"]
+transform = Transform( 2.333, 0, 0, 0, 0.897, 0, 0, 0, 0.301, 0, 4.56263, -0.16729 )
+shape = SubResource( 6 )
+
+[node name="pillar" parent="right_wall/front_segment" instance=ExtResource( 4 )]
+transform = Transform( 0.452489, 0, 0, 0, 1, 0, 0, 0, 1.19, 2.32017, 0.182954, -0.080986 )
+
+[node name="stone_wall_gate" parent="right_wall/front_segment" instance=ExtResource( 7 )]
+transform = Transform( 0.448, 0, 0, 0, 1, 0, 0, 0, 1, -1.37109, 0.0295644, -0.201118 )
+
+[node name="stone_wall" parent="right_wall/front_segment" instance=ExtResource( 3 )]
+transform = Transform( 0.269005, 0, 0, 0, 0.979, 0, 0, 0, 0.999996, 1.34467, 0.152899, -0.33251 )
+
+[node name="stone_wall2" parent="right_wall/front_segment" instance=ExtResource( 3 )]
+transform = Transform( 0.269005, 8.55869e-08, 0, -2.35172e-08, 0.979, 0, 0, 0, -0.999996, 1.34461, 0.152899, -0.3734 )
+
+[node name="back_wall" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1339, 0, -13.1099 )
+
+[node name="lower" parent="back_wall" instance=ExtResource( 6 )]
+transform = Transform( 0.999935, -0.0114317, 0, 0.0114317, 0.999935, 0, 0, 0, 18, 0.421, -0.153, 0.358 )
+
+[node name="upper" parent="back_wall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, -0.818, 2.71792e-06, 0, -1.23515e-07, -18, 0.394, 5.45269, 0.358002 )
+
+[node name="stone_wall" parent="back_wall" instance=ExtResource( 3 )]
+transform = Transform( -5.40273e-08, 0, 1, 0, 1.114, 0, -1.236, 0, -4.37114e-08, 0.659797, 0.0295639, 4.64996 )
+
+[node name="stone_wall2" parent="back_wall" instance=ExtResource( 3 )]
+transform = Transform( -5.40273e-08, 0, 1, 0, 1.114, 0, -1.236, 0, -4.37114e-08, 0.659797, 0.0295639, -4.98531 )
+
+[node name="ceiling" type="Spatial" parent="."]
+transform = Transform( 1.294, 0, 0, 0, 1, 0, 0, 0, 1, -0.637378, 5.54848, -11.7789 )
+
+[node name="flat" parent="ceiling" instance=ExtResource( 8 )]
+transform = Transform( 3.21, 0, -5.52645e-08, 0, -1, 0, 4.84697e-07, 0, 0.366, -5.63993, -0.108405, 5.30344 )
+
+[node name="flat2" parent="ceiling" instance=ExtResource( 8 )]
+transform = Transform( 3.21, 0, -5.52645e-08, 0, -1, 0, 4.84697e-07, 0, 0.366, -5.63993, -0.108405, -14.0008 )
+
+[node name="flat3" parent="ceiling" instance=ExtResource( 8 )]
+transform = Transform( 1.40314e-07, 0, -0.366, 0, -1, 0, 3.21, 0, 1.59984e-08, -7.8391, -0.108405, -1.11216 )
+
+[node name="flat4" parent="ceiling" instance=ExtResource( 8 )]
+transform = Transform( 1.40314e-07, 0, -0.172, 0, -1, 0, 3.21, 0, 7.51836e-09, 2.80179, -0.108405, -1.11216 )
+
+[node name="slanted" parent="ceiling" instance=ExtResource( 8 )]
+transform = Transform( 1.759, -7.57103e-08, 1.59984e-08, 0, -0.5, -0.316965, -1.53777e-07, -0.866025, 0.183, -4.25344, 5.41109, 2.23078 )
+
+[node name="slanted2" parent="ceiling" instance=ExtResource( 8 )]
+transform = Transform( -1.759, 0, 0, 0, -0.5, -0.316965, 0, 0.866025, -0.183, -4.25344, 5.41109, -4.5055 )
+
+[node name="slanted3" parent="ceiling" instance=ExtResource( 8 )]
+transform = Transform( 1.1636e-07, 0.866025, -0.183, 0, -0.5, -0.316965, 2.662, -3.78552e-08, 7.99918e-09, -4.75074, 5.41109, -1.13985 )
+
+[node name="slanted4" parent="ceiling" instance=ExtResource( 8 )]
+transform = Transform( 1.1636e-07, -0.866025, 0.183, 0, -0.5, -0.316965, -2.662, -3.78552e-08, 7.99918e-09, -3.14505, 5.41109, -1.13985 )
+
+[node name="flat5" parent="ceiling" instance=ExtResource( 8 )]
+transform = Transform( 6.30755e-08, 0, -0.182, 0, -1, 0, 1.443, 0, 7.95547e-09, -2.29543, 5.19962, 1.26376 )
+
+[node name="DirectionalLight" type="SpotLight" parent="ceiling"]
+transform = Transform( 0.768267, -0.0263928, 0.0792758, -0.0966704, 0.144132, 0.984825, -0.0484195, -0.988969, 0.139986, -4.06697, 11.085, -3.69912 )
+layers = 3
+light_energy = 5.866
+light_indirect_energy = 3.227
+light_specular = 0.699
+light_cull_mask = 4293918721
+shadow_enabled = true
+spot_range = 19.291
+spot_angle = 13.6885
+
+[node name="Cave_Terrain_Floor_Normal2" type="MeshInstance" parent="ceiling/DirectionalLight"]
+transform = Transform( 2.54135, -0.368674, 1.14815, 1.50304, 0.79416, -1.03182, -0.531407, 0.483104, 2.57237, 0.0960383, -1.68698, -1.84551 )
+mesh = ExtResource( 11 )
+material/0 = null
+
+[node name="Cave_Terrain_Floor_Normal6" type="MeshInstance" parent="ceiling/DirectionalLight"]
+transform = Transform( 0.455281, -0.315886, 2.80975, 2.70156, 0.434813, 0.0022046, -1.22241, 0.843299, 1.05135, -1.45966, 0.28511, -2.1044 )
+mesh = ExtResource( 11 )
+material/0 = null
+
+[node name="Cave_Terrain_Floor_Normal3" type="MeshInstance" parent="ceiling/DirectionalLight"]
+transform = Transform( 2.81786, 0.192512, -0.852125, 1.02472, -0.445786, 2.48222, -0.0979908, 0.874193, 1.45344, 0.0960393, 1.57694, -1.62987 )
+mesh = ExtResource( 11 )
+material/0 = null
+
+[node name="Cave_Terrain_Floor_Normal4" type="MeshInstance" parent="ceiling/DirectionalLight"]
+transform = Transform( 1.35155, -0.712317, 1.61455, -2.67608, -0.334633, 0.911453, 0.108966, 0.616949, 2.3585, 1.59255, 0.0039711, -1.73379 )
+mesh = ExtResource( 11 )
+material/0 = null
+
+[node name="Cave_Terrain_Floor_Normal5" type="MeshInstance" parent="ceiling/DirectionalLight"]
+transform = Transform( -1.34573, 0.309355, -2.51549, 2.44574, -0.242851, -1.57721, 1.09881, 0.919415, 0.429788, -1.74884, -0.441307, -1.71931 )
+mesh = ExtResource( 11 )
+material/0 = null
