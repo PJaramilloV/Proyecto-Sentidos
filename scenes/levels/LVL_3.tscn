@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/rooms/assemblies/patch_ceiling.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=2]
@@ -20,6 +20,26 @@
 [ext_resource path="res://assets/rooms/chasm_slim_small.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/rooms/assemblies/front_cover_short.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/rooms/assemblies/chasm_side_edge_extension.tscn" type="PackedScene" id=20]
+[ext_resource path="res://assets/small/torch.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/small/book_open.tscn" type="PackedScene" id=22]
+
+[sub_resource type="CapsuleMesh" id=5]
+
+[sub_resource type="SpatialMaterial" id=6]
+params_grow = true
+params_grow_amount = 0.0
+albedo_color = Color( 0.87451, 0.0352941, 0.0352941, 1 )
+emission_enabled = true
+emission = Color( 0, 1, 0.0156863, 1 )
+emission_energy = 0.13
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CubeMesh" id=7]
+
+[sub_resource type="SpatialMaterial" id=8]
+resource_local_to_scene = true
+albedo_color = Color( 0.2, 0.847059, 0.0431373, 1 )
 
 [sub_resource type="BoxShape" id=1]
 
@@ -76,6 +96,42 @@ transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.0250
 
 [node name="patch2" parent="world/chasm/chasm/hallway_short" instance=ExtResource( 8 )]
 transform = Transform( 0.797113, -0.355894, -1.00389, 0.35838, 0.929015, -0.189687, 0.485977, -0.101348, 1.78649, -2.67204, 1.13547, -4.48559 )
+
+[node name="amogus" type="CSGMesh" parent="world/chasm/chasm/hallway_short"]
+transform = Transform( 0.0632987, 0.189719, -4.14644e-08, -3.31715e-08, -3.26439e-08, -0.2, -0.189719, 0.0632987, 2.11347e-08, -1.60326, 0.233932, -0.972872 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="ñata" type="CSGBox" parent="world/chasm/chasm/hallway_short/amogus"]
+transform = Transform( -4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 0, 0.937343, -0.0412547, 0 )
+width = 0.352118
+height = 2.04248
+depth = 0.690716
+
+[node name="cuboverde" type="MeshInstance" parent="world/chasm/chasm/hallway_short"]
+transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.882021, 0.0442152, -1.83237 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
+
+[node name="cuboverde2" type="MeshInstance" parent="world/chasm/chasm/hallway_short"]
+transform = Transform( 0.0401034, -5.22118e-09, -0.0298617, 5.22118e-09, 0.05, -1.73038e-09, 0.0298617, -1.73038e-09, 0.0401034, -1.11387, 0.0442095, -2.01805 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
+
+[node name="cuboverde3" type="MeshInstance" parent="world/chasm/chasm/hallway_short"]
+transform = Transform( 0.034952, -6.25145e-09, -0.0357541, 6.25146e-09, 0.05, -2.63108e-09, 0.0357541, -2.63108e-09, 0.034952, -1.40395, 0.0442057, -2.09463 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
+
+[node name="cuboverde4" type="MeshInstance" parent="world/chasm/chasm/hallway_short"]
+transform = Transform( 0.0438958, -4.18593e-09, -0.0239407, 4.18593e-09, 0.05, -1.06729e-09, 0.0239407, -1.06729e-09, 0.0438958, -1.6548, 0.0442019, -2.04026 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
+
+[node name="cuboverde5" type="MeshInstance" parent="world/chasm/chasm/hallway_short"]
+transform = Transform( 0.0177341, -8.17391e-09, -0.0467493, 8.17391e-09, 0.05, -5.64154e-09, 0.0467493, -5.64154e-09, 0.0177341, -0.81994, 0.0442038, -1.51866 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
 
 [node name="chasm_side_edge" parent="world/chasm/chasm" instance=ExtResource( 14 )]
 transform = Transform( 0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, 2.06751, 3.64684, -4.26416 )
@@ -243,6 +299,12 @@ script = ExtResource( 11 )
 [node name="trajectory" type="ImmediateGeometry" parent="."]
 material_override = SubResource( 4 )
 cast_shadow = 0
+
+[node name="book_open" parent="." instance=ExtResource( 22 )]
+transform = Transform( 0.904939, 0, -0.425542, 0, 1, 0, 0.425542, 0, 0.904939, -1.70077, -14.4326, -18.6901 )
+
+[node name="torch" parent="." instance=ExtResource( 21 )]
+transform = Transform( 0.32053, -0.947238, 0, 0.947238, 0.32053, 0, 0, 0, 1, -1.04825, -14.1754, -17.8303 )
 
 [connection signal="body_entered" from="Checkpoints/Checkpoint_start" to="Checkpoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint" to="Checkpoints/Checkpoint" method="_on_area_entered"]
