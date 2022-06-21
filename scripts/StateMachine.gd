@@ -39,3 +39,7 @@ func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
 	state = get_node(target_state_name)
 	state.enter(msg)
 	emit_signal("transitioned", state.name)
+
+# Métodos para cutscenes. Solo los utilizará el nodo Cutscene.
+func _move_to(pos: Vector3, radius: float) -> void:
+	state.move_to(pos, radius)

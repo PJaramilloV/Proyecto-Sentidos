@@ -25,6 +25,11 @@ func enter(msg := {}) -> void:
 	player.leftladderray2.enabled = false
 	player.rightborderray.enabled = false
 	player.rightborderray2.enabled = false
+	### Apagamos rayos de Brace ###
+	player.leftborderray2.enabled = false
+	player.rightborderray2.enabled = false
+	player.leftborderray.enabled = true
+	player.rightborderray.enabled = true
 
 func exit() -> void:
 	player.animation_tree.set("parameters/BraceTransition/current", 0)
@@ -33,6 +38,11 @@ func exit() -> void:
 	player.leftladderray2.enabled = true
 	player.rightborderray.enabled = true
 	player.rightborderray2.enabled = true
+	### Encendemos rayos de Brace ###
+	player.leftborderray2.enabled = true
+	player.rightborderray2.enabled = true
+	player.leftborderray.enabled = false
+	player.rightborderray.enabled = false
 
 func physics_update(delta: float) -> void:
 	# (player.leftladderray.is_colliding() or player.rightladderray.is_colliding())

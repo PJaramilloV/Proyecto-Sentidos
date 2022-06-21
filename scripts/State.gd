@@ -25,3 +25,6 @@ func enter(_msg := {}) -> void:
 func exit() -> void:
 	pass
 
+# Llama al inicio de cinemáticas. Inhibe los inputs
+func move_to(pos: Vector3, radius: float) -> void:
+	pass

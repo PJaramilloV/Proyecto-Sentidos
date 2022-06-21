@@ -9,7 +9,7 @@ _data = [ Vector2( 0.116505, 0.593182 ), 0.0, 0.0, 0, 0, Vector2( 0.427184, 1 ),
 curve = SubResource( 1 )
 
 [sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.890196, 0.694118, 0.282353, 0.411765 )
+albedo_color = Color( 0.364706, 0.85098, 0, 0.490196 )
 metallic = 0.2
 metallic_specular = 0.56
 roughness = 0.54
@@ -50,7 +50,7 @@ material/0 = null
 
 [node name="OmniLight" type="OmniLight" parent="."]
 layers = 67
-light_color = Color( 1, 0.494118, 0, 1 )
+light_color = Color( 0.35, 0.85, 0.03, 1 )
 light_energy = 1.665
 omni_range = 6.35
 omni_attenuation = 17.1483

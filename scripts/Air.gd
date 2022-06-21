@@ -18,12 +18,22 @@ func enter(msg := {}) -> void:
 		else:
 			_prep_jump = false
 			player.animation_tree.set("parameters/JumpShot/active", true)
+	### Encendemos rayos de Brace ###
+	player.leftborderray.enabled = true
+	player.leftborderray2.enabled = true
+	player.rightborderray.enabled = true
+	player.rightborderray2.enabled = true
 
 func exit() -> void:
 	player.animation_tree.set("parameters/Falling/current", 0)
 	### Apagar todas las oneShot ###
 	player.animation_tree.set("parameters/RunningJumpShot/active", false)
 	player.animation_tree.set("parameters/JumpShot/active", false)
+	### Apagamos rayos de Brace ###
+	player.leftborderray.enabled = false
+	player.leftborderray2.enabled = false
+	player.rightborderray.enabled = false
+	player.rightborderray2.enabled = false
 
 func physics_update(delta: float) -> void:
 	var move_direction = player.get_input_direction()

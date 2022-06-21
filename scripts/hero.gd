@@ -7,6 +7,7 @@ export var gravity := 10.0
 export var walk_speed := 440.0
 export var crouch_speed := 100.0
 export var decal_correction := 0.01
+export var light_correction: float = 0.01
 
 var _velocity := Vector3.ZERO
 var _angular_acceleration := 10
@@ -19,6 +20,7 @@ var _hanging := false
 var _hang_normal := Vector3.ZERO
 var _rotate := true
 var prev_vel = 0 # Usada en Lerp animation_tree
+var _light_handler: LightHandler = null
 
 ### Habilidades ###
 export var _brace := false # False por defecto, true para testeo/despues de desbloquear
@@ -137,6 +139,8 @@ func _process(delta):
 	pass
 
 func _ready():
+	# light_handler = proyecto -> viewport -> Spatial -> LightHandler
+	_light_handler =  get_tree().root.get_node("Spatial/LightHandler") 
 	area_grab.connect("body_entered",self,"_on_area_grab_entered")
 	area_grab.connect("body_exited",self,"_on_area_grab_exited")
 	if _throw:
@@ -199,46 +203,29 @@ func braceraycasts():
 
 ### Surface Painting ###
 func rightstep():
-	var b = decal.instance()
-	get_parent().add_child(b)
-	var correction = rightfootray.get_collision_normal()*decal_correction
-	b.global_transform.origin = rightfootray.get_collision_point() + correction
-	b.look_at(rightfootray.get_collision_point() + rightfootray.get_collision_normal(), Vector3.UP)
+	spawn_decal(rightfootray)
+	#spawn_light(rightfootray)
 
-func leftstepdown():
-	var b = decal.instance()
-	get_parent().add_child(b)
-	var correction = leftfootraydown.get_collision_normal()*decal_correction
-	b.global_transform.origin = leftfootraydown.get_collision_point() + correction
-	b.look_at(leftfootraydown.get_collision_point() + leftfootraydown.get_collision_normal(), Vector3.UP)
-	
 func rightstepdown():
-	var b = decal.instance()
-	get_parent().add_child(b)
-	var correction = rightfootraydown.get_collision_normal()*decal_correction
-	b.global_transform.origin = rightfootraydown.get_collision_point() + correction
-	b.look_at(rightfootraydown.get_collision_point() + rightfootraydown.get_collision_normal(), Vector3.UP)
-
-func leftstep():
-	var b = decal.instance()
-	get_parent().add_child(b)
-	var correction = leftfootray.get_collision_normal()*decal_correction
-	b.global_transform.origin = leftfootray.get_collision_point() + correction
-	b.look_at(leftfootray.get_collision_point() + leftfootray.get_collision_normal(), Vector3.UP)
+	spawn_decal(rightfootraydown)
+	#spawn_light(rightfootraydown)
 
 func rightpalm():
-	var b = decal.instance()
-	get_parent().add_child(b)
-	var correction = rightpalmray.get_collision_normal()*decal_correction
-	b.global_transform.origin = rightpalmray.get_collision_point() + correction
-	b.look_at(rightpalmray.get_collision_point() + rightpalmray.get_collision_normal(), Vector3.UP)
+	spawn_decal(rightpalmray)
+	#spawn_light(rightpalmray)
+	
+
+func leftstep():
+	spawn_decal(leftfootray)
+	#spawn_light(leftfootray)
+	
+func leftstepdown():
+	spawn_decal(leftfootraydown)
+	#spawn_light(leftfootraydown)
 
 func leftpalm():
-	var b = decal.instance()
-	get_parent().add_child(b)
-	var correction = leftpalmray.get_collision_normal()*decal_correction
-	b.global_transform.origin = leftpalmray.get_collision_point() + correction
-	b.look_at(leftpalmray.get_collision_point() + leftpalmray.get_collision_normal(), Vector3.UP)
+	spawn_decal(leftpalmray)
+	#spawn_light(leftpalmray)
 	
 ### Surface Painting ###
 
@@ -255,7 +242,7 @@ func _on_area_grab_exited(body: Node):
 			_pointer = 0
 
 func learn_throw():
-	
+	_throw = true
 	area_grab.monitoring = true
 
 # Almacenar referencia al checkpoint
@@ -266,3 +253,32 @@ func check_point_reached(cp_area: Node):
 # Al morir respawnear el Player desde el checkpoint
 func death():
 	checkpoint.respawn(self.get_parent())
+
+### Cutscenes ###
+
+# Mover al personaje en cinemática
+func move_to(pos: Vector3, radius: float):
+	$StateMachine._move_to(pos, radius)
+
+func end_cutscene():
+	$StateMachine.transition_to("Idle")
+
+### Spawn ###
+func spawn_decal(raycast: RayCast):
+	#raycast.enabled = true
+	raycast.force_raycast_update()
+	if raycast.is_colliding():
+		var b = decal.instance()
+		get_parent().add_child(b)
+		var correction = raycast.get_collision_normal()*decal_correction
+		b.global_transform.origin = raycast.get_collision_point() + correction
+		b.look_at(raycast.get_collision_point() + raycast.get_collision_normal(), Vector3.UP)
+	#raycast.enabled = false
+
+func spawn_light(raycast: RayCast):
+	if !raycast.get_collider(): return
+	var visual_h = raycast.get_collider().get_node("VisualHandler") as VisualHandler
+	if visual_h:
+		_light_handler.create_light(visual_h, raycast.get_collision_point() + raycast.get_collision_normal()*light_correction)
+
+### Sound ###
