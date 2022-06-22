@@ -18,6 +18,7 @@ transform = Transform( 0.6, 0, 0, 0, 0.1, 0, 0, 0, 0.3, 0, 0, 0 )
 transform = Transform( 0.6, 0, 0, 0, -0.1, 2.05354e-08, 0, -1.50996e-08, -0.136, 1.19209e-07, -0.89983, 3.89485 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
+collision_layer = 0
 
 [node name="Tesselated_slope_R" type="MeshInstance" parent="StaticBody"]
 transform = Transform( 1.5, -4.52987e-07, 1.98007e-15, 0, 1.31134e-07, 0.3, 2.26494e-07, 3, -1.31134e-08, 0.687991, -0.737076, 3.78745 )
@@ -32,11 +33,11 @@ skeleton = NodePath("../..")
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1.488, 0, 0, 0, 0.00772694, -0.393778, 0, 0.00461459, 0.659365, 0.123883, -0.588529, 1.09114 )
+transform = Transform( 1.488, 0, 0, 0, 0.0472202, -0.349683, 0, 0.0282003, 0.58553, 0.123883, -0.575198, 0.975859 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1.488, 0, 0, 0, 0.00772694, 0.393778, 0, -0.00461459, 0.659365, 0.123883, -0.588529, 4.29595 )
+transform = Transform( 1.488, 0, 0, 0, 0.0472202, 0.349683, 0, -0.0282003, 0.58553, 0.124, -0.575, 4.296 )
 shape = SubResource( 1 )
 
 [node name="VisualHandler" type="Node" parent="StaticBody"]
