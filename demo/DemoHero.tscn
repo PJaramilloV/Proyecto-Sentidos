@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/small/candlestick_triple.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://assets/small/bone.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/small/fork.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/rooms/assemblies/Floor.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/boulders/holy_stone.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scripts/holy_stone.gd" type="Script" id=18]
 
 [sub_resource type="CylinderShape" id=14]
 margin = 0.01
@@ -61,7 +63,7 @@ sides = 36
 
 [node name="VisualHandler" type="Node" parent="piso"]
 script = ExtResource( 8 )
-max_lights = 20
+max_lights = 2
 
 [node name="bloqueVerde" type="StaticBody" parent="."]
 transform = Transform( -0.227746, 0, 4.9987, 0, 0.5, 0, -9.99741, 0, -0.113873, 1.79257, 3.02364, -4.04271 )
@@ -79,7 +81,7 @@ material = SubResource( 15 )
 
 [node name="VisualHandler" type="Node" parent="bloqueVerde"]
 script = ExtResource( 8 )
-max_lights = 20
+max_lights = 2
 
 [node name="muroInvisible" type="StaticBody" parent="."]
 transform = Transform( -0.00595153, 0, -0.999982, 0, 1, 0, 0.999982, 0, -0.00595153, 15.7374, 0, 0.345863 )
@@ -128,8 +130,6 @@ transform = Transform( -0.139837, 0, 1.56959, 0, 2.841, 0, -6.13841, 0, -0.03575
 
 [node name="LightHandler" type="Node" parent="."]
 script = ExtResource( 9 )
-max_lights = 10
-scale = 0.0
 
 [node name="rock_sphere" parent="." instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76416, 3.76841, -9.50245 )
@@ -156,3 +156,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95478, 3.2865, -3.06128 )
 [node name="Floor" parent="." instance=ExtResource( 16 )]
 transform = Transform( 1.92, 0, 0, 0, 0.228, 0, 0, 0, 0.458, -0.289616, 3.10872, -19.0409 )
 
+[node name="holy_stone" parent="." instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.170262, 4.55643, -5.05621 )
+script = ExtResource( 18 )

@@ -89,7 +89,6 @@ func throw(instigator: Node):
 # Restorar material de meshes
 func restore():
 	for i in range(mat_count):
-		print("añadí maetiral")
 		mesh.set_surface_material(i, my_material[i])
 
 # Aplicar outline al objeto
