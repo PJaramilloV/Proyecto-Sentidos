@@ -39,9 +39,14 @@ func exit() -> void:
 	player.rightborderray2.enabled = true
 
 func physics_update(delta: float) -> void:
-	if Input.is_action_pressed("forward") and !player.leftfootray.is_colliding() and !player.rightladderray.is_colliding() and !player.centerladderray.is_colliding():
+	if !player.leftladderray.is_colliding() and !player.rightladderray.is_colliding():
+		if  Input.is_action_pressed("forward") :
 			state_machine.transition_to("Air", {do_jump = true, force = true})
 			return
+		else :
+			state_machine.transition_to("Air")
+			return
+			
 		### Esto es para despues, si queremos ser más exquisitos con los movimientos ###
 #		climbing = true
 #		path = player.ladderpath

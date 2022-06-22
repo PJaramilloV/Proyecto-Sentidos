@@ -52,6 +52,5 @@ func spirit():
 
 # Activación de Cutscene
 func cutscene(pos: Vector3, radius: float):
-	print("me veo jiji")
 	statemachine.transition_to("Cutscene")
 	hero.move_to(pos, radius)
