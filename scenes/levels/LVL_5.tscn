@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://scripts/LightHandler.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Checkpoint.gd" type="Script" id=2]
@@ -39,6 +39,7 @@
 [ext_resource path="res://assets/boulders/throwables/rock_sphere.tscn" type="PackedScene" id=37]
 [ext_resource path="res://assets/boulders/throwables/rock_egg.tscn" type="PackedScene" id=38]
 [ext_resource path="res://assets/boulders/throwables/rock_capsule.tscn" type="PackedScene" id=39]
+[ext_resource path="res://assets/boulders/boulder.tscn" type="PackedScene" id=40]
 
 [sub_resource type="Image" id=13]
 data = {
@@ -90,6 +91,11 @@ extents = Vector3( 25.5928, 0.431309, 92.9979 )
 [sub_resource type="SpatialMaterial" id=12]
 flags_unshaded = true
 
+[sub_resource type="Environment" id=14]
+background_mode = 1
+ambient_light_energy = 0.99
+ambient_light_sky_contribution = 0.0
+
 [node name="Spatial" type="Spatial"]
 
 [node name="world" type="Spatial" parent="."]
@@ -99,6 +105,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.13578 )
 
 [node name="Separator_wall" parent="world/hallway_short" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0.341708, 0, 0 )
+
+[node name="patch2" parent="world/hallway_short" instance=ExtResource( 25 )]
+transform = Transform( 0.410005, -0.14838, -1.90127, 0.32173, 0.959686, -0.0995855, 1.03857, -0.238716, 0.781426, -2.46915, 1.55565, -3.7021 )
 
 [node name="chasm_slim_small" parent="world" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.452, -0.533001 )
@@ -120,6 +129,12 @@ transform = Transform( 0.950616, -0.261841, -1.05376, 0.32173, 0.959686, -0.0995
 
 [node name="hallway_short2" parent="world" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, -3.91049 )
+
+[node name="patch2" parent="world/hallway_short2" instance=ExtResource( 25 )]
+transform = Transform( 0.917671, -0.110588, -0.763281, 0, 0.960488, -0.556641, 0.19867, 0.127703, 0.881413, -2.95374, 1.08736, -4.43019 )
+
+[node name="patch3" parent="world/hallway_short2" instance=ExtResource( 25 )]
+transform = Transform( 0.986926, -0.109947, -0.235705, 0.107066, 0.993783, -0.0610456, 0.060238, 0.00875283, 0.992562, -2.95374, 1.44096, -0.496621 )
 
 [node name="chasm" parent="world" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.267, -0.251, -28.551 )
@@ -177,6 +192,9 @@ transform = Transform( 0.339, 0, 0, 0, 1, 0, 0, 0, 1.26, 1.4892, 0, 0 )
 [node name="chasm_extension" parent="world/chasm/chasm_lower" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.267715, 11.6632, 0 )
 
+[node name="boulder" parent="world/chasm/chasm_lower" instance=ExtResource( 40 )]
+transform = Transform( 1.747, 0, 0, 0, 2.668, 0, 0, 0, 1.746, -3.7653, 0, 0.541674 )
+
 [node name="ladder" type="Spatial" parent="world/chasm"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.671, 15.363, 5.452 )
 
@@ -199,9 +217,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -35.2834, 0 )
 
 [node name="ladder_climbable" parent="world/chasm/ladder" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -39.4415, 0 )
-
-[node name="ladder_climbable_x1_" parent="world/chasm" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22973, -24.3844, 7.22293 )
 
 [node name="lower_path" type="Spatial" parent="world"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -26.1134, -64.813 )
@@ -720,7 +735,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.82, 3.119, -0.0723381 )
 script = ExtResource( 35 )
 
 [node name="Player" parent="." instance=ExtResource( 26 )]
-transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, -7.62939e-06, -36.6656, -88.7448 )
+transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, -7.62939e-06, 0.152573, 3.91771 )
 throw = true
 brace = true
 
@@ -815,6 +830,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33698, -26.2103, -81.8453 )
 
 [node name="rock_sphere5" parent="." instance=ExtResource( 37 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48991, -33.8675, -87.1498 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 14 )
 
 [connection signal="body_entered" from="Checkpoints/Checkpoint_start" to="Checkpoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint" to="Checkpoints/Checkpoint" method="_on_area_entered"]
