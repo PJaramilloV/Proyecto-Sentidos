@@ -14,10 +14,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
+"times": PoolRealArray( 0, 0.5, 0.999586 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -8 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 494.589, 48 ), Vector2( 494.589, 34 ), Vector2( 494.589, 48 ) ]
 }
 
 [node name="dialogue" type="CanvasLayer"]
@@ -25,10 +25,10 @@ script = ExtResource( 3 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 visible = false
-margin_left = 64.0
-margin_top = 432.0
-margin_right = 960.0
-margin_bottom = 568.0
+margin_left = 202.411
+margin_top = 790.0
+margin_right = 1695.41
+margin_bottom = 1027.0
 theme = ExtResource( 2 )
 texture = ExtResource( 1 )
 patch_margin_left = 17
@@ -38,21 +38,21 @@ patch_margin_bottom = 22
 
 [node name="Name" type="RichTextLabel" parent="NinePatchRect"]
 margin_left = 24.0
-margin_right = 144.0
-margin_bottom = 46.0
+margin_right = 612.0
+margin_bottom = 67.0
 text = "Name:"
 
 [node name="Message" type="RichTextLabel" parent="NinePatchRect"]
-margin_left = 64.0
-margin_top = 46.0
-margin_right = 832.0
-margin_bottom = 136.0
-text = "Sample text"
+margin_left = 58.0
+margin_top = 72.0
+margin_right = 1314.0
+margin_bottom = 211.0
+text = "Sample text
+bottom text"
 
 [node name="Polygon2D" type="Polygon2D" parent="NinePatchRect"]
-visible = false
-position = Vector2( 0, -6.42253 )
-polygon = PoolVector2Array( 864, 128, 848, 112, 880, 112 )
+position = Vector2( 494.589, 46.7991 )
+polygon = PoolVector2Array( 911, 166, 848, 112, 975, 112 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NinePatchRect/Polygon2D"]
 anims/idle = SubResource( 1 )

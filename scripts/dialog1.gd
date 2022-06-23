@@ -19,6 +19,12 @@ func _ready():
 	$NinePatchRect/Polygon2D/AnimationPlayer.play("idle")
 	#play()
 
+func _process(delta):
+	print(get_viewport().size)
+#	var scale = rect_size.x / background.texture.get_size().x
+#	background.set_position(Vector2(rect_size.x/2, rect_size.y/2))
+#	background.set_scale(Vector2(scale, scale))
+
 func play():
 	box.visible = true
 	dialogues = load_dialogue()

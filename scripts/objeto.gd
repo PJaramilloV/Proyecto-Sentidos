@@ -103,6 +103,7 @@ func outline(material):
 # Calcular puntos de parabola
 func get_predicted_trajectory():
 	var delta      = 0.1   # dt entre puntos de trayectoria
+	print(get_viewport().get_mouse_position())
 	var target_x   = get_viewport().get_mouse_position().x
 	var target_y   = get_viewport().get_mouse_position().y
 	var pos_0      = self.global_transform.origin

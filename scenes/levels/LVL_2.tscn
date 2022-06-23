@@ -234,6 +234,7 @@ shape = SubResource( 4 )
 environment = SubResource( 5 )
 
 [node name="PauseMenu" parent="." instance=ExtResource( 14 )]
+level = 2
 
 [node name="LightHandler" type="Node" parent="."]
 script = ExtResource( 26 )
