@@ -7,6 +7,8 @@ signal next_level
 signal level_0
 signal continuen
 signal extra
+signal close
+signal lose
 
 func transition():
 	$AnimationPlayer.play("fade_to_black")
@@ -25,6 +27,12 @@ func transition_continue():
 
 func transition_extra():
 	$AnimationPlayer.play("fade_to_black_extra")
+
+func transition_lose():
+	$AnimationPlayer.play("fade_to_black_lose")
+
+func transition_close():
+	$AnimationPlayer.play("fade_to_black_close")
 
 func restore():
 	$AnimationPlayer.play("fade_to_normal")
@@ -49,3 +57,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	elif anim_name == "fade_to_black_extra":
 		emit_signal("extra")
 		$AnimationPlayer.play("fade_to_normal")
+	elif anim_name == "fade_to_black_close":
+		emit_signal("close")
+		$AnimationPlayer.play("fade_to_normal")
+	elif anim_name == "fade_to_black_lose":
+		emit_signal("lose")
+		$AnimationPlayer.play("fade_to_normal_lose")

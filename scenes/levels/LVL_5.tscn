@@ -624,7 +624,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.82, 3.119, -0.0723381 )
 script = ExtResource( 35 )
 
 [node name="Player" parent="." instance=ExtResource( 26 )]
-transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, -4.54676, 0.392588, -59.384 )
+transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, -0.966256, -36.3704, -89.5115 )
 throw = true
 brace = true
 

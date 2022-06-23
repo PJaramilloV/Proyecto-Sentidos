@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://assets/rooms/assemblies/patch_ceiling.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://assets/rooms/assemblies/Bridge_end_cut.tscn" type="PackedScene" id=27]
 [ext_resource path="res://assets/rooms/pieces/Cliff_Prop_Bridge_Rope_Middle_Support.obj" type="ArrayMesh" id=28]
 [ext_resource path="res://assets/rooms/pieces/Cliff_Prop_Bridge_Rope_Middle_NO_ROPE.obj" type="ArrayMesh" id=29]
+[ext_resource path="res://scenes/transitions/NextLevelActivator.tscn" type="PackedScene" id=30]
 
 [sub_resource type="CapsuleMesh" id=5]
 
@@ -419,6 +420,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0052563, 0.903987, 2.54218 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 9 )
+
+[node name="NextLevelArea" parent="." instance=ExtResource( 30 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.162527, 7.83884, -74.2883 )
 
 [connection signal="body_entered" from="Checkpoints/Checkpoint_start" to="Checkpoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint" to="Checkpoints/Checkpoint" method="_on_area_entered"]

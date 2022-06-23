@@ -12,6 +12,7 @@ var level : int
 signal startgame
 signal continuegame(level)
 signal extra
+signal close
 
 var time_in_seconds = 0.2
 
@@ -39,7 +40,7 @@ func _on_start_pressed():
 func _on_exit_pressed():
 	$MainMenu/AudioStreamPlayer2D.play()
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
-	get_tree().quit()
+	emit_signal("close")
 
 func _on_options_pressed():
 	$MainMenu/AudioStreamPlayer2D.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://assets/rooms/hallway_cave_short.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/assemblies/inner_corner.tscn" type="PackedScene" id=2]
@@ -46,6 +46,7 @@
 [ext_resource path="res://assets/boulders/boulder_capsule.tscn" type="PackedScene" id=44]
 [ext_resource path="res://assets/rooms/collider_pieces/wood_gate_door_R.tscn" type="PackedScene" id=45]
 [ext_resource path="res://scripts/LightHandler.gd" type="Script" id=46]
+[ext_resource path="res://scenes/transitions/NextLevelActivator.tscn" type="PackedScene" id=47]
 
 [sub_resource type="Image" id=13]
 data = {
@@ -795,6 +796,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.38042, 1.02711, -71.2565 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 12 )
+
+[node name="NextLevelArea" parent="." instance=ExtResource( 47 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149562, -12.1644, -58.8758 )
 
 [connection signal="body_entered" from="CheckPoints/Checkpoint_start" to="CheckPoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="CheckPoints/Checkpoint" to="CheckPoints/Checkpoint" method="_on_area_entered"]

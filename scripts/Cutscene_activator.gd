@@ -1,6 +1,7 @@
 extends VisibilityNotifier
 export var radius : float
 export var active : bool
+export var dialogue_start_timer := 1.0
 onready var dialogue := get_node("dialogue")
 var pos : Vector3
 onready var player = get_parent().get_node("Player")
@@ -29,6 +30,7 @@ func _on_CutsceneActivator_screen_entered():
 		active = false
 
 func start_dialogue():
+	yield(get_tree().create_timer(dialogue_start_timer), "timeout")
 	dialogue.started = true
 	dialogue.play()
 

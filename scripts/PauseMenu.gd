@@ -5,6 +5,8 @@ var time_in_seconds = 0.2
 onready var settings_menu = $Settings_Menu
 export(int) var level
 
+signal to_menu
+
 func _process(delta):
 	### Re-escalar menus ###
 	settings_menu.rect_size = rect_size
@@ -35,7 +37,8 @@ func _on_Quit_pressed():
 	self.is_paused = false  # Con este se quita al salir
 	if level != -1:
 		save_level()
-	get_tree().change_scene("res://scenes/main_menu.tscn")
+	#get_tree().change_scene("res://scenes/main_menu.tscn")
+	emit_signal("to_menu")
 
 
 func _on_Options_pause_pressed():

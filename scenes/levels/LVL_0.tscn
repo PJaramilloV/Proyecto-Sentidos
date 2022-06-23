@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://assets/rooms/assemblies/Separator_wall_with door.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/assemblies/front_cover.tscn" type="PackedScene" id=2]
@@ -41,6 +41,7 @@
 [ext_resource path="res://scenes/transitions/TransitionScreen.tscn" type="PackedScene" id=39]
 [ext_resource path="res://scenes/spirit.tscn" type="PackedScene" id=40]
 [ext_resource path="res://scripts/disappearing_spirit.gd" type="Script" id=41]
+[ext_resource path="res://scenes/transitions/NextLevelActivator.tscn" type="PackedScene" id=42]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 2.1306, 1.73309, 2.05416 )
@@ -311,6 +312,9 @@ transform = Transform( 1.58, 0, 0, 0, 1.58, 0, 0, 0, 1.58, -3.01709, 2.20385, -4
 script = ExtResource( 41 )
 
 [node name="PauseMenu" parent="." instance=ExtResource( 36 )]
+
+[node name="NextLevelArea" parent="." instance=ExtResource( 42 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171642, 4.43713, -85.6934 )
 
 [connection signal="body_entered" from="CheckPoints/Checkpoint_start" to="CheckPoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="CheckPoints/Checkpoint" to="CheckPoints/Checkpoint" method="_on_area_entered"]
