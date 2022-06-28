@@ -10,7 +10,7 @@
 
 [node name="Bridge_segment" type="Spatial"]
 
-[node name="StaticBody" type="StaticBody" parent="."]
+[node name="StaticBody" type="StaticBody" parent="." groups=["Wood Structure"]]
 
 [node name="floor" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 0.599, 0, 0, 0, 0.118, 0, 0, 0, 0.512, -0.49033, 0.379875, 0 )

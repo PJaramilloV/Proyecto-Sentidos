@@ -1,12 +1,12 @@
 extends Control
 
-onready var continueb = $MainMenu/Panel/Fondo/Continue
-onready var start = $MainMenu/Panel/Fondo/Start
-onready var exit = $MainMenu/Panel/Fondo/Exit
-onready var options = $MainMenu/Panel/Fondo/Options
-onready var extras = $MainMenu/Panel/Fondo/Extras
-onready var settings_menu = $MainMenu/Settings_Menu
-onready var background = $MainMenu/MainMenu2
+onready var continueb = $Panel/Fondo/Continue
+onready var start = $Panel/Fondo/Start
+onready var exit = $Panel/Fondo/Exit
+onready var options = $Panel/Fondo/Options
+onready var extras = $Panel/Fondo/Extras
+onready var settings_menu = $Settings_Menu
+onready var background = $MainMenu2
 var level : int
 
 signal startgame
@@ -27,28 +27,28 @@ func _ready():
 		continueb.visible = true
 
 func _on_continue_pressed():
-	$MainMenu/AudioStreamPlayer2D.play()
+	$AudioStreamPlayer2D.play()
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	emit_signal("continuegame", level)
 
 func _on_start_pressed():
-	$MainMenu/AudioStreamPlayer2D.play()
+	$AudioStreamPlayer2D.play()
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	#get_tree().change_scene("res://scenes/levels/LVL_0.tscn")
 	emit_signal("startgame")
 
 func _on_exit_pressed():
-	$MainMenu/AudioStreamPlayer2D.play()
+	$AudioStreamPlayer2D.play()
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	emit_signal("close")
 
 func _on_options_pressed():
-	$MainMenu/AudioStreamPlayer2D.play()
+	$AudioStreamPlayer2D.play()
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	settings_menu.popup_centered()
 
 func _on_extras_pressed():
-	$MainMenu/AudioStreamPlayer2D.play()
+	$AudioStreamPlayer2D.play()
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	#get_tree().change_scene("res://demo/DemoHero.tscn")
 	emit_signal("extra")

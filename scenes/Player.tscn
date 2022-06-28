@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/CameraProtagonista.gd" type="Script" id=1]
 [ext_resource path="res://scenes/hero.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/spirit.gd" type="Script" id=3]
 [ext_resource path="res://scenes/spirit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://audio/deaths/zapsplat_horror_hit_dark_creepy_001_12669.mp3" type="AudioStream" id=5]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=6]
+[ext_resource path="res://audio/deaths/zapsplat_horror_hit_dark_creepy_002_12670.mp3" type="AudioStream" id=7]
+[ext_resource path="res://audio/deaths/zapsplat_horror_hit_dark_creepy_003_12671.mp3" type="AudioStream" id=8]
+[ext_resource path="res://audio/deaths/zapsplat_horror_hit_dark_creepy_004_12672.mp3" type="AudioStream" id=9]
 
 [node name="Player" type="Spatial"]
 script = ExtResource( 6 )
@@ -32,3 +36,19 @@ offset = Vector3( 0, 1.172, 0 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.96982, 1.085, -2.84217e-14 )
 script = ExtResource( 1 )
 offset = Vector3( 4, 1.5, 0 )
+
+[node name="Audio" type="Spatial" parent="."]
+
+[node name="Death" type="Spatial" parent="Audio"]
+
+[node name="death1" type="AudioStreamPlayer" parent="Audio/Death"]
+stream = ExtResource( 5 )
+
+[node name="death2" type="AudioStreamPlayer" parent="Audio/Death"]
+stream = ExtResource( 7 )
+
+[node name="death3" type="AudioStreamPlayer" parent="Audio/Death"]
+stream = ExtResource( 8 )
+
+[node name="death4" type="AudioStreamPlayer" parent="Audio/Death"]
+stream = ExtResource( 9 )

@@ -28,7 +28,7 @@ func exit() -> void:
 	player.animation_tree.set("parameters/IdlePose3/active", false)
 
 func physics_update(delta: float) -> void:
-	if not player.is_on_floor():
+	if (!player.is_on_floor()) and !player.floorray.is_colliding():
 		state_machine.transition_to("Air")
 		return
 		

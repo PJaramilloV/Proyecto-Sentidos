@@ -12,6 +12,12 @@ onready var spiritcilinder = get_node("spirit/aura")
 onready var hero = get_node("hero")
 onready var statemachine = get_node("hero/StateMachine")
 
+onready var daudio1 = $Audio/Death/death1
+onready var daudio2 = $Audio/Death/death2
+onready var daudio3 = $Audio/Death/death3
+onready var daudio4 = $Audio/Death/death4
+onready var deatharray = [daudio4, daudio3, daudio2, daudio1]
+
 signal death
 
 # a = (22 y 125)
@@ -51,6 +57,7 @@ func death():
 		mat1.emission = _colors[lives-1]
 		mat2.albedo_color = _colors2[lives-1]
 		spiritlight.light_color = _colors[lives-1]
+		deatharray[lives-1].play()
 	return true
 
 func spirit():

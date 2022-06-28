@@ -22,6 +22,17 @@ var _rotate := true
 var prev_vel = 0 # Usada en Lerp animation_tree
 var _light_handler: LightHandler = null
 
+### Audio ###
+var footstepL : AudioStreamPlayer3D
+var footstepR : AudioStreamPlayer3D
+var footaudioarray = [footstepL, footstepR]
+onready var lfootstoneaudio := $Hero/Skeleton/PieIzquierdoBone/Audio/Stone
+onready var rfootstoneaudio := $Hero/Skeleton/PieDerechoBone/Audio/Stone
+onready var lfootwoodaudio := $Hero/Skeleton/PieIzquierdoBone/Audio/Wood
+onready var rfootwoodaudio := $Hero/Skeleton/PieDerechoBone/Audio/Wood
+onready var stonearray = [lfootstoneaudio, rfootstoneaudio]
+onready var woodarray = [lfootwoodaudio, rfootwoodaudio]
+
 ### Habilidades ###
 export var _brace := false # False por defecto, true para testeo/despues de desbloquear
 export var _throw := false
@@ -54,6 +65,7 @@ onready var leftborderray = $CollisionShape/Raycasts/LeftBorderRay
 onready var rightborderray = $CollisionShape/Raycasts/RightBorderRay
 onready var leftborderray2 = $CollisionShape/Raycasts/LeftBorderRay2
 onready var rightborderray2 = $CollisionShape/Raycasts/RightBorderRay2
+onready var floorray = $CollisionShape/Floor
 
 onready var ladderpath = $ClimbLadderPath
 onready var ladderfollow = $ClimbLadderPath/PathFollow
@@ -145,6 +157,8 @@ func _ready():
 	area_grab.connect("body_exited",self,"_on_area_grab_exited")
 	if _throw:
 		learn_throw()
+	footstepL = $Hero/Skeleton/PieIzquierdoBone/Audio/Stone/Stone1
+	footstepR = $Hero/Skeleton/PieDerechoBone/Audio/Stone/Stone1
 
 func get_input_direction():
 	var move_direction := Vector3.ZERO
@@ -203,25 +217,46 @@ func braceraycasts():
 
 ### Surface Painting ###
 func rightstep():
-	spawn_decal(rightfootray)
+	if spawn_decal(rightfootray):
+		footstepR = update_footstep(rightfootray, 1)
+	footstepR.play()
 	#spawn_light(rightfootray)
 
 func rightstepdown():
-	spawn_decal(rightfootraydown)
+	if spawn_decal(rightfootraydown):
+		footstepR = update_footstep(rightfootraydown, 1)
+	footstepR.play()
 	#spawn_light(rightfootraydown)
+
+func rightstepboth():
+	if spawn_decal(rightfootray):
+		footstepR = update_footstep(rightfootray, 1)
+	elif spawn_decal(rightfootraydown):
+		footstepR = update_footstep(rightfootraydown, 1)
+	footstepR.play()
 
 func rightpalm():
 	spawn_decal(rightpalmray)
 	#spawn_light(rightpalmray)
-	
 
 func leftstep():
-	spawn_decal(leftfootray)
+	if spawn_decal(leftfootray):
+		footstepL = update_footstep(leftfootray, 0)
+	footstepL.play()
 	#spawn_light(leftfootray)
 	
 func leftstepdown():
-	spawn_decal(leftfootraydown)
+	if spawn_decal(leftfootraydown):
+		footstepL = update_footstep(leftfootraydown, 0)
+	footstepL.play()
 	#spawn_light(leftfootraydown)
+
+func leftstepboth():
+	if spawn_decal(leftfootray):
+		footstepL = update_footstep(leftfootray, 0)
+	elif spawn_decal(leftfootraydown):
+		footstepL = update_footstep(leftfootraydown, 0)
+	footstepL.play()
 
 func leftpalm():
 	spawn_decal(leftpalmray)
@@ -273,7 +308,8 @@ func spawn_decal(raycast: RayCast):
 		var correction = raycast.get_collision_normal()*decal_correction
 		b.global_transform.origin = raycast.get_collision_point() + correction
 		b.look_at(raycast.get_collision_point() + raycast.get_collision_normal(), Vector3.UP)
-	#raycast.enabled = false
+		return true
+	return false
 
 func spawn_light(raycast: RayCast):
 	if !raycast.get_collider(): return
@@ -281,4 +317,12 @@ func spawn_light(raycast: RayCast):
 	if visual_h:
 		_light_handler.create_light(visual_h, raycast.get_collision_point() + raycast.get_collision_normal()*light_correction)
 
-### Sound ###
+### Audio ###
+func update_footstep(raycast: RayCast, side: int):
+	var collider = raycast.get_collider()
+	var sound
+	if collider.is_in_group("Wood Structure"):
+		sound = woodarray[side].get_child((randi() % woodarray[side].get_child_count()))
+	else:
+		sound = stonearray[side].get_child((randi() % stonearray[side].get_child_count()))
+	return sound

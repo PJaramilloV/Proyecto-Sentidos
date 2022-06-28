@@ -17,7 +17,7 @@ func _ready():
 	self.contacts_reported = 1
 	
 	# light_handler = proyecto -> viewport -> Spatial -> LightHandler
-	_light_handler =  get_tree().root.get_node("Spatial/LightHandler") 
+	_light_handler =  self.owner.get_node("LightHandler")
 	
 	#mat_count = mesh.mesh.get_surface_count()
 	if is_rock:

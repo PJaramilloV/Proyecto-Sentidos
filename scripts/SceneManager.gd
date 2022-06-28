@@ -21,7 +21,9 @@ func _ready():
 
 func _process(delta):
 #	if Input.is_action_just_pressed("interact"):
-#		_death()
+#		#_death()
+#		pointer = 1
+#		_to_next_level()
 	pass
 
 func _start_game():
@@ -99,8 +101,10 @@ func _on_TransitionScreen_continuen():
 	reconnect()
 
 func _on_TransitionScreen_extra():
-	$CurrentScene.get_child(0).queue_free()
+	#$CurrentScene.get_child(0).queue_free()
+	$CurrentScene.remove_child($CurrentScene.get_child(0))
 	$CurrentScene.add_child(demo.instance())
+	reconnect()
 
 func _on_TransitionScreen_close():
 	get_tree().quit()

@@ -8,7 +8,7 @@ points = PoolVector3Array( 0.5, 0.4, 0.699961, 0.5, 0, 0.699961, 0.5, 0.4, 0.3, 
 
 [node name="wooden_beam_horizontal" type="Spatial"]
 
-[node name="StaticBody" type="StaticBody" parent="."]
+[node name="StaticBody" type="StaticBody" parent="." groups=["Wood Structure"]]
 
 [node name="Cave_Prop_Support_Ceiling_Beam_1" type="MeshInstance" parent="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.495942, -0.176016, -0.486229 )

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/PopUpText.gd" type="Script" id=1]
+[ext_resource path="res://audio/level/zapsplat_horror_dark_discordant_hit_long_decay_atmosphere_tension_darkness_sinister_pads_70841.mp3" type="AudioStream" id=2]
+
+[sub_resource type="BoxShape" id=1]
+
+[node name="PopUpManager" type="Area"]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource( 1 )
+area_active = true
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_PopUpText_body_entered"]
