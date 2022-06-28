@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/small/candlestick_triple.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -18,6 +18,9 @@
 [ext_resource path="res://assets/rooms/assemblies/Floor.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/boulders/holy_stone.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scripts/holy_stone.gd" type="Script" id=18]
+[ext_resource path="res://audio/hud/button-loop.wav" type="AudioStream" id=19]
+[ext_resource path="res://scenes/Interactive/PopUpManager.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/Interactive/PopUpText.tscn" type="PackedScene" id=21]
 
 [sub_resource type="CylinderShape" id=14]
 margin = 0.01
@@ -127,6 +130,7 @@ transform = Transform( -6.86269e-08, 0, 1.57, 0, 1.57, 0, -1.57, 0, -6.86269e-08
 transform = Transform( -0.139837, 0, 1.56959, 0, 2.841, 0, -6.13841, 0, -0.0357562, 5.05128, 3.29515, -4.15382 )
 
 [node name="PauseMenu" parent="." instance=ExtResource( 7 )]
+level = -1
 
 [node name="LightHandler" type="Node" parent="."]
 script = ExtResource( 9 )
@@ -159,3 +163,18 @@ transform = Transform( 1.92, 0, 0, 0, 0.228, 0, 0, 0, 0.458, -0.289616, 3.10872,
 [node name="holy_stone" parent="." instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.170262, 4.55643, -5.05621 )
 script = ExtResource( 18 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0697, 1.03157, 2.76416 )
+stream = ExtResource( 19 )
+autoplay = true
+max_distance = 10.0
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+
+[node name="PopUpManager" parent="." instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.938544, 4.64744, -5.07838 )
+text = "good morning"
+pop_up_text = NodePath("../PopUpText")
+
+[node name="PopUpText" parent="." instance=ExtResource( 21 )]

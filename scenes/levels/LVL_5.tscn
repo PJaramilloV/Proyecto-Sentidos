@@ -780,6 +780,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5009, 0.935255, 11.4541 )
 shape = SubResource( 3 )
 
 [node name="PauseMenu" parent="." instance=ExtResource( 10 )]
+level = 5
 
 [node name="LightHandler" type="Node" parent="."]
 script = ExtResource( 1 )

@@ -17,7 +17,7 @@
 
 [node name="Bridge_end" type="Spatial"]
 
-[node name="StaticBody" type="StaticBody" parent="."]
+[node name="StaticBody" type="StaticBody" parent="." groups=["Wood Structure"]]
 
 [node name="Cliff_Prop_Bridge_Rope_End_NO_GRASS" type="MeshInstance" parent="StaticBody"]
 transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.482628, -0.819498, 0.936872 )

@@ -17,7 +17,7 @@ func _ready():
 	self.contacts_reported = 1
 	
 	# light_handler = proyecto -> viewport -> Spatial -> LightHandler
-	_light_handler =  get_tree().root.get_node("Spatial/LightHandler") 
+	_light_handler =  self.owner.get_node("LightHandler")
 	
 	#mat_count = mesh.mesh.get_surface_count()
 	if is_rock:
@@ -82,7 +82,7 @@ func throw(instigator: Node):
 	#apply_central_impulse((self.global_transform.origin - instigator.global_transform.origin)*5)
 	var eje_x = get_viewport().get_mouse_position().x
 	var eje_y = get_viewport().get_mouse_position().y
-	var raton = Vector3(0,clamp((380-eje_y)/30, -3.5, 5),-clamp((eje_x-500)/50, -4.3, 4.3))
+	var raton = Vector3(0,clamp((583-eje_y)/30, -3.5, 5),-clamp((eje_x-938)/50, -4.3, 4.3))
 	apply_central_impulse(raton)
 	
 	
@@ -106,7 +106,7 @@ func get_predicted_trajectory():
 	var target_x   = get_viewport().get_mouse_position().x
 	var target_y   = get_viewport().get_mouse_position().y
 	var pos_0      = self.global_transform.origin
-	var vel_0      = Vector3(0,clamp((380-target_y)/30, -3.5, 5),-clamp((target_x-500)/50, -4.3, 4.3))
+	var vel_0      = Vector3(0,clamp((583-target_y)/30, -3.5, 5),-clamp((target_x-938)/50, -4.3, 4.3))
 	var points     = 13   # puntos a calcular despues de la posicion inicial
 	var trajectory = [pos_0] 
 	# Calcular simple parabola balistica

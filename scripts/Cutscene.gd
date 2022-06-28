@@ -5,7 +5,6 @@ var _target_pos : Vector3
 var _target_distance : float
 
 func enter(msg := {}) -> void:
-	print("aora custcene")
 	player.animation_tree.set("parameters/State/current", 0)
 	player._stand_shape.disabled = false
 	player._crouch_shape.disabled = true
@@ -29,7 +28,6 @@ func update_move_vel() -> void:
 		_cutscene_velocity = Vector3.ZERO
 
 func move_to(pos: Vector3, radius: float) -> void:
-	print("owoo")
 	_target_distance = radius
 	_target_pos = pos
 	update_move_vel()

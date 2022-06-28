@@ -1,17 +1,23 @@
 extends PlayerState
 
+var _jump_timer
+
 func enter(msg := {}) -> void:
 	player.animation_tree.set("parameters/State/current", 1)
 	player._stand_shape.disabled = true
 	player._crouch_shape.disabled = false
+	_jump_timer = 0
 	if msg.has("standcrouch"):
 		player.animation_tree.set("parameters/SCShot/active", true)
 
 func physics_update(delta: float) -> void:
-	if not player.is_on_floor():
-		state_machine.transition_to("Air")
-		return
-
+	if (!player.is_on_floor()) and !player.floorray.is_colliding():
+		_jump_timer += delta
+		if _jump_timer >= 0.175:
+			state_machine.transition_to("Air")
+			return
+	else:
+		_jump_timer = 0
 	var move_direction = player.get_input_direction()
 	
 	player._velocity.y -= player.gravity * delta 
