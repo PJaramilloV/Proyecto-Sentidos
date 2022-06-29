@@ -278,13 +278,13 @@ shape = SubResource( 2 )
 [node name="Killzones" type="Spatial" parent="."]
 
 [node name="Killzone" type="Area" parent="Killzones"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.43778, -17.4431, -32.5728 )
-collision_layer = 16
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24676, -17.4431, -32.5728 )
+collision_layer = 0
 collision_mask = 16
 script = ExtResource( 28 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Killzones/Killzone"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5009, -1.07726, 7.69326 )
+transform = Transform( 3.413, 0, 0, 0, 1, 0, 0, 0, 13.239, 0, 0, 0 )
 shape = SubResource( 3 )
 
 [node name="boulder_lethal" parent="Killzones" instance=ExtResource( 43 )]

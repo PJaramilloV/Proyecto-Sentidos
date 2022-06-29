@@ -538,7 +538,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.25697 )
 
 [node name="Killzone" type="Area" parent="Killzones"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.4431, -64.8749 )
-collision_layer = 16
+collision_layer = 0
 collision_mask = 16
 script = ExtResource( 14 )
 

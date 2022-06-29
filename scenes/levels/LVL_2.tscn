@@ -215,11 +215,12 @@ shape = SubResource( 2 )
 
 [node name="Killzone" type="Area" parent="Killzones"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71314, -14.0756, -32.5728 )
-collision_layer = 16
+collision_layer = 0
 collision_mask = 16
 script = ExtResource( 12 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Killzones/Killzone"]
+transform = Transform( 2.252, 0, 0, 0, 1, 0, 0, 0, 3.521, 0, 0, 0 )
 shape = SubResource( 3 )
 
 [node name="FRONTAL_BOUND" type="StaticBody" parent="."]
