@@ -58,6 +58,7 @@ func grab():
 # Enciende deteccion de colisiones y activa timer
 func activate_throw():
 	self.mode = RigidBody.MODE_RIGID
+	self.collision_mask=1
 	process_function = 'timer_run'
 	self.contact_monitor = true   # Detectar siguiente colision
 	thrown = true
