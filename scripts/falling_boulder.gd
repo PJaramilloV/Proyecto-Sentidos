@@ -21,7 +21,7 @@ func activating(delta):
 
 func falling(delta):
 	timer += delta
-	if timer > 1.3 and abs(hitbox.linear_velocity.y)  < 0.001:
+	if timer > 0.4 and abs(hitbox.linear_velocity.y)  < 0.25:
 		hitbox.mode = RigidBody.MODE_STATIC
 		hitbox.disconnect("body_entered", self, "_on_body_collided")
 		process_method = "sleep"

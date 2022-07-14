@@ -289,6 +289,7 @@ shape = SubResource( 3 )
 
 [node name="boulder_lethal" parent="Killzones" instance=ExtResource( 43 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33986, 3.13788, -64.4527 )
+delay = 0.5
 
 [node name="FRONTAL_BOUND" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.2608, 0 )
