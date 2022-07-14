@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://resources/tema_1.tres" type="Theme" id=1]
-[ext_resource path="res://images/main_menu_2.jpg" type="Texture" id=2]
+[ext_resource path="res://scenes/main_menu_background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://fonts/Medieval Sharp/MedievalSharp-Book.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://scripts/main_menu.gd" type="Script" id=4]
 [ext_resource path="res://icon.png" type="Texture" id=5]
@@ -101,11 +101,7 @@ size_flags_stretch_ratio = 0.0
 custom_fonts/font = SubResource( 2 )
 text = "Exit"
 
-[node name="MainMenu2" type="Sprite" parent="."]
-position = Vector2( 959.499, 541.5 )
-scale = Vector2( 0.350695, 0.296875 )
-z_index = -1
-texture = ExtResource( 2 )
+[node name="Background" parent="." instance=ExtResource( 2 )]
 
 [node name="Settings_Menu" parent="." instance=ExtResource( 10 )]
 anchor_right = 0.0

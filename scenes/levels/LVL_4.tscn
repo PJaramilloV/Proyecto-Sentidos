@@ -159,16 +159,16 @@ transform = Transform( 1.22, 0, 0, 0, 1, 0, 0, 0, 17.5, -1.484, 0, 8.773 )
 [node name="ledge" type="Spatial" parent="world/chasm/geometry"]
 
 [node name="Platform_square" parent="world/chasm/geometry/ledge" instance=ExtResource( 27 )]
-transform = Transform( 1, 0, 0, 0, 0.612, 0, 0, 0, 0.875, -4.65475, 0, 9.95797 )
+transform = Transform( 1, 0, 0, 0, 0.612, 0, 0, 0, 0.875, -4.51324, 0, 9.95797 )
 
 [node name="Platform_square2" parent="world/chasm/geometry/ledge" instance=ExtResource( 27 )]
-transform = Transform( 1, 0, 0, 0, 0.612, 0, 0, 0, 0.875, -4.65512, 0, 0.312 )
+transform = Transform( 1, 0, 0, 0, 0.612, 0, 0, 0, 0.875, -4.51361, 0, 0.312 )
 
 [node name="Platform_square3" parent="world/chasm/geometry/ledge" instance=ExtResource( 27 )]
-transform = Transform( 1, 0, 0, 0, 0.612, 0, 0, 0, 0.875, -4.65475, 0, 13.0757 )
+transform = Transform( 1, 0, 0, 0, 0.612, 0, 0, 0, 0.875, -4.51324, 0, 13.0757 )
 
 [node name="Platform_square4" parent="world/chasm/geometry/ledge" instance=ExtResource( 27 )]
-transform = Transform( 1, 0, 0, 0, 0.612, 0, 0, 0, 0.875, -4.65512, 0, 3.42976 )
+transform = Transform( 1, 0, 0, 0, 0.612, 0, 0, 0, 0.875, -4.51361, 0, 3.42976 )
 
 [node name="boulders" type="Spatial" parent="world/chasm/geometry"]
 
@@ -230,6 +230,27 @@ transform = Transform( 0.293, 0, 0, 0, 0.251838, 0.971803, 0, -0.516916, 0.47345
 
 [node name="boulder_sharp17" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
 transform = Transform( 0.206062, 0.130277, 0.728422, -0.206177, 0.205133, 0.664238, -0.0296448, -0.521127, 0.443565, -1.69232, -13.1803, 10.9304 )
+
+[node name="boulder_sharp28" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.188126, -0.0293792, 0.826906, -0.206177, 0.205133, 0.664238, -0.089158, -0.53636, 0.208746, -1.34113, -13.5256, 12.5595 )
+
+[node name="boulder_sharp29" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.114007, -0.304819, 0.814397, -0.206177, 0.205133, 0.664238, -0.174192, -0.442302, -0.253191, -1.34113, -13.5256, 14.2224 )
+
+[node name="boulder_sharp30" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.128123, -0.26691, 0.83266, -0.206177, 0.205133, 0.664238, -0.164088, -0.466159, -0.184461, -1.05703, -13.5256, 10.4468 )
+
+[node name="boulder_sharp31" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.161131, -0.235607, 0.708395, -0.196746, 0.0875698, 0.773549, -0.145523, -0.37927, -0.261457, -1.05703, -13.5256, 8.12543 )
+
+[node name="boulder_sharp32" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.355311, 0.130819, 0.781956, -0.438929, 0.06855, 0.662778, 0.038091, -0.430363, 0.343265, -1.27791, -13.5256, 6.34625 )
+
+[node name="boulder_sharp33" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.334891, -0.0752541, 0.852934, -0.438929, 0.06855, 0.662778, -0.124678, -0.443467, -0.0422882, -1.27791, -13.5256, 5.67866 )
+
+[node name="boulder_sharp34" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
+transform = Transform( 0.402962, 0.1478, 0.673016, -0.392897, 0.0871459, 0.750071, 0.0600801, -0.421409, 0.391157, -1.27791, -13.5256, 3.19535 )
 
 [node name="boulder_sharp18" parent="world/chasm/geometry/boulders/boulder_carpet" instance=ExtResource( 35 )]
 transform = Transform( 0.0790166, 0.0585334, 0.27489, -0.0145085, -0.197228, 1.03157, 0.0164283, -0.455713, -0.411145, -2.41743, -13.1803, 8.6848 )
@@ -747,7 +768,7 @@ collision_mask = 16
 script = ExtResource( 13 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Killzones/Killzone"]
-transform = Transform( 1.492, 0, 0, 0, 1.315, 0, 0, 0, 7.311, 0, 0, 0 )
+transform = Transform( 1.492, 0, 0, 0, 1.315, 0, 0, 0, 7.311, -0.463936, 0, 0 )
 shape = SubResource( 10 )
 
 [node name="Killzone2" type="Area" parent="Killzones"]
