@@ -9,7 +9,7 @@ const base_speed := 100
 const speed_up_multiplier := 5.0
 const title_color := Color.chartreuse
 
-var time_in_seconds = 0.2
+
 var scroll_speed := base_speed
 var speed_up := false # Mover los creditos hacia abajo
 #var speed_back := false # Mover los creditos hacia arriba
@@ -19,6 +19,7 @@ onready var line := $CreditsContainer/Line # label
 var started := false
 var finished := false
 
+var time_in_seconds = 4
 var section
 var section_next := true
 var section_timer := 0.0
@@ -120,7 +121,7 @@ func _process(delta):
 	var scroll_speed = base_speed * delta
 	if speed_pause or finished:
 		scroll_speed *= 0
-		$CreditsContainer/Line/Sprite_3.visible = true
+		$CreditsContainer/Line/Sprite_3.visible = false
 	else:
 
 		if section_next:
@@ -148,12 +149,9 @@ func _process(delta):
 		
 		
 		if lines.size() > 0:
-#			print(lines[0].rect_position.y)
 			if lines[-1].text == "Gabriel G. Orrego":
-				print("entre papu 1")
-				print(lines[-1].rect_position.y)
+
 				if lines[-1].rect_position.y<-100 and !finished:
-					print("entre papu 2")
 					finished = true
 					scroll_speed *= 0
 			for l in lines:
@@ -164,20 +162,10 @@ func _process(delta):
 
 
 
-func finish():
-	if not finished:
-		finished = true
-		# NOTE: This is called when the credits finish
-		# - Hook up your code to return to the relevant scene here, eg...
-		#get_tree().change_scene("res://scenes/MainMenu.tscn")
-
 
 func add_line():
 	var new_line = line.duplicate()
 	new_line.text = section.pop_front()
-	
-#	if new_line.text == "Gabriel G. Orrego":
-#		finished = true
 	
 	if new_line.text == "Art":
 		$CreditsContainer/Line/VideoPlayer.visible = true
@@ -192,9 +180,16 @@ func add_line():
 		$CreditsContainer/Line/Sprite_2.visible = true
 	if new_line.text == " ":
 		$CreditsContainer/Line/Sprite_2.visible = false
+	if new_line.text == "Damián Ibarra Z.":
+		$CreditsContainer/Line/Sprite_3.visible = true
+	if new_line.text == " ":
+		$CreditsContainer/Line/Sprite_3.visible = false
+	if new_line.text == "A game by Bacan Studios":
+		$CreditsContainer/Line/Profundis.visible = true
+	if new_line.text == "Programming":
+		$CreditsContainer/Line/Profundis.visible = false
 		
 
-		
 	if curr_line == 0:
 		new_line.add_color_override("font_color", title_color)
 	$CreditsContainer.add_child(new_line)
@@ -210,8 +205,6 @@ func add_line():
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_canel"):
-		finish()
 	if event.is_action_pressed("ui_down") and !event.is_echo():
 		speed_up = true
 	if event.is_action_released("ui_down") and !event.is_echo():
