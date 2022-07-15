@@ -5,12 +5,13 @@ onready var low = get_node("low")
 onready var core = get_node("core")
 onready var omni = get_node("omni")
 onready var ray = get_node("ray")
+onready var area = get_node("detector")
 var process_function = "sleep"
 var timer  = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	area.connect("body_entered", self, "activate")
 
 # Hacer nada
 func sleep(delta):
@@ -57,8 +58,8 @@ func active(delta):
 	core.scale = lerp(core.scale, core_size_scale, speed)
 	low.translation = lerp(low.translation, low_destination, speed)
 	low.rotation_degrees = lerp(low.rotation_degrees, low_rotation, speed)
-	omni.light_energy = lerp(omni.light_energy, 2.804 + cos(timer), 2*delta)
-	omni.light_specular = lerp(omni.light_specular, 2.66+ sin(timer), 2*delta)
+	omni.light_energy = lerp(omni.light_energy, 2.304 + 1.5*cos(timer), 2*delta)
+	omni.light_specular = lerp(omni.light_specular, 2.16+ 1.5*sin(timer), 2*delta)
 	ray.rotation_degrees = lerp(ray.rotation_degrees, Vector3(randf(), 90*timer, randf()), speed)
 	var emission = 0.35*(1-sin(3*timer))
 	top.get_node("Mesh").mesh.surface_get_material(0).emission_energy = emission
@@ -69,5 +70,6 @@ func _process(delta):
 	call(process_function, delta) # llamar process_function(delta)
 
 # Llamar para activar animacion
-func activate():
+func activate(player: Node):
 	process_function = "activating"
+	area.disconnect("body_entered", self, "activate")

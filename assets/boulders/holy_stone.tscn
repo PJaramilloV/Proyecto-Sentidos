@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/rooms/pieces/glfts/Stone_Floor_001.material" type="Material" id=1]
 [ext_resource path="res://assets/rooms/pieces/glfts/Stone_Floor.material" type="Material" id=2]
@@ -89,6 +89,8 @@ height = 6.0
 radial_segments = 8
 rings = 2
 
+[sub_resource type="BoxShape" id=16]
+
 [node name="holy_stone" type="Spatial"]
 
 [node name="top" type="StaticBody" parent="."]
@@ -133,3 +135,11 @@ light_energy = 0.0
 light_specular = 0.0
 omni_range = 6.104
 omni_attenuation = 1.8025
+
+[node name="detector" type="Area" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape" type="CollisionShape" parent="detector"]
+transform = Transform( 4, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0.826782, 0 )
+shape = SubResource( 16 )

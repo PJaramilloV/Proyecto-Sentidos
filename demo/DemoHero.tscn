@@ -170,7 +170,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95478, 3.2865, -3.06128 )
 transform = Transform( 1.92, 0, 0, 0, 0.228, 0, 0, 0, 0.458, -0.289616, 3.10872, -19.0409 )
 
 [node name="holy_stone" parent="." instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.170262, 4.55643, -5.05621 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.01, 1.65944, 7.49787 )
 script = ExtResource( 18 )
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
