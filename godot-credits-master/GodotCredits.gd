@@ -1,14 +1,19 @@
 extends Node2D
 
+
+
+
 const section_time := 2.0
 const line_time := 0.3
-const base_speed := 50
-const speed_up_multiplier := 10.0
+const base_speed := 100
+const speed_up_multiplier := 5.0
 const title_color := Color.chartreuse
 
+var time_in_seconds = 0.2
 var scroll_speed := base_speed
 var speed_up := false # Mover los creditos hacia abajo
-var speed_back := false # Mover los creditos hacia arriba
+#var speed_back := false # Mover los creditos hacia arriba
+var speed_pause := false
 
 onready var line := $CreditsContainer/Line # label
 var started := false
@@ -25,12 +30,9 @@ var credits = [
 	[
 		"A game by Bacan Studios"
 	],[
-		" "
-	],[
 		"Programming",
 		" ",
 		" ",
-
 		"Rodrigo Iturrieta",
 		" ",
 		" ",
@@ -42,28 +44,20 @@ var credits = [
 		" ",
 		"Diego Torreblanca"
 	],[
-		" "
-	],[
 		"Art",
 		" ",
 		" ",
 		"Artist Name"
-	],[
-		" "
 	],[
 		"Music",
 		" ",
 		" ",
 		"Musician Name"
 	],[
-		" "
-	],[
 		"Sound Effects",
 		" ",
 		" ",
 		"SFX Name"
-	],[
-		" "
 	],[
 		"Testers",
 		" ",
@@ -76,7 +70,13 @@ var credits = [
 		" ",
 		"Name 3"
 	],[
-		" "
+		"Assets",
+		" ",
+		" ",
+		"Low Poly Dungeon",
+		" ",
+		" ",
+		"Modular Terrain Pack"
 	],[
 		"Tools used",
 		" ",
@@ -87,63 +87,81 @@ var credits = [
 		"https://godotengine.org/license",
 		" ",
 		" ",
-		"Art created with My Favourite Art Program",
-		" ",
-		" ",
-		"https://myfavouriteartprogram.com"
 	],[
-		" "
+		"Curso",
+		" ",
+		" ",
+		"Taller de Diseño y Desarrollo de Videojuegos",
+		" ",
+		" ",
+		"CC5408",
 	],[
-		"Special thanks",
+		"Profesor",
 		" ",
 		" ",
-		"My parents",
+		"Elías Zelada"
+	],[
+		"Ayudantes",
 		" ",
 		" ",
-		"My friends",
+		"Christopher Marín R.",
 		" ",
 		" ",
-		"My pet rabbit"
+		"Damián Ibarra Z.",
+		" ",
+		" ",
+		"Gabriel G. Orrego"
 	]
 ]
 
 
 
 func _process(delta):
-
 	var scroll_speed = base_speed * delta
-	
-	if section_next:
-		section_timer += delta * speed_up_multiplier if speed_up else delta
-		if section_timer >= section_time:
-			section_timer -= section_time
-			
-			if credits.size() > 0:
-				started = true
-				section = credits.pop_front()
-				curr_line = 0
-				add_line()
-				
-
+	if speed_pause or finished:
+		scroll_speed *= 0
+		$CreditsContainer/Line/Sprite_3.visible = true
 	else:
-		line_timer += delta * speed_up_multiplier if speed_up else delta
-		if line_timer >= line_time:
-			line_timer -= line_time
-			add_line()
-	
-	if speed_up:
-		scroll_speed *= speed_up_multiplier
-	if speed_back:
-		scroll_speed *= -speed_up_multiplier
-	
-	if lines.size() > 0:
-		for l in lines:
-			l.rect_position.y -= scroll_speed
-			if l.rect_position.y < -l.get_line_height():
-				lines.erase(l)
-				l.queue_free()
-	elif started:
-		finish()
+
+		if section_next:
+			section_timer += delta * speed_up_multiplier if speed_up else delta
+			if section_timer >= section_time:
+				section_timer -= section_time
+				
+				if credits.size() > 0:
+					started = true
+					section = credits.pop_front()
+					curr_line = 0
+					add_line()
+					
+
+		else:
+			line_timer += delta * speed_up_multiplier if speed_up else delta
+			if line_timer >= line_time:
+				line_timer -= line_time
+				add_line()
+		
+		if speed_up:
+			scroll_speed *= speed_up_multiplier
+
+		
+		
+		
+		if lines.size() > 0:
+#			print(lines[0].rect_position.y)
+			if lines[-1].text == "Gabriel G. Orrego":
+				print("entre papu 1")
+				print(lines[-1].rect_position.y)
+				if lines[-1].rect_position.y<-100 and !finished:
+					print("entre papu 2")
+					finished = true
+					scroll_speed *= 0
+			for l in lines:
+				l.rect_position.y -= scroll_speed
+#				if l.rect_position.y < -l.get_line_height():
+#					lines.erase(l)
+#					l.queue_free()
+
 
 
 func finish():
@@ -158,19 +176,24 @@ func add_line():
 	var new_line = line.duplicate()
 	new_line.text = section.pop_front()
 	
+#	if new_line.text == "Gabriel G. Orrego":
+#		finished = true
 	
-	
-	if new_line.text == "Artist Name":
+	if new_line.text == "Art":
+		$CreditsContainer/Line/VideoPlayer.visible = true
+	if new_line.text == " ":
+		$CreditsContainer/Line/VideoPlayer.visible = false	
+	if new_line.text == "Programming":
 		$CreditsContainer/Line/Sprite_1.visible = true
 	if new_line.text == " ":
 		$CreditsContainer/Line/Sprite_1.visible = false
 		
-	if new_line.text == "Special thanks":
+	if new_line.text == "Profesor":
 		$CreditsContainer/Line/Sprite_2.visible = true
 	if new_line.text == " ":
 		$CreditsContainer/Line/Sprite_2.visible = false
 		
-		
+
 		
 	if curr_line == 0:
 		new_line.add_color_override("font_color", title_color)
@@ -187,13 +210,18 @@ func add_line():
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_canel"):
 		finish()
 	if event.is_action_pressed("ui_down") and !event.is_echo():
 		speed_up = true
 	if event.is_action_released("ui_down") and !event.is_echo():
 		speed_up = false
-	if event.is_action_pressed("ui_up") and !event.is_echo():
-		speed_back = true
-	if event.is_action_released("ui_up") and !event.is_echo():
-		speed_back = false
+#	if event.is_action_pressed("ui_up") and !event.is_echo():
+#		speed_back = true
+#	if event.is_action_released("ui_up") and !event.is_echo():
+#		speed_back = false
+	if event.is_action_pressed("ui_accept"):
+		if speed_pause == false:
+			speed_pause = true
+		else:
+			speed_pause = false
