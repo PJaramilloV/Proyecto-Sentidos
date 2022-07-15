@@ -147,6 +147,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.34658, 3.28649, 0.9212 )
 
 [node name="key_golden" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.03628, 3.35849, -1.82456 )
+is_key = true
 
 [node name="bone" parent="." instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.20195, 3.28649, -0.888447 )

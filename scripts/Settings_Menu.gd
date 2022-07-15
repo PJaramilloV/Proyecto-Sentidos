@@ -6,7 +6,7 @@ onready var vsync_btn = $Settings_Tab/Video/MarginContainer/Video_Settings/Vsync
 onready var display_fps_btn = $Settings_Tab/Video/MarginContainer/Video_Settings/FPS_Button
 onready var max_fps_val = $Settings_Tab/Video/MarginContainer/Video_Settings/FPSLimit_Option
 onready var bloom_btn = $Settings_Tab/Video/MarginContainer/Video_Settings/Bloom_Button
-onready var brigthness_slider = $Settings_Tab/Video/MarginContainer/Video_Settings/Brightness_Slider
+onready var brightness_slider = $Settings_Tab/Video/MarginContainer/Video_Settings/Brightness_Slider
 
 # Audio Settings
 onready var master_vol_slider = $Settings_Tab/Audio/Audio_Settings/MasterVol_Slider
@@ -23,7 +23,7 @@ onready var mouse_sense_slider = $Settings_Tab/Gameplay/Gameplay_Settings/HBoxCo
 func _ready():
 	display_options.select(1 if SaveSettings.game_data.fullscreen_on else 0)
 	GlobalSettings.toggle_fullscreen(SaveSettings.game_data.fullscreen_on)
-	
+	brightness_slider.value = SaveSettings.game_data.brightness
 	vsync_btn.pressed = SaveSettings.game_data.vsync_on
 	
 	
@@ -54,7 +54,7 @@ func _on_Bloom_Button_toggled(button_pressed):
 
 
 func _on_Brightness_Slider_value_changed(value):
-	pass # Replace with function body.
+	GlobalSettings.update_brightness(value)
 
 
 func _on_MasterVol_Slider_value_changed(value):

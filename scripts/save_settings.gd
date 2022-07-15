@@ -16,6 +16,7 @@ func load_data():
 			"fullscreen_on": false,
 			"vsync_on": false,
 			"max_fps": 60,
+			"brightness": 1,
 		}
 		save_data()
 	file.open(SAVEFILE_SETTINGS, File.READ)
