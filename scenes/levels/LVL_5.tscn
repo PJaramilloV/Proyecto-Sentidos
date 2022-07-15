@@ -40,7 +40,7 @@
 [ext_resource path="res://assets/boulders/throwables/rock_egg.tscn" type="PackedScene" id=38]
 [ext_resource path="res://assets/boulders/throwables/rock_capsule.tscn" type="PackedScene" id=39]
 [ext_resource path="res://assets/boulders/boulder.tscn" type="PackedScene" id=40]
-[ext_resource path="res://assets/boulders/boulder_lethal_vertical.tscn" type="PackedScene" id=41]
+[ext_resource path="res://scenes/Interactive/DoorManager.tscn" type="PackedScene" id=41]
 
 [sub_resource type="Image" id=15]
 data = {
@@ -520,11 +520,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05036, 13.2633, -48.2378 )
 
 [node name="boulder_lethal" parent="world/lower_path/labyrinth_traps" instance=ExtResource( 41 )]
 transform = Transform( 0.67, 0, 0, 0, 0.595, 0, 0, 0, 0.798, 1.89161, -5.71366, 20.993 )
-delay = 1.0
 
 [node name="boulder_lethal2" parent="world/lower_path/labyrinth_traps" instance=ExtResource( 41 )]
 transform = Transform( 0.67, 0, 0, 0, 0.595, 0, 0, 0, 0.798, 1.89161, 5.81244, -24.3865 )
-delay = 1.0
 
 [node name="torches" type="Spatial" parent="world/lower_path"]
 
@@ -681,17 +679,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.569596, -0.099, -19.0083 )
 
 [node name="locked_door" type="Spatial" parent="world/upper_path/temple"]
 
-[node name="wood_gate_door_L" parent="world/upper_path/temple/locked_door" instance=ExtResource( 23 )]
-transform = Transform( 1.026, 0, 0, 0, 1.049, 0, 0, 0, 1.322, -7.40919, -0.166267, -0.668652 )
+[node name="DoorManager" parent="world/upper_path/temple/locked_door" instance=ExtResource( 41 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.64845, 0.974881, -0.368164 )
 
-[node name="wood_gate_door_R" parent="world/upper_path/temple/locked_door" instance=ExtResource( 20 )]
-transform = Transform( 1.026, 0, 0, 0, 1.049, 0, 0, 0, 1.322, -3.94428, -0.166349, -0.662937 )
-
-[node name="Mesh" type="MeshInstance" parent="world/upper_path/temple/locked_door"]
-transform = Transform( 5.599, 0, 0, 0, 4.8543, 0.301831, 0, -0.899842, 1.62826, -5.69928, 0.68909, -0.311352 )
+[node name="Mesh" type="MeshInstance" parent="world/upper_path/temple/locked_door/DoorManager"]
+transform = Transform( 5.599, 0, 0, 0, 4.8543, 0.301831, 0, -0.899842, 1.62826, -0.0508308, -0.285791, 0.0568123 )
 mesh = SubResource( 7 )
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 material/0 = null
+
+[node name="wood_gate_door_R" parent="world/upper_path/temple/locked_door/DoorManager" instance=ExtResource( 20 )]
+transform = Transform( 1.026, 0, 0, 0, 1.049, 0, 0, 0, 1.322, 1.70417, -1.14123, -0.294773 )
+
+[node name="wood_gate_door_L" parent="world/upper_path/temple/locked_door/DoorManager" instance=ExtResource( 23 )]
+transform = Transform( 1.026, 0, 0, 0, 1.049, 0, 0, 0, 1.322, -1.76074, -1.14115, -0.300488 )
 
 [node name="closed_door" type="Spatial" parent="world/upper_path/temple"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.66459, 0.037793, -24.6357 )
@@ -746,7 +747,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.82, 3.119, -0.0723381 )
 script = ExtResource( 35 )
 
 [node name="Player" parent="." instance=ExtResource( 26 )]
-transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, -7.62939e-06, -37.3191, -46.4628 )
+transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, -7.39097e-06, 0.0923871, 3.93724 )
 throw = true
 brace = true
 
@@ -802,6 +803,7 @@ cast_shadow = 0
 
 [node name="key_golden" parent="." instance=ExtResource( 36 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.278375, -14.6251, -88.2615 )
+is_key = true
 
 [node name="rock_sphere" parent="." instance=ExtResource( 37 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.88272, 0.224975, -3.35166 )

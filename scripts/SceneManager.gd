@@ -18,6 +18,7 @@ func _ready():
 	$CurrentScene.add_child(main_menu.instance())
 	pointer = $CurrentScene/Control.level
 	reconnect_menu()
+	GlobalSettings.connect("brightness_updated", self, "_update_brightness")
 
 func _process(delta):
 #	if Input.is_action_just_pressed("interact"):
@@ -43,6 +44,8 @@ func reconnect():
 		$CurrentScene.get_child(0).get_node("NextLevelArea").connect("to_next_level", self, "_to_next_level")
 #	for _i in $CurrentScene.get_child(0).get_children():
 #		print(_i)
+	$CurrentScene/Spatial/WorldEnvironment.environment.adjustment_enabled = true
+	$CurrentScene/Spatial/WorldEnvironment.environment.adjustment_brightness = SaveSettings.game_data.brightness
 
 func reconnect_menu():
 	$CurrentScene/Control.connect("startgame", self, "_start_game")
@@ -63,10 +66,13 @@ func _continuegame(level):
 	temp_level = level
 	$TransitionScreen.transition_continue()
 
+func _update_brightness(value):
+	$CurrentScene/Spatial/WorldEnvironment.environment.adjustment_enabled = true
+	$CurrentScene/Spatial/WorldEnvironment.environment.adjustment_brightness = value
+
 func _on_TransitionScreen_transitioned():
 	$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(level2.instance())
-	print("Swapped in SceneTwo")
 
 func _on_TransitionScreen_main_menu():
 	#$CurrentScene.get_child(0).queue_free()

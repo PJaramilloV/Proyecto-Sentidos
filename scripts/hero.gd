@@ -43,6 +43,7 @@ onready var _stand_shape: CollisionShape = $CollisionShape
 onready var _crouch_shape: CollisionShape = $CollisionShapeCrouch
 
 onready var area_grab = $area_grab
+onready var _ooutline := preload("res://assets/character/ooutline.tres")
 onready var _woutline := preload("res://assets/character/woutline.tres")
 onready var _youtline := preload("res://assets/character/youtline.tres")
 
@@ -122,7 +123,10 @@ func _physics_process(delta):
 		
 		# Objeto a pintar con outline amarillo
 		selected = _objects[_pointer]
-		selected.outline(_youtline)
+		if selected.is_key:
+			selected.outline(_ooutline)
+		else:
+			selected.outline(_youtline)
 
 	#### Tomar objetos ####
 	if Input.is_action_just_pressed("grab"):
@@ -137,6 +141,7 @@ func _physics_process(delta):
 				held_object.grab()
 	#se pasa acá  cuando se toma un objeto, justo despues de entrar al tomado
 	if held_object:
+		#print(held_object)
 		held_object.display_predicted_trajectory(righthand.global_transform.origin)
 	#### Fin tomar objetos ####
 	

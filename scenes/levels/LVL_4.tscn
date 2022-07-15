@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://assets/rooms/hallway_cave_short.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/assemblies/inner_corner.tscn" type="PackedScene" id=2]
@@ -47,6 +47,7 @@
 [ext_resource path="res://assets/rooms/collider_pieces/wood_gate_door_R.tscn" type="PackedScene" id=45]
 [ext_resource path="res://scripts/LightHandler.gd" type="Script" id=46]
 [ext_resource path="res://scenes/transitions/NextLevelActivator.tscn" type="PackedScene" id=47]
+[ext_resource path="res://scenes/Interactive/DoorManager.tscn" type="PackedScene" id=48]
 
 [sub_resource type="Image" id=13]
 data = {
@@ -104,6 +105,11 @@ flags_unshaded = true
 background_mode = 1
 ambient_light_energy = 0.99
 ambient_light_sky_contribution = 0.0
+auto_exposure_scale = 0.01
+dof_blur_near_distance = 4.31
+glow_blend_mode = 0
+adjustment_enabled = true
+adjustment_brightness = 2.0
 
 [node name="Spatial" type="Spatial"]
 
@@ -622,6 +628,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1.215, 0, 1, -5.31093e-08, -0.
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -8.26924, 3.26633e-05, -12.6485 )
 
 [node name="decor" type="Spatial" parent="world/high_path/relic_room"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.087, 0 )
 
 [node name="center" parent="world/high_path/relic_room/decor" instance=ExtResource( 16 )]
 transform = Transform( 6.00001, 0, 6.51926e-09, 0, 1, 0, -6.51926e-09, 0, 6.00001, -3.03918, -4.58455, -11.7408 )
@@ -643,16 +650,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.82457 )
 [node name="stone_wall_gate" parent="world/low_path/hallway_cave/stone_separator_door" instance=ExtResource( 43 )]
 transform = Transform( 0.8, 0, 0, 0, 0.75, 0, 0, 0, 1, 0, 0.716, 0 )
 
-[node name="wood_gate_door_L" parent="world/low_path/hallway_cave/stone_separator_door/stone_wall_gate" instance=ExtResource( 42 )]
-transform = Transform( 1.026, 0, 0, 0, 1.049, 0, 0, 0, 1.322, -1.70992, -0.166267, -0.186699 )
+[node name="DoorManager" parent="world/low_path/hallway_cave/stone_separator_door/stone_wall_gate" instance=ExtResource( 48 )]
+transform = Transform( 1.25, 0, 0, 0, 1.33333, 0, 0, 0, 1, 0, 0.81551, 0.12986 )
 
-[node name="wood_gate_door_R" parent="world/low_path/hallway_cave/stone_separator_door/stone_wall_gate" instance=ExtResource( 45 )]
-transform = Transform( 1.026, 0, 0, 0, 1.049, 0, 0, 0, 1.322, 1.75499, -0.166349, -0.180984 )
-
-[node name="Mesh" type="MeshInstance" parent="world/low_path/hallway_cave/stone_separator_door/stone_wall_gate"]
-transform = Transform( 5.599, 0, 0, 0, 4.8543, 0.301831, 0, -0.899842, 1.62826, 0, 0.68909, 0.170601 )
+[node name="Mesh" type="MeshInstance" parent="world/low_path/hallway_cave/stone_separator_door/stone_wall_gate/DoorManager"]
+transform = Transform( 4.4792, 0, 0, 0, 3.64073, 0.226373, 0, -0.899842, 1.62826, 0, -0.0948153, 0.040741 )
 mesh = SubResource( 8 )
+skeleton = NodePath("../..")
 material/0 = null
+
+[node name="wood_gate_door_R" parent="world/low_path/hallway_cave/stone_separator_door/stone_wall_gate/DoorManager" instance=ExtResource( 45 )]
+transform = Transform( 0.8208, 0, 0, 0, 0.78675, 0, 0, 0, 1.322, 1.40399, -0.736394, -0.310844 )
+
+[node name="wood_gate_door_L" parent="world/low_path/hallway_cave/stone_separator_door/stone_wall_gate/DoorManager" instance=ExtResource( 42 )]
+transform = Transform( 0.8208, 0, 0, 0, 0.78675, 0, 0, 0, 1.322, -1.36794, -0.736333, -0.316559 )
 
 [node name="stone_wall_gate2" parent="world/low_path/hallway_cave/stone_separator_door" instance=ExtResource( 43 )]
 transform = Transform( 0.8, 0, 0, 0, 0.75, 0, 0, 0, -1, 0, 0.716, -0.159 )
@@ -824,6 +835,7 @@ transform = Transform( -0.931266, 0, 0.36434, 0, 1, 0, -0.36434, 0, -0.931266, -
 
 [node name="key_silver" parent="." instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.38042, 1.02711, -71.2565 )
+is_key = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 12 )

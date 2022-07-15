@@ -33,6 +33,8 @@ func toggle_bloom(value):
 	
 func update_brightness(value):
 	emit_signal("brightness_updated",value)
+	SaveSettings.game_data.brightness = value
+	SaveSettings.save_data()
 
 func update_master_vol(vol):
 	AudioServer.set_bus_volume_db(0,vol)

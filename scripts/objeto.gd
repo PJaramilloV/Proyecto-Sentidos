@@ -10,11 +10,15 @@ var air_time = 0
 var AIR_TIME_LIMIT = 0.2
 var _light_handler: LightHandler = null
 export(bool) var is_rock = false
+export(bool) var is_key = false
 
 
 # get_active_material && get_surface_materia
 func _ready():
 	self.contacts_reported = 1
+	
+	if is_key:
+		throws_before_break = -1
 	
 	# light_handler = proyecto -> viewport -> Spatial -> LightHandler
 	_light_handler =  self.owner.get_node("LightHandler")
@@ -123,13 +127,14 @@ func get_predicted_trajectory():
 	
 # Graficar parabola desde la posición actual "from_position"
 func display_predicted_trajectory(from_position):
-	self.global_transform.origin = from_position
-	var trajectory_points = get_predicted_trajectory()
-	clear_path()
-	path.begin(Mesh.PRIMITIVE_LINES, null)
-	for point in trajectory_points:
-		path.add_vertex(point)
-	path.end()
+	if get_viewport():
+		self.global_transform.origin = from_position
+		var trajectory_points = get_predicted_trajectory()
+		clear_path()
+		path.begin(Mesh.PRIMITIVE_LINES, null)
+		for point in trajectory_points:
+			path.add_vertex(point)
+		path.end()
 
 # Borrar parabola
 func clear_path():
@@ -151,8 +156,9 @@ func on_body_collided(surface: StaticBody):
 
 # Incluir la generacion de luces aca y sonido (maybe particulas?)
 func valid_collision(surface: StaticBody):
-	create_light(surface)
-	self.contact_monitor = false
+	if !is_key:
+		create_light(surface)
+		self.contact_monitor = false
 	thrown = false
 	throws_before_break -= 1
 
