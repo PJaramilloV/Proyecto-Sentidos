@@ -68,13 +68,18 @@ extents = Vector3( 19.16, 1, 79.7392 )
 [sub_resource type="BoxShape" id=10]
 extents = Vector3( 4.26562, 1, 4.35318 )
 
-[sub_resource type="Environment" id=9]
+[sub_resource type="SpatialMaterial" id=4]
+flags_unshaded = true
+
+[sub_resource type="Environment" id=12]
 background_mode = 1
 ambient_light_energy = 0.99
 ambient_light_sky_contribution = 0.0
-
-[sub_resource type="SpatialMaterial" id=4]
-flags_unshaded = true
+auto_exposure_scale = 0.01
+dof_blur_near_distance = 4.31
+glow_blend_mode = 0
+adjustment_enabled = true
+adjustment_brightness = 2.0
 
 [node name="Spatial" type="Spatial"]
 
@@ -129,13 +134,13 @@ transform = Transform( 0.797113, -0.355894, -1.00389, 0.35838, 0.929015, -0.1896
 [node name="cover" type="Spatial" parent="world/chasm/chasm_lower/hallway_short/easter_egg"]
 
 [node name="Tesselated_slope" type="MeshInstance" parent="world/chasm/chasm_lower/hallway_short/easter_egg/cover"]
-transform = Transform( -7.65386e-08, 1, 0, -1.751, -4.37114e-08, 0, 0, 0, 1, 2.21602, 0.996115, -3.41493 )
+transform = Transform( -7.89865e-08, 1, 0, 1.807, 4.37114e-08, 9.61651e-08, 1.57973e-07, 3.82137e-15, -1.1, 2.21602, 2.6951, -1.18293 )
 mesh = ExtResource( 33 )
 skeleton = NodePath("../../..")
 material/0 = null
 
 [node name="Tesselated_slope2" type="MeshInstance" parent="world/chasm/chasm_lower/hallway_short/easter_egg/cover"]
-transform = Transform( 3.44879e-15, -4.37114e-08, 2.034, -1.805, -4.37114e-08, -1.69407e-21, 7.88991e-08, -1, -8.8909e-08, -2.52528, 0.996115, -3.38129 )
+transform = Transform( 3.44879e-15, -4.37114e-08, 2.034, -1.805, -4.37114e-08, -1.69407e-21, 7.88991e-08, -1, -8.8909e-08, -2.42414, 0.996115, -3.37425 )
 mesh = ExtResource( 33 )
 skeleton = NodePath("../../..")
 material/0 = null
@@ -425,7 +430,7 @@ transform = Transform( 0.984806, 0, 0.173648, 6.98492e-10, 0.25, 0, -0.173648, 0
 transform = Transform( -0.0302413, -5.54187e-05, 0.999543, -3.35881e-06, 0.25, 0.000221671, -0.999541, 8.37026e-07, -0.0302409, 1.05938, 0.300359, 0.113678 )
 
 [node name="wooden_beam_horizontal4" parent="world/chasm_slim_small/pit/plank_bridge" instance=ExtResource( 31 )]
-transform = Transform( -0.822291, -0.0107362, 0.567442, -0.0352435, 0.249769, 0.0245395, -0.567972, 4.50037e-05, -0.823046, 0.418425, 0.404813, -1.32681 )
+transform = Transform( -0.830343, 0.0662042, 0.490306, 0.229565, 0.241073, -0.132046, -0.507766, 0.000728498, -0.861489, 0.418425, 0.404813, -1.32682 )
 
 [node name="Slope4" parent="world" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, -0.0668821, 5.55226, -67.132 )
@@ -508,9 +513,6 @@ script = ExtResource( 12 )
 [node name="CollisionShape" type="CollisionShape" parent="Killzones/Killzone2"]
 shape = SubResource( 10 )
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 9 )
-
 [node name="PauseMenu" parent="." instance=ExtResource( 2 )]
 level = 3
 
@@ -525,7 +527,7 @@ cast_shadow = 0
 transform = Transform( 0.904939, 0, -0.425542, 0, 1, 0, 0.425542, 0, 0.904939, -1.70077, -14.4326, -18.6901 )
 
 [node name="torch" parent="." instance=ExtResource( 21 )]
-transform = Transform( 9.96273e-10, 0.0227921, 0.99974, 1, -4.37114e-08, 0, 4.37e-08, 0.99974, -0.0227921, -1.19629, -14.2759, -17.7 )
+transform = Transform( -3.17034e-08, -0.72529, 0.688443, 1, -4.37114e-08, 0, 3.00928e-08, 0.688443, 0.72529, -1.19629, -14.2759, -17.7 )
 
 [node name="rock_capsule" parent="." instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9372, 3.58941, -20.3292 )
@@ -565,6 +567,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.01557, 3.87604, -51.5946 )
 
 [node name="rock_sphere4" parent="." instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68425, 3.95645, -51.9459 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 12 )
 
 [node name="NextLevelArea" parent="." instance=ExtResource( 30 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.162527, 7.83884, -74.2883 )
