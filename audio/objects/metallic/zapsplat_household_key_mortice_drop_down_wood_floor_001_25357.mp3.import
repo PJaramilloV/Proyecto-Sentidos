@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_household_key_mortice_drop_down_wood_floor_001_25357.mp3-10b8ab2e1775e87a1dfde62b488271bf.mp3str"
+
+[deps]
+
+source_file="res://audio/objects/metallic/zapsplat_household_key_mortice_drop_down_wood_floor_001_25357.mp3"
+dest_files=[ "res://.import/zapsplat_household_key_mortice_drop_down_wood_floor_001_25357.mp3-10b8ab2e1775e87a1dfde62b488271bf.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

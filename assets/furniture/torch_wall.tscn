@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/furniture/raw_files/torch_wall.gltf" type="PackedScene" id=1]
 [ext_resource path="res://assets/furniture/raw_files/Wood_Basic.material" type="Material" id=2]
 [ext_resource path="res://assets/furniture/raw_files/Metal_Rusty.material" type="Material" id=3]
 [ext_resource path="res://assets/furniture/raw_files/Ember.material" type="Material" id=4]
+[ext_resource path="res://scripts/firenoise.gd" type="Script" id=5]
+[ext_resource path="res://audio/objects/audio_hero_FireSmallWoodRoarH_PE051901_360.mp3" type="AudioStream" id=6]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "torch_wall_Torch_Wall"
@@ -79,7 +81,12 @@ light_cull_mask = 4294967231
 shadow_enabled = true
 omni_range = 3.963
 omni_attenuation = 1.99999
+script = ExtResource( 5 )
 
 [node name="Torch_Wall" parent="." index="2"]
 use_in_baked_light = true
 mesh = null
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38651, 0 )
+stream = ExtResource( 6 )

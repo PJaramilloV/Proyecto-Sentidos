@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_foley_footstep_shoe_single_walking_on_hollow_wood_floor_015_74339.mp3-f0d03ffa355df21f36eca34f8ad7d475.mp3str"
+
+[deps]
+
+source_file="res://audio/footsteps/wood/zapsplat_foley_footstep_shoe_single_walking_on_hollow_wood_floor_015_74339.mp3"
+dest_files=[ "res://.import/zapsplat_foley_footstep_shoe_single_walking_on_hollow_wood_floor_015_74339.mp3-f0d03ffa355df21f36eca34f8ad7d475.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

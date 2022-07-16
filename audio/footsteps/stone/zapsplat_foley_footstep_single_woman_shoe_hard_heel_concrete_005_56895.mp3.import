@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_foley_footstep_single_woman_shoe_hard_heel_concrete_005_56895.mp3-bf1a2b7c9ab63dde2cd4833cd2e235e4.mp3str"
+
+[deps]
+
+source_file="res://audio/footsteps/stone/zapsplat_foley_footstep_single_woman_shoe_hard_heel_concrete_005_56895.mp3"
+dest_files=[ "res://.import/zapsplat_foley_footstep_single_woman_shoe_hard_heel_concrete_005_56895.mp3-bf1a2b7c9ab63dde2cd4833cd2e235e4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

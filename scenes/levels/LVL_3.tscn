@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://assets/rooms/assemblies/patch_ceiling.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=2]
@@ -30,6 +30,8 @@
 [ext_resource path="res://assets/rooms/pieces/Cliff_Prop_Bridge_Rope_Middle_Support.obj" type="ArrayMesh" id=28]
 [ext_resource path="res://assets/rooms/pieces/Cliff_Prop_Bridge_Rope_Middle_NO_ROPE.obj" type="ArrayMesh" id=29]
 [ext_resource path="res://scenes/transitions/NextLevelActivator.tscn" type="PackedScene" id=30]
+[ext_resource path="res://scenes/Interactive/PopUpManager.tscn" type="PackedScene" id=31]
+[ext_resource path="res://scenes/Interactive/PopUpText.tscn" type="PackedScene" id=32]
 
 [sub_resource type="CapsuleMesh" id=5]
 
@@ -423,6 +425,13 @@ environment = SubResource( 9 )
 
 [node name="NextLevelArea" parent="." instance=ExtResource( 30 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.162527, 7.83884, -74.2883 )
+
+[node name="PopUpManager" parent="." instance=ExtResource( 31 )]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.68582, -17.1681 )
+text = "Level 3"
+pop_up_text = NodePath("../PopUpText")
+
+[node name="PopUpText" parent="." instance=ExtResource( 32 )]
 
 [connection signal="body_entered" from="Checkpoints/Checkpoint_start" to="Checkpoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint" to="Checkpoints/Checkpoint" method="_on_area_entered"]

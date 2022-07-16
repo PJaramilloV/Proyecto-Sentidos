@@ -3,6 +3,7 @@ var my_material := []
 var mat_count
 onready var path = get_parent().get_node("trajectory")
 onready var mesh = find_node("Mesh")
+onready var audio = get_node_or_null("Audio")
 var throws_before_break = 4
 var thrown = false
 var process_function = 'sleep'
@@ -151,6 +152,7 @@ func on_body_collided(surface: StaticBody):
 	if(! thrown): return # Evitar colisiones dobles
 	if(surface is StaticBody): # al colisionar con superficies, ejecutar
 		valid_collision(surface)
+		noise()
 		if(! throws_before_break): # destruir si se tiro "throws_before_break" veces
 			destroy()
 
@@ -165,3 +167,8 @@ func valid_collision(surface: StaticBody):
 # Añadir sonido despues (?
 func destroy():
 	get_parent().remove_child(self)
+
+func noise():
+	if audio:
+		var children = audio.get_children()
+		children[randi() % children.size()].play()
