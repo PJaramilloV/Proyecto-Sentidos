@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/rooms/pieces/Cave_Prop_Minecart_1.obj" type="ArrayMesh" id=1]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( -0.750029, 0.075, -0.290273, -0.85, 0.149975, -0.270128, -0.85, 0.170025, -0.305022, -0.750029, 0.115183, -0.35982, -0.650059, 0.149975, -0.475054, -0.250039, 0.075, -0.290273, -0.750029, 0.075, 0.290091, -0.85, 0.149975, 0.270066, -0.85, 0.204901, -0.325047, -0.537549, 0.518702, -0.6, -0.35001, 0.149975, -0.475054, -0.250039, 0.115183, -0.35982, -0.15, 0.170025, -0.305022, -0.15, 0.149975, -0.270128, -0.250039, 0.075, 0.290091, -0.650059, 0.149975, 0.474993, -0.750029, 0.115183, 0.359759, -0.85, 0.170025, 0.30484, -0.85, 0.245084, -0.325047, -0.800049, 0.935616, -0.375049, -0.774902, 0.935616, -0.40011, -0.537549, 0.53117, -0.6, -0.46252, 0.518702, -0.6, -0.15, 0.204901, -0.325047, -0.15, 0.149975, 0.270066, -0.15, 0.170025, 0.30484, -0.250039, 0.115183, 0.359759, -0.35001, 0.149975, 0.474993, -0.85, 0.204901, 0.324985, -0.506304, 0.529064, 0.625, -0.85, 0.279876, -0.305022, -0.85, 0.299926, -0.270128, -0.800049, 0.935616, 0.374988, -0.225166, 0.935616, -0.40011, -0.46252, 0.53117, -0.6, -0.20002, 0.935616, -0.375049, -0.15, 0.245084, -0.325047, -0.15, 0.204901, 0.324985, -0.493765, 0.529064, 0.625, -0.774902, 0.935616, 0.399929, -0.85, 0.245084, 0.324985, -0.506304, 0.549788, 0.625, -0.85, 0.299926, 0.270066, -0.85, 0.279876, 0.30484, -0.15, 0.299926, -0.270128, -0.15, 0.279876, -0.305022, -0.20002, 0.935616, 0.374988, -0.15, 0.245084, 0.324985, -0.225166, 0.935616, 0.399929, -0.493765, 0.549788, 0.625, -0.15, 0.299926, 0.270066, -0.15, 0.279876, 0.30484 )
+
+[node name="minecart" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="Cave_Prop_Minecart_1" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349133, 0, 0 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../../..")
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+material/27 = null
+material/28 = null
+material/29 = null
+material/30 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349133, 0, 0 )
+shape = SubResource( 1 )
