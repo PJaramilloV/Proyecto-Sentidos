@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_foley_sunscreen_bottle_empty_drop_on_ground_001_22199.mp3-f6747fdcf3695e290f207854c9867707.mp3str"
+
+[deps]
+
+source_file="res://audio/objects/generic/zapsplat_foley_sunscreen_bottle_empty_drop_on_ground_001_22199.mp3"
+dest_files=[ "res://.import/zapsplat_foley_sunscreen_bottle_empty_drop_on_ground_001_22199.mp3-f6747fdcf3695e290f207854c9867707.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

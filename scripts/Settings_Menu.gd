@@ -12,6 +12,7 @@ onready var brightness_slider = $Settings_Tab/Video/MarginContainer/Video_Settin
 onready var master_vol_slider = $Settings_Tab/Audio/Audio_Settings/MasterVol_Slider
 onready var music_vol_slider = $Settings_Tab/Audio/Audio_Settings/MusicVol_Slider
 onready var sfx_vol_slider = $Settings_Tab/Audio/Audio_Settings/SfxVol_Slider
+onready var ui_vol_slider = $Settings_Tab/Audio/Audio_Settings/UIVol_Slider
 
 # Gameplay Settings
 onready var fov_val = $Settings_Tab/Gameplay/Gameplay_Settings/HBoxContainer/FOV_Value
@@ -32,6 +33,11 @@ func _ready():
 	
 	max_fps_val.select(1 if SaveSettings.game_data.max_fps == 60 else 0)
 	GlobalSettings.set_max_fps(SaveSettings.game_data.max_fps)
+	
+	master_vol_slider.value = SaveSettings.game_data.master_volume
+	music_vol_slider.value = SaveSettings.game_data.music_volume
+	sfx_vol_slider.value = SaveSettings.game_data.sfx_volume
+	ui_vol_slider.value = SaveSettings.game_data.ui_volume
 
 func _on_Display_Option_item_selected(index):
 	GlobalSettings.toggle_fullscreen(true if index == 1 else false)
@@ -58,20 +64,19 @@ func _on_Brightness_Slider_value_changed(value):
 
 
 func _on_MasterVol_Slider_value_changed(value):
-	pass # Replace with function body.
-
+	GlobalSettings.update_master_vol(value)
 
 func _on_MusicVol_Slider_value_changed(value):
-	pass # Replace with function body.
-
+	GlobalSettings.update_music_vol(value)
 
 func _on_SfxVol_Slider_value_changed(value):
-	pass # Replace with function body.
+	GlobalSettings.update_sfx_vol(value)
 
+func _on_UIVol_Slider_value_changed(value):
+	GlobalSettings.update_ui_vol(value)
 
 func _on_FOV_Slider_value_changed(value):
 	pass # Replace with function body.
-
 
 func _on_MouseSense_Slider_value_changed(value):
 	pass # Replace with function body.

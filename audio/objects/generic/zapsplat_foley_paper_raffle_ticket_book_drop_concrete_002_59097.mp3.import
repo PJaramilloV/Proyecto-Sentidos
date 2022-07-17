@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_foley_paper_raffle_ticket_book_drop_concrete_002_59097.mp3-c17f6504f0deebb3c57ea06bc5098cc8.mp3str"
+
+[deps]
+
+source_file="res://audio/objects/generic/zapsplat_foley_paper_raffle_ticket_book_drop_concrete_002_59097.mp3"
+dest_files=[ "res://.import/zapsplat_foley_paper_raffle_ticket_book_drop_concrete_002_59097.mp3-c17f6504f0deebb3c57ea06bc5098cc8.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

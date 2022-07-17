@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/impact_stone_large_hit_ground_004.mp3-7f82c30f369d7a96c07857cdfec7defd.mp3str"
+
+[deps]
+
+source_file="res://audio/traps/impact_stone_large_hit_ground_004.mp3"
+dest_files=[ "res://.import/impact_stone_large_hit_ground_004.mp3-7f82c30f369d7a96c07857cdfec7defd.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_foley_mud_dried_clumps_small_fall_roll_hill_break_crumble_landslide_004_41446.mp3-81ef691eaba4cccf1bbdfea8321f70c5.mp3str"
+
+[deps]
+
+source_file="res://audio/traps/zapsplat_foley_mud_dried_clumps_small_fall_roll_hill_break_crumble_landslide_004_41446.mp3"
+dest_files=[ "res://.import/zapsplat_foley_mud_dried_clumps_small_fall_roll_hill_break_crumble_landslide_004_41446.mp3-81ef691eaba4cccf1bbdfea8321f70c5.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

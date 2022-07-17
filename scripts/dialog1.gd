@@ -50,6 +50,7 @@ func next_line():
 	#Mostrar caracteres de uno en uno segun el tiempo del Timer
 	while mensaje.visible_characters < len(mensaje.text):
 		mensaje.visible_characters += 1
+		#$AudioStreamPlayer.play()
 		$Timer.start()
 		yield($Timer, "timeout")
 	

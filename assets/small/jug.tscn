@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/objeto.gd" type="Script" id=1]
 [ext_resource path="res://assets/small/raw_files/Wood_Polished.material" type="Material" id=2]
+[ext_resource path="res://audio/objects/generic/zapsplat_foley_sunscreen_bottle_empty_drop_on_ground_002_22200.mp3" type="AudioStream" id=3]
+[ext_resource path="res://audio/objects/generic/zapsplat_foley_sunscreen_bottle_empty_drop_on_ground_001_22199.mp3" type="AudioStream" id=4]
 
 [sub_resource type="PhysicsMaterial" id=3]
 
@@ -36,5 +38,15 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 2 )
+
+[node name="Audio" type="Spatial" parent="."]
+
+[node name="1" type="AudioStreamPlayer3D" parent="Audio"]
+stream = ExtResource( 4 )
+bus = "SoundEffects"
+
+[node name="2" type="AudioStreamPlayer3D" parent="Audio"]
+stream = ExtResource( 3 )
+bus = "SoundEffects"
 
 [connection signal="body_entered" from="." to="." method="on_body_collided"]

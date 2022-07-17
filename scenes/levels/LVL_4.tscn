@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://assets/rooms/hallway_cave_short.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/assemblies/inner_corner.tscn" type="PackedScene" id=2]
@@ -49,6 +49,8 @@
 [ext_resource path="res://scenes/transitions/NextLevelActivator.tscn" type="PackedScene" id=47]
 [ext_resource path="res://scenes/Interactive/DoorManager.tscn" type="PackedScene" id=48]
 [ext_resource path="res://assets/rooms/pieces/Tesselated_slope.obj" type="ArrayMesh" id=49]
+[ext_resource path="res://scenes/Interactive/PopUpManager.tscn" type="PackedScene" id=50]
+[ext_resource path="res://scenes/Interactive/PopUpText.tscn" type="PackedScene" id=51]
 
 [sub_resource type="Image" id=13]
 data = {
@@ -843,11 +845,22 @@ transform = Transform( -0.931266, 0, 0.36434, 0, 1, 0, -0.36434, 0, -0.931266, -
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.38042, 1.02711, -71.2565 )
 is_key = true
 
+[node name="key_silver2" parent="." instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.474746, -11.7448, -27.2776 )
+is_key = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 12 )
 
 [node name="NextLevelArea" parent="." instance=ExtResource( 47 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149562, -12.1644, -58.8758 )
+
+[node name="PopUpManager" parent="." instance=ExtResource( 50 )]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.79954, -3.98896 )
+text = "Level 4"
+pop_up_text = NodePath("../PopUpText")
+
+[node name="PopUpText" parent="." instance=ExtResource( 51 )]
 
 [connection signal="body_entered" from="CheckPoints/Checkpoint_start" to="CheckPoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="CheckPoints/Checkpoint" to="CheckPoints/Checkpoint" method="_on_area_entered"]

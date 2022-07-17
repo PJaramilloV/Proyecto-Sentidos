@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/impact_rock_large_rockpool_dry_004.mp3-17694886c8961c1c5f462f09853dec3e.mp3str"
+
+[deps]
+
+source_file="res://audio/objects/stone/impact_rock_large_rockpool_dry_004.mp3"
+dest_files=[ "res://.import/impact_rock_large_rockpool_dry_004.mp3-17694886c8961c1c5f462f09853dec3e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

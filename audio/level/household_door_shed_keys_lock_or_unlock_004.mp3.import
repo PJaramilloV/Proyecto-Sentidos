@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/household_door_shed_keys_lock_or_unlock_004.mp3-37be353f02bd1656499c070e93839a44.mp3str"
+
+[deps]
+
+source_file="res://audio/level/household_door_shed_keys_lock_or_unlock_004.mp3"
+dest_files=[ "res://.import/household_door_shed_keys_lock_or_unlock_004.mp3-37be353f02bd1656499c070e93839a44.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

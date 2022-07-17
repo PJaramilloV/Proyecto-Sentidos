@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_office_typewriter_single_button_key_press_typebar_strike_001_59414.mp3-080917043444929f27cfbb141989a647.mp3str"
+
+[deps]
+
+source_file="res://audio/text/zapsplat_office_typewriter_single_button_key_press_typebar_strike_001_59414.mp3"
+dest_files=[ "res://.import/zapsplat_office_typewriter_single_button_key_press_typebar_strike_001_59414.mp3-080917043444929f27cfbb141989a647.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_horror_hit_dark_creepy_001_12669.mp3-1acb07b80b0bff3c9b50ef0567a3ed38.mp3str"
+
+[deps]
+
+source_file="res://audio/deaths/zapsplat_horror_hit_dark_creepy_001_12669.mp3"
+dest_files=[ "res://.import/zapsplat_horror_hit_dark_creepy_001_12669.mp3-1acb07b80b0bff3c9b50ef0567a3ed38.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

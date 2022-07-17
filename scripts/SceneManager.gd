@@ -19,6 +19,7 @@ func _ready():
 	pointer = $CurrentScene/Control.level
 	reconnect_menu()
 	GlobalSettings.connect("brightness_updated", self, "_update_brightness")
+	_update_brightness(SaveSettings.game_data.brightness)
 
 func _process(delta):
 #	if Input.is_action_just_pressed("interact"):
@@ -67,8 +68,13 @@ func _continuegame(level):
 	$TransitionScreen.transition_continue()
 
 func _update_brightness(value):
-	$CurrentScene/Spatial/WorldEnvironment.environment.adjustment_enabled = true
-	$CurrentScene/Spatial/WorldEnvironment.environment.adjustment_brightness = value
+	if ($CurrentScene.get_child(0).name == "Control"):
+		# Parche brightness mainmenu
+		$CurrentScene/Control/Background/WorldEnvironment.environment.adjustment_enabled = true
+		$CurrentScene/Control/Background/WorldEnvironment.environment.adjustment_brightness = value
+	else:
+		$CurrentScene/Spatial/WorldEnvironment.environment.adjustment_enabled = true
+		$CurrentScene/Spatial/WorldEnvironment.environment.adjustment_brightness = value
 
 func _on_TransitionScreen_transitioned():
 	$CurrentScene.get_child(0).queue_free()
@@ -89,6 +95,7 @@ func _on_TransitionScreen_next_level():
 	#$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.remove_child($CurrentScene.get_child(0))
 	$CurrentScene.add_child(levels[pointer].instance())
+	save_level(pointer)
 	reconnect()
 
 func _on_TransitionScreen_game_over():
@@ -120,3 +127,9 @@ func _on_TransitionScreen_lose():
 	$CurrentScene.add_child(game_over.instance())
 	$CurrentScene/Control.connect("restart", self, "_to_menu")
 	$CurrentScene/Control.connect("close", self, "_close")
+
+func save_level(level):
+	var save_file = File.new()
+	save_file.open("user://savefile.save", File.WRITE)
+	save_file.store_line(String(level))
+	save_file.close()

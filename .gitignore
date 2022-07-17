@@ -2,3 +2,5 @@
 *.translation
 export_presets.cfg
 *.import
+!/audio/*/*/*.import
+!/audio/*/*.import

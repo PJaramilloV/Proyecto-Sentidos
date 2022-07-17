@@ -38,6 +38,23 @@ func update_brightness(value):
 
 func update_master_vol(vol):
 	AudioServer.set_bus_volume_db(0,vol)
+	SaveSettings.game_data.master_volume = vol
+	SaveSettings.save_data()
+
+func update_sfx_vol(vol):
+	AudioServer.set_bus_volume_db(1,vol)
+	SaveSettings.game_data.sfx_volume = vol
+	SaveSettings.save_data()
+
+func update_ui_vol(vol):
+	AudioServer.set_bus_volume_db(2,vol)
+	SaveSettings.game_data.ui_volume = vol
+	SaveSettings.save_data()
+
+func update_music_vol(vol):
+	AudioServer.set_bus_volume_db(3,vol)
+	SaveSettings.game_data.music_volume = vol
+	SaveSettings.save_data()
 
 #Necesita manipular la cámara y meterme al script del personaje
 func update_fov(value):

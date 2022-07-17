@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/audio_hero_FireSmallWoodRoarH_PE051901_360.mp3-0fbf97e2688a9a007f5eab7aab326748.mp3str"
+
+[deps]
+
+source_file="res://audio/objects/audio_hero_FireSmallWoodRoarH_PE051901_360.mp3"
+dest_files=[ "res://.import/audio_hero_FireSmallWoodRoarH_PE051901_360.mp3-0fbf97e2688a9a007f5eab7aab326748.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

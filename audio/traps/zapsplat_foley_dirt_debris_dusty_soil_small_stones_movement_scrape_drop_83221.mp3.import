@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_foley_dirt_debris_dusty_soil_small_stones_movement_scrape_drop_83221.mp3-74163dfd335746f49727114cf5bb8faf.mp3str"
+
+[deps]
+
+source_file="res://audio/traps/zapsplat_foley_dirt_debris_dusty_soil_small_stones_movement_scrape_drop_83221.mp3"
+dest_files=[ "res://.import/zapsplat_foley_dirt_debris_dusty_soil_small_stones_movement_scrape_drop_83221.mp3-74163dfd335746f49727114cf5bb8faf.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

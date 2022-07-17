@@ -14,6 +14,8 @@ func _on_DoorManager_body_entered(body):
 	if body.is_key:
 		set_deferred(\"monitoring\", false) 
 		screen.transition()
+		body.throws_before_break = 4
+		body.is_key = false
 		body.release()
 		$AudioStreamPlayer3D.play()
 
