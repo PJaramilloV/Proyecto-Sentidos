@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/2022-07-17 15-41-09.mp3-3efb8750fc80f987a23aa996e7788ece.mp3str"
+
+[deps]
+
+source_file="res://audio/traps/2022-07-17 15-41-09.mp3"
+dest_files=[ "res://.import/2022-07-17 15-41-09.mp3-3efb8750fc80f987a23aa996e7788ece.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
