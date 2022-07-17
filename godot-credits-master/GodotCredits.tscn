@@ -1,13 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://godot-credits-master/GodotCredits.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://images/dinner.jpeg" type="Texture" id=2]
 [ext_resource path="res://resources/tema_1.tres" type="Theme" id=3]
 [ext_resource path="res://scenes/main_menu_background.tscn" type="PackedScene" id=4]
-[ext_resource path="res://images/signo-interrogacion-50015.webm" type="VideoStream" id=5]
+[ext_resource path="res://images/Moonwalk.webm" type="VideoStream" id=5]
 [ext_resource path="res://godot-credits-master/VideoPlayer.gd" type="Script" id=6]
-[ext_resource path="res://images/Bacan_studios_logo.jpg" type="Texture" id=7]
+[ext_resource path="res://images/Bacan_studios_logo-modified.png" type="Texture" id=7]
 [ext_resource path="res://fonts/Medieval Sharp/MedievalSharp-Book.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://images/ay.webm" type="VideoStream" id=9]
+[ext_resource path="res://audio/credits/Day to Day Life.mp3" type="AudioStream" id=10]
+[ext_resource path="res://images/altar.jpeg" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 150
@@ -46,24 +49,15 @@ align = 1
 
 [node name="Sprite_1" type="Sprite" parent="CreditsContainer/Line"]
 visible = false
-position = Vector2( 1711, 0 )
-scale = Vector2( 4.21875, 3.34375 )
-texture = ExtResource( 2 )
+position = Vector2( 357, 63 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 11 )
 
 [node name="Sprite_2" type="Sprite" parent="CreditsContainer/Line"]
 visible = false
 position = Vector2( 409, 0 )
-scale = Vector2( 2.5, 2.98438 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
-
-[node name="VideoPlayer" type="VideoPlayer" parent="CreditsContainer/Line"]
-visible = false
-margin_left = 1515.0
-margin_top = -178.0
-margin_right = 1883.0
-margin_bottom = 53.0
-stream = ExtResource( 5 )
-script = ExtResource( 6 )
 
 [node name="Sprite_3" type="Sprite" parent="CreditsContainer/Line"]
 visible = false
@@ -73,10 +67,10 @@ texture = ExtResource( 7 )
 
 [node name="year" type="Label" parent="CreditsContainer/Line/Sprite_3"]
 anchor_right = 1.0
-margin_left = -320.0
-margin_top = 410.0
-margin_right = -320.0
-margin_bottom = 494.0
+margin_left = -304.0
+margin_top = 426.0
+margin_right = -304.0
+margin_bottom = 607.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 1 )
 text = "2022"
@@ -95,6 +89,28 @@ margin_bottom = -748.055
 custom_fonts/font = SubResource( 2 )
 text = "Profundis"
 
+[node name="VideoPlayer_1" type="VideoPlayer" parent="CreditsContainer/Line"]
+visible = false
+margin_left = 1296.0
+margin_top = -426.0
+margin_right = 1889.0
+margin_bottom = -45.0
+stream = ExtResource( 9 )
+autoplay = true
+paused = true
+script = ExtResource( 6 )
+
+[node name="VideoPlayer_2" type="VideoPlayer" parent="CreditsContainer/Line"]
+visible = false
+margin_left = 57.0
+margin_top = -426.0
+margin_right = 650.0
+margin_bottom = -45.0
+stream = ExtResource( 5 )
+autoplay = true
+paused = true
+script = ExtResource( 6 )
+
 [node name="ColorRect_2" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -109,3 +125,7 @@ margin_top = 932.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 color = Color( 0, 0, 0, 1 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+autoplay = true

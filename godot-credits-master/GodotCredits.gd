@@ -1,25 +1,20 @@
 extends Node2D
 
-
-
-
 const section_time := 2.0
 const line_time := 0.3
 const base_speed := 100
 const speed_up_multiplier := 5.0
 const title_color := Color.chartreuse
 
-
 var scroll_speed := base_speed
-var speed_up := false # Mover los creditos hacia abajo
-#var speed_back := false # Mover los creditos hacia arriba
+var speed_up := false 
 var speed_pause := false
 
-onready var line := $CreditsContainer/Line # label
+onready var line := $CreditsContainer/Line
 var started := false
 var finished := false
 
-var time_in_seconds = 4
+#var time_in_seconds = 3
 var section
 var section_next := true
 var section_timer := 0.0
@@ -27,6 +22,7 @@ var line_timer := 0.0
 var curr_line := 0
 var lines := []
 
+# I know, no es muy bonito el display de esta variable
 var credits = [
 	[
 		"A game by Bacan Studios"
@@ -60,6 +56,11 @@ var credits = [
 		" ",
 		"SFX Name"
 	],[
+		"Font",
+		" ",
+		" ",
+		" Font name "
+	],[
 		"Testers",
 		" ",
 		" ",
@@ -78,6 +79,11 @@ var credits = [
 		" ",
 		" ",
 		"Modular Terrain Pack"
+	],[
+		"Credits Scene",
+		" ",
+		" ",
+		" Name "
 	],[
 		"Tools used",
 		" ",
@@ -123,7 +129,6 @@ func _process(delta):
 		scroll_speed *= 0
 		$CreditsContainer/Line/Sprite_3.visible = false
 	else:
-
 		if section_next:
 			section_timer += delta * speed_up_multiplier if speed_up else delta
 			if section_timer >= section_time:
@@ -134,8 +139,6 @@ func _process(delta):
 					section = credits.pop_front()
 					curr_line = 0
 					add_line()
-					
-
 		else:
 			line_timer += delta * speed_up_multiplier if speed_up else delta
 			if line_timer >= line_time:
@@ -145,9 +148,6 @@ func _process(delta):
 		if speed_up:
 			scroll_speed *= speed_up_multiplier
 
-		
-		
-		
 		if lines.size() > 0:
 			if lines[-1].text == "Gabriel G. Orrego":
 
@@ -160,17 +160,31 @@ func _process(delta):
 #					lines.erase(l)
 #					l.queue_free()
 
-
-
-
 func add_line():
 	var new_line = line.duplicate()
 	new_line.text = section.pop_front()
 	
+	#### Videos ####
 	if new_line.text == "Art":
-		$CreditsContainer/Line/VideoPlayer.visible = true
+		$CreditsContainer/Line/VideoPlayer_1.visible = true
+		$CreditsContainer/Line/VideoPlayer_1.paused = false
 	if new_line.text == " ":
-		$CreditsContainer/Line/VideoPlayer.visible = false	
+		$CreditsContainer/Line/VideoPlayer_1.visible = false
+		$CreditsContainer/Line/VideoPlayer_1.paused = true	
+		
+	if new_line.text == "Tools used":
+		$CreditsContainer/Line/VideoPlayer_2.visible = true
+		$CreditsContainer/Line/VideoPlayer_2.paused = false
+	if new_line.text == " ":
+		$CreditsContainer/Line/VideoPlayer_2.visible = false
+		$CreditsContainer/Line/VideoPlayer_2.paused = true	
+
+	#### Fotos ####
+	if new_line.text == "A game by Bacan Studios":
+		$CreditsContainer/Line/Profundis.visible = true
+	if new_line.text == "Programming":
+		$CreditsContainer/Line/Profundis.visible = false
+		
 	if new_line.text == "Programming":
 		$CreditsContainer/Line/Sprite_1.visible = true
 	if new_line.text == " ":
@@ -180,20 +194,15 @@ func add_line():
 		$CreditsContainer/Line/Sprite_2.visible = true
 	if new_line.text == " ":
 		$CreditsContainer/Line/Sprite_2.visible = false
+		
 	if new_line.text == "Damián Ibarra Z.":
 		$CreditsContainer/Line/Sprite_3.visible = true
 	if new_line.text == " ":
 		$CreditsContainer/Line/Sprite_3.visible = false
-	if new_line.text == "A game by Bacan Studios":
-		$CreditsContainer/Line/Profundis.visible = true
-	if new_line.text == "Programming":
-		$CreditsContainer/Line/Profundis.visible = false
-		
 
 	if curr_line == 0:
 		new_line.add_color_override("font_color", title_color)
 	$CreditsContainer.add_child(new_line)
-	
 	
 	lines.append(new_line)
 	if section.size() > 0:
@@ -202,19 +211,10 @@ func add_line():
 	else:
 		section_next = true
 	
-
-
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_down") and !event.is_echo():
 		speed_up = true
 	if event.is_action_released("ui_down") and !event.is_echo():
 		speed_up = false
-#	if event.is_action_pressed("ui_up") and !event.is_echo():
-#		speed_back = true
-#	if event.is_action_released("ui_up") and !event.is_echo():
-#		speed_back = false
 	if event.is_action_pressed("ui_accept"):
-		if speed_pause == false:
-			speed_pause = true
-		else:
-			speed_pause = false
+		speed_pause = !speed_pause
