@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_foley_paper_thin_stuffing_scrunched_ball_drop_throw_ground_001_66134.mp3-9d38b4f4eea11b6a13ac460b884683bd.mp3str"
+
+[deps]
+
+source_file="res://audio/objects/paper/zapsplat_foley_paper_thin_stuffing_scrunched_ball_drop_throw_ground_001_66134.mp3"
+dest_files=[ "res://.import/zapsplat_foley_paper_thin_stuffing_scrunched_ball_drop_throw_ground_001_66134.mp3-9d38b4f4eea11b6a13ac460b884683bd.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -17,6 +17,10 @@ func load_data():
 			"vsync_on": false,
 			"max_fps": 60,
 			"brightness": 1,
+			"master_volume": -10,
+			"sfx_volume": -10,
+			"ui_volume": -10,
+			"music_volume": -10,
 		}
 		save_data()
 	file.open(SAVEFILE_SETTINGS, File.READ)

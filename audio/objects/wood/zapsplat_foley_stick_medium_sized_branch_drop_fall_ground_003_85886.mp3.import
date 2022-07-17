@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_foley_stick_medium_sized_branch_drop_fall_ground_003_85886.mp3-1120e26d0676d4b8845e11a9dc9d0a99.mp3str"
+
+[deps]
+
+source_file="res://audio/objects/wood/zapsplat_foley_stick_medium_sized_branch_drop_fall_ground_003_85886.mp3"
+dest_files=[ "res://.import/zapsplat_foley_stick_medium_sized_branch_drop_fall_ground_003_85886.mp3-1120e26d0676d4b8845e11a9dc9d0a99.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

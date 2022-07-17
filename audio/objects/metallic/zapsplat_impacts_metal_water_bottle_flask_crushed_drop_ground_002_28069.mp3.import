@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_impacts_metal_water_bottle_flask_crushed_drop_ground_002_28069.mp3-fbcc48e0e1ad2dc2dd8eaa4fcb092e5d.mp3str"
+
+[deps]
+
+source_file="res://audio/objects/metallic/zapsplat_impacts_metal_water_bottle_flask_crushed_drop_ground_002_28069.mp3"
+dest_files=[ "res://.import/zapsplat_impacts_metal_water_bottle_flask_crushed_drop_ground_002_28069.mp3-fbcc48e0e1ad2dc2dd8eaa4fcb092e5d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

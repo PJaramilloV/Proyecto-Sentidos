@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_household_glass_jar_large_down_concrete_ground_002_13727.mp3-8559efca1f76fcd3ec0c8085e0e4c55e.mp3str"
+
+[deps]
+
+source_file="res://audio/objects/glass/zapsplat_household_glass_jar_large_down_concrete_ground_002_13727.mp3"
+dest_files=[ "res://.import/zapsplat_household_glass_jar_large_down_concrete_ground_002_13727.mp3-8559efca1f76fcd3ec0c8085e0e4c55e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -66,11 +66,14 @@ shape = SubResource( 6 )
 
 [node name="1" type="AudioStreamPlayer3D" parent="Audio"]
 stream = ExtResource( 4 )
+bus = "SoundEffects"
 
 [node name="2" type="AudioStreamPlayer3D" parent="Audio"]
 stream = ExtResource( 3 )
+bus = "SoundEffects"
 
 [node name="3" type="AudioStreamPlayer3D" parent="Audio"]
 stream = ExtResource( 2 )
+bus = "SoundEffects"
 
 [connection signal="body_entered" from="." to="." method="on_body_collided"]

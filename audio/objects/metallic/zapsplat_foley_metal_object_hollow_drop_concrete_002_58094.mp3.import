@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_foley_metal_object_hollow_drop_concrete_002_58094.mp3-258211e9517393b6a91d1276a95a1ed5.mp3str"
+
+[deps]
+
+source_file="res://audio/objects/metallic/zapsplat_foley_metal_object_hollow_drop_concrete_002_58094.mp3"
+dest_files=[ "res://.import/zapsplat_foley_metal_object_hollow_drop_concrete_002_58094.mp3-258211e9517393b6a91d1276a95a1ed5.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

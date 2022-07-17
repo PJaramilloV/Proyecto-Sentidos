@@ -839,6 +839,10 @@ transform = Transform( -0.931266, 0, 0.36434, 0, 1, 0, -0.36434, 0, -0.931266, -
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.38042, 1.02711, -71.2565 )
 is_key = true
 
+[node name="key_silver2" parent="." instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.474746, -11.7448, -27.2776 )
+is_key = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 12 )
 

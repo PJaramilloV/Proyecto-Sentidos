@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_impacts_dish_ceramic_drop_light_smash_001_23643.mp3-f405478fa1402f15890afda59e0fc918.mp3str"
+
+[deps]
+
+source_file="res://audio/objects/generic/zapsplat_impacts_dish_ceramic_drop_light_smash_001_23643.mp3"
+dest_files=[ "res://.import/zapsplat_impacts_dish_ceramic_drop_light_smash_001_23643.mp3-f405478fa1402f15890afda59e0fc918.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

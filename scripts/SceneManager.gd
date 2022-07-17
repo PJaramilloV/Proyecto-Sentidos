@@ -19,6 +19,7 @@ func _ready():
 	pointer = $CurrentScene/Control.level
 	reconnect_menu()
 	GlobalSettings.connect("brightness_updated", self, "_update_brightness")
+	_update_brightness(SaveSettings.game_data.brightness)
 
 func _process(delta):
 #	if Input.is_action_just_pressed("interact"):
@@ -67,8 +68,13 @@ func _continuegame(level):
 	$TransitionScreen.transition_continue()
 
 func _update_brightness(value):
-	$CurrentScene/Spatial/WorldEnvironment.environment.adjustment_enabled = true
-	$CurrentScene/Spatial/WorldEnvironment.environment.adjustment_brightness = value
+	if ($CurrentScene.get_child(0).name == "Control"):
+		# Parche brightness mainmenu
+		$CurrentScene/Control/Background/WorldEnvironment.environment.adjustment_enabled = true
+		$CurrentScene/Control/Background/WorldEnvironment.environment.adjustment_brightness = value
+	else:
+		$CurrentScene/Spatial/WorldEnvironment.environment.adjustment_enabled = true
+		$CurrentScene/Spatial/WorldEnvironment.environment.adjustment_brightness = value
 
 func _on_TransitionScreen_transitioned():
 	$CurrentScene.get_child(0).queue_free()
