@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/rooms/pieces/Cliff_Prop_Bridge_Rope_Middle.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/rooms/pieces/Cliff_Prop_Bridge_Rope_Middle_Support.obj" type="ArrayMesh" id=2]
@@ -6,7 +6,9 @@
 
 [sub_resource type="BoxShape" id=1]
 
-[sub_resource type="CapsuleShape" id=2]
+[sub_resource type="BoxShape" id=2]
+
+[sub_resource type="BoxShape" id=3]
 
 [node name="Bridge_segment" type="Spatial"]
 
@@ -57,12 +59,12 @@ material/4 = null
 material/5 = null
 
 [node name="rope_L" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.379, 0.103402, 0.957335, 0.0195094 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.509, 0.103402, 0.957335, 0.0195094 )
 shape = SubResource( 2 )
 
 [node name="rope_R" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.379, -1.10123, 0.957335, 0.0195094 )
-shape = SubResource( 2 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.509, -1.10123, 0.957335, 0.0195094 )
+shape = SubResource( 3 )
 
 [node name="VisualHandler" type="Node" parent="StaticBody"]
 script = ExtResource( 3 )
