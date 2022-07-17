@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/rooms/pieces/Cave_Prop_Railway_Straight_1.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/rooms/pieces/Cave_Prop_Railway_Switch.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/rooms/pieces/Cave_Prop_Railway_Curve_Large.obj" type="ArrayMesh" id=3]
+
+[node name="railway_merge" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0312089, 0, 5.65729 )
+
+[node name="Cave_Prop_Railway_Switch" type="MeshInstance" parent="."]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, 1, -0.536465, 0, -3.12168 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+
+[node name="Cave_Prop_Railway_Curve_Large" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.53076, 1.90735e-06, -1.16801 )
+mesh = ExtResource( 3 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+
+[node name="Cave_Prop_Railway_Straight_1" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.52713, 5.72205e-06, -0.169685 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="Cave_Prop_Railway_Straight_2" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.2004, 5.72205e-06, -0.169685 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="Cave_Prop_Railway_Straight_3" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.80619, 5.72205e-06, -0.169685 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="Cave_Prop_Railway_Curve_Large2" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.78657, 1.90735e-06, 1.8329 )
+mesh = ExtResource( 3 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null

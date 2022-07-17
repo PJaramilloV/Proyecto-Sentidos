@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/rooms/pieces/Cave_Prop_Railway_Straight_1.obj" type="ArrayMesh" id=1]
+
+[sub_resource type="BoxShape" id=1]
+
+[node name="railway" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="Cave_Prop_Railway_Straight_1" type="MeshInstance" parent="StaticBody"]
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="Cave_Prop_Railway_Straight_2" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.996166 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="Cave_Prop_Railway_Straight_3" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.98291 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="Cave_Prop_Railway_Straight_4" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.97908 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="Cave_Prop_Railway_Straight_5" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.9589 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="Cave_Prop_Railway_Straight_6" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.95507 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.5, 0, 0, 0, 0.076, 0, 0, 0, 2.967, -0.504, 0.076, -2.488 )
+shape = SubResource( 1 )
