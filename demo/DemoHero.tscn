@@ -63,7 +63,7 @@ brace = true
 
 [node name="piso" type="StaticBody" parent="."]
 transform = Transform( -0.227746, 0, 9.99741, 0, 1, 0, -9.99741, 0, -0.227746, 1.45616, 0, 1.45512 )
-collision_mask = 2
+collision_mask = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="piso"]
 shape = SubResource( 14 )
@@ -79,7 +79,7 @@ max_lights = 2
 
 [node name="bloqueVerde" type="StaticBody" parent="."]
 transform = Transform( -0.227746, 0, 4.9987, 0, 0.5, 0, -9.99741, 0, -0.113873, 1.79257, 3.02364, -4.04271 )
-collision_mask = 2
+collision_mask = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="bloqueVerde"]
 transform = Transform( 1, 0, 9.31323e-10, 0, 1, 0, -3.72529e-09, 0, 1, 0.00450057, 0, -0.395124 )

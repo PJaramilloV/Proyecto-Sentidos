@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://assets/rooms/hallway_cave_short.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/assemblies/inner_corner.tscn" type="PackedScene" id=2]
@@ -48,6 +48,7 @@
 [ext_resource path="res://scripts/LightHandler.gd" type="Script" id=46]
 [ext_resource path="res://scenes/transitions/NextLevelActivator.tscn" type="PackedScene" id=47]
 [ext_resource path="res://scenes/Interactive/DoorManager.tscn" type="PackedScene" id=48]
+[ext_resource path="res://assets/rooms/pieces/Tesselated_slope.obj" type="ArrayMesh" id=49]
 
 [sub_resource type="Image" id=13]
 data = {
@@ -482,6 +483,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.655058, -22.4292 )
 [node name="patch2" parent="world/high_path/hallway_short" instance=ExtResource( 6 )]
 transform = Transform( 0.363134, -0.229672, -1.85834, 0.35838, 0.929015, -0.189687, 0.860056, -0.290142, 0.863674, -2.57128, 1.48764, 0.34199 )
 
+[node name="Tesselated_slope" type="MeshInstance" parent="world/high_path/hallway_short"]
+transform = Transform( -8.74228e-08, 1, 0, -2, -4.37114e-08, 0, 0, 0, 1, 1.80433, -2.77655, -4.85909 )
+mesh = ExtResource( 49 )
+material/0 = null
+
 [node name="chasm" parent="world/high_path" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.614, 0, -0.0911137, -30.779 )
 
@@ -491,7 +497,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.614, 0, -0.0911137, -30.779 )
 transform = Transform( 1.544, 0, 0, 0, 1, 0, 0, 0, 1, -0.389641, -5.96643, -0.222916 )
 
 [node name="Floor2" parent="world/high_path/chasm/geometry" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 0.995371, -0.0186446, 0, 0.0961063, 0.193102, -0.39, 0.407, 15.69 )
+transform = Transform( 1, 0, 0, 0, 0.219977, -0.0186446, 0, 0.0212395, 0.193102, -0.39, 0.407, 15.69 )
 
 [node name="chasm_side_edge" parent="world/high_path/chasm/geometry" instance=ExtResource( 24 )]
 transform = Transform( 0.313, 2.71011e-08, 0, -2.73633e-08, 0.31, 0, 0, 0, -0.31, 2.28389, -0.946118, 15.9816 )
