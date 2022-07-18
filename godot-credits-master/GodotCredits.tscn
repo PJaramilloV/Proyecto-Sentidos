@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://godot-credits-master/GodotCredits.gd" type="Script" id=1]
 [ext_resource path="res://images/dinner.jpeg" type="Texture" id=2]
@@ -11,6 +11,10 @@
 [ext_resource path="res://images/ay.webm" type="VideoStream" id=9]
 [ext_resource path="res://audio/credits/Day to Day Life.mp3" type="AudioStream" id=10]
 [ext_resource path="res://images/altar.jpeg" type="Texture" id=11]
+[ext_resource path="res://images/level_5.jpeg" type="Texture" id=12]
+[ext_resource path="res://images/escalada_piola.webm" type="VideoStream" id=13]
+[ext_resource path="res://images/amogus.PNG" type="Texture" id=14]
+[ext_resource path="res://images/ladder.webm" type="VideoStream" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 150
@@ -47,25 +51,25 @@ theme = ExtResource( 3 )
 text = "Creditos"
 align = 1
 
-[node name="Sprite_1" type="Sprite" parent="CreditsContainer/Line"]
+[node name="Altar" type="Sprite" parent="CreditsContainer/Line"]
 visible = false
 position = Vector2( 357, 63 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 11 )
 
-[node name="Sprite_2" type="Sprite" parent="CreditsContainer/Line"]
+[node name="Dinner" type="Sprite" parent="CreditsContainer/Line"]
 visible = false
 position = Vector2( 409, 0 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 
-[node name="Sprite_3" type="Sprite" parent="CreditsContainer/Line"]
+[node name="Logo" type="Sprite" parent="CreditsContainer/Line"]
 visible = false
 position = Vector2( 967, 675 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 
-[node name="year" type="Label" parent="CreditsContainer/Line/Sprite_3"]
+[node name="year" type="Label" parent="CreditsContainer/Line/Logo"]
 anchor_right = 1.0
 margin_left = -304.0
 margin_top = 426.0
@@ -75,6 +79,18 @@ size_flags_horizontal = 3
 custom_fonts/font = SubResource( 1 )
 text = "2022"
 align = 1
+
+[node name="level_5" type="Sprite" parent="CreditsContainer/Line"]
+visible = false
+position = Vector2( 1615, 63 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 12 )
+
+[node name="amogus" type="Sprite" parent="CreditsContainer/Line"]
+visible = false
+position = Vector2( 1615.13, 51.8125 )
+scale = Vector2( 0.822195, 0.676198 )
+texture = ExtResource( 14 )
 
 [node name="Profundis" type="Label" parent="CreditsContainer/Line"]
 visible = false
@@ -91,9 +107,9 @@ text = "Profundis"
 
 [node name="VideoPlayer_1" type="VideoPlayer" parent="CreditsContainer/Line"]
 visible = false
-margin_left = 1296.0
-margin_top = -426.0
-margin_right = 1889.0
+margin_left = 88.0
+margin_top = -354.0
+margin_right = 601.0
 margin_bottom = -45.0
 stream = ExtResource( 9 )
 autoplay = true
@@ -107,6 +123,27 @@ margin_top = -426.0
 margin_right = 650.0
 margin_bottom = -45.0
 stream = ExtResource( 5 )
+autoplay = true
+paused = true
+script = ExtResource( 6 )
+
+[node name="VideoPlayer_3" type="VideoPlayer" parent="CreditsContainer/Line"]
+visible = false
+margin_left = 1475.0
+margin_top = -278.0
+margin_right = 1852.0
+margin_bottom = 103.0
+stream = ExtResource( 13 )
+autoplay = true
+paused = true
+script = ExtResource( 6 )
+
+[node name="VideoPlayer_4" type="VideoPlayer" parent="CreditsContainer/Line"]
+visible = false
+margin_left = 1366.0
+margin_top = -426.0
+margin_right = 1864.0
+stream = ExtResource( 15 )
 autoplay = true
 paused = true
 script = ExtResource( 6 )

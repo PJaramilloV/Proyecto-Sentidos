@@ -30,13 +30,13 @@ var credits = [
 		"Programming",
 		" ",
 		" ",
+		"Vicente González",
+		" ",
+		" ",
 		"Rodrigo Iturrieta",
 		" ",
 		" ",
 		"Pablo Jaramillo",
-		" ",
-		" ",
-		"Vicente González",
 		" ",
 		" ",
 		"Diego Torreblanca"
@@ -60,9 +60,8 @@ var credits = [
 		" ",
 		"fontlibrary.org"
 	],[
-		"Sound Effects",
-		" ",
-		" ",
+		"Sound Effects"
+	],[
 		"Main Menu Button Sound",
 		" ",
 		" ",
@@ -72,9 +71,8 @@ var credits = [
 		"Sound Jay",
 		" ",
 		" ",
-		"www.soundjay.com",
-		" ",
-		" ",
+		"www.soundjay.com"
+	],[
 		"Enviromental sounds, music and others",
 		" ",
 		" ",
@@ -84,11 +82,10 @@ var credits = [
 		"Standard License",
 		" ",
 		" ",
-		"https://www.zapsplat.com"
+		"www.zapsplat.com"
 	],[
 		"3D Models",
-		" ",
-		" ",
+	],[
 		"Object's Asset Pack",
 		" ",
 		" ",
@@ -105,8 +102,7 @@ var credits = [
 		" ",
 		" ",
 		"Creative Commons Attribution 4.0 International License (CC BY 4.0)",
-		" ",
-		" ",
+	],[
 		"World's Asset Pack",
 		" ",
 		" ",
@@ -116,8 +112,7 @@ var credits = [
 		"Keith at Fertile Soil Productions",
 		" ",
 		"https://fertile-soil-productions.itch.io",
-		" ",
-		" ",
+	],[
 		"Main Character Model",
 		" ",
 		" ",
@@ -137,12 +132,14 @@ var credits = [
 		" ",
 		" ",
 		"This work was modified by Bacan Studios",
-		" ",
-		" ",
+	],[
 		"Character 3D Animations",
 		" ",
 		" ",
-		"Mixamo"
+		"Mixamo",
+		" ",
+		" ",
+		"www.mixamo.com"
 	],[
 		"Credits",
 		" ",
@@ -183,15 +180,16 @@ var credits = [
 		" ",
 		"Name"
 	],[
-		"Art",
-		" ",
-		" ",
-		"Name"
-	],[
 		"Special Thanks",
 		" ",
 		" ",
-		"Name"
+		"Damián Ibarra Z.",
+		" ",
+		" ",
+		"Benjamín Vera",
+		" ",
+		" ",
+		"Godot Community"
 	],[
 		"Tools used",
 		" ",
@@ -235,7 +233,7 @@ func _process(delta):
 	var scroll_speed = base_speed * delta
 	if speed_pause or finished:
 		scroll_speed *= 0
-		$CreditsContainer/Line/Sprite_3.visible = false
+		$CreditsContainer/Line/Logo.visible = false
 	else:
 		if section_next:
 			section_timer += delta * speed_up_multiplier if speed_up else delta
@@ -273,12 +271,12 @@ func add_line():
 	new_line.text = section.pop_front()
 	
 	#### Videos ####
-	if new_line.text == "Art":
+	if new_line.text == "Sound Effects":
 		$CreditsContainer/Line/VideoPlayer_1.visible = true
 		$CreditsContainer/Line/VideoPlayer_1.paused = false
-	if new_line.text == " ":
+	if new_line.text == "Main Menu Button Sound":
 		$CreditsContainer/Line/VideoPlayer_1.visible = false
-		$CreditsContainer/Line/VideoPlayer_1.paused = true	
+		$CreditsContainer/Line/VideoPlayer_1.paused = true
 		
 	if new_line.text == "Tools used":
 		$CreditsContainer/Line/VideoPlayer_2.visible = true
@@ -286,6 +284,20 @@ func add_line():
 	if new_line.text == " ":
 		$CreditsContainer/Line/VideoPlayer_2.visible = false
 		$CreditsContainer/Line/VideoPlayer_2.paused = true	
+	
+	if new_line.text == "www.mixamo.com":
+		$CreditsContainer/Line/VideoPlayer_3.visible = true
+		$CreditsContainer/Line/VideoPlayer_3.paused = false
+	if new_line.text == "Credits":
+		$CreditsContainer/Line/VideoPlayer_3.visible = false
+		$CreditsContainer/Line/VideoPlayer_3.paused = true	
+
+	if new_line.text == "Broken Vector":
+		$CreditsContainer/Line/VideoPlayer_4.visible = true
+		$CreditsContainer/Line/VideoPlayer_4.paused = false
+	if new_line.text == " ":
+		$CreditsContainer/Line/VideoPlayer_4.visible = false
+		$CreditsContainer/Line/VideoPlayer_4.paused = true	
 
 	#### Fotos ####
 	if new_line.text == "A game by Bacan Studios":
@@ -294,19 +306,29 @@ func add_line():
 		$CreditsContainer/Line/Profundis.visible = false
 		
 	if new_line.text == "Programming":
-		$CreditsContainer/Line/Sprite_1.visible = true
+		$CreditsContainer/Line/Altar.visible = true
 	if new_line.text == " ":
-		$CreditsContainer/Line/Sprite_1.visible = false
+		$CreditsContainer/Line/Altar.visible = false
 		
 	if new_line.text == "Profesor":
-		$CreditsContainer/Line/Sprite_2.visible = true
+		$CreditsContainer/Line/Dinner.visible = true
 	if new_line.text == " ":
-		$CreditsContainer/Line/Sprite_2.visible = false
+		$CreditsContainer/Line/Dinner.visible = false
 		
-	if new_line.text == "Damián Ibarra Z.":
-		$CreditsContainer/Line/Sprite_3.visible = true
+	if new_line.text == "Original Idea":
+		$CreditsContainer/Line/level_5.visible = true
 	if new_line.text == " ":
-		$CreditsContainer/Line/Sprite_3.visible = false
+		$CreditsContainer/Line/level_5.visible = false
+		
+	if new_line.text == "Christopher Marín R.":
+		$CreditsContainer/Line/Logo.visible = true
+	if new_line.text == " ":
+		$CreditsContainer/Line/Logo.visible = false
+
+	if new_line.text == "Ayudantes":
+		$CreditsContainer/Line/amogus.visible = true
+	if new_line.text == " ":
+		$CreditsContainer/Line/amogus.visible = false
 
 	if curr_line == 0:
 		new_line.add_color_override("font_color", title_color)
