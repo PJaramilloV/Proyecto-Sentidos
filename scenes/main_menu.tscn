@@ -1,22 +1,19 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://resources/tema_1.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/main_menu_background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://fonts/Medieval Sharp/MedievalSharp-Book.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://scripts/main_menu.gd" type="Script" id=4]
-[ext_resource path="res://icon.png" type="Texture" id=5]
 [ext_resource path="res://audio/hud/button-24.wav" type="AudioStream" id=6]
-[ext_resource path="res://images/signo-interrogacion-50015.webm" type="VideoStream" id=7]
-[ext_resource path="res://scripts/VideoPlayer.gd" type="Script" id=8]
 [ext_resource path="res://scenes/FpsLabel.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/Settings_Menu.tscn" type="PackedScene" id=10]
 
-[sub_resource type="DynamicFont" id=1]
-size = 48
-font_data = ExtResource( 3 )
-
 [sub_resource type="DynamicFont" id=2]
 size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 150
 font_data = ExtResource( 3 )
 
 [node name="Control" type="Control"]
@@ -33,14 +30,14 @@ margin_left = -1.0
 margin_right = -1.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource( 5 )
 expand = true
 
 [node name="Panel" type="PanelContainer" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
 margin_left = 845.0
-margin_top = 357.0
+margin_top = 421.0
 margin_right = 1072.0
-margin_bottom = 722.0
+margin_bottom = 786.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -48,54 +45,53 @@ size_flags_vertical = 4
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 220.0
-margin_bottom = 361.0
+margin_bottom = 437.0
+custom_constants/separation = 20
 alignment = 1
 
-[node name="Title" type="Label" parent="Panel/Fondo"]
-margin_right = 213.0
-margin_bottom = 59.0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-custom_fonts/font = SubResource( 1 )
-text = "Profundis"
-align = 1
-
 [node name="Continue" type="Button" parent="Panel/Fondo"]
-margin_top = 63.0
 margin_right = 213.0
-margin_bottom = 118.0
+margin_bottom = 55.0
 rect_min_size = Vector2( 213, 50 )
 custom_fonts/font = SubResource( 2 )
 text = "Continue"
 
 [node name="Start" type="Button" parent="Panel/Fondo"]
-margin_top = 122.0
+margin_top = 75.0
 margin_right = 213.0
-margin_bottom = 177.0
+margin_bottom = 130.0
 rect_min_size = Vector2( 213, 50 )
 custom_fonts/font = SubResource( 2 )
 text = "Start"
 
 [node name="Options" type="Button" parent="Panel/Fondo"]
-margin_top = 181.0
+margin_top = 150.0
 margin_right = 213.0
-margin_bottom = 236.0
+margin_bottom = 205.0
 rect_min_size = Vector2( 213, 50 )
 custom_fonts/font = SubResource( 2 )
 text = "Options"
 
 [node name="Extras" type="Button" parent="Panel/Fondo"]
-margin_top = 240.0
+margin_top = 225.0
 margin_right = 213.0
-margin_bottom = 295.0
+margin_bottom = 280.0
 rect_min_size = Vector2( 213, 50 )
 custom_fonts/font = SubResource( 2 )
 text = "Extras"
 
-[node name="Exit" type="Button" parent="Panel/Fondo"]
-margin_top = 299.0
+[node name="Credits" type="Button" parent="Panel/Fondo"]
+margin_top = 300.0
 margin_right = 213.0
-margin_bottom = 354.0
+margin_bottom = 355.0
+rect_min_size = Vector2( 213, 50 )
+custom_fonts/font = SubResource( 2 )
+text = "Credits"
+
+[node name="Exit" type="Button" parent="Panel/Fondo"]
+margin_top = 375.0
+margin_right = 213.0
+margin_bottom = 430.0
 rect_min_size = Vector2( 213, 50 )
 size_flags_stretch_ratio = 0.0
 custom_fonts/font = SubResource( 2 )
@@ -132,17 +128,22 @@ margin_right = 463.0
 margin_bottom = 66.0
 text = "Bacan Studios 2022"
 
-[node name="VideoPlayer" type="VideoPlayer" parent="."]
-visible = false
-anchor_left = 0.209
-anchor_top = 0.498
-anchor_right = 0.209
-anchor_bottom = 0.5
-margin_left = -89.016
-margin_top = -94.8
-margin_right = 88.984
-margin_bottom = 104.0
-rect_min_size = Vector2( 100, 200 )
-stream = ExtResource( 7 )
-autoplay = true
-script = ExtResource( 8 )
+[node name="Title" type="HBoxContainer" parent="."]
+anchor_left = -0.001
+anchor_right = -0.001
+margin_left = 625.92
+margin_top = 150.0
+margin_right = 1297.92
+margin_bottom = 181.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+theme = ExtResource( 1 )
+
+[node name="Title_Label" type="Label" parent="Title"]
+margin_right = 672.0
+margin_bottom = 181.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 3 )
+text = "Profundis"
+align = 1
