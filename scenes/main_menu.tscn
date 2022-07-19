@@ -53,6 +53,8 @@ alignment = 1
 margin_right = 213.0
 margin_bottom = 55.0
 rect_min_size = Vector2( 213, 50 )
+custom_colors/font_color_hover = Color( 0.219608, 1, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.219608, 1, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Continue"
 
@@ -61,6 +63,8 @@ margin_top = 75.0
 margin_right = 213.0
 margin_bottom = 130.0
 rect_min_size = Vector2( 213, 50 )
+custom_colors/font_color_hover = Color( 0.219608, 1, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.219608, 1, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Start"
 
@@ -69,6 +73,8 @@ margin_top = 150.0
 margin_right = 213.0
 margin_bottom = 205.0
 rect_min_size = Vector2( 213, 50 )
+custom_colors/font_color_hover = Color( 0.219608, 1, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.219608, 1, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Options"
 
@@ -77,6 +83,8 @@ margin_top = 225.0
 margin_right = 213.0
 margin_bottom = 280.0
 rect_min_size = Vector2( 213, 50 )
+custom_colors/font_color_hover = Color( 0.219608, 1, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.219608, 1, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Extras"
 
@@ -85,6 +93,8 @@ margin_top = 300.0
 margin_right = 213.0
 margin_bottom = 355.0
 rect_min_size = Vector2( 213, 50 )
+custom_colors/font_color_hover = Color( 0.219608, 1, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.219608, 1, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Credits"
 
@@ -94,6 +104,8 @@ margin_right = 213.0
 margin_bottom = 430.0
 rect_min_size = Vector2( 213, 50 )
 size_flags_stretch_ratio = 0.0
+custom_colors/font_color_hover = Color( 0.219608, 1, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.219608, 1, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Exit"
 
