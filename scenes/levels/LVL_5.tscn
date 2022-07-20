@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://scripts/LightHandler.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Checkpoint.gd" type="Script" id=2]
@@ -56,6 +56,12 @@
 [ext_resource path="res://scenes/Interactive/PopUpManager.tscn" type="PackedScene" id=54]
 [ext_resource path="res://scenes/Interactive/PopUpText.tscn" type="PackedScene" id=55]
 [ext_resource path="res://assets/rooms/assemblies/minecart.tscn" type="PackedScene" id=56]
+[ext_resource path="res://assets/rooms/assemblies/Stalagmite.tscn" type="PackedScene" id=57]
+[ext_resource path="res://assets/rooms/assemblies/Stalagmite_long.tscn" type="PackedScene" id=58]
+[ext_resource path="res://assets/rooms/assemblies/Stalagmite_small.tscn" type="PackedScene" id=59]
+[ext_resource path="res://assets/boulders/boulder_sharp.tscn" type="PackedScene" id=60]
+[ext_resource path="res://assets/boulders/boulder_egg.tscn" type="PackedScene" id=61]
+[ext_resource path="res://assets/boulders/boulder_sphere.tscn" type="PackedScene" id=62]
 
 [sub_resource type="ConcavePolygonShape" id=13]
 data = PoolVector3Array( 0.5, 1, -0.5, 0.433, 0.5, -0.5, 0.6495, 0.5, 0, 0.75, 1, 0, 0.5, 1, -0.5, 0.6495, 0.5, 0, 0.433, 0.5, -0.5, 0.25, 0.134, -0.5, 0.375, 0.134, 0, 0.6495, 0.5, 0, 0.433, 0.5, -0.5, 0.375, 0.134, 0, 0.25, 0.134, -0.5, 0, 0, -0.5, 0, 0, 0, 0.25, 0.134, 0.5, 0, 0, 0, 0, 0, 0.5, 0.375, 0.134, 0, 0, 0, 0, 0.25, 0.134, 0.5, 0.375, 0.134, 0, 0.25, 0.134, -0.5, 0, 0, 0, -0.5, 0, 0.5, 0, 0, 0.5, -0.5, 0, 0, 0, 0, 0, 0, 0, -0.5, -0.5, 0, 0, -0.5, 0, -0.5, -0.5, 0, 0, 0, 0, -0.5, 0, 0, 0.5, 0, 0, 0, -0.5, 0, 0, 0.6495, 0.5, 0, 0.375, 0.134, 0, 0.433, 0.5, 0.5, 0.433, 0.5, 0.5, 0.375, 0.134, 0, 0.25, 0.134, 0.5, 0.75, 1, 0, 0.6495, 0.5, 0, 0.5, 1, 0.5, 0.5, 1, 0.5, 0.6495, 0.5, 0, 0.433, 0.5, 0.5 )
@@ -171,6 +177,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.452, -0.533001 )
 [node name="chasm_side_edge" parent="world/chasm_slim_small" instance=ExtResource( 28 )]
 transform = Transform( 0.31, 0, 0, 0, 0.31, 0, 0, 0, -0.31, 2.71585, 3.9947, 3.40125 )
 
+[node name="Stalagmite_small" parent="world/chasm_slim_small" instance=ExtResource( 59 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76057, -8.46313, 0.620362 )
+
+[node name="boulder_capsule" parent="world/chasm_slim_small" instance=ExtResource( 31 )]
+transform = Transform( 1.89889, 1.11038, 0, -0.831581, 2.53552, 0, 0, 0, 3.055, -2.5961, -8.46314, -1.81053 )
+
 [node name="chasm_slim_small2" parent="world" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.4901, -7.76306 )
 
@@ -183,6 +195,15 @@ transform = Transform( 0.31, 2.71011e-08, 0, -2.71011e-08, 0.31, 0, 0, 0, 0.31, 
 [node name="patch2" parent="world/chasm_slim_small2" instance=ExtResource( 25 )]
 transform = Transform( 0.950616, -0.261841, -1.05376, 0.32173, 0.959686, -0.0995855, 0.585715, -0.102182, 1.76495, -2.25844, 1.55565, -4.34488 )
 
+[node name="Stalagmite_long" parent="world/chasm_slim_small2" instance=ExtResource( 58 )]
+transform = Transform( 0.83, 0, 0, 0, 1.86607, -0.603832, 0, 1.73789, 0.648369, 1.63378, -9.49617, -1.92405 )
+
+[node name="Stalagmite_long2" parent="world/chasm_slim_small2" instance=ExtResource( 58 )]
+transform = Transform( 0.83, 0, 0, 0, 2.44594, 0.250525, 0, -0.721038, 0.849843, -2.07756, -9.49617, -2.08812 )
+
+[node name="Stalagmite" parent="world/chasm_slim_small2" instance=ExtResource( 57 )]
+transform = Transform( 1.736, 0, 0, 0, 0.816, 0, 0, 0, 1.776, 0.704913, -8.45434, -2.98927 )
+
 [node name="hallway_short2" parent="world" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, -3.91049 )
 
@@ -191,6 +212,18 @@ transform = Transform( 0.917671, -0.110588, -0.763281, 0, 0.960488, -0.556641, 0
 
 [node name="patch3" parent="world/hallway_short2" instance=ExtResource( 25 )]
 transform = Transform( 0.986926, -0.109947, -0.235705, 0.107066, 0.993783, -0.0610456, 0.060238, 0.00875283, 0.992562, -2.95374, 1.44096, -0.496621 )
+
+[node name="Stalagmite_long" parent="world/hallway_short2" instance=ExtResource( 58 )]
+transform = Transform( 0.556963, 0, -0.830538, 0, 1, 0, 0.415269, 0, 0.278481, -1.12401, -0.00881195, -0.779564 )
+
+[node name="Stalagmite_long2" parent="world/hallway_short2" instance=ExtResource( 58 )]
+transform = Transform( 0.358127, 0, -0.58636, 0, 0.963, 0, 0.267018, 0, 0.196608, 2.03321, -0.00881195, -2.66019 )
+
+[node name="boulder_long" parent="world/hallway_short2" instance=ExtResource( 30 )]
+transform = Transform( 1.72, 0, 0, 0, 1.52794, 0.251114, 0, -0.127283, 0.753612, -2.33943, -0.421888, -2.35685 )
+
+[node name="boulder_sharp" parent="world/hallway_short2" instance=ExtResource( 60 )]
+transform = Transform( 2.56279, -0.120148, 1.0774, 1.18205, 0.96438, -1.0304, -0.534601, 0.389089, 0.721649, -3.50719, 0.37915, -1.93215 )
 
 [node name="chasm" parent="world" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.267, -0.251, -28.551 )
@@ -225,7 +258,13 @@ transform = Transform( 0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, 2.48278, 5.03703, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.26478, 0.156618, 16.4591 )
 
 [node name="Platform_square" parent="world/chasm/chasm_upper/hallway_short_deep" instance=ExtResource( 9 )]
-transform = Transform( -4.37114e-08, 0, 2.081, 0, 1, 0, -1, 0, -9.09634e-08, -3.11507, 0, -2.64728 )
+transform = Transform( -4.37114e-08, 0, 2.081, 0, 1, 0, -1, 0, -9.09634e-08, -3.10387, 0, -2.60287 )
+
+[node name="boulder_egg" parent="world/chasm/chasm_upper/hallway_short_deep" instance=ExtResource( 61 )]
+transform = Transform( -9.36735e-08, 0, 2.181, 0, 3.625, 0, -2.143, 0, -9.53345e-08, 1.77134, -0.208387, -0.218747 )
+
+[node name="boulder_sphere" parent="world/chasm/chasm_upper/hallway_short_deep" instance=ExtResource( 62 )]
+transform = Transform( 1.94, 0, 0, 0, 2.52, 0, 0, 0, 2.211, 7.37533, -0.916836, -3.46999 )
 
 [node name="brace_border" parent="world/chasm/chasm_upper" instance=ExtResource( 21 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.249, -8.49324, 1.97808, 8.77892 )
@@ -253,9 +292,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.267715, 11.6632, 0 )
 
 [node name="decor" type="Spatial" parent="world/chasm/chasm_lower"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.106522, 0 )
-
-[node name="boulder" parent="world/chasm/chasm_lower/decor" instance=ExtResource( 40 )]
-transform = Transform( 1.747, 0, 0, 0, 2.668, 0, 0, 0, 1.746, -3.7653, 0, 0.541674 )
 
 [node name="left_wall" type="Spatial" parent="world/chasm/chasm_lower/decor"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35239, 0, 14.5565 )
@@ -453,37 +489,60 @@ transform = Transform( 0.981494, -0.191494, 0, 0.191494, 0.981494, 0, 0, 0, 1, -
 [node name="minecart2" parent="world/chasm/chasm_lower/decor/mine" instance=ExtResource( 56 )]
 transform = Transform( -0.0586617, -0.998278, 0, 0.998278, -0.0586617, 0, 0, 0, 1, -0.36577, 0.532583, 12.3169 )
 
-[node name="big_boulder" type="Spatial" parent="world/chasm/chasm_lower/decor"]
+[node name="boulders" type="Spatial" parent="world/chasm/chasm_lower/decor"]
 
-[node name="StaticBody" type="StaticBody" parent="world/chasm/chasm_lower/decor/big_boulder"]
+[node name="boulder" parent="world/chasm/chasm_lower/decor/boulders" instance=ExtResource( 40 )]
+transform = Transform( 1.747, 0, 0, 0, 2.668, 0, 0, 0, 1.746, -3.7653, 0, 0.541674 )
 
-[node name="Mountain_1" type="MeshInstance" parent="world/chasm/chasm_lower/decor/big_boulder/StaticBody"]
+[node name="boulder2" parent="world/chasm/chasm_lower/decor/boulders" instance=ExtResource( 40 )]
+transform = Transform( 2.49788, -0.964316, 0, 0.800444, 3.00927, 0, 0, 0, 1.746, -8.13697, -0.314251, 11.096 )
+
+[node name="boulder3" parent="world/chasm/chasm_lower/decor/boulders" instance=ExtResource( 40 )]
+transform = Transform( 1.39326, 0.826069, 1.40715, -1.15823, 2.83524, 0, -1.89669, -1.12456, 1.03366, -1.13398, -0.314251, 15.5654 )
+
+[node name="big_boulder" type="Spatial" parent="world/chasm/chasm_lower/decor/boulders"]
+
+[node name="StaticBody" type="StaticBody" parent="world/chasm/chasm_lower/decor/boulders/big_boulder"]
+
+[node name="Mountain_1" type="MeshInstance" parent="world/chasm/chasm_lower/decor/boulders/big_boulder/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.09223, -0.117868, 0.723606 )
 mesh = ExtResource( 45 )
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="world/chasm/chasm_lower/decor/big_boulder/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="world/chasm/chasm_lower/decor/boulders/big_boulder/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.09223, -0.117868, 0.723606 )
 shape = SubResource( 27 )
 
-[node name="big_boulder2" type="Spatial" parent="world/chasm/chasm_lower/decor"]
+[node name="big_boulder2" type="Spatial" parent="world/chasm/chasm_lower/decor/boulders"]
 transform = Transform( 0.271906, 0, 0.583549, 0, 0.697, 0, -0.747056, 0, 0.212394, -1.62002, 0, 8.34903 )
 
-[node name="StaticBody" type="StaticBody" parent="world/chasm/chasm_lower/decor/big_boulder2"]
+[node name="StaticBody" type="StaticBody" parent="world/chasm/chasm_lower/decor/boulders/big_boulder2"]
 
-[node name="Mountain_1" type="MeshInstance" parent="world/chasm/chasm_lower/decor/big_boulder2/StaticBody"]
+[node name="Mountain_1" type="MeshInstance" parent="world/chasm/chasm_lower/decor/boulders/big_boulder2/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.09223, -0.117868, 0.723606 )
 mesh = ExtResource( 45 )
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="world/chasm/chasm_lower/decor/big_boulder2/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="world/chasm/chasm_lower/decor/boulders/big_boulder2/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.09223, -0.117868, 0.723606 )
 shape = SubResource( 27 )
 
-[node name="boulder_bulk" parent="world/chasm/chasm_lower/decor" instance=ExtResource( 14 )]
+[node name="boulder_bulk" parent="world/chasm/chasm_lower/decor/boulders" instance=ExtResource( 14 )]
 transform = Transform( -0.885028, 0, 0.465537, 0, 1, 0, -0.465537, 0, -0.885028, -5.01393, 0.0550003, 12.0419 )
+
+[node name="boulder_capsule" parent="world/chasm/chasm_lower/decor/boulders" instance=ExtResource( 31 )]
+transform = Transform( 2.2258, 0.885857, 0.205431, -1.1079, 1.82047, -5.5628e-08, -0.33682, -0.134052, 1.35754, 0.603695, 0.0549965, 7.56098 )
+
+[node name="Stalagmite" parent="world/chasm/chasm_lower/decor" instance=ExtResource( 57 )]
+transform = Transform( 1.051, 0, 0, 0, 0.497, 0, 0, 0, 1.007, 1.53963, 0.0408745, 1.47666 )
+
+[node name="Stalagmite2" parent="world/chasm/chasm_lower/decor" instance=ExtResource( 57 )]
+transform = Transform( -1.051, 7.1337e-08, 0, -9.18813e-08, -0.816, 0, 0, 0, 1.007, -0.135763, 3.63055, -3.9587 )
+
+[node name="Stalagmite_long" parent="world/chasm/chasm_lower/decor" instance=ExtResource( 58 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12839, 0.0415936, -7.58599 )
 
 [node name="ladder" type="Spatial" parent="world/chasm"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.671, 15.363, 5.452 )
@@ -513,6 +572,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -26.08, -64.813 )
 
 [node name="hallway_cave" parent="world/lower_path" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.764885, 28.8271 )
+
+[node name="boulder_sharp" parent="world/lower_path/hallway_cave" instance=ExtResource( 60 )]
+transform = Transform( 1.39212, -0.558758, 0.442634, 0, 0.716502, 1.35299, -0.814727, -0.954745, 0.756325, -1.81535, 0.811541, 4.67967 )
+
+[node name="boulder" parent="world/lower_path/hallway_cave" instance=ExtResource( 40 )]
+transform = Transform( 1.883, 0, 0, 0, 1.638, 0, 0, 0, 1.84, 1.84875, 0.601013, -5.94572 )
 
 [node name="chasm_super_wide" parent="world/lower_path" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.05, 22.782 )
@@ -893,6 +958,12 @@ transform = Transform( 0.31, 2.71011e-08, 0, -2.71011e-08, 0.31, 0, 0, 0, -0.31,
 
 [node name="patch2" parent="world/upper_path/hallway_short" instance=ExtResource( 25 )]
 transform = Transform( 0.586736, -0.317317, -1.48862, 0.329237, 1.1606, -0.12492, 0.739827, -0.264835, 1.23617, -2.4677, 1.16232, 0.0947552 )
+
+[node name="boulder_long" parent="world/upper_path/hallway_short" instance=ExtResource( 30 )]
+transform = Transform( 1.884, 0, 0, 0, 1.262, 0, 0, 0, 1.834, 2.48852, -0.229872, -4.12696 )
+
+[node name="boulder_long2" parent="world/upper_path/hallway_short" instance=ExtResource( 30 )]
+transform = Transform( 3.134, 0, 0, 0, 0.0903426, -3.70512, 0, 1.75968, 0.190222, -2.81351, 0.554354, -0.622637 )
 
 [node name="hallway_short_deep" parent="world/upper_path" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.336, -5.00013, -0.099, -3.22126 )
