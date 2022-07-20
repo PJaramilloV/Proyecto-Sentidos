@@ -2,6 +2,7 @@ extends VisibilityNotifier
 export var radius : float
 export var active : bool
 export var dialogue_start_timer := 1.0
+export var unlock_spirit := false
 onready var dialogue := get_node("dialogue")
 var pos : Vector3
 onready var player = get_parent().get_node("Player")
@@ -21,7 +22,8 @@ func _physics_process(delta):
 		if screen:
 			screen.transition()
 		else:
-			player.spirit()
+			#player.spirit()
+			#player.learn_footstep()
 			hero.end_cutscene()
 
 func _on_CutsceneActivator_screen_entered():
@@ -39,5 +41,11 @@ func _on_Area_body_entered(body):
 		start_dialogue()
 
 func _on_TransitionScreen_transitioned():
-	player.spirit()
+	if unlock_spirit:
+		player.spirit()
+		player.learn_footstep()
 	hero.end_cutscene()
+
+func _on_boulder_lethal_kill():
+	player.cutscene_nomove()
+	start_dialogue()

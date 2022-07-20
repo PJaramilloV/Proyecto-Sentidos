@@ -5,6 +5,8 @@ export var startwithspirit : bool
 export var startonfloor : bool
 export var throw : bool
 export var brace : bool
+export var footprint := true
+export var rotate := 0
 
 onready var spiritmesh = get_node("spirit/MeshInstance")
 onready var spiritlight = get_node("spirit/OmniLight")
@@ -44,6 +46,9 @@ func _ready():
 	hero._brace = brace
 	if throw:
 		hero.learn_throw()
+	if footprint:
+		hero._footprint = footprint
+	hero.rotate_hero(rotate)
 
 func death():
 	lives -= 1
@@ -63,7 +68,16 @@ func death():
 func spirit():
 	get_node("spirit").visible = true
 
+func learn_footstep():
+	hero._footprint = true
+
+func learn_throw():
+	hero.learn_throw()
+
 # Activación de Cutscene
 func cutscene(pos: Vector3, radius: float):
 	statemachine.transition_to("Cutscene")
 	hero.move_to(pos, radius)
+
+func cutscene_nomove():
+	statemachine.transition_to("Cutscene")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://assets/rooms/hallway_cave_short.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/assemblies/inner_corner.tscn" type="PackedScene" id=2]
@@ -51,6 +51,7 @@
 [ext_resource path="res://assets/rooms/pieces/Tesselated_slope.obj" type="ArrayMesh" id=49]
 [ext_resource path="res://scenes/Interactive/PopUpManager.tscn" type="PackedScene" id=50]
 [ext_resource path="res://scenes/Interactive/PopUpText.tscn" type="PackedScene" id=51]
+[ext_resource path="res://scenes/FpsLabel.tscn" type="PackedScene" id=52]
 
 [sub_resource type="Image" id=13]
 data = {
@@ -111,7 +112,6 @@ ambient_light_sky_contribution = 0.0
 auto_exposure_scale = 0.01
 dof_blur_near_distance = 4.31
 glow_blend_mode = 0
-adjustment_enabled = true
 adjustment_brightness = 2.0
 
 [node name="Spatial" type="Spatial"]
@@ -752,9 +752,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -26.5121 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.307485, 0.577746, -2.42218 )
 
 [node name="Player" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, 0, 1.12259, 2.72184 )
+transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, -0.230991, 1.12259, 4.60016 )
 throw = true
 brace = true
+rotate = 90
 
 [node name="CheckPoints" type="Spatial" parent="."]
 
@@ -861,6 +862,13 @@ text = "Level 4"
 pop_up_text = NodePath("../PopUpText")
 
 [node name="PopUpText" parent="." instance=ExtResource( 51 )]
+
+[node name="FpsLabel" parent="." instance=ExtResource( 52 )]
+margin_left = -1.0
+margin_right = 176.0
+margin_bottom = 63.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [connection signal="body_entered" from="CheckPoints/Checkpoint_start" to="CheckPoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="CheckPoints/Checkpoint" to="CheckPoints/Checkpoint" method="_on_area_entered"]

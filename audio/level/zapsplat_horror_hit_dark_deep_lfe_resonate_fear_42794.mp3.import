@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_horror_hit_dark_deep_lfe_resonate_fear_42794.mp3-33770ee3681f0c6469e367883781bdc0.mp3str"
+
+[deps]
+
+source_file="res://audio/level/zapsplat_horror_hit_dark_deep_lfe_resonate_fear_42794.mp3"
+dest_files=[ "res://.import/zapsplat_horror_hit_dark_deep_lfe_resonate_fear_42794.mp3-33770ee3681f0c6469e367883781bdc0.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

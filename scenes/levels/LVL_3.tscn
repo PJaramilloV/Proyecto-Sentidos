@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://assets/rooms/assemblies/patch_ceiling.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=2]
@@ -36,6 +36,7 @@
 [ext_resource path="res://scripts/easter_egg.gd" type="Script" id=34]
 [ext_resource path="res://scenes/Interactive/PopUpManager.tscn" type="PackedScene" id=35]
 [ext_resource path="res://scenes/Interactive/PopUpText.tscn" type="PackedScene" id=36]
+[ext_resource path="res://scenes/FpsLabel.tscn" type="PackedScene" id=37]
 
 [sub_resource type="BoxShape" id=11]
 extents = Vector3( 2.17518, 1.37974, 1.65388 )
@@ -80,7 +81,6 @@ ambient_light_sky_contribution = 0.0
 auto_exposure_scale = 0.01
 dof_blur_near_distance = 4.31
 glow_blend_mode = 0
-adjustment_enabled = true
 adjustment_brightness = 2.0
 
 [node name="Spatial" type="Spatial"]
@@ -453,9 +453,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34705, 0, -4.07938 )
 transform = Transform( -4.25124e-08, 0.232614, 0.972569, 1.01679e-08, 0.972569, -0.232614, -1, 0, -4.37114e-08, -3.28887, 1.75621, -1.96877 )
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, 0.876112, 0.792595, 4.54906 )
+transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, -0.224181, 0.792595, 5.01363 )
 throw = true
 brace = true
+rotate = 90
 
 [node name="FRONTAL_BOUND" type="StaticBody" parent="."]
 
@@ -582,6 +583,13 @@ text = "Level 3"
 pop_up_text = NodePath("../PopUpText")
 
 [node name="PopUpText" parent="." instance=ExtResource( 36 )]
+
+[node name="FpsLabel" parent="." instance=ExtResource( 37 )]
+margin_left = -1.0
+margin_right = 176.0
+margin_bottom = 63.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [connection signal="body_entered" from="Checkpoints/Checkpoint_start" to="Checkpoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint" to="Checkpoints/Checkpoint" method="_on_area_entered"]

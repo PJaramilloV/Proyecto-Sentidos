@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://assets/rooms/chasm_wide_deep_alternate_exit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/assemblies/Slope.tscn" type="PackedScene" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://scenes/transitions/NextLevelActivator.tscn" type="PackedScene" id=27]
 [ext_resource path="res://scenes/Interactive/PopUpManager.tscn" type="PackedScene" id=28]
 [ext_resource path="res://scenes/Interactive/PopUpText.tscn" type="PackedScene" id=29]
+[ext_resource path="res://scenes/FpsLabel.tscn" type="PackedScene" id=30]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 3.64416, 2.02994, 1.41686 )
@@ -176,8 +177,9 @@ transform = Transform( 1, 0, 0, 0, 0.968, 0, 0, 0, 1, 0.520365, 0.601003, -2.093
 transform = Transform( 1, 0, 0, 0, 0.952512, 0, 0, 0, 1, -1.79931, 1.87808, -1.58749 )
 
 [node name="Player" parent="." instance=ExtResource( 13 )]
-transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, -0.357314, 0.792595, 4.54906 )
+transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, -0.357314, 0.792595, 5.03135 )
 throw = true
+rotate = 90
 
 [node name="CheckPoints" type="Spatial" parent="."]
 
@@ -274,6 +276,13 @@ text = "Level 2"
 pop_up_text = NodePath("../PopUpText")
 
 [node name="PopUpText" parent="." instance=ExtResource( 29 )]
+
+[node name="FpsLabel" parent="." instance=ExtResource( 30 )]
+margin_left = -1.0
+margin_right = 176.0
+margin_bottom = 63.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [connection signal="body_entered" from="CheckPoints/Checkpoint_start" to="CheckPoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="CheckPoints/Checkpoint" to="CheckPoints/Checkpoint" method="_on_area_entered"]

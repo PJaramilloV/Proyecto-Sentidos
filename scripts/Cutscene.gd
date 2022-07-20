@@ -8,6 +8,7 @@ func enter(msg := {}) -> void:
 	player.animation_tree.set("parameters/State/current", 0)
 	player._stand_shape.disabled = false
 	player._crouch_shape.disabled = true
+	_target_pos = player.global_transform.origin
 
 func exit() -> void:
 	pass
