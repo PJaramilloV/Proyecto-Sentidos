@@ -199,10 +199,10 @@ var credits = [
 		" ",
 		"Benja Vera on Soundcloud: https://soundcloud.com/benja-vald-s-71326544"
 	],[
-		"Testers",
+		"Tester",
 		" ",
 		" ",
-		"Name"
+		"Diego Iturrieta"
 	],[
 		"Special Thanks",
 		" ",
@@ -225,7 +225,7 @@ var credits = [
 		" ",
 		" ",
 	],[
-		"Curso",
+		"Course",
 		" ",
 		" ",
 		"Taller de Diseño y Desarrollo de Videojuegos",
@@ -233,12 +233,12 @@ var credits = [
 		" ",
 		"CC5408-1",
 	],[
-		"Profesor",
+		"Professor",
 		" ",
 		" ",
 		"Elías Zelada"
 	],[
-		"Ayudantes",
+		"Professor’s Assistant",
 		" ",
 		" ",
 		"Christopher Marín R.",
