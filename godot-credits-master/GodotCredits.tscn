@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://godot-credits-master/GodotCredits.gd" type="Script" id=1]
 [ext_resource path="res://images/dinner.jpeg" type="Texture" id=2]
@@ -16,6 +16,10 @@
 [ext_resource path="res://images/amogus.PNG" type="Texture" id=14]
 [ext_resource path="res://images/ladder.webm" type="VideoStream" id=15]
 [ext_resource path="res://audio/hud/button-24.wav" type="AudioStream" id=16]
+[ext_resource path="res://resources/button_normal_theme.tres" type="StyleBox" id=17]
+[ext_resource path="res://resources/buttone_theme.tres" type="StyleBox" id=18]
+[ext_resource path="res://images/baile_1.webm" type="VideoStream" id=19]
+[ext_resource path="res://images/baile_2.webm" type="VideoStream" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 size = 150
@@ -169,6 +173,30 @@ autoplay = true
 paused = true
 script = ExtResource( 6 )
 
+[node name="VideoPlayer_5" type="VideoPlayer" parent="CreditsContainer"]
+visible = false
+show_behind_parent = true
+margin_left = 815.0
+margin_top = 265.0
+margin_right = 1065.0
+margin_bottom = 691.0
+stream = ExtResource( 19 )
+autoplay = true
+paused = true
+script = ExtResource( 6 )
+
+[node name="VideoPlayer_6" type="VideoPlayer" parent="CreditsContainer"]
+visible = false
+show_behind_parent = true
+margin_left = 670.0
+margin_top = 265.0
+margin_right = 1168.0
+margin_bottom = 691.0
+stream = ExtResource( 20 )
+autoplay = true
+paused = true
+script = ExtResource( 6 )
+
 [node name="ColorRect_2" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -193,7 +221,12 @@ margin_left = 670.0
 margin_top = 972.0
 margin_right = 920.001
 margin_bottom = 662.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
+custom_styles/hover = ExtResource( 18 )
+custom_styles/pressed = ExtResource( 18 )
+custom_styles/normal = ExtResource( 17 )
 disabled = true
 text = "Main Menu"
 
@@ -202,7 +235,12 @@ margin_left = 1000.0
 margin_top = 972.0
 margin_right = 1250.0
 margin_bottom = 662.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
+custom_styles/hover = ExtResource( 18 )
+custom_styles/pressed = ExtResource( 18 )
+custom_styles/normal = ExtResource( 17 )
 disabled = true
 text = "Exit"
 
