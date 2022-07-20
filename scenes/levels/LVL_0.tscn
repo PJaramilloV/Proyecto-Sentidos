@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://assets/rooms/assemblies/Separator_wall_with door.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/assemblies/front_cover.tscn" type="PackedScene" id=2]
@@ -49,6 +49,15 @@
 [ext_resource path="res://scripts/3dtext.gd" type="Script" id=47]
 [ext_resource path="res://fonts/Medieval Sharp/MedievalSharp-Book.ttf" type="DynamicFontData" id=48]
 [ext_resource path="res://scenes/FpsLabel.tscn" type="PackedScene" id=49]
+[ext_resource path="res://assets/boulders/boulder.tscn" type="PackedScene" id=50]
+[ext_resource path="res://assets/boulders/boulder_long.tscn" type="PackedScene" id=51]
+[ext_resource path="res://assets/boulders/boulder_sharp.tscn" type="PackedScene" id=52]
+[ext_resource path="res://assets/rooms/assemblies/Stalagmite_long.tscn" type="PackedScene" id=53]
+[ext_resource path="res://assets/rooms/assemblies/Stalagmite_small.tscn" type="PackedScene" id=54]
+[ext_resource path="res://assets/boulders/boulder_egg.tscn" type="PackedScene" id=55]
+[ext_resource path="res://assets/rooms/assemblies/wooden_beam_horizontal.tscn" type="PackedScene" id=56]
+[ext_resource path="res://assets/rooms/assemblies/wooden_arc.tscn" type="PackedScene" id=57]
+[ext_resource path="res://assets/furniture/fire_wood.tscn" type="PackedScene" id=58]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 2.1306, 1.73309, 2.05416 )
@@ -215,6 +224,33 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.571539, -8.72893 )
 [node name="Separator_wall_left" parent="world/hallway_cave" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 0.975, 0, 0, 0, -1, 0.227, 0.587, 8.142 )
 
+[node name="boulder_long" parent="world/hallway_cave" instance=ExtResource( 51 )]
+transform = Transform( 1.09491, 0, -0.611917, 0, 1.098, 0, 0.392099, 0, 1.70874, -0.0790777, 0.601597, -4.18268 )
+
+[node name="wooden_arc" parent="world/hallway_cave" instance=ExtResource( 57 )]
+transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.105442, -0.056972, 3.60356 )
+
+[node name="fire_wood" parent="world/hallway_cave" instance=ExtResource( 58 )]
+transform = Transform( 2.07732, 0, -0.591897, 0, 2.16, 0, 0.591897, 0, 2.07732, -1.80527, 0.601002, 2.8068 )
+
+[node name="wooden_beam_horizontal" parent="world/hallway_cave" instance=ExtResource( 56 )]
+transform = Transform( 0.142784, 0, -0.704201, 0, 0.705, 0, 2.9966, 0, 0.0335542, 2.1512, 0.752639, 0.864709 )
+
+[node name="wooden_beam_horizontal2" parent="world/hallway_cave" instance=ExtResource( 56 )]
+transform = Transform( 0.142784, 0, -0.704201, 0, 0.705, 0, 2.9966, 0, 0.0335542, 1.8188, 0.752639, 0.864709 )
+
+[node name="wooden_beam_horizontal3" parent="world/hallway_cave" instance=ExtResource( 56 )]
+transform = Transform( 0.142784, 0, -0.704201, 0, 0.705, 0, 2.9966, 0, 0.0335542, 1.42846, 0.752639, 0.864709 )
+
+[node name="wooden_beam_horizontal4" parent="world/hallway_cave" instance=ExtResource( 56 )]
+transform = Transform( 0.142784, 0, -0.704201, 0, 0.705, 0, 2.9966, 0, 0.0335542, 1.94433, 1.07946, 0.864709 )
+
+[node name="wooden_beam_horizontal5" parent="world/hallway_cave" instance=ExtResource( 56 )]
+transform = Transform( 0.142784, 0, -0.704201, 0, 0.705, 0, 2.9966, 0, 0.0335542, 1.62833, 1.0693, 0.864709 )
+
+[node name="wooden_beam_horizontal6" parent="world/hallway_cave" instance=ExtResource( 56 )]
+transform = Transform( 0.142784, 0, -0.704201, 0, 0.705, 0, 2.9966, 0, 0.0335542, 1.81332, 1.37101, 0.864709 )
+
 [node name="hallway_cave2" parent="world" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.571539, -22.019 )
 
@@ -223,6 +259,18 @@ transform = Transform( 0.955318, -0.0519699, -0.290976, 0.049715, 0.998649, -0.0
 
 [node name="patch3" parent="world/hallway_cave2" instance=ExtResource( 3 )]
 transform = Transform( 0.955318, -0.0519699, -0.290976, 0.049715, 0.998649, -0.0151425, 0.29137, 0, 0.95661, -2.52669, 2.01256, 7.11703 )
+
+[node name="pillar3" parent="world/hallway_cave2" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 0.75, 0, 0, 0, 1, -2.50238, 0.648129, -1.41647 )
+
+[node name="pillar4" parent="world/hallway_cave2" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 0.75, 0, 0, 0, 1, 2.20222, 0.648131, -1.14533 )
+
+[node name="boulder" parent="world/hallway_cave2" instance=ExtResource( 50 )]
+transform = Transform( 4.2, 0, 0, 0, 4.932, 0, 0, 0, 2.347, -1.86648, 0.601003, 6.41229 )
+
+[node name="boulder_egg" parent="world/hallway_cave2" instance=ExtResource( 55 )]
+transform = Transform( 1.33319, -0.57668, 0, 0.258374, 2.97563, 0, 0, 0, 1.277, 2.29462, 0.601, 6.79403 )
 
 [node name="temple" parent="world" instance=ExtResource( 7 )]
 
@@ -247,11 +295,29 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.329, 0.0295639, -1.57552 )
 [node name="hallway_short" parent="world" instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0449284, -53.5743 )
 
+[node name="pillar3" parent="world/hallway_short" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 0.75, 0, 0, 0, 1, -2.50238, -0.0693664, -3.05646 )
+
+[node name="pillar4" parent="world/hallway_short" instance=ExtResource( 9 )]
+transform = Transform( 0.936096, -0.263239, 0.0230909, 0, 0.0492352, 0.997843, -0.351744, -0.700558, 0.0614518, 3.01924, 0.637934, -1.66331 )
+
 [node name="hallway_cave3" parent="world" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.571561, -65.0353 )
 
+[node name="patch2" parent="world/hallway_cave3" instance=ExtResource( 3 )]
+transform = Transform( 0.955318, -0.0519699, -0.290976, 0.049715, 0.998649, -0.0151425, 0.29137, 0, 0.95661, -2.65434, 2.1371, -6.06466 )
+
 [node name="Slope" parent="world" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0, -0.0294575, -73.4559 )
+
+[node name="boulder_sharp" parent="world/Slope" instance=ExtResource( 52 )]
+transform = Transform( 1.55, 0, 0, 0, 0.469269, 1.17058, 0, -1.29564, 0.423977, -1.24441, 0.938939, 1.52073 )
+
+[node name="boulder" parent="world/Slope" instance=ExtResource( 50 )]
+transform = Transform( 1.525, 0, 0, 0, 1.712, 0, 0, 0, 1.646, 2.38813, 0.0590379, -3.05594 )
+
+[node name="Stalagmite_small" parent="world/Slope" instance=ExtResource( 54 )]
+transform = Transform( 1, 0, 0, 0, 1.56569, 0.230457, 0, -0.370806, 0.973082, 2.13943, 1.07862, 1.91341 )
 
 [node name="Slope2" parent="world" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 1.41505, -78.958 )
@@ -259,11 +325,23 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 1.41505, -78.958 )
 [node name="patch_ceiling" parent="world/Slope2" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 0.543785, 0.0280961, 0, -0.0152843, 0.999605, 0.122913, 2.60206, -0.46759 )
 
+[node name="Stalagmite_long" parent="world/Slope2" instance=ExtResource( 53 )]
+transform = Transform( 0.608, 0, 0, 0, 1.04999, 0.0591931, 0, -0.102712, 0.605112, -1.00645, 0.493704, -0.660889 )
+
+[node name="Stalagmite_long2" parent="world/Slope2" instance=ExtResource( 53 )]
+transform = Transform( 0.808, 0, 0, 0, 1.04999, 0.0805143, 0, -0.102712, 0.823071, 1.5381, 0.907959, 1.5297 )
+
 [node name="hallway_short2" parent="world" instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.892, -81.6704 )
 
 [node name="Separator_wall" parent="world/hallway_short2" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.369156, 0, -3.99863 )
+
+[node name="boulder_egg" parent="world/hallway_short2" instance=ExtResource( 55 )]
+transform = Transform( 1.334, 0, 0, 0, 1.302, 0, 0, 0, 1.67, -1.93537, -0.159544, -0.570633 )
+
+[node name="boulder_long" parent="world/hallway_short2/boulder_egg" instance=ExtResource( 51 )]
+transform = Transform( 1, 0, 0, 0, 0.961449, -0.352705, 0, 0.214388, 0.961449, 2.64382, -0.435583, -1.41274 )
 
 [node name="Player" parent="." instance=ExtResource( 15 )]
 transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, 0.271037, 22.5435, 11.3745 )
