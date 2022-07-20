@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://godot-credits-master/GodotCredits.gd" type="Script" id=1]
 [ext_resource path="res://images/dinner.jpeg" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://resources/buttone_theme.tres" type="StyleBox" id=18]
 [ext_resource path="res://images/baile_1.webm" type="VideoStream" id=19]
 [ext_resource path="res://images/baile_2.webm" type="VideoStream" id=20]
+[ext_resource path="res://fonts/Medieval Sharp/MedievalSharp-BookOblique.ttf" type="DynamicFontData" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 size = 150
@@ -27,7 +28,7 @@ font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 150
-font_data = ExtResource( 8 )
+font_data = ExtResource( 21 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 48
@@ -174,6 +175,7 @@ paused = true
 script = ExtResource( 6 )
 
 [node name="VideoPlayer_5" type="VideoPlayer" parent="CreditsContainer"]
+visible = false
 show_behind_parent = true
 margin_left = 815.0
 margin_top = 265.0
