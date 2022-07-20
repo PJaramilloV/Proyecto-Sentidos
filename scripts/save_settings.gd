@@ -6,7 +6,7 @@ var game_data = {}
 
 func _ready():
 	load_data()
-	print(game_data)
+	#print(game_data)
 
 func load_data():
 	var file = File.new()
@@ -21,6 +21,7 @@ func load_data():
 			"sfx_volume": -10,
 			"ui_volume": -10,
 			"music_volume": -10,
+			"display_fps": false,
 		}
 		save_data()
 	file.open(SAVEFILE_SETTINGS, File.READ)

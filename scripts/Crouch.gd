@@ -1,6 +1,7 @@
 extends PlayerState
 
 var _jump_timer
+var raycasts = []
 
 func enter(msg := {}) -> void:
 	player.animation_tree.set("parameters/State/current", 1)
@@ -9,6 +10,13 @@ func enter(msg := {}) -> void:
 	_jump_timer = 0
 	if msg.has("standcrouch"):
 		player.animation_tree.set("parameters/SCShot/active", true)
+	raycasts = [player.crouchray1, player.crouchray2, player.crouchray3, player.crouchray4]
+	for ray in raycasts:
+		ray.enabled = true
+
+func exit() -> void:
+	for ray in raycasts:
+		ray.enabled = false
 
 func physics_update(delta: float) -> void:
 	if (!player.is_on_floor()) and !player.floorray.is_colliding():
@@ -34,8 +42,14 @@ func physics_update(delta: float) -> void:
 		var ladder = player.ladderraycasts()
 		if ladder[0]:
 			state_machine.transition_to("Ladder", {ray=ladder[1]})
-	elif Input.is_action_just_released("crouch"):
+	elif !Input.is_action_pressed("crouch") and can_stand():
 		if is_equal_approx(vel, 0.0):
 			state_machine.transition_to("Idle")
 		else:
 			state_machine.transition_to("Jog")
+
+func can_stand():
+	for ray in raycasts:
+		if ray.is_colliding():
+			return false
+	return true

@@ -12,6 +12,8 @@ onready var warning_sound = get_node("WarningAudio")
 var warning_sound_cd = 20.0
 var warning_timer = 0.0
 
+signal kill
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hitbox.mode = RigidBody.MODE_STATIC
@@ -33,7 +35,7 @@ func activating(delta):
 
 func falling(delta):
 	timer += delta
-	if timer > 0.4 and abs(hitbox.linear_velocity.y)  < 0.25:
+	if timer > 0.7 and abs(hitbox.linear_velocity.y)  < 0.25:
 		landing_noise()
 		hitbox.mode = RigidBody.MODE_STATIC
 		hitbox.disconnect("body_entered", self, "_on_body_collided")
@@ -47,6 +49,7 @@ func _process(delta):
 func _on_body_collided(player: Node):
 	if(player.get_collision_layer() == 18):
 		player.death()
+		emit_signal("kill")
 
 # Iniciar caida si se detecta un jugador
 func _on_area_entered(player: Node):

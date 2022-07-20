@@ -16,5 +16,6 @@ shape = SubResource( 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+bus = "SoundEffects"
 
 [connection signal="body_entered" from="." to="." method="_on_PopUpText_body_entered"]

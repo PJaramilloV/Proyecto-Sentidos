@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://assets/rooms/assemblies/Separator_wall_with door.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/assemblies/front_cover.tscn" type="PackedScene" id=2]
@@ -43,6 +43,12 @@
 [ext_resource path="res://scripts/disappearing_spirit.gd" type="Script" id=41]
 [ext_resource path="res://scenes/transitions/NextLevelActivator.tscn" type="PackedScene" id=42]
 [ext_resource path="res://assets/boulders/boulder_lethal.tscn" type="PackedScene" id=43]
+[ext_resource path="res://scenes/Interactive/PopUpManager.tscn" type="PackedScene" id=44]
+[ext_resource path="res://scenes/Interactive/PopUpText.tscn" type="PackedScene" id=45]
+[ext_resource path="res://audio/level/zapsplat_horror_hit_dark_deep_lfe_resonate_fear_42794.mp3" type="AudioStream" id=46]
+[ext_resource path="res://scripts/3dtext.gd" type="Script" id=47]
+[ext_resource path="res://fonts/Medieval Sharp/MedievalSharp-Book.ttf" type="DynamicFontData" id=48]
+[ext_resource path="res://scenes/FpsLabel.tscn" type="PackedScene" id=49]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 2.1306, 1.73309, 2.05416 )
@@ -60,6 +66,16 @@ extents = Vector3( 1, 1.4913, 1.15282 )
 background_mode = 1
 ambient_light_energy = 0.99
 ambient_light_sky_contribution = 0.0
+
+[sub_resource type="ViewportTexture" id=6]
+viewport_path = NodePath("Sprite3D/Viewport")
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+font_data = ExtResource( 48 )
+
+[sub_resource type="ViewportTexture" id=8]
+viewport_path = NodePath("Sprite3D2/Viewport")
 
 [node name="Spatial" type="Spatial"]
 
@@ -252,6 +268,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.369156, 0, -3.99863 )
 [node name="Player" parent="." instance=ExtResource( 15 )]
 transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, 0.271037, 22.5435, 11.3745 )
 startwithspirit = false
+footprint = false
 
 [node name="CheckPoints" type="Spatial" parent="."]
 
@@ -266,13 +283,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323093, 1.22778, -0.19644 )
 shape = SubResource( 1 )
 
 [node name="Checkpoint" type="Area" parent="CheckPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.06104, 1.70922, -38.732 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17638, 0.174961, -56.9981 )
 collision_layer = 16
 collision_mask = 16
 script = ExtResource( 27 )
 
 [node name="CollisionShape" type="CollisionShape" parent="CheckPoints/Checkpoint"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.771, -1.754 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.88052, 1.07921, 15.6782 )
 shape = SubResource( 2 )
 
 [node name="Killzones" type="Spatial" parent="."]
@@ -306,6 +323,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00069, 1.23437, -40.6358 )
 aabb = AABB( -0.453284, -0.948583, -0.57302, 0.906567, 1.89717, 1.14604 )
 radius = 1.3
 active = true
+unlock_spirit = true
 
 [node name="dialogue" parent="CutsceneActivator" instance=ExtResource( 38 )]
 dialogue_file = "res://dialogos/prueba1.json"
@@ -321,8 +339,68 @@ script = ExtResource( 41 )
 [node name="NextLevelArea" parent="." instance=ExtResource( 42 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171642, 4.43713, -85.6934 )
 
+[node name="PopUpManager" parent="." instance=ExtResource( 44 )]
+transform = Transform( 7.889, 0, 0, 0, 1, 0, 0, 0, 1, -2.86235, 1.69097, -43.2308 )
+text = "Spirit Unlocked owo"
+pop_up_text = NodePath("../PopUpText")
+audio = ExtResource( 46 )
+
+[node name="PopUpText" parent="." instance=ExtResource( 45 )]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.624873, 24.3085, 15.0498 )
+texture = SubResource( 6 )
+
+[node name="Viewport" type="Viewport" parent="Sprite3D"]
+size = Vector2( 134, 126 )
+transparent_bg = true
+render_target_v_flip = true
+script = ExtResource( 47 )
+
+[node name="Label" type="Label" parent="Sprite3D/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 7 )
+text = "Use
+W, A, S, D
+to move."
+align = 1
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.624873, 24.3085, 6.59073 )
+texture = SubResource( 8 )
+
+[node name="Viewport" type="Viewport" parent="Sprite3D2"]
+size = Vector2( 366, 126 )
+transparent_bg = true
+render_target_v_flip = true
+script = ExtResource( 47 )
+
+[node name="Label" type="Label" parent="Sprite3D2/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 7 )
+text = "Use SpaceBar to jump.
+Stand still to jump higher.
+Use LeftCtrl to crouch."
+align = 1
+
+[node name="FpsLabel" parent="." instance=ExtResource( 49 )]
+margin_left = -1.0
+margin_right = 176.0
+margin_bottom = 63.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="CutsceneActivator2" parent="." instance=ExtResource( 37 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2942, 0, 0 )
+
+[node name="dialogue" parent="CutsceneActivator2" instance=ExtResource( 38 )]
+dialogue_file = "res://dialogos/prueba1.json"
+
 [connection signal="body_entered" from="CheckPoints/Checkpoint_start" to="CheckPoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="CheckPoints/Checkpoint" to="CheckPoints/Checkpoint" method="_on_area_entered"]
 [connection signal="body_entered" from="Killzones/Killzone" to="Killzones/Killzone" method="_on_area_entered"]
+[connection signal="kill" from="Killzones/boulder_lethal" to="CutsceneActivator2" method="_on_boulder_lethal_kill"]
 [connection signal="transitioned" from="CutsceneActivator/TransitionScreen" to="CutsceneActivator" method="_on_TransitionScreen_transitioned"]
 [connection signal="transitioned" from="CutsceneActivator/TransitionScreen" to="spirit" method="_on_TransitionScreen_transitioned"]

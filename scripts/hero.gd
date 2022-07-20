@@ -36,6 +36,7 @@ onready var woodarray = [lfootwoodaudio, rfootwoodaudio]
 ### Habilidades ###
 export var _brace := false # False por defecto, true para testeo/despues de desbloquear
 export var _throw := false
+export var _footprint := false
 onready var wakeuppath = NodePath("StateMachine/Wakeup")
 
 onready var _model: Spatial = $Hero
@@ -67,6 +68,10 @@ onready var rightborderray = $CollisionShape/Raycasts/RightBorderRay
 onready var leftborderray2 = $CollisionShape/Raycasts/LeftBorderRay2
 onready var rightborderray2 = $CollisionShape/Raycasts/RightBorderRay2
 onready var floorray = $CollisionShape/Floor
+onready var crouchray1 = $CollisionShapeCrouch/CrouchRay1
+onready var crouchray2 = $CollisionShapeCrouch/CrouchRay2
+onready var crouchray3 = $CollisionShapeCrouch/CrouchRay3
+onready var crouchray4 = $CollisionShapeCrouch/CrouchRay4
 
 onready var ladderpath = $ClimbLadderPath
 onready var ladderfollow = $ClimbLadderPath/PathFollow
@@ -306,14 +311,15 @@ func end_cutscene():
 ### Spawn ###
 func spawn_decal(raycast: RayCast):
 	#raycast.enabled = true
-	raycast.force_raycast_update()
-	if raycast.is_colliding():
-		var b = decal.instance()
-		get_parent().add_child(b)
-		var correction = raycast.get_collision_normal()*decal_correction
-		b.global_transform.origin = raycast.get_collision_point() + correction
-		b.look_at(raycast.get_collision_point() + raycast.get_collision_normal(), Vector3.UP)
-		return true
+	if _footprint:
+		raycast.force_raycast_update()
+		if raycast.is_colliding():
+			var b = decal.instance()
+			get_parent().add_child(b)
+			var correction = raycast.get_collision_normal()*decal_correction
+			b.global_transform.origin = raycast.get_collision_point() + correction
+			b.look_at(raycast.get_collision_point() + raycast.get_collision_normal(), Vector3.UP)
+			return true
 	return false
 
 func spawn_light(raycast: RayCast):
@@ -331,3 +337,8 @@ func update_footstep(raycast: RayCast, side: int):
 	else:
 		sound = stonearray[side].get_child((randi() % stonearray[side].get_child_count()))
 	return sound
+
+func rotate_hero(value):
+	_model.rotation.y = value
+	_stand_shape.rotation.y = value
+	_crouch_shape.rotation.y = value
