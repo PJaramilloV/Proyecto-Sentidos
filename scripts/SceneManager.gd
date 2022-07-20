@@ -3,6 +3,7 @@ extends Node2D
 const main_menu = preload("res://scenes/main_menu.tscn")
 const demo = preload("res://demo/DemoHero.tscn")
 const game_over = preload("res://scenes/game_over.tscn")
+const credits = preload("res://godot-credits-master/GodotCredits.tscn")
 const level0 = preload("res://scenes/levels/LVL_0.tscn")
 const level1 = preload("res://scenes/levels/LVL_1.tscn")
 const level2 = preload("res://scenes/levels/LVL_2.tscn")
@@ -49,6 +50,7 @@ func reconnect_menu():
 	$CurrentScene/Control.connect("continuegame", self, "_continuegame")
 	$CurrentScene/Control.connect("extra", self, "_extra")
 	$CurrentScene/Control.connect("close", self, "_close")
+	$CurrentScene/Control.connect("credits", self, "_credits")
 
 func _extra():
 	$TransitionScreen.transition_extra()
@@ -59,6 +61,9 @@ func _close():
 func _death():
 	$TransitionScreen.transition_lose()
 
+func _credits():
+	$TransitionScreen.transition_credits()
+
 func _continuegame(level):
 	temp_level = level
 	$TransitionScreen.transition_continue()
@@ -66,17 +71,14 @@ func _continuegame(level):
 func _on_TransitionScreen_transitioned():
 	$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(level2.instance())
-	print("Swapped in SceneTwo")
+	#print("Swapped in SceneTwo")
 
 func _on_TransitionScreen_main_menu():
 	#$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.remove_child($CurrentScene.get_child(0))
 	$CurrentScene.add_child(main_menu.instance())
 	pointer = $CurrentScene/Control.level
-	$CurrentScene/Control.connect("startgame", self, "_start_game")
-	$CurrentScene/Control.connect("continuegame", self, "_continuegame")
-	$CurrentScene/Control.connect("extra", self, "_extra")
-	$CurrentScene/Control.connect("close", self, "_close")
+	reconnect_menu()
 
 func _on_TransitionScreen_next_level():
 	pointer += 1
@@ -114,3 +116,10 @@ func _on_TransitionScreen_lose():
 	$CurrentScene.add_child(game_over.instance())
 	$CurrentScene/Control.connect("restart", self, "_to_menu")
 	$CurrentScene/Control.connect("close", self, "_close")
+
+
+func _on_TransitionScreen_credits():
+	$CurrentScene.remove_child($CurrentScene.get_child(0))
+	$CurrentScene.add_child(credits.instance())
+	$CurrentScene/GodotCredits.connect("restart", self, "_to_menu")
+	$CurrentScene/GodotCredits.connect("close", self, "_close")

@@ -9,6 +9,7 @@ signal continuen
 signal extra
 signal close
 signal lose
+signal credits
 
 func transition():
 	$AnimationPlayer.play("fade_to_black")
@@ -30,6 +31,9 @@ func transition_extra():
 
 func transition_lose():
 	$AnimationPlayer.play("fade_to_black_lose")
+
+func transition_credits():
+	$AnimationPlayer.play("fade_to_black_credits")
 
 func transition_close():
 	$AnimationPlayer.play("fade_to_black_close")
@@ -63,3 +67,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	elif anim_name == "fade_to_black_lose":
 		emit_signal("lose")
 		$AnimationPlayer.play("fade_to_normal_lose")
+	elif anim_name == "fade_to_black_credits":
+		emit_signal("credits")
+		$AnimationPlayer.play("fade_to_normal")

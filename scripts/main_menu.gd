@@ -14,6 +14,7 @@ signal startgame
 signal continuegame(level)
 signal extra
 signal close
+signal credits
 
 var time_in_seconds = 0.2
 
@@ -58,7 +59,8 @@ func _on_extras_pressed():
 func _on_credits_pressed():
 	$AudioStreamPlayer2D.play()
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
-	get_tree().change_scene("res://godot-credits-master/GodotCredits.tscn")
+	#get_tree().change_scene("res://godot-credits-master/GodotCredits.tscn")
+	emit_signal("credits")
 
 func load_level():
 	var save_file = File.new()

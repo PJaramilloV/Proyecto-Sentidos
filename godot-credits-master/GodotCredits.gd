@@ -10,11 +10,17 @@ var scroll_speed := base_speed
 var speed_up := false 
 var speed_pause := false
 
+onready var menu = $menu
+onready var exit = $exit
 onready var line := $CreditsContainer/Line
 var started := false
 var finished := false
 
+signal restart
+signal close
+
 #var time_in_seconds = 3
+var time_in_seconds = 0.2
 var section
 var section_next := true
 var section_timer := 0.0
@@ -245,7 +251,9 @@ var credits = [
 	]
 ]
 
-
+func _ready():
+	menu.connect("pressed", self, "_menu")
+	exit.connect("pressed", self, "_exit")
 
 func _process(delta):
 	var scroll_speed = base_speed * delta
@@ -278,6 +286,9 @@ func _process(delta):
 				if lines[-1].rect_position.y<-100 and !finished:
 					finished = true
 					scroll_speed *= 0
+					$AnimationPlayer.play("fade")
+					menu.disabled = false
+					exit.disabled = false
 			for l in lines:
 				l.rect_position.y -= scroll_speed
 #				if l.rect_position.y < -l.get_line_height():
@@ -366,3 +377,13 @@ func _unhandled_input(event):
 		speed_up = false
 	if event.is_action_pressed("ui_accept"):
 		speed_pause = !speed_pause
+
+func _menu():
+	$AudioStreamPlayer2D2.play()
+	yield(get_tree().create_timer(time_in_seconds), "timeout")
+	emit_signal("restart")
+
+func _exit():
+	$AudioStreamPlayer2D2.play()
+	yield(get_tree().create_timer(time_in_seconds), "timeout")
+	emit_signal("close")

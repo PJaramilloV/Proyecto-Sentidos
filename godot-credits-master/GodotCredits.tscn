@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://godot-credits-master/GodotCredits.gd" type="Script" id=1]
 [ext_resource path="res://images/dinner.jpeg" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://images/escalada_piola.webm" type="VideoStream" id=13]
 [ext_resource path="res://images/amogus.PNG" type="Texture" id=14]
 [ext_resource path="res://images/ladder.webm" type="VideoStream" id=15]
+[ext_resource path="res://audio/hud/button-24.wav" type="AudioStream" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 150
@@ -23,6 +24,26 @@ font_data = ExtResource( 8 )
 [sub_resource type="DynamicFont" id=2]
 size = 150
 font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+font_data = ExtResource( 8 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
 
 [node name="GodotCredits" type="Node2D"]
 script = ExtResource( 1 )
@@ -166,3 +187,38 @@ color = Color( 0, 0, 0, 1 )
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
 autoplay = true
+
+[node name="menu" type="Button" parent="."]
+margin_left = 670.0
+margin_top = 972.0
+margin_right = 920.001
+margin_bottom = 662.0
+custom_fonts/font = SubResource( 3 )
+disabled = true
+text = "Main Menu"
+
+[node name="exit" type="Button" parent="."]
+margin_left = 1000.0
+margin_top = 972.0
+margin_right = 1250.0
+margin_bottom = 662.0
+custom_fonts/font = SubResource( 3 )
+disabled = true
+text = "Exit"
+
+[node name="Fade" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 621.0
+margin_top = 952.0
+margin_right = 1298.0
+margin_bottom = 1094.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 0, 1 )
+stream = ExtResource( 16 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fade = SubResource( 4 )
