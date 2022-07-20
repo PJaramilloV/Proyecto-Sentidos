@@ -12,7 +12,6 @@ script = ExtResource( 3 )
 
 [connection signal="close" from="TransitionScreen" to="." method="_on_TransitionScreen_close"]
 [connection signal="continuen" from="TransitionScreen" to="." method="_on_TransitionScreen_continuen"]
-[connection signal="credits" from="TransitionScreen" to="." method="_on_TransitionScreen_credits"]
 [connection signal="extra" from="TransitionScreen" to="." method="_on_TransitionScreen_extra"]
 [connection signal="game_over" from="TransitionScreen" to="." method="_on_TransitionScreen_game_over"]
 [connection signal="level_0" from="TransitionScreen" to="." method="_on_TransitionScreen_level_0"]

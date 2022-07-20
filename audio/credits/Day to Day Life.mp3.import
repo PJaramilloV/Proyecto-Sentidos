@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Day to Day Life.mp3-2051786ad9d3ba5f6c2693073de2ca91.mp3str"
+
+[deps]
+
+source_file="res://audio/credits/Day to Day Life.mp3"
+dest_files=[ "res://.import/Day to Day Life.mp3-2051786ad9d3ba5f6c2693073de2ca91.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

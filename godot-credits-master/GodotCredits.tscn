@@ -174,7 +174,6 @@ paused = true
 script = ExtResource( 6 )
 
 [node name="VideoPlayer_5" type="VideoPlayer" parent="CreditsContainer"]
-visible = false
 show_behind_parent = true
 margin_left = 815.0
 margin_top = 265.0
@@ -182,7 +181,6 @@ margin_right = 1065.0
 margin_bottom = 691.0
 stream = ExtResource( 19 )
 autoplay = true
-paused = true
 script = ExtResource( 6 )
 
 [node name="VideoPlayer_6" type="VideoPlayer" parent="CreditsContainer"]
