@@ -726,6 +726,15 @@ transform = Transform( 1.6, 0, 0, 0, 0.8, 0, 0, 0, 1.6, -2.92373, 0.499564, 0 )
 [node name="patch2" parent="world/low_path/hallway_cave" instance=ExtResource( 6 )]
 transform = Transform( 0.990319, -0.0438723, -0.271018, 0.0354228, 0.997202, -0.135486, 0.13421, 0.0605316, 2.03557, -2.77873, 2.18058, -6.45363 )
 
+[node name="Stalagmite_long" parent="world/low_path/hallway_cave" instance=ExtResource( 18 )]
+transform = Transform( 0.599281, 0, 0.427436, 0, 1, 0, -0.351976, 0, 0.72776, -1.13816, 0.550911, 1.90088 )
+
+[node name="Stalagmite_small" parent="world/low_path/hallway_cave" instance=ExtResource( 54 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50318, 0.542485, 6.80637 )
+
+[node name="Stalagmite" parent="world/low_path/hallway_cave" instance=ExtResource( 52 )]
+transform = Transform( -1.051, 7.1337e-08, 0, -9.18813e-08, -0.816, 0, 0, 0, 1.007, 1.89963, 4.30257, 5.16875 )
+
 [node name="hallway_cave2" parent="world/low_path" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.2646 )
 
@@ -768,6 +777,12 @@ transform = Transform( -0.13635, 0, 0.994518, 0, 1, 0, -1.29685, 0, -0.104563, -
 [node name="boulder3" parent="world/low_path/hallway_cave2/boulder_bulk" instance=ExtResource( 36 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.896126, 0.619263, 0.475934 )
 
+[node name="boulder_capsule3" parent="world/low_path/hallway_cave2/boulder_bulk" instance=ExtResource( 44 )]
+transform = Transform( 1.55, 0, 0, 0, 2.491, 0, -2.98023e-08, 0, 1.24, -10.6723, -4.76837e-06, -1.3554 )
+
+[node name="boulder_capsule4" parent="world/low_path/hallway_cave2/boulder_bulk" instance=ExtResource( 44 )]
+transform = Transform( 1.49088, 2.4216, 0.40742, -1.51259, 2.43948, -0.271746, -0.500493, -0.159069, 2.0349, 8.84914, -0.069066, 0.559815 )
+
 [node name="pillar" parent="world/low_path/hallway_cave2" instance=ExtResource( 16 )]
 transform = Transform( 0.913687, 0.000179373, 0.406419, -0.355127, 0.365074, 0.798089, -0.19764, -0.65515, 0.444835, -2.54515, 0.600999, 4.23592 )
 
@@ -784,7 +799,7 @@ transform = Transform( 1, 0, 0, 0, 0.75, 0, 0, 0, 1, -2.74942, 0.600999, -10.060
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.313591, 2.85441, 0 )
 
 [node name="pillar4" parent="world/low_path/hallway_cave2" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 0.75, 0, 0, 0, 1, 1.95518, 0.601, -10.0602 )
+transform = Transform( 1, 0, 0, 0, 0.75, 0, 0, 0, 1, 1.95518, 0.601, -11.608 )
 
 [node name="hallway_cave3" parent="world/low_path" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -26.5121 )
