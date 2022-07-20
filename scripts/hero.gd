@@ -67,6 +67,10 @@ onready var rightborderray = $CollisionShape/Raycasts/RightBorderRay
 onready var leftborderray2 = $CollisionShape/Raycasts/LeftBorderRay2
 onready var rightborderray2 = $CollisionShape/Raycasts/RightBorderRay2
 onready var floorray = $CollisionShape/Floor
+onready var crouchray1 = $CollisionShapeCrouch/CrouchRay1
+onready var crouchray2 = $CollisionShapeCrouch/CrouchRay2
+onready var crouchray3 = $CollisionShapeCrouch/CrouchRay3
+onready var crouchray4 = $CollisionShapeCrouch/CrouchRay4
 
 onready var ladderpath = $ClimbLadderPath
 onready var ladderfollow = $ClimbLadderPath/PathFollow
