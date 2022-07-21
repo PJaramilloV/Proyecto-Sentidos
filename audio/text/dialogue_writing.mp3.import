@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/dialogue_writing.mp3-0788a29a14b13f0ee7c0462808c1aa7d.mp3str"
+
+[deps]
+
+source_file="res://audio/text/dialogue_writing.mp3"
+dest_files=[ "res://.import/dialogue_writing.mp3-0788a29a14b13f0ee7c0462808c1aa7d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
