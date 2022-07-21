@@ -47,15 +47,15 @@ patch_margin_bottom = 22
 [node name="Name" type="RichTextLabel" parent="NinePatchRect"]
 margin_left = 24.0
 margin_top = 5.0
-margin_right = 1496.0
+margin_right = 1736.0
 margin_bottom = 67.0
 text = "Name:"
 
 [node name="Message" type="RichTextLabel" parent="NinePatchRect"]
 margin_left = 58.0
-margin_top = 72.0
+margin_top = 71.0
 margin_right = 1314.0
-margin_bottom = 211.0
+margin_bottom = 210.0
 text = "Sample text
 bottom text"
 
@@ -74,46 +74,6 @@ margin_bottom = 175.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "E"
-
-[node name="name_h_up" type="Polygon2D" parent="NinePatchRect"]
-position = Vector2( 12.5536, -56 )
-scale = Vector2( 0.925453, 1 )
-polygon = PoolVector2Array( -13.5648, 56, 211.19, 56, 196.69, 64, 196.69, 64, 0, 64 )
-
-[node name="name_h_down" type="Polygon2D" parent="NinePatchRect"]
-position = Vector2( 13.4193, 8 )
-scale = Vector2( 0.989278, 1 )
-polygon = PoolVector2Array( 0, 56, 184, 56, 196.69, 64, -13.5648, 64 )
-
-[node name="name_v_right" type="Polygon2D" parent="NinePatchRect"]
-position = Vector2( 200, -236 )
-scale = Vector2( 0.0434782, 4.49999 )
-polygon = PoolVector2Array( 0, 56, 0, 56, 184, 52.4444, 184, 68.4445, 0, 64, 0, 57 )
-
-[node name="name_v_left" type="Polygon2D" parent="NinePatchRect"]
-position = Vector2( 0, -360 )
-scale = Vector2( 0.0434782, 6.75 )
-polygon = PoolVector2Array( 0, 53.3333, 184, 56, 184, 62, 0, 64 )
-
-[node name="big_v_right" type="Polygon2D" parent="NinePatchRect"]
-position = Vector2( 1288, -670.526 )
-scale = Vector2( 1, 0.866825 )
-polygon = PoolVector2Array( 200, 792, 200, 1024, 208, 1041.19, 208, 773.542 )
-
-[node name="big_h_up" type="Polygon2D" parent="NinePatchRect"]
-position = Vector2( 224.513, -56 )
-scale = Vector2( 6.82166, 1 )
-polygon = PoolVector2Array( -2.42065, 56, 186.39, 56, 184, 64, 0, 64 )
-
-[node name="big_h_down" type="Polygon2D" parent="NinePatchRect"]
-position = Vector2( 15.914, 168 )
-scale = Vector2( 7.95699, 1 )
-polygon = PoolVector2Array( 0, 56, 184, 56, 186.011, 64, -2, 64 )
-
-[node name="big_v_left" type="Polygon2D" parent="NinePatchRect"]
-position = Vector2( -200, -353.769 )
-scale = Vector2( 0.999998, 0.557159 )
-polygon = PoolVector2Array( 200, 764.179, 200, 1051.35, 208, 1024, 208, 792 )
 
 [node name="Timer" type="Timer" parent="."]
 
