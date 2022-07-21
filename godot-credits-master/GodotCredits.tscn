@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://godot-credits-master/GodotCredits.gd" type="Script" id=1]
 [ext_resource path="res://images/dinner.jpeg" type="Texture" id=2]
@@ -8,18 +8,15 @@
 [ext_resource path="res://godot-credits-master/VideoPlayer.gd" type="Script" id=6]
 [ext_resource path="res://images/Bacan_studios_logo-modified.png" type="Texture" id=7]
 [ext_resource path="res://fonts/Medieval Sharp/MedievalSharp-Book.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://images/ay.webm" type="VideoStream" id=9]
+[ext_resource path="res://images/baile_2.webm" type="VideoStream" id=9]
 [ext_resource path="res://audio/credits/Day to Day Life.mp3" type="AudioStream" id=10]
-[ext_resource path="res://images/altar.jpeg" type="Texture" id=11]
 [ext_resource path="res://images/level_5.jpeg" type="Texture" id=12]
-[ext_resource path="res://images/escalada_piola.webm" type="VideoStream" id=13]
 [ext_resource path="res://images/amogus.PNG" type="Texture" id=14]
 [ext_resource path="res://images/ladder.webm" type="VideoStream" id=15]
 [ext_resource path="res://audio/hud/button-24.wav" type="AudioStream" id=16]
 [ext_resource path="res://resources/button_normal_theme.tres" type="StyleBox" id=17]
 [ext_resource path="res://resources/buttone_theme.tres" type="StyleBox" id=18]
 [ext_resource path="res://images/baile_1.webm" type="VideoStream" id=19]
-[ext_resource path="res://images/baile_2.webm" type="VideoStream" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 size = 150
@@ -76,15 +73,9 @@ theme = ExtResource( 3 )
 text = "Creditos"
 align = 1
 
-[node name="Altar" type="Sprite" parent="CreditsContainer/Line"]
-visible = false
-position = Vector2( 357, 63 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 11 )
-
 [node name="Dinner" type="Sprite" parent="CreditsContainer/Line"]
 visible = false
-position = Vector2( 409, 0 )
+position = Vector2( 333, 0 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 
@@ -107,8 +98,8 @@ align = 1
 
 [node name="level_5" type="Sprite" parent="CreditsContainer/Line"]
 visible = false
-position = Vector2( 1615, 63 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 1653, -35 )
+scale = Vector2( 0.384375, 0.336458 )
 texture = ExtResource( 12 )
 
 [node name="amogus" type="Sprite" parent="CreditsContainer/Line"]
@@ -130,72 +121,45 @@ margin_bottom = -748.055
 custom_fonts/font = SubResource( 2 )
 text = "Profundis"
 
-[node name="VideoPlayer_1" type="VideoPlayer" parent="CreditsContainer/Line"]
+[node name="Moonwalk" type="VideoPlayer" parent="CreditsContainer/Line"]
 visible = false
-margin_left = 88.0
-margin_top = -354.0
-margin_right = 601.0
-margin_bottom = -45.0
-stream = ExtResource( 9 )
-autoplay = true
-paused = true
-script = ExtResource( 6 )
-
-[node name="VideoPlayer_2" type="VideoPlayer" parent="CreditsContainer/Line"]
-visible = false
-margin_left = 57.0
-margin_top = -426.0
-margin_right = 650.0
-margin_bottom = -45.0
+margin_left = 1366.0
+margin_top = -264.0
+margin_right = 1800.0
+margin_bottom = 63.0
 stream = ExtResource( 5 )
 autoplay = true
 paused = true
 script = ExtResource( 6 )
 
-[node name="VideoPlayer_3" type="VideoPlayer" parent="CreditsContainer/Line"]
+[node name="Ladder" type="VideoPlayer" parent="CreditsContainer/Line"]
 visible = false
-margin_left = 1475.0
-margin_top = -278.0
-margin_right = 1852.0
-margin_bottom = 103.0
-stream = ExtResource( 13 )
-autoplay = true
-paused = true
-script = ExtResource( 6 )
-
-[node name="VideoPlayer_4" type="VideoPlayer" parent="CreditsContainer/Line"]
-visible = false
-margin_left = 1366.0
+margin_left = 112.0
 margin_top = -426.0
-margin_right = 1864.0
+margin_right = 610.0
 stream = ExtResource( 15 )
 autoplay = true
 paused = true
-script = ExtResource( 6 )
 
-[node name="VideoPlayer_5" type="VideoPlayer" parent="CreditsContainer"]
+[node name="baile_1" type="VideoPlayer" parent="CreditsContainer/Line"]
 visible = false
-show_behind_parent = true
-margin_left = 815.0
-margin_top = 265.0
-margin_right = 1065.0
-margin_bottom = 691.0
+margin_left = 165.0
+margin_top = -426.0
+margin_right = 566.0
+margin_bottom = -108.0
 stream = ExtResource( 19 )
 autoplay = true
 paused = true
-script = ExtResource( 6 )
 
-[node name="VideoPlayer_6" type="VideoPlayer" parent="CreditsContainer"]
+[node name="baile_2" type="VideoPlayer" parent="CreditsContainer/Line"]
 visible = false
-show_behind_parent = true
-margin_left = 670.0
-margin_top = 265.0
-margin_right = 1168.0
-margin_bottom = 691.0
-stream = ExtResource( 20 )
+margin_left = 1366.0
+margin_top = -426.0
+margin_right = 1767.0
+margin_bottom = -108.0
+stream = ExtResource( 9 )
 autoplay = true
 paused = true
-script = ExtResource( 6 )
 
 [node name="ColorRect_2" type="ColorRect" parent="."]
 anchor_right = 1.0
