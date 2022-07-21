@@ -6,6 +6,7 @@ onready var core = get_node("core")
 onready var omni = get_node("omni")
 onready var ray = get_node("ray")
 onready var area = get_node("detector")
+onready var stone_sound = get_node("stone_sound")
 var process_function = "sleep"
 var timer  = 0.0
 
@@ -75,5 +76,6 @@ func activate(player: Node):
 	area.disconnect("body_entered", self, "activate")
 
 func _on_CutsceneActivator2_ended():
+	stone_sound.play()
 	process_function = "activating"
 	area.disconnect("body_entered", self, "activate")

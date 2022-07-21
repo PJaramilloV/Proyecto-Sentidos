@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_household_wooden_gate_movement_slight_creak_001_85837.mp3-456874d7c07ee2a5c7a3e5e729bd159d.mp3str"
+
+[deps]
+
+source_file="res://audio/level/zapsplat_household_wooden_gate_movement_slight_creak_001_85837.mp3"
+dest_files=[ "res://.import/zapsplat_household_wooden_gate_movement_slight_creak_001_85837.mp3-456874d7c07ee2a5c7a3e5e729bd159d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

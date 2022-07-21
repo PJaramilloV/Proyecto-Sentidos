@@ -8,6 +8,7 @@ var current_dialogue_id = 0
 var started = false
 var finished = false
 var ended = false
+var contador = 3
 
 onready var box = $NinePatchRect
 onready var nom_personaje = $NinePatchRect/Name
@@ -50,7 +51,9 @@ func next_line():
 	#Mostrar caracteres de uno en uno segun el tiempo del Timer
 	while mensaje.visible_characters < len(mensaje.text):
 		mensaje.visible_characters += 1
-		#$AudioStreamPlayer.play()
+		contador += 1
+		if contador % 4 == 0:
+			$text_sound.play()
 		$Timer.start()
 		yield($Timer, "timeout")
 	
