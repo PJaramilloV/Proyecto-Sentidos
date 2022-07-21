@@ -2,6 +2,7 @@ extends Spatial
 
 onready var target: Object = get_parent().get_node("hero/CollisionShape/behind")
 onready var omni: OmniLight = get_node("OmniLight")
+onready var animation: AnimationPlayer = get_node("AnimationPlayer")
 export var smooth_speed := 2
 export var offset: Vector3
 var flash_t := 0.0
@@ -31,3 +32,7 @@ func reset():
 	angle = 0.0
 	var destination = target.global_transform.origin + offset + Vector3(0.0, 0.2*sin(angle),0.0 )
 	self.global_transform.origin = destination
+
+func say(text):
+	get_node("Sprite3D/Viewport/Label").text = text
+	animation.play("show")

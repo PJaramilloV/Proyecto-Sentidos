@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=2]
+[gd_scene load_steps=92 format=2]
 
 [ext_resource path="res://scripts/LightHandler.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Checkpoint.gd" type="Script" id=2]
@@ -63,6 +63,10 @@
 [ext_resource path="res://assets/boulders/boulder_egg.tscn" type="PackedScene" id=61]
 [ext_resource path="res://assets/boulders/boulder_sphere.tscn" type="PackedScene" id=62]
 [ext_resource path="res://scenes/FpsLabel.tscn" type="PackedScene" id=63]
+[ext_resource path="res://scenes/Interactive/DialogueArea.tscn" type="PackedScene" id=64]
+[ext_resource path="res://scenes/Interactive/Cutscene_activator.tscn" type="PackedScene" id=65]
+[ext_resource path="res://scenes/dialog1.tscn" type="PackedScene" id=66]
+[ext_resource path="res://scenes/transitions/TransitionScreen.tscn" type="PackedScene" id=67]
 
 [sub_resource type="ConcavePolygonShape" id=13]
 data = PoolVector3Array( 0.5, 1, -0.5, 0.433, 0.5, -0.5, 0.6495, 0.5, 0, 0.75, 1, 0, 0.5, 1, -0.5, 0.6495, 0.5, 0, 0.433, 0.5, -0.5, 0.25, 0.134, -0.5, 0.375, 0.134, 0, 0.6495, 0.5, 0, 0.433, 0.5, -0.5, 0.375, 0.134, 0, 0.25, 0.134, -0.5, 0, 0, -0.5, 0, 0, 0, 0.25, 0.134, 0.5, 0, 0, 0, 0, 0, 0.5, 0.375, 0.134, 0, 0, 0, 0, 0.25, 0.134, 0.5, 0.375, 0.134, 0, 0.25, 0.134, -0.5, 0, 0, 0, -0.5, 0, 0.5, 0, 0, 0.5, -0.5, 0, 0, 0, 0, 0, 0, 0, -0.5, -0.5, 0, 0, -0.5, 0, -0.5, -0.5, 0, 0, 0, 0, -0.5, 0, 0, 0.5, 0, 0, 0, -0.5, 0, 0, 0.6495, 0.5, 0, 0.375, 0.134, 0, 0.433, 0.5, 0.5, 0.433, 0.5, 0.5, 0.375, 0.134, 0, 0.25, 0.134, 0.5, 0.75, 1, 0, 0.6495, 0.5, 0, 0.5, 1, 0.5, 0.5, 1, 0.5, 0.6495, 0.5, 0, 0.433, 0.5, 0.5 )
@@ -1424,6 +1428,45 @@ margin_bottom = 63.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
+[node name="DialogueArea" parent="." instance=ExtResource( 64 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.26702, -0.278526 )
+text = "Yes, we are getting closer . . ."
+
+[node name="CutsceneActivator" parent="." instance=ExtResource( 65 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.314464, -25.2892, -47.8139 )
+aabb = AABB( -0.315047, -0.890431, -0.227863, 0.630093, 1.78086, 0.455726 )
+radius = 2.0
+active = true
+
+[node name="dialogue" parent="CutsceneActivator" instance=ExtResource( 66 )]
+dialogue_file = "res://dialogos/lvl5.json"
+
+[node name="DialogueArea2" parent="." instance=ExtResource( 64 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.3881, -88.2286 )
+text = "Well, this key seems important enough"
+
+[node name="CutsceneActivator2" parent="." instance=ExtResource( 65 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.38129, 2.66144, -62.1361 )
+aabb = AABB( 0.421587, -1, -1.9519, 0.816005, 2, 1.22704 )
+radius = 3.0
+active = true
+connect = true
+disable_spirit = true
+
+[node name="dialogue" parent="CutsceneActivator2" instance=ExtResource( 66 )]
+dialogue_file = "res://dialogos/lvl5 - 1.json"
+
+[node name="TransitionScreen" parent="CutsceneActivator2" instance=ExtResource( 67 )]
+
+[node name="CutsceneActivatorEnd" parent="." instance=ExtResource( 65 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.0672, 0, -86.0179 )
+trigger_finish = true
+
+[node name="dialogue" parent="CutsceneActivatorEnd" instance=ExtResource( 66 )]
+dialogue_file = "res://dialogos/lvl5 - 2.json"
+
 [connection signal="body_entered" from="Checkpoints/Checkpoint_start" to="Checkpoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint" to="Checkpoints/Checkpoint" method="_on_area_entered"]
 [connection signal="body_entered" from="Killzones/Killzone" to="Killzones/Killzone" method="_on_area_entered"]
+[connection signal="ended" from="CutsceneActivator2" to="world/upper_path/temple/shrine/holy_stone" method="_on_CutsceneActivator2_ended"]
+[connection signal="flashbang" from="CutsceneActivator2/TransitionScreen" to="CutsceneActivatorEnd" method="_on_TransitionScreen_flashbang"]

@@ -10,6 +10,9 @@ signal extra
 signal close
 signal lose
 signal credits
+signal flashbang
+signal end
+signal macro
 
 func transition():
 	$AnimationPlayer.play("fade_to_black")
@@ -38,8 +41,17 @@ func transition_credits():
 func transition_close():
 	$AnimationPlayer.play("fade_to_black_close")
 
+func transition_end():
+	$AnimationPlayer.play("fade_to_black_end")
+
+func flashbang_dialogue():
+	$AnimationPlayer.play("flashbang_dialogue")
+
 func restore():
 	$AnimationPlayer.play("fade_to_normal")
+
+func transition_macro():
+	$AnimationPlayer.play("fade_to_black_macro")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "fade_to_black":
@@ -69,4 +81,12 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$AnimationPlayer.play("fade_to_normal_lose")
 	elif anim_name == "fade_to_black_credits":
 		emit_signal("credits")
+		$AnimationPlayer.play("fade_to_normal")
+	elif anim_name == "flashbang_dialogue":
+		emit_signal("flashbang")
+	elif anim_name == "fade_to_black_end":
+		emit_signal("end")
+		$AnimationPlayer.play("fade_to_normal")
+	elif anim_name == "fade_to_black_macro":
+		emit_signal("macro")
 		$AnimationPlayer.play("fade_to_normal")

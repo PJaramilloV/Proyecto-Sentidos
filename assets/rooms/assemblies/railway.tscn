@@ -6,7 +6,7 @@
 
 [node name="railway" type="Spatial"]
 
-[node name="StaticBody" type="StaticBody" parent="."]
+[node name="StaticBody" type="StaticBody" parent="." groups=["Wood Structure"]]
 
 [node name="Cave_Prop_Railway_Straight_1" type="MeshInstance" parent="StaticBody"]
 mesh = ExtResource( 1 )

@@ -14,6 +14,7 @@ var levels = [level0, level1, level2, level3, level4, level5]
 var temp_level
 #onready var pointer = $CurrentScene/Control.level
 var pointer
+var macro
 
 func _ready():
 	$CurrentScene.add_child(main_menu.instance())
@@ -23,11 +24,25 @@ func _ready():
 	_update_brightness(SaveSettings.game_data.brightness)
 
 func _process(delta):
-#	if Input.is_action_just_pressed("interact"):
-#		#_death()
-#		pointer = 1
-#		_to_next_level()
-	pass
+	if Input.is_key_pressed(KEY_CONTROL) and Input.is_key_pressed(KEY_L):
+		if Input.is_key_pressed(KEY_0):
+			macro = 0
+			$TransitionScreen.transition_macro()
+		if Input.is_key_pressed(KEY_1):
+			macro = 1
+			$TransitionScreen.transition_macro()
+		if Input.is_key_pressed(KEY_2):
+			macro = 2
+			$TransitionScreen.transition_macro()
+		if Input.is_key_pressed(KEY_3):
+			macro = 3
+			$TransitionScreen.transition_macro()
+		if Input.is_key_pressed(KEY_4):
+			macro = 4
+			$TransitionScreen.transition_macro()
+		if Input.is_key_pressed(KEY_5):
+			macro = 5
+			$TransitionScreen.transition_macro()
 
 func _start_game():
 	pointer = 0
@@ -46,6 +61,8 @@ func reconnect():
 		$CurrentScene.get_child(0).get_node("NextLevelArea").connect("to_next_level", self, "_to_next_level")
 #	for _i in $CurrentScene.get_child(0).get_children():
 #		print(_i)
+	if $CurrentScene.get_child(0).get_node("CutsceneActivatorEnd"):
+		$CurrentScene.get_child(0).get_node("CutsceneActivatorEnd").connect("finish", self, "_to_end")
 	$CurrentScene/Spatial/WorldEnvironment.environment.adjustment_enabled = true
 	$CurrentScene/Spatial/WorldEnvironment.environment.adjustment_brightness = SaveSettings.game_data.brightness
 
@@ -67,6 +84,9 @@ func _death():
 
 func _credits():
 	$TransitionScreen.transition_credits()
+
+func _to_end():
+	$TransitionScreen.transition_end()
 
 func _continuegame(level):
 	temp_level = level
@@ -141,3 +161,15 @@ func _on_TransitionScreen_credits():
 	$CurrentScene.add_child(credits.instance())
 	$CurrentScene/GodotCredits.connect("restart", self, "_to_menu")
 	$CurrentScene/GodotCredits.connect("close", self, "_close")
+
+func _on_TransitionScreen_end():
+	save_level(0)
+	$CurrentScene.remove_child($CurrentScene.get_child(0))
+	$CurrentScene.add_child(credits.instance())
+	$CurrentScene/GodotCredits.connect("restart", self, "_to_menu")
+	$CurrentScene/GodotCredits.connect("close", self, "_close")
+
+func _on_TransitionScreen_macro():
+	$CurrentScene.remove_child($CurrentScene.get_child(0))
+	$CurrentScene.add_child(levels[macro].instance())
+	reconnect()

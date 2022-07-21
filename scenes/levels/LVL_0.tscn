@@ -283,7 +283,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323093, 1.22778, -0.19644 )
 shape = SubResource( 1 )
 
 [node name="Checkpoint" type="Area" parent="CheckPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17638, 0.174961, -56.9981 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17638, 0.134148, -56.9981 )
 collision_layer = 16
 collision_mask = 16
 script = ExtResource( 27 )
@@ -324,9 +324,10 @@ aabb = AABB( -0.453284, -0.948583, -0.57302, 0.906567, 1.89717, 1.14604 )
 radius = 1.3
 active = true
 unlock_spirit = true
+connect = true
 
 [node name="dialogue" parent="CutsceneActivator" instance=ExtResource( 38 )]
-dialogue_file = "res://dialogos/prueba1.json"
+dialogue_file = "res://dialogos/lvl0.json"
 
 [node name="TransitionScreen" parent="CutsceneActivator" instance=ExtResource( 39 )]
 
@@ -341,9 +342,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171642, 4.43713, -85.6934 )
 
 [node name="PopUpManager" parent="." instance=ExtResource( 44 )]
 transform = Transform( 7.889, 0, 0, 0, 1, 0, 0, 0, 1, -2.86235, 1.69097, -43.2308 )
-text = "Spirit Unlocked owo"
+area_active = false
+text = "Spirit Unlocked"
 pop_up_text = NodePath("../PopUpText")
 audio = ExtResource( 46 )
+volume = -10.0
 
 [node name="PopUpText" parent="." instance=ExtResource( 45 )]
 
@@ -396,11 +399,20 @@ size_flags_vertical = 0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2942, 0, 0 )
 
 [node name="dialogue" parent="CutsceneActivator2" instance=ExtResource( 38 )]
-dialogue_file = "res://dialogos/prueba1.json"
+dialogue_file = "res://dialogos/lvl0 - 3.json"
+
+[node name="CutsceneActivator3" parent="." instance=ExtResource( 37 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6458, 0, 0 )
+
+[node name="dialogue" parent="CutsceneActivator3" instance=ExtResource( 38 )]
+dialogue_file = "res://dialogos/lvl0 - 2.json"
 
 [connection signal="body_entered" from="CheckPoints/Checkpoint_start" to="CheckPoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="CheckPoints/Checkpoint" to="CheckPoints/Checkpoint" method="_on_area_entered"]
 [connection signal="body_entered" from="Killzones/Killzone" to="Killzones/Killzone" method="_on_area_entered"]
 [connection signal="kill" from="Killzones/boulder_lethal" to="CutsceneActivator2" method="_on_boulder_lethal_kill"]
+[connection signal="ended" from="CutsceneActivator" to="spirit" method="_on_CutsceneActivator_ended"]
+[connection signal="flashbang" from="CutsceneActivator/TransitionScreen" to="CutsceneActivator3" method="_on_TransitionScreen_flashbang"]
 [connection signal="transitioned" from="CutsceneActivator/TransitionScreen" to="CutsceneActivator" method="_on_TransitionScreen_transitioned"]
 [connection signal="transitioned" from="CutsceneActivator/TransitionScreen" to="spirit" method="_on_TransitionScreen_transitioned"]
+[connection signal="ended" from="CutsceneActivator3" to="PopUpManager" method="_on_CutsceneActivator3_ended"]
