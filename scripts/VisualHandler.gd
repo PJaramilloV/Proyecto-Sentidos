@@ -31,9 +31,11 @@ func setup_light(light: Light, handler) -> bool:
 			for mesh in get_meshes():
 				mesh.set_layer_mask(4)
 				var material = mesh.mesh.surface_get_material(0)
-				material.emission_enabled = true
-				material.emission = Color(0.059,0.059,0.059)
-				material.emission_energy = 2
+				var new_material = material.duplicate()
+				mesh.set_surface_material(0, new_material)
+				new_material.emission_enabled = true
+				new_material.emission = Color(0.099,0.099,0.099)
+				new_material.emission_energy = 2
 				
 		return false
 	light.set_light_owner(self)

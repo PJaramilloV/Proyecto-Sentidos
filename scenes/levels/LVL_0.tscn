@@ -346,6 +346,7 @@ transform = Transform( 1, 0, 0, 0, 0.961449, -0.352705, 0, 0.214388, 0.961449, 2
 [node name="Player" parent="." instance=ExtResource( 15 )]
 transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, 0.271037, 22.5435, 11.3745 )
 startwithspirit = false
+startonfloor = true
 footprint = false
 
 [node name="CheckPoints" type="Spatial" parent="."]

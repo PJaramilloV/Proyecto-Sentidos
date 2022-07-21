@@ -59,7 +59,6 @@ func grab():
 	self.collision_mask=0
 	process_function = 'sleep'
 	air_time = 0
-	print(mesh.cast_shadow)
 	mesh.cast_shadow = 0
 
 # Enciende deteccion de colisiones y activa timer
