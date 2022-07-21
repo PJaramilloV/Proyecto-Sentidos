@@ -28,6 +28,22 @@ var line_timer := 0.0
 var curr_line := 0
 var lines := []
 
+onready var profundis = $CreditsContainer/Line/Profundis
+
+# Imagenes y videos
+
+
+onready var dinner = $CreditsContainer/Line/Dinner
+onready var logo = $CreditsContainer/Line/Logo
+onready var level_5 = $CreditsContainer/Line/level_5
+onready var amogus = $CreditsContainer/Line/amogus
+
+onready var moonwalk = $CreditsContainer/Line/Moonwalk
+onready var ladder = $CreditsContainer/Line/Ladder
+onready var baile_1 = $CreditsContainer/Line/baile_1
+onready var baile_2 = $CreditsContainer/Line/baile_2
+
+
 # I know, no es muy bonito el display de esta variable
 var credits = [
 	[
@@ -58,6 +74,9 @@ var credits = [
 		'"Medieval Sharp Book"',
 		" ",
 		" ",
+		'"Medieval Sharp Book Oblique"',
+		" ",
+		" ",
 		'Wojciech Kalinowski "wmk69"',
 		" ",
 		" ",
@@ -77,7 +96,7 @@ var credits = [
 		"Sound Jay",
 		" ",
 		" ",
-		"www.soundjay.com"
+		"soundjay.com"
 	],[
 		"Enviromental sounds, music and others",
 		" ",
@@ -88,7 +107,7 @@ var credits = [
 		"Standard License",
 		" ",
 		" ",
-		"www.zapsplat.com"
+		"zapsplat.com"
 	],[
 		"3D Models",
 	],[
@@ -117,7 +136,7 @@ var credits = [
 		" ",
 		"Keith at Fertile Soil Productions",
 		" ",
-		"https://fertile-soil-productions.itch.io",
+		"fertile-soil-productions.itch.io",
 	],[
 		"Main Character Model",
 		" ",
@@ -128,7 +147,7 @@ var credits = [
 		"kristenlee",
 		" ",
 		" ",
-		"https://sketchfab.com/kristenlee",
+		"sketchfab.com/kristenlee",
 		" ",
 		" ",
 		"Copyright (c) 2021",
@@ -145,7 +164,7 @@ var credits = [
 		"Mixamo",
 		" ",
 		" ",
-		"www.mixamo.com"
+		"mixamo.com"
 	],[
 		"Credits",
 		" ",
@@ -159,7 +178,7 @@ var credits = [
 		"Ben Bishop",
 		" ",
 		" ",
-		"https://github.com/benbishopnz",
+		"github.com/benbishopnz",
 		" ",
 		" ",
 		"MIT License",
@@ -184,6 +203,19 @@ var credits = [
 		" ",
 		" ",
 		" ",
+		'“Dungeon Air” Uploaded by Flamiffer ',
+		" ",
+		" ",
+		'"cavernscape" Uploaded by blaukreuz',
+		" ",
+		" ",
+		'"ambient noise" Uploaded by patchytherat',
+		" ",
+		" ",
+		"Music from Pixabay (Pixabay.com)",
+		" ",
+		" ",
+		"Pixabay License",
 		" ",
 		" ",
 		" ",
@@ -197,7 +229,10 @@ var credits = [
 		"Produced by Fabián Estrella, Florencia Morera, Joana Dekker and Benjamín Vera",
 		" ",
 		" ",
-		"Benja Vera on Soundcloud: https://soundcloud.com/benja-vald-s-71326544"
+		"Benja Vera on Soundcloud:",
+		" ",
+		" ",
+		"soundcloud.com/benja-vald-s-71326544"
 	],[
 		"Tester",
 		" ",
@@ -221,7 +256,7 @@ var credits = [
 		"Developed with Godot Engine",
 		" ",
 		" ",
-		"https://godotengine.org/license",
+		"godotengine.org/license",
 		" ",
 		" ",
 	],[
@@ -259,7 +294,7 @@ func _process(delta):
 	var scroll_speed = base_speed * delta
 	if speed_pause or finished:
 		scroll_speed *= 0
-		$CreditsContainer/Line/Logo.visible = false
+		logo.visible = false
 	else:
 		if section_next:
 			section_timer += delta * speed_up_multiplier if speed_up else delta
@@ -299,65 +334,74 @@ func add_line():
 	var new_line = line.duplicate()
 	new_line.text = section.pop_front()
 	
-	#### Videos ####
-	if new_line.text == "Sound Effects":
-		$CreditsContainer/Line/VideoPlayer_1.visible = true
-		$CreditsContainer/Line/VideoPlayer_1.paused = false
-	if new_line.text == "Main Menu Button Sound":
-		$CreditsContainer/Line/VideoPlayer_1.visible = false
-		$CreditsContainer/Line/VideoPlayer_1.paused = true
-		
-	if new_line.text == "Tools used":
-		$CreditsContainer/Line/VideoPlayer_2.visible = true
-		$CreditsContainer/Line/VideoPlayer_2.paused = false
-	if new_line.text == " ":
-		$CreditsContainer/Line/VideoPlayer_2.visible = false
-		$CreditsContainer/Line/VideoPlayer_2.paused = true	
+	# Label titulo
+	if new_line.text == "A game by Bacan Studios":
+		profundis.visible = true
+	if new_line.text == "Programming":
+		profundis.visible = false
 	
-	if new_line.text == "www.mixamo.com":
-		$CreditsContainer/Line/VideoPlayer_3.visible = true
-		$CreditsContainer/Line/VideoPlayer_3.paused = false
-	if new_line.text == "Credits":
-		$CreditsContainer/Line/VideoPlayer_3.visible = false
-		$CreditsContainer/Line/VideoPlayer_3.paused = true	
-
-	if new_line.text == "Broken Vector":
-		$CreditsContainer/Line/VideoPlayer_4.visible = true
-		$CreditsContainer/Line/VideoPlayer_4.paused = false
+	#### Videos ####
+	
+	# Moonwalk
+	if new_line.text == "Original Idea":
+		moonwalk.visible = true
+		moonwalk.paused = false
 	if new_line.text == " ":
-		$CreditsContainer/Line/VideoPlayer_4.visible = false
-		$CreditsContainer/Line/VideoPlayer_4.paused = true	
+		moonwalk.visible = false
+		moonwalk.paused = true	
+	
+	# Hover escalera
+	if new_line.text == "Sound Effects":
+		ladder.visible = true
+		ladder.paused = false
+	if new_line.text == "Main Menu Button Sound":
+		ladder.visible = false
+		ladder.paused = true
+
+	# Baile 1
+	if new_line.text == "Programming":
+		baile_1.visible = true
+		baile_1.paused = false
+
+	if new_line.text == " ":
+		baile_1.visible = false
+		baile_1.paused = true
+
+	# Baile 2
+	if new_line.text == "Object's Asset Pack":
+		baile_2.visible = true
+		baile_2.paused = false
+
+	if new_line.text == " ":
+		baile_2.visible = false
+		baile_2.paused = true
+
 
 	#### Fotos ####
-	if new_line.text == "A game by Bacan Studios":
-		$CreditsContainer/Line/Profundis.visible = true
-	if new_line.text == "Programming":
-		$CreditsContainer/Line/Profundis.visible = false
-		
-	if new_line.text == "Programming":
-		$CreditsContainer/Line/Altar.visible = true
+	
+	# Cena
+	if new_line.text == "Tools used":
+		dinner.visible = true
 	if new_line.text == " ":
-		$CreditsContainer/Line/Altar.visible = false
-		
-	if new_line.text == "Profesor":
-		$CreditsContainer/Line/Dinner.visible = true
+		dinner.visible = false
+	
+	# Dibujo level 5
+	if new_line.text == "Mixamo":
+		level_5.visible = true
 	if new_line.text == " ":
-		$CreditsContainer/Line/Dinner.visible = false
-		
-	if new_line.text == "Original Idea":
-		$CreditsContainer/Line/level_5.visible = true
+		level_5.visible = false
+	
+	# Amogus
+	if new_line.text == "Professor’s Assistant":
+		amogus.visible = true
 	if new_line.text == " ":
-		$CreditsContainer/Line/level_5.visible = false
-		
-	if new_line.text == "Christopher Marín R.":
-		$CreditsContainer/Line/Logo.visible = true
-	if new_line.text == " ":
-		$CreditsContainer/Line/Logo.visible = false
+		amogus.visible = false
 
-	if new_line.text == "Ayudantes":
-		$CreditsContainer/Line/amogus.visible = true
+	# Logo bacan studios
+	if new_line.text == "Christopher Marín R.":
+		logo.visible = true
 	if new_line.text == " ":
-		$CreditsContainer/Line/amogus.visible = false
+		logo.visible = false
 
 	if curr_line == 0:
 		new_line.add_color_override("font_color", title_color)
