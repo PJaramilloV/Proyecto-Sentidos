@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/rooms/pieces/glfts/Stone_Floor_001.material" type="Material" id=1]
 [ext_resource path="res://assets/rooms/pieces/glfts/Stone_Floor.material" type="Material" id=2]
+[ext_resource path="res://audio/level/zapsplat_horror_hit_dark_ominous_scary_choir_ahhs_43854.mp3" type="AudioStream" id=3]
 
 [sub_resource type="ArrayMesh" id=11]
 resource_name = "holy_stone_Icosphere"
@@ -143,3 +144,6 @@ collision_mask = 16
 [node name="CollisionShape" type="CollisionShape" parent="detector"]
 transform = Transform( 4, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0.826782, 0 )
 shape = SubResource( 16 )
+
+[node name="stone_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_horror_hit_dark_ominous_scary_choir_ahhs_43854.mp3-00a9c0972ffcef889e1fc18a7164066d.mp3str"
+
+[deps]
+
+source_file="res://audio/level/zapsplat_horror_hit_dark_ominous_scary_choir_ahhs_43854.mp3"
+dest_files=[ "res://.import/zapsplat_horror_hit_dark_ominous_scary_choir_ahhs_43854.mp3-00a9c0972ffcef889e1fc18a7164066d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
