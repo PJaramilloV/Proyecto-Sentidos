@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/TransitionScreen.gd" type="Script" id=1]
 
@@ -62,6 +62,22 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
+[sub_resource type="Animation" id=13]
+resource_name = "fade_to_black_end"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
 [sub_resource type="Animation" id=7]
 resource_name = "fade_to_black_extra"
 tracks/0/type = "value"
@@ -106,6 +122,21 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0.584314, 0.00392157, 0.00392157, 1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "fade_to_black_macro"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -169,6 +200,21 @@ tracks/0/keys = {
 "values": [ Color( 0.584314, 0.00392157, 0.00392157, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=12]
+resource_name = "flashbang_dialogue"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
 [node name="TransitionScreen" type="CanvasLayer"]
 script = ExtResource( 1 )
 
@@ -183,12 +229,15 @@ anims/fade_to_black = SubResource( 1 )
 anims/fade_to_black_close = SubResource( 8 )
 anims/fade_to_black_continue = SubResource( 6 )
 anims/fade_to_black_credits = SubResource( 11 )
+anims/fade_to_black_end = SubResource( 13 )
 anims/fade_to_black_extra = SubResource( 7 )
 anims/fade_to_black_level_0 = SubResource( 5 )
 anims/fade_to_black_lose = SubResource( 9 )
+anims/fade_to_black_macro = SubResource( 14 )
 anims/fade_to_black_menu = SubResource( 4 )
 anims/fade_to_black_next_level = SubResource( 3 )
 anims/fade_to_normal = SubResource( 2 )
 anims/fade_to_normal_lose = SubResource( 10 )
+anims/flashbang_dialogue = SubResource( 12 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

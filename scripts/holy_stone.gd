@@ -73,3 +73,7 @@ func _process(delta):
 func activate(player: Node):
 	process_function = "activating"
 	area.disconnect("body_entered", self, "activate")
+
+func _on_CutsceneActivator2_ended():
+	process_function = "activating"
+	area.disconnect("body_entered", self, "activate")

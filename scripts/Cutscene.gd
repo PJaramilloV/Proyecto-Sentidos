@@ -9,6 +9,7 @@ func enter(msg := {}) -> void:
 	player._stand_shape.disabled = false
 	player._crouch_shape.disabled = true
 	_target_pos = player.global_transform.origin
+	_target_distance = 100
 
 func exit() -> void:
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://assets/rooms/assemblies/Platform_square.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -54,6 +54,10 @@
 [ext_resource path="res://scenes/Interactive/PopUpManager.tscn" type="PackedScene" id=52]
 [ext_resource path="res://scenes/Interactive/PopUpText.tscn" type="PackedScene" id=53]
 [ext_resource path="res://scenes/FpsLabel.tscn" type="PackedScene" id=54]
+[ext_resource path="res://scenes/Interactive/DialogueArea.tscn" type="PackedScene" id=55]
+[ext_resource path="res://scenes/dialog1.tscn" type="PackedScene" id=56]
+[ext_resource path="res://scenes/Interactive/Cutscene_activator.tscn" type="PackedScene" id=57]
+[ext_resource path="res://audio/level/zapsplat_horror_hit_dark_deep_lfe_resonate_fear_42794.mp3" type="AudioStream" id=58]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -441,53 +445,8 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1.625, 0, -1, 0, -4.37114e-08, -5.
 
 [node name="interactuables" type="Spatial" parent="world/refuge/decor"]
 
-[node name="skull" parent="world/refuge/decor/interactuables" instance=ExtResource( 48 )]
-transform = Transform( 0.0777281, -0.132948, 0.98807, 0.99692, -4.35768e-08, -0.0784243, 0.0104264, 0.991123, 0.132539, -3.11049, 0.957935, -9.11522 )
-
 [node name="bones" type="Spatial" parent="world/refuge/decor/interactuables"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.65404, 0, -13.8674 )
-
-[node name="bone" parent="world/refuge/decor/interactuables/bones" instance=ExtResource( 50 )]
-transform = Transform( 0.866113, 0, -0.499849, 0, 1, 0, 0.499849, 0, 0.866113, 0.00570822, 0.018178, 0.760986 )
-
-[node name="bone2" parent="world/refuge/decor/interactuables/bones" instance=ExtResource( 50 )]
-transform = Transform( -0.629185, 0, -0.777256, 0, 1, 0, 0.777256, 0, -0.629185, -0.0196619, 0.0776606, 0.158966 )
-
-[node name="bone3" parent="world/refuge/decor/interactuables/bones" instance=ExtResource( 50 )]
-transform = Transform( 0.601676, 0, 0.79874, 0, 1, 0, -0.79874, 0, 0.601676, -0.307315, 0.63928, 0.55883 )
-
-[node name="bone4" parent="world/refuge/decor/interactuables/bones" instance=ExtResource( 50 )]
-transform = Transform( 0.393259, 0.756835, 0.522061, -0.455369, 0.653606, -0.604515, -0.79874, 0, 0.601676, -0.54061, 0.63928, 0.684967 )
-
-[node name="bone5" parent="world/refuge/decor/interactuables/bones" instance=ExtResource( 50 )]
-transform = Transform( 0.880091, -0.209438, -0.426117, -0.45382, -0.634914, -0.625246, -0.139597, 0.743654, -0.653829, -0.540612, 0.63928, 0.916031 )
-
-[node name="book_open" parent="world/refuge/decor/interactuables" instance=ExtResource( 43 )]
-transform = Transform( 0.977361, 0, 0.211581, 0, 1, 0, -0.211581, 0, 0.977361, -2.23116, 0.869343, -9.07742 )
-
-[node name="bottle" parent="world/refuge/decor/interactuables" instance=ExtResource( 47 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5617, 0.831839, -8.71766 )
-
-[node name="candlestick" parent="world/refuge/decor/interactuables" instance=ExtResource( 28 )]
-transform = Transform( 3.64077e-08, 0.832912, 0.553406, 1, -4.37114e-08, 0, 2.41901e-08, 0.553406, -0.832912, -2.8719, 1.00423, -8.61151 )
-
-[node name="candlestick_triple" parent="world/refuge/decor/interactuables" instance=ExtResource( 31 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.00569, 0.827621, -7.20684 )
-
-[node name="jug" parent="world/refuge/decor/interactuables" instance=ExtResource( 33 )]
-transform = Transform( 0.487844, -0.872931, 0, 0.872931, 0.487844, 0, 0, 0, 1, 0.221241, 0.145388, -13.2097 )
-
-[node name="plate" parent="world/refuge/decor/interactuables" instance=ExtResource( 26 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75458, 6.55651e-07, -13.3945 )
-
-[node name="scroll_small" parent="world/refuge/decor/interactuables" instance=ExtResource( 40 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36757, 4.17233e-07, -12.0126 )
-
-[node name="scroll_small2" parent="world/refuge/decor/interactuables" instance=ExtResource( 40 )]
-transform = Transform( 0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, -0.401511, 1.7345e-05, -17.3634 )
-
-[node name="spear" parent="world/refuge/decor/interactuables" instance=ExtResource( 36 )]
-transform = Transform( 1, 0, 0, 0, 0.983252, 0.182253, 0, -0.182253, 0.983252, -4.66953, 0.968886, -19.5795 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, -0.216527, 0.792595, 5.14313 )
@@ -559,10 +518,6 @@ level = 1
 [node name="LightHandler" type="Node" parent="."]
 script = ExtResource( 16 )
 
-[node name="trajectory" type="ImmediateGeometry" parent="."]
-material_override = SubResource( 6 )
-cast_shadow = 0
-
 [node name="NextLevelArea" parent="." instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25426, 1.01642, -115.001 )
 
@@ -580,7 +535,97 @@ margin_bottom = 63.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
+[node name="DialogueArea" parent="." instance=ExtResource( 55 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.23077, -14.644 )
+text = "It’s quite dark around here"
+
+[node name="DialogueArea2" parent="." instance=ExtResource( 55 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.67241, -39.5844 )
+text = "I feel a breeze from above"
+
+[node name="DialogueArea3" parent="." instance=ExtResource( 55 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.03133, -52.2926 )
+text = "You should be careful and aware of your surroundings"
+
+[node name="CutsceneActivator-1" parent="." instance=ExtResource( 57 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.454156, 1.07454, -100.657 )
+radius = 2.0
+active = true
+connect = true
+
+[node name="dialogue" parent="CutsceneActivator-1" instance=ExtResource( 56 )]
+dialogue_file = "res://dialogos/lvl1.json"
+
+[node name="CutsceneActivator2-1" parent="." instance=ExtResource( 57 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.03543, 0.613883, -101.297 )
+radius = 1.2
+unlock_throw = true
+
+[node name="dialogue" parent="CutsceneActivator2-1" instance=ExtResource( 56 )]
+dialogue_file = "res://dialogos/lvl1 - 2.json"
+
+[node name="PopUpManager2" parent="." instance=ExtResource( 52 )]
+transform = Transform( 7.889, 0, 0, 0, 1, 0, 0, 0, 1, -2.86235, 1.69097, -43.2308 )
+area_active = false
+text = "Object Throwing Unlocked"
+pop_up_text = NodePath("../PopUpText2")
+audio = ExtResource( 58 )
+volume = -10.0
+
+[node name="PopUpText2" parent="." instance=ExtResource( 53 )]
+
+[node name="book_open" parent="." instance=ExtResource( 43 )]
+transform = Transform( 0.977361, 0, 0.211581, 0, 1, 0, -0.211581, 0, 0.977361, -2.23116, 1.35464, -100.644 )
+
+[node name="bottle" parent="." instance=ExtResource( 47 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5617, 1.31713, -100.284 )
+
+[node name="candlestick" parent="." instance=ExtResource( 28 )]
+transform = Transform( 3.64077e-08, 0.832912, 0.553406, 1, -4.37114e-08, 0, 2.41901e-08, 0.553406, -0.832912, -2.8719, 1.48952, -100.178 )
+
+[node name="candlestick_triple" parent="." instance=ExtResource( 31 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.00569, 1.31291, -98.773 )
+
+[node name="jug" parent="." instance=ExtResource( 33 )]
+transform = Transform( 0.487844, -0.872931, 0, 0.872931, 0.487844, 0, 0, 0, 1, 0.221241, 0.630681, -104.776 )
+
+[node name="plate" parent="." instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75458, 0.485294, -104.961 )
+
+[node name="scroll_small" parent="." instance=ExtResource( 40 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36757, 0.485293, -103.579 )
+
+[node name="scroll_small2" parent="." instance=ExtResource( 40 )]
+transform = Transform( 0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, -0.401511, 0.48531, -108.93 )
+
+[node name="spear" parent="." instance=ExtResource( 36 )]
+transform = Transform( 1, 0, 0, 0, 0.983252, 0.182253, 0, -0.182253, 0.983252, -4.66953, 1.45418, -111.146 )
+
+[node name="bone" parent="." instance=ExtResource( 50 )]
+transform = Transform( 0.866113, 0, -0.499849, 0, 1, 0, 0.499849, 0, 0.866113, -6.64833, 0.503471, -104.673 )
+
+[node name="bone2" parent="." instance=ExtResource( 50 )]
+transform = Transform( -0.629185, 0, -0.777256, 0, 1, 0, 0.777256, 0, -0.629185, -6.6737, 0.562954, -105.275 )
+
+[node name="bone3" parent="." instance=ExtResource( 50 )]
+transform = Transform( 0.601676, 0, 0.79874, 0, 1, 0, -0.79874, 0, 0.601676, -6.96135, 1.12457, -104.875 )
+
+[node name="bone4" parent="." instance=ExtResource( 50 )]
+transform = Transform( 0.393259, 0.756835, 0.522061, -0.455369, 0.653606, -0.604515, -0.79874, 0, 0.601676, -7.19465, 1.12457, -104.749 )
+
+[node name="bone5" parent="." instance=ExtResource( 50 )]
+transform = Transform( 0.880091, -0.209438, -0.426117, -0.45382, -0.634914, -0.625246, -0.139597, 0.743654, -0.653829, -7.19465, 1.12457, -104.518 )
+
+[node name="skull" parent="." instance=ExtResource( 48 )]
+transform = Transform( 0.0777281, -0.132948, 0.98807, 0.99692, -4.35768e-08, -0.0784243, 0.0104264, 0.991123, 0.132539, -3.11049, 1.44323, -100.681 )
+
+[node name="trajectory" type="ImmediateGeometry" parent="."]
+material_override = SubResource( 6 )
+cast_shadow = 0
+
 [connection signal="body_entered" from="Checkpoints/Checkpoint_start" to="Checkpoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint" to="Checkpoints/Checkpoint" method="_on_area_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint2" to="Checkpoints/Checkpoint2" method="_on_area_entered"]
 [connection signal="body_entered" from="Killzones/Killzone" to="Killzones/Killzone" method="_on_area_entered"]
+[connection signal="ended" from="CutsceneActivator-1" to="CutsceneActivator2-1" method="_on_CutsceneActivator1_ended"]
+[connection signal="ended" from="CutsceneActivator2-1" to="PopUpManager2" method="_on_CutsceneActivator21_ended"]

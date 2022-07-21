@@ -8,6 +8,7 @@ export var brace : bool
 export var footprint := true
 export var rotate := 0
 
+onready var spirit = get_node("spirit")
 onready var spiritmesh = get_node("spirit/MeshInstance")
 onready var spiritlight = get_node("spirit/OmniLight")
 onready var spiritcilinder = get_node("spirit/aura")
@@ -19,6 +20,8 @@ onready var daudio2 = $Audio/Death/death2
 onready var daudio3 = $Audio/Death/death3
 onready var daudio4 = $Audio/Death/death4
 onready var deatharray = [daudio4, daudio3, daudio2, daudio1]
+
+var spike
 
 signal death
 
@@ -49,6 +52,7 @@ func _ready():
 	if footprint:
 		hero._footprint = footprint
 	hero.rotate_hero(rotate)
+	spike = false
 
 func death():
 	lives -= 1
@@ -65,14 +69,20 @@ func death():
 		deatharray[lives-1].play()
 	return true
 
-func spirit():
-	get_node("spirit").visible = true
+func spirit(val):
+	get_node("spirit").visible = val
 
 func learn_footstep():
 	hero._footprint = true
 
 func learn_throw():
 	hero.learn_throw()
+
+func learn_brace():
+	hero._brace = true
+
+func _spirit_say(text):
+	spirit.say(text)
 
 # Activación de Cutscene
 func cutscene(pos: Vector3, radius: float):
@@ -81,3 +91,13 @@ func cutscene(pos: Vector3, radius: float):
 
 func cutscene_nomove():
 	statemachine.transition_to("Cutscene")
+
+func _on_Killzone2_death():
+	if !spike:
+		spike = true
+		_spirit_say("Did you see those spikes? They are dangerous. Stay away.")
+	
+func _on_Killzone_death():
+	if !spike:
+		spike = true
+		_spirit_say("Did you see those spikes? They are dangerous. Stay away.")

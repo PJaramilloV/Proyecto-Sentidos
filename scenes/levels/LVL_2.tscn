@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://assets/rooms/chasm_wide_deep_alternate_exit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/assemblies/Slope.tscn" type="PackedScene" id=2]
@@ -35,6 +35,10 @@
 [ext_resource path="res://assets/rooms/assemblies/Stalagmite_long.tscn" type="PackedScene" id=33]
 [ext_resource path="res://assets/rooms/assemblies/Stalagmite_small.tscn" type="PackedScene" id=34]
 [ext_resource path="res://assets/rooms/assemblies/wooden_beam_vertical.tscn" type="PackedScene" id=35]
+[ext_resource path="res://scenes/Interactive/DialogueArea.tscn" type="PackedScene" id=36]
+[ext_resource path="res://scripts/3dtext.gd" type="Script" id=37]
+[ext_resource path="res://fonts/Medieval Sharp/MedievalSharp-Book.ttf" type="DynamicFontData" id=38]
+[ext_resource path="res://scripts/ShowTextArea.gd" type="Script" id=39]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 3.64416, 2.02994, 1.41686 )
@@ -55,6 +59,16 @@ ambient_light_sky_contribution = 0.0
 
 [sub_resource type="SpatialMaterial" id=6]
 flags_unshaded = true
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 1, 0.659158, 1 )
+
+[sub_resource type="ViewportTexture" id=11]
+viewport_path = NodePath("Sprite3D/Viewport")
+
+[sub_resource type="DynamicFont" id=10]
+size = 32
+font_data = ExtResource( 38 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -187,6 +201,9 @@ transform = Transform( 1, 0, 0, 0, 0.534568, 0.185409, 0, -0.100863, 0.982661, 0
 
 [node name="Stalagmite_long" parent="world/Slope4" instance=ExtResource( 33 )]
 transform = Transform( 1, 0, 0, 0, 1.15153, -0.0228834, 0, 0.032829, 0.802674, -1.77326, 0.665, 1.17799 )
+
+[node name="boulder_long" parent="world/Slope4" instance=ExtResource( 32 )]
+transform = Transform( 0.463765, 0, 0.186874, 0, 4, 0, -0.186874, 0, 0.463765, 3.12938, 1.4378, 2.8094 )
 
 [node name="hallway_short2" parent="world" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2.053, -5.40981, 6.15071, -48.9963 )
@@ -348,7 +365,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.942105, 0.786849, 2.92731 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.263331, 7.64872, -67.2317 )
 
 [node name="PopUpManager" parent="." instance=ExtResource( 28 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7234, 0.0688674 )
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.19557, 0.0688674 )
 text = "Level 2"
 pop_up_text = NodePath("../PopUpText")
 
@@ -361,7 +378,53 @@ margin_bottom = 63.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
+[node name="DialogueArea" parent="." instance=ExtResource( 36 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.30105, -3.82961 )
+text = "Long ago, it was all so different"
+
+[node name="DialogueArea2" parent="." instance=ExtResource( 36 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.06174, -25.9963 )
+text = "These lands and I shared a fundamental link"
+
+[node name="DialogueArea3" parent="." instance=ExtResource( 36 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.04298, 5.65538, -41.5104 )
+text = "As if I was a part of them, or something like that."
+
+[node name="DialogueArea4" parent="." instance=ExtResource( 36 )]
+transform = Transform( 0.681385, 0, -0.731925, 0, 1, 0, 0.731925, 0, 0.681385, -0.5095, 7.00261, -53.4627 )
+text = "Memories have eroded after millenia under the umbra . . ."
+
+[node name="Area" type="Area" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.19423, -1.10094, -36.8917 )
+collision_layer = 0
+collision_mask = 16
+script = ExtResource( 39 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.83448, -0.681019 )
+shape = SubResource( 9 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.409, -1.834, -33.233 )
+visible = false
+texture = SubResource( 11 )
+
+[node name="Viewport" type="Viewport" parent="Sprite3D"]
+size = Vector2( 236, 83 )
+transparent_bg = true
+render_target_v_flip = true
+script = ExtResource( 37 )
+
+[node name="Label" type="Label" parent="Sprite3D/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 10 )
+text = "Press E
+To climb ladders"
+align = 1
+
 [connection signal="body_entered" from="CheckPoints/Checkpoint_start" to="CheckPoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="CheckPoints/Checkpoint" to="CheckPoints/Checkpoint" method="_on_area_entered"]
 [connection signal="body_entered" from="CheckPoints/Checkpoint2" to="CheckPoints/Checkpoint2" method="_on_area_entered"]
 [connection signal="body_entered" from="Killzones/Killzone" to="Killzones/Killzone" method="_on_area_entered"]
+[connection signal="body_entered" from="Area" to="Area" method="_on_Area_body_entered"]

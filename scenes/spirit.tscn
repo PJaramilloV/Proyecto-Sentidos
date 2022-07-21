@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/spirit_aura.material" type="Material" id=1]
+[ext_resource path="res://scripts/3dtext.gd" type="Script" id=2]
+[ext_resource path="res://fonts/Medieval Sharp/MedievalSharp-Book.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0.116505, 0.593182 ), 0.0, 0.0, 0, 0, Vector2( 0.427184, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.995146, 0.420455 ), 0.0, 0.0, 0, 0 ]
@@ -41,6 +43,29 @@ top_radius = 0.515
 bottom_radius = 0.515
 height = 0.098
 
+[sub_resource type="ViewportTexture" id=6]
+viewport_path = NodePath("Sprite3D/Viewport")
+
+[sub_resource type="DynamicFont" id=7]
+size = 64
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "show"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 3.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 1.0, 0.0 ]
+}
+
 [node name="spirit" type="Spatial"]
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
@@ -60,3 +85,24 @@ transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.1492
 layers = 64
 mesh = SubResource( 5 )
 material/0 = null
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( -6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0, -0.247755, 0 )
+opacity = 0.0
+texture = SubResource( 6 )
+
+[node name="Viewport" type="Viewport" parent="Sprite3D"]
+size = Vector2( 408, 79 )
+transparent_bg = true
+render_target_v_flip = true
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Sprite3D/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 7 )
+text = "spirit dialogue"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/show = SubResource( 8 )
