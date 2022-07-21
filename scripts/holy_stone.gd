@@ -72,7 +72,6 @@ func _process(delta):
 
 # Llamar para activar animacion
 func activate(player: Node):
-	stone_sound.play()
 	process_function = "activating"
 	area.disconnect("body_entered", self, "activate")
 
