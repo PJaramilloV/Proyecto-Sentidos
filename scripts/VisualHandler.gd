@@ -30,6 +30,11 @@ func setup_light(light: Light, handler) -> bool:
 			handler.clear_light(self)
 			for mesh in get_meshes():
 				mesh.set_layer_mask(4)
+				var material = mesh.mesh.surface_get_material(0)
+				material.emission_enabled = true
+				material.emission = Color(0.059,0.059,0.059)
+				material.emission_energy = 2
+				
 		return false
 	light.set_light_owner(self)
 	_n_lights += 1
