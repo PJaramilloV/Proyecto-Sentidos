@@ -620,6 +620,7 @@ transform = Transform( 0.880091, -0.209438, -0.426117, -0.45382, -0.634914, -0.6
 transform = Transform( 0.0777281, -0.132948, 0.98807, 0.99692, -4.35768e-08, -0.0784243, 0.0104264, 0.991123, 0.132539, -3.11049, 1.44323, -100.681 )
 
 [node name="trajectory" type="ImmediateGeometry" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.791893, 0 )
 material_override = SubResource( 6 )
 cast_shadow = 0
 
