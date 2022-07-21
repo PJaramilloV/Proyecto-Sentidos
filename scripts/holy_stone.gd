@@ -77,5 +77,6 @@ func activate(player: Node):
 	area.disconnect("body_entered", self, "activate")
 
 func _on_CutsceneActivator2_ended():
+	stone_sound.play()
 	process_function = "activating"
 	area.disconnect("body_entered", self, "activate")
