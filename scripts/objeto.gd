@@ -59,6 +59,8 @@ func grab():
 	self.collision_mask=0
 	process_function = 'sleep'
 	air_time = 0
+	print(mesh.cast_shadow)
+	mesh.cast_shadow = 0
 
 # Enciende deteccion de colisiones y activa timer
 func activate_throw():
@@ -67,11 +69,13 @@ func activate_throw():
 	process_function = 'timer_run'
 	self.contact_monitor = true   # Detectar siguiente colision
 	thrown = true
+	mesh.cast_shadow = 1
 
 # Apaga la deteccion de colisiones
 func deactivate_hold():
 	self.contact_monitor = false   # Detectar siguiente colision
 	thrown = false
+	mesh.cast_shadow = 1
 
 # Funcion a llamar al soltar objeto
 func release():

@@ -19,14 +19,6 @@
 [ext_resource path="res://images/baile_2.webm" type="VideoStream" id=20]
 [ext_resource path="res://fonts/Medieval Sharp/MedievalSharp-BookOblique.ttf" type="DynamicFontData" id=21]
 
-[sub_resource type="DynamicFont" id=1]
-size = 150
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 150
-font_data = ExtResource( 21 )
-
 [sub_resource type="DynamicFont" id=3]
 size = 48
 font_data = ExtResource( 8 )
@@ -46,6 +38,14 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
+
+[sub_resource type="DynamicFont" id=1]
+size = 150
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 150
+font_data = ExtResource( 21 )
 
 [node name="GodotCredits" type="Node2D"]
 script = ExtResource( 1 )
@@ -73,94 +73,6 @@ size_flags_horizontal = 3
 theme = ExtResource( 3 )
 text = "Creditos"
 align = 1
-
-[node name="Dinner" type="Sprite" parent="CreditsContainer/Line"]
-visible = false
-position = Vector2( 342, 0 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 2 )
-
-[node name="Logo" type="Sprite" parent="CreditsContainer/Line"]
-visible = false
-position = Vector2( 967, 675 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 7 )
-
-[node name="year" type="Label" parent="CreditsContainer/Line/Logo"]
-anchor_right = 1.0
-margin_left = -304.0
-margin_top = 426.0
-margin_right = -304.0
-margin_bottom = 607.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 1 )
-text = "2022"
-align = 1
-
-[node name="level_5" type="Sprite" parent="CreditsContainer/Line"]
-visible = false
-position = Vector2( 1632, 0 )
-scale = Vector2( 0.385156, 0.35 )
-texture = ExtResource( 12 )
-
-[node name="amogus" type="Sprite" parent="CreditsContainer/Line"]
-visible = false
-position = Vector2( 1615.13, 51.8125 )
-scale = Vector2( 0.822195, 0.676198 )
-texture = ExtResource( 14 )
-
-[node name="Profundis" type="Label" parent="CreditsContainer/Line"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -336.0
-margin_top = -951.055
-margin_right = 336.0
-margin_bottom = -748.055
-custom_fonts/font = SubResource( 2 )
-text = "Profundis"
-
-[node name="Moonwalk" type="VideoPlayer" parent="CreditsContainer/Line"]
-visible = false
-margin_left = 1366.0
-margin_top = -264.0
-margin_right = 1879.0
-margin_bottom = 45.0
-stream = ExtResource( 5 )
-autoplay = true
-paused = true
-script = ExtResource( 6 )
-
-[node name="Ladder" type="VideoPlayer" parent="CreditsContainer/Line"]
-visible = false
-margin_left = 57.0
-margin_top = -426.0
-margin_right = 650.0
-margin_bottom = -45.0
-stream = ExtResource( 15 )
-autoplay = true
-paused = true
-
-[node name="baile_1" type="VideoPlayer" parent="CreditsContainer/Line"]
-visible = false
-margin_left = 115.0
-margin_top = -278.0
-margin_right = 492.0
-margin_bottom = 103.0
-stream = ExtResource( 19 )
-autoplay = true
-paused = true
-
-[node name="baile_2" type="VideoPlayer" parent="CreditsContainer/Line"]
-visible = false
-margin_left = 1366.0
-margin_top = -426.0
-margin_right = 1864.0
-stream = ExtResource( 20 )
-autoplay = true
-paused = true
 
 [node name="ColorRect_2" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -227,3 +139,93 @@ bus = "UI"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fade = SubResource( 4 )
+
+[node name="visuals" type="Node" parent="."]
+
+[node name="Dinner" type="Sprite" parent="visuals"]
+visible = false
+position = Vector2( 342, 1358 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+
+[node name="Logo" type="Sprite" parent="visuals"]
+visible = false
+position = Vector2( 967, 2033 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="year" type="Label" parent="visuals/Logo"]
+anchor_right = 1.0
+margin_left = -304.0
+margin_top = 426.0
+margin_right = -304.0
+margin_bottom = 607.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "2022"
+align = 1
+
+[node name="level_5" type="Sprite" parent="visuals"]
+visible = false
+position = Vector2( 1632, 1358 )
+scale = Vector2( 0.385156, 0.35 )
+texture = ExtResource( 12 )
+
+[node name="amogus" type="Sprite" parent="visuals"]
+visible = false
+position = Vector2( 1615.13, 1409.81 )
+scale = Vector2( 0.822195, 0.676198 )
+texture = ExtResource( 14 )
+
+[node name="Profundis" type="Label" parent="visuals"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -336.0
+margin_top = -101.5
+margin_right = 336.0
+margin_bottom = 101.5
+custom_fonts/font = SubResource( 2 )
+text = "Profundis"
+
+[node name="Moonwalk" type="VideoPlayer" parent="visuals"]
+visible = false
+margin_left = 1366.0
+margin_top = 1094.0
+margin_right = 1879.0
+margin_bottom = 1403.0
+stream = ExtResource( 5 )
+autoplay = true
+paused = true
+script = ExtResource( 6 )
+
+[node name="Ladder" type="VideoPlayer" parent="visuals"]
+visible = false
+margin_left = 57.0
+margin_top = 932.0
+margin_right = 650.0
+margin_bottom = 1313.0
+stream = ExtResource( 15 )
+autoplay = true
+paused = true
+
+[node name="baile_1" type="VideoPlayer" parent="visuals"]
+visible = false
+margin_left = 115.0
+margin_top = 1080.0
+margin_right = 492.0
+margin_bottom = 1461.0
+stream = ExtResource( 19 )
+autoplay = true
+paused = true
+
+[node name="baile_2" type="VideoPlayer" parent="visuals"]
+visible = false
+margin_left = 1366.0
+margin_top = 932.0
+margin_right = 1864.0
+margin_bottom = 1358.0
+stream = ExtResource( 20 )
+autoplay = true
+paused = true

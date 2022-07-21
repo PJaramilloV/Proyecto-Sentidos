@@ -28,20 +28,20 @@ var line_timer := 0.0
 var curr_line := 0
 var lines := []
 
-onready var profundis = $CreditsContainer/Line/Profundis
+onready var profundis = $visuals/Profundis
 
 # Imagenes y videos
 
 
-onready var dinner = $CreditsContainer/Line/Dinner
-onready var logo = $CreditsContainer/Line/Logo
-onready var level_5 = $CreditsContainer/Line/level_5
-onready var amogus = $CreditsContainer/Line/amogus
+onready var dinner = $visuals/Dinner
+onready var logo = $visuals/Logo
+onready var level_5 = $visuals/level_5
+onready var amogus = $visuals/amogus
 
-onready var moonwalk = $CreditsContainer/Line/Moonwalk
-onready var ladder = $CreditsContainer/Line/Ladder
-onready var baile_1 = $CreditsContainer/Line/baile_1
-onready var baile_2 = $CreditsContainer/Line/baile_2
+onready var moonwalk = $visuals/Moonwalk
+onready var ladder = $visuals/Ladder
+onready var baile_1 = $visuals/baile_1
+onready var baile_2 = $visuals/baile_2
 
 
 # I know, no es muy bonito el display de esta variable
@@ -273,7 +273,7 @@ var credits = [
 		" ",
 		"Elías Zelada"
 	],[
-		"Professor’s Assistant",
+		"Professor’s Assistants",
 		" ",
 		" ",
 		"Christopher Marín R.",
@@ -294,7 +294,7 @@ func _process(delta):
 	var scroll_speed = base_speed * delta
 	if speed_pause or finished:
 		scroll_speed *= 0
-		logo.visible = false
+
 	else:
 		if section_next:
 			section_timer += delta * speed_up_multiplier if speed_up else delta
@@ -326,86 +326,96 @@ func _process(delta):
 					exit.disabled = false
 			for l in lines:
 				l.rect_position.y -= scroll_speed
-#				if l.rect_position.y < -l.get_line_height():
-#					lines.erase(l)
-#					l.queue_free()
+				if (l.rect_position.y +500 < -l.get_line_height()) and !finished:
+					lines.erase(l)
+					l.queue_free()
 
 func add_line():
 	var new_line = line.duplicate()
+	var child
+	
 	new_line.text = section.pop_front()
 	
 	# Label titulo
 	if new_line.text == "A game by Bacan Studios":
+		child = profundis
+		child.rect_position.y -= profundis.rect_position.y + 418.5	
 		profundis.visible = true
-	if new_line.text == "Programming":
-		profundis.visible = false
+		$visuals.remove_child(profundis)
+		
 	
 	#### Videos ####
 	
 	# Moonwalk
 	if new_line.text == "Original Idea":
+		child = moonwalk
+		child.rect_position.y -= moonwalk.rect_position.y + 200
 		moonwalk.visible = true
 		moonwalk.paused = false
-	if new_line.text == " ":
-		moonwalk.visible = false
-		moonwalk.paused = true	
+		$visuals.remove_child(moonwalk)
 	
 	# Hover escalera
 	if new_line.text == "Sound Effects":
+		child = ladder
+		child.rect_position.y -= ladder.rect_position.y + 250
 		ladder.visible = true
 		ladder.paused = false
-	if new_line.text == "Main Menu Button Sound":
-		ladder.visible = false
-		ladder.paused = true
+		$visuals.remove_child(ladder)
 
 	# Baile 1
 	if new_line.text == "Programming":
+		child = baile_1
+		child.rect_position.y -= baile_1.rect_position.y + 250
 		baile_1.visible = true
 		baile_1.paused = false
-
-	if new_line.text == " ":
-		baile_1.visible = false
-		baile_1.paused = true
+		$visuals.remove_child(baile_1)
 
 	# Baile 2
 	if new_line.text == "Object's Asset Pack":
+		child = baile_2
+		child.rect_position.y -= baile_2.rect_position.y + 250
 		baile_2.visible = true
 		baile_2.paused = false
-
-	if new_line.text == " ":
-		baile_2.visible = false
-		baile_2.paused = true
+		$visuals.remove_child(baile_2)
 
 
 	#### Fotos ####
 	
 	# Cena
 	if new_line.text == "Tools used":
+		child = dinner
+		child.position.y -= dinner.position.y + 250
 		dinner.visible = true
-	if new_line.text == " ":
-		dinner.visible = false
+		$visuals.remove_child(dinner)
 	
 	# Dibujo level 5
 	if new_line.text == "Mixamo":
+		child = level_5
+		child.position.y -= level_5.position.y
 		level_5.visible = true
-	if new_line.text == " ":
-		level_5.visible = false
+		$visuals.remove_child(level_5)
 	
 	# Amogus
-	if new_line.text == "Professor’s Assistant":
+	if new_line.text == "Professor’s Assistants":
+		child = amogus
+		child.position.y -= amogus.position.y 
 		amogus.visible = true
-	if new_line.text == " ":
-		amogus.visible = false
+		$visuals.remove_child(amogus)
 
 	# Logo bacan studios
 	if new_line.text == "Christopher Marín R.":
+		child = logo
+		child.position.y -= logo.position.y -750
 		logo.visible = true
-	if new_line.text == " ":
-		logo.visible = false
+		$visuals.remove_child(logo)
+
 
 	if curr_line == 0:
 		new_line.add_color_override("font_color", title_color)
 	$CreditsContainer.add_child(new_line)
+	
+	if child:
+		new_line.add_child(child)
 	
 	lines.append(new_line)
 	if section.size() > 0:
