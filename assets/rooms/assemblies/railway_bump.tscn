@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/rooms/pieces/Cave_Prop_Railway_Bumpstop.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://scripts/VisualHandler.gd" type="Script" id=2]
 
 [sub_resource type="BoxShape" id=1]
 
 [node name="railway_bump" type="Spatial"]
 
-[node name="StaticBody" type="StaticBody" parent="."]
+[node name="StaticBody" type="StaticBody" parent="." groups=["Wood Structure"]]
 
 [node name="Cave_Prop_Railway_Bumpstop" type="MeshInstance" parent="StaticBody"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
@@ -29,3 +30,6 @@ shape = SubResource( 1 )
 [node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 0.503, 0, 0, 0, 0.345, 0, 0, 0, 0.22, 0.507569, 0.495626, -0.301822 )
 shape = SubResource( 1 )
+
+[node name="VisualHandler" type="Node" parent="StaticBody"]
+script = ExtResource( 2 )

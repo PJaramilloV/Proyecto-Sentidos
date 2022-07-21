@@ -15,6 +15,8 @@ func exit() -> void:
 
 func physics_update(delta: float) -> void:
 	player._velocity = _cutscene_velocity * delta
+	if !player.is_on_floor() and !player.floorray.is_colliding():
+		player._velocity.y -= player.gravity * delta * 10
 	update_move_vel()
 
 func update_move_vel() -> void:

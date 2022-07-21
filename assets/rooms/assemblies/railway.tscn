@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/rooms/pieces/Cave_Prop_Railway_Straight_1.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://scripts/VisualHandler.gd" type="Script" id=2]
 
 [sub_resource type="BoxShape" id=1]
 
 [node name="railway" type="Spatial"]
 
-[node name="StaticBody" type="StaticBody" parent="."]
+[node name="StaticBody" type="StaticBody" parent="." groups=["Wood Structure"]]
 
 [node name="Cave_Prop_Railway_Straight_1" type="MeshInstance" parent="StaticBody"]
 mesh = ExtResource( 1 )
@@ -64,3 +65,6 @@ material/3 = null
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 0.5, 0, 0, 0, 0.047, 0, 0, 0, 2.967, -0.504, 0.0426855, -2.488 )
 shape = SubResource( 1 )
+
+[node name="VisualHandler" type="Node" parent="StaticBody"]
+script = ExtResource( 2 )

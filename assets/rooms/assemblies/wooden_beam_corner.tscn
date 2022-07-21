@@ -7,7 +7,7 @@ points = PoolVector3Array( 0.199979, 1.14995, 0.6, 0.315, 1.04998, 0.6, 0.199979
 
 [node name="wooden_beam_corner" type="Spatial"]
 
-[node name="StaticBody" type="StaticBody" parent="."]
+[node name="StaticBody" type="StaticBody" parent="." groups=["Wood Structure"]]
 
 [node name="Cave_Prop_Support_Corner_Brace_1" type="MeshInstance" parent="StaticBody"]
 mesh = ExtResource( 1 )

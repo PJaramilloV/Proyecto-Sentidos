@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/rooms/pieces/Cave_Prop_Railway_Straight_1.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/rooms/pieces/Cave_Prop_Railway_Switch.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://assets/rooms/pieces/Cave_Prop_Railway_Curve_Large.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://scripts/VisualHandler.gd" type="Script" id=4]
 
 [sub_resource type="ConvexPolygonShape" id=1]
 points = PoolVector3Array( -0.900157, 0.0499951, -0.5, -1, 0, -0.375098, -0.900157, 0.124995, -0.5, -0.100039, 0.0499951, -0.5, -1, 0, 1.3749, -1, 0.0624902, -0.375098, 0.0499218, 0, -0.375098, -0.875098, 0.15, -0.5, -0.100039, 0.124995, -0.5, -0.900157, 0.0499951, 1.5, -1, 0.0624902, 1.3749, 1, 0, 1.3749, 0.0499218, 0.0624902, -0.375098, 0.5, 0, 0.124902, -0.875098, 0.15, 1.5, -0.125098, 0.15, -0.5, 0.5, 0.0624902, 0.124902, -0.900157, 0.124995, 1.5, 0.899961, 0.0499951, 1.5, 1, 0, 1.1249, 1, 0.0624902, 1.3749, 0.849843, 0, 0.624902, 0.874706, 0.15, 1.5, 0.690094, 0.15, 0.761942, 0.849843, 0.0624902, 0.624902, 0.899961, 0.124995, 1.5, 1, 0.0624902, 1.1249, 0.827721, 0.15, 1.11785 )
@@ -19,7 +20,7 @@ points = PoolVector3Array( -1.90017, 0.0499951, -0.5, -1.99493, 0, -0.297788, -1
 [node name="railway_merge" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0312089, 0, 5.65729 )
 
-[node name="StaticBody" type="StaticBody" parent="."]
+[node name="StaticBody" type="StaticBody" parent="." groups=["Wood Structure"]]
 
 [node name="Cave_Prop_Railway_Switch" type="MeshInstance" parent="StaticBody"]
 transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, 1, -0.536465, 0, -3.12168 )
@@ -101,3 +102,6 @@ material/7 = null
 [node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.78657, 1.90735e-06, 1.8329 )
 shape = SubResource( 4 )
+
+[node name="VisualHandler" type="Node" parent="StaticBody"]
+script = ExtResource( 4 )

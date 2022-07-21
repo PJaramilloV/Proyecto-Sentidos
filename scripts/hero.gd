@@ -310,16 +310,15 @@ func end_cutscene():
 
 ### Spawn ###
 func spawn_decal(raycast: RayCast):
-	#raycast.enabled = true
-	if _footprint:
-		raycast.force_raycast_update()
-		if raycast.is_colliding():
+	raycast.force_raycast_update()
+	if raycast.is_colliding():
+		if _footprint:
 			var b = decal.instance()
 			get_parent().add_child(b)
 			var correction = raycast.get_collision_normal()*decal_correction
 			b.global_transform.origin = raycast.get_collision_point() + correction
 			b.look_at(raycast.get_collision_point() + raycast.get_collision_normal(), Vector3.UP)
-			return true
+		return true
 	return false
 
 func spawn_light(raycast: RayCast):
