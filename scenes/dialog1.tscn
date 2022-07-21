@@ -31,6 +31,7 @@ script = ExtResource( 3 )
 dialogue_file = "res://dialogos/prueba1.json"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.705882 )
 margin_left = 200.0
 margin_top = 792.0
