@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://resources/tema_1.tres" type="Theme" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Settings_Menu.gd" type="Script" id=3]
 
 [node name="Settings_Menu" type="Popup"]
@@ -66,8 +65,7 @@ margin_right = 942.0
 margin_bottom = 70.0
 size_flags_horizontal = 10
 text = "Windowed"
-icon = ExtResource( 2 )
-items = [ "Windowed", ExtResource( 2 ), false, 0, null, "Fullscreen", ExtResource( 2 ), false, 1, null ]
+items = [ "Windowed", null, false, 0, null, "Fullscreen", null, false, 1, null ]
 selected = 0
 
 [node name="Vsync_Label" type="Label" parent="Settings_Tab/Video/MarginContainer/Video_Settings"]
