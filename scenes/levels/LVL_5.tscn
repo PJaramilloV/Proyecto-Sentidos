@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=2]
+[gd_scene load_steps=93 format=2]
 
 [ext_resource path="res://scripts/LightHandler.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Checkpoint.gd" type="Script" id=2]
@@ -160,6 +160,9 @@ extents = Vector3( 3.64416, 2.02994, 1.41686 )
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 25.5928, 0.431309, 92.9979 )
 
+[sub_resource type="BoxShape" id=31]
+extents = Vector3( 4.26562, 1, 4.35318 )
+
 [sub_resource type="SpatialMaterial" id=12]
 flags_unshaded = true
 
@@ -285,6 +288,330 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.249, -8.49324, 1.97808, 8.77892
 
 [node name="torch_wall" parent="world/chasm/chasm_upper" instance=ExtResource( 29 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.91604, 3.00078, 6.44757 )
+
+[node name="trap" type="Spatial" parent="world/chasm/chasm_upper"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.70488, -9.46574, 7.12589 )
+
+[node name="Platform_square" parent="world/chasm/chasm_upper/trap" instance=ExtResource( 9 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 2, 3.43046, -1.07546, -0.775093 )
+
+[node name="boulder_carpet" type="Spatial" parent="world/chasm/chasm_upper/trap/Platform_square"]
+transform = Transform( 0.333, 0, 0, 0, 0.712, 0, 0, 0, 0.5, 0, 1.20231, 1.52371 )
+
+[node name="boulder_sharp" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.293, 0, 0, 0, 0.251838, 0.971803, 0, -0.516916, 0.473455, -1.28132, -1.52214, 0.0704308 )
+
+[node name="boulder_sharp6" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.279618, -0.0540222, 0.306575, -0.0831066, 0.00761247, 1.03651, -0.0274949, -0.572406, -0.0151494, -0.429358, -1.52214, 1.51711 )
+
+[node name="boulder_sharp8" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.206062, 0.130277, 0.728422, -0.206177, 0.205133, 0.664238, -0.0296448, -0.521127, 0.443565, -1.12974, -1.52214, -1.8425 )
+
+[node name="boulder_sharp13" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.0791751, 0.056985, 0.267618, -0.0198216, 0.0300027, 1.10795, 0.00789999, -0.495835, 0.097798, -1.28132, -1.52214, -2.34415 )
+
+[node name="boulder_sharp14" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.0779675, -0.0248486, -0.349745, 0.0226283, -0.156158, 1.03991, -0.0115339, -0.474339, -0.324032, -1.61782, -1.52214, -0.767223 )
+
+[node name="boulder_sharp16" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.293, 0, 0, 0, 0.0498849, 1.07692, 0, -0.572832, 0.0937829, -1.8439, -1.52214, 2.57604 )
+
+[node name="boulder_sharp17" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.284163, -0.0491427, 0.246774, -0.0516322, 0.230711, 0.971672, -0.0493465, -0.524388, 0.404373, -1.69232, -1.52214, 0.663116 )
+
+[node name="boulder_sharp30" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.161909, -0.478162, -0.0602553, 0.0104665, -0.024832, 1.0793, -0.243978, -0.318385, 0.00631441, -1.91549, -1.73262, 1.23711 )
+
+[node name="boulder_sharp2" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.281222, -0.134986, 0.166318, -0.0104, 0.371026, 0.82495, -0.08158, 0.418023, -0.678496, 0.647469, -1.73785, -0.0509491 )
+
+[node name="boulder_sharp7" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.278983, -0.107254, -0.261678, -0.0836675, 0.150014, 0.996868, -0.0318949, 0.544626, -0.326115, 0.232556, -2.12375, -1.63137 )
+
+[node name="boulder_sharp9" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.213351, -0.262856, -0.552061, -0.199741, 0.322196, 0.508516, 0.0208377, 0.397141, -0.777947, -0.0306371, -1.27295, 1.68291 )
+
+[node name="boulder_sharp15" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.0744963, -0.191685, -0.190303, -0.0239528, 0.148938, 1.03968, -0.0245065, 0.43712, -0.437698, -0.0248255, -1.14424, 2.19088 )
+
+[node name="boulder_sharp18" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.0772414, -0.113763, 0.282376, 0.0219872, -0.0337685, 1.09939, -0.0165628, 0.485713, 0.142574, 0.737214, -1.51998, 0.820457 )
+
+[node name="boulder_sharp3" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.183044, 0.375523, -0.462687, 0.0289322, 0.350648, 0.850058, 0.226951, 0.258172, -0.481542, -0.293906, -1.74571, -0.112576 )
+
+[node name="boulder_sharp10" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.085411, 0.30201, -0.864229, -0.174431, 0.318879, 0.628504, 0.219382, 0.371122, 0.163257, 1.0931, -1.34087, 1.15017 )
+
+[node name="boulder_sharp21" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.0536245, 0.345499, -0.352344, -0.0130986, 0.135907, 1.08566, 0.0606369, 0.334902, -0.0770784, 3.92196, -1.25359, 3.74173 )
+
+[node name="boulder_sharp22" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.0420088, 0.398355, 0.366796, 0.03209, -0.0578788, 1.04439, 0.0626857, 0.296587, -0.288838, 0.56513, -1.60822, 0.128311 )
+
+[node name="boulder_sharp19" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.26075, -0.191909, -0.336036, -0.114888, 0.121743, 0.967735, -0.0682596, 0.52818, -0.345152, 1.5113, -2.33388, -2.22063 )
+
+[node name="boulder_sharp20" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.288312, -0.0906492, -0.0897748, -0.0479687, 0.354143, 0.833046, -0.0206097, 0.443837, -0.683033, 1.20697, -1.86898, -0.486813 )
+
+[node name="boulder_sharp31" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.22296, 0.369411, 0.097901, 0.0643722, 0.0711918, 1.04606, 0.17887, 0.434847, -0.254426, 1.57352, -2.20605, -0.905849 )
+
+[node name="boulder_carpet2" type="Spatial" parent="world/chasm/chasm_upper/trap/Platform_square"]
+transform = Transform( 0.333, 0, 0, 0, 0.712, 0, 0, 0, 0.5, 0.0152301, 1.20231, 3.8401 )
+
+[node name="boulder_sharp" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( 0.293, 0, 0, 0, 0.251838, 0.971803, 0, -0.516916, 0.473455, -1.28132, -1.52214, 0.0704308 )
+
+[node name="boulder_sharp6" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( 0.279618, -0.0540222, 0.306575, -0.0831066, 0.00761247, 1.03651, -0.0274949, -0.572406, -0.0151494, -0.429358, -1.52214, 1.51711 )
+
+[node name="boulder_sharp8" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( 0.206062, 0.130277, 0.728422, -0.206177, 0.205133, 0.664238, -0.0296448, -0.521127, 0.443565, -1.12974, -1.52214, -1.8425 )
+
+[node name="boulder_sharp13" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( 0.0791751, 0.056985, 0.267618, -0.0198216, 0.0300027, 1.10795, 0.00789999, -0.495835, 0.097798, -1.28132, -1.52214, -2.34415 )
+
+[node name="boulder_sharp14" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( 0.0779675, -0.0248486, -0.349745, 0.0226283, -0.156158, 1.03991, -0.0115339, -0.474339, -0.324032, -1.61782, -1.52214, -0.767223 )
+
+[node name="boulder_sharp16" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( 0.293, 0, 0, 0, 0.0498849, 1.07692, 0, -0.572832, 0.0937829, -1.8439, -1.52214, 2.57604 )
+
+[node name="boulder_sharp17" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( 0.284163, -0.0491427, 0.246774, -0.0516322, 0.230711, 0.971672, -0.0493465, -0.524388, 0.404373, -1.69232, -1.52214, 0.663116 )
+
+[node name="boulder_sharp30" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( 0.161909, -0.478162, -0.0602553, 0.0104665, -0.024832, 1.0793, -0.243978, -0.318385, 0.00631441, -1.91549, -1.73262, 1.23711 )
+
+[node name="boulder_sharp2" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( -0.281222, -0.134986, 0.166318, -0.0104, 0.371026, 0.82495, -0.08158, 0.418023, -0.678496, 0.647469, -1.73785, -0.0509491 )
+
+[node name="boulder_sharp7" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( -0.278983, -0.107254, -0.261678, -0.0836675, 0.150014, 0.996868, -0.0318949, 0.544626, -0.326115, 0.232556, -2.12375, -1.63137 )
+
+[node name="boulder_sharp9" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( -0.213351, -0.262856, -0.552061, -0.199741, 0.322196, 0.508516, 0.0208377, 0.397141, -0.777947, -0.0306371, -1.27295, 1.68291 )
+
+[node name="boulder_sharp15" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( -0.0744963, -0.191685, -0.190303, -0.0239528, 0.148938, 1.03968, -0.0245065, 0.43712, -0.437698, -0.0248255, -1.14424, 2.19088 )
+
+[node name="boulder_sharp18" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( -0.0772414, -0.113763, 0.282376, 0.0219872, -0.0337685, 1.09939, -0.0165628, 0.485713, 0.142574, 0.737214, -1.51998, 0.820457 )
+
+[node name="boulder_sharp3" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( -0.274261, -0.122683, 0.305925, 0.0289322, 0.350648, 0.850058, -0.0993787, 0.438597, -0.593406, 2.71725, -1.74571, -0.397717 )
+
+[node name="boulder_sharp10" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( -0.085411, 0.30201, -0.864229, -0.174431, 0.318879, 0.628504, 0.219382, 0.371122, 0.163257, 1.0931, -1.34087, 1.15017 )
+
+[node name="boulder_sharp21" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( -0.0748075, -0.205075, -0.0412785, -0.0130986, 0.135907, 1.08566, -0.0310113, 0.435108, -0.357965, 1.95484, -1.25359, 1.83854 )
+
+[node name="boulder_sharp22" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( -0.0420088, 0.398355, 0.366796, 0.03209, -0.0578788, 1.04439, 0.0626857, 0.296587, -0.288838, 0.56513, -1.60822, 0.128311 )
+
+[node name="boulder_sharp19" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( -0.26075, -0.191909, -0.336036, -0.114888, 0.121743, 0.967735, -0.0682596, 0.52818, -0.345152, 1.5113, -2.33388, -2.22063 )
+
+[node name="boulder_sharp20" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( -0.288312, -0.0906492, -0.0897748, -0.0479687, 0.354143, 0.833046, -0.0206097, 0.443837, -0.683033, 1.20697, -1.86898, -0.486813 )
+
+[node name="boulder_sharp31" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet2" instance=ExtResource( 60 )]
+transform = Transform( -0.22296, 0.369411, 0.097901, 0.0643722, 0.0711918, 1.04606, 0.17887, 0.434847, -0.254426, 1.57352, -2.20605, -0.905849 )
+
+[node name="boulder_carpet3" type="Spatial" parent="world/chasm/chasm_upper/trap/Platform_square"]
+transform = Transform( 0.333, 0, 0, 0, 0.712, 0, 0, 0, 0.5, 0.93055, 1.20231, 1.81478 )
+
+[node name="boulder_sharp" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( 0.293, 0, 0, 0, 0.251838, 0.971803, 0, -0.516916, 0.473455, -1.28132, -1.52214, 0.0704308 )
+
+[node name="boulder_sharp6" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( 0.279618, -0.0540222, 0.306575, -0.0831066, 0.00761247, 1.03651, -0.0274949, -0.572406, -0.0151494, -0.429358, -1.52214, 1.51711 )
+
+[node name="boulder_sharp8" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( 0.206062, 0.130277, 0.728422, -0.206177, 0.205133, 0.664238, -0.0296448, -0.521127, 0.443565, -1.12974, -1.52214, -1.8425 )
+
+[node name="boulder_sharp13" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( 0.0791751, 0.056985, 0.267618, -0.0198216, 0.0300027, 1.10795, 0.00789999, -0.495835, 0.097798, -1.28132, -1.52214, -2.34415 )
+
+[node name="boulder_sharp14" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( 0.0779675, -0.0248486, -0.349745, 0.0226283, -0.156158, 1.03991, -0.0115339, -0.474339, -0.324032, -1.61782, -1.52214, -0.767223 )
+
+[node name="boulder_sharp16" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( 0.0950191, 0.542416, -0.0888032, 0, 0.0498849, 1.07692, 0.276888, -0.185768, 0.0304135, 1.64698, -1.52214, 4.34402 )
+
+[node name="boulder_sharp17" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( 0.284163, -0.0491427, 0.246774, -0.0516322, 0.230711, 0.971672, -0.0493465, -0.524388, 0.404373, -1.69232, -1.52214, 0.663116 )
+
+[node name="boulder_sharp30" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( 0.161909, -0.478162, -0.0602553, 0.0104665, -0.024832, 1.0793, -0.243978, -0.318385, 0.00631441, -1.91549, -1.73262, 1.23711 )
+
+[node name="boulder_sharp2" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.281222, -0.134986, 0.166318, -0.0104, 0.371026, 0.82495, -0.08158, 0.418023, -0.678496, 0.647469, -1.73785, -0.0509491 )
+
+[node name="boulder_sharp7" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.278983, -0.107254, -0.261678, -0.0836675, 0.150014, 0.996868, -0.0318949, 0.544626, -0.326115, 0.232556, -2.12375, -1.63137 )
+
+[node name="boulder_sharp9" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.213351, -0.262856, -0.552061, -0.199741, 0.322196, 0.508516, 0.0208377, 0.397141, -0.777947, -0.0306371, -1.27295, 1.68291 )
+
+[node name="boulder_sharp15" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.0744963, -0.191685, -0.190303, -0.0239528, 0.148938, 1.03968, -0.0245065, 0.43712, -0.437698, -0.0248255, -1.14424, 2.19088 )
+
+[node name="boulder_sharp18" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.0772414, -0.113763, 0.282376, 0.0219872, -0.0337685, 1.09939, -0.0165628, 0.485713, 0.142574, 0.737214, -1.51998, 0.820457 )
+
+[node name="boulder_sharp3" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.183044, 0.375523, -0.462687, 0.0289322, 0.350648, 0.850058, 0.226951, 0.258172, -0.481542, -0.293906, -1.74571, -0.112576 )
+
+[node name="boulder_sharp10" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.085411, 0.30201, -0.864229, -0.174431, 0.318879, 0.628504, 0.219382, 0.371122, 0.163257, 1.0931, -1.34087, 1.15017 )
+
+[node name="boulder_sharp21" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.0536245, 0.345499, -0.352344, -0.0130986, 0.135907, 1.08566, 0.0606369, 0.334902, -0.0770784, 1.57636, -1.25359, 1.33312 )
+
+[node name="boulder_sharp22" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.0420088, 0.398355, 0.366796, 0.03209, -0.0578788, 1.04439, 0.0626857, 0.296587, -0.288838, 0.56513, -1.60822, 0.128311 )
+
+[node name="boulder_sharp19" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.26075, -0.191909, -0.336036, -0.114888, 0.121743, 0.967735, -0.0682596, 0.52818, -0.345152, 1.5113, -2.33388, -2.22063 )
+
+[node name="boulder_sharp20" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.288312, -0.0906492, -0.0897748, -0.0479687, 0.354143, 0.833046, -0.0206097, 0.443837, -0.683033, 1.20697, -1.86898, -0.486813 )
+
+[node name="boulder_sharp31" parent="world/chasm/chasm_upper/trap/Platform_square/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.22296, 0.369411, 0.097901, 0.0643722, 0.0711918, 1.04606, 0.17887, 0.434847, -0.254426, 1.57352, -2.20605, -0.905849 )
+
+[node name="Platform_square2" parent="world/chasm/chasm_upper/trap" instance=ExtResource( 9 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 1, 3.43046, -1.07546, -8.24804 )
+
+[node name="boulder_carpet3" type="Spatial" parent="world/chasm/chasm_upper/trap/Platform_square2"]
+transform = Transform( 0.333, 0, 0, 0, 0.712, 0, 0, 0, 0.5, -0.183856, 0.970232, 3.47113 )
+
+[node name="boulder_sharp" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( 0.293, 0, 0, 0, 0.251838, 0.971803, 0, -0.516916, 0.473455, -1.28132, -1.52214, 0.0704308 )
+
+[node name="boulder_sharp6" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( 0.279618, -0.0540222, 0.306575, -0.0831066, 0.00761247, 1.03651, -0.0274949, -0.572406, -0.0151494, -0.429358, -1.52214, 1.51711 )
+
+[node name="boulder_sharp8" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( 0.206062, 0.130277, 0.728422, -0.206177, 0.205133, 0.664238, -0.0296448, -0.521127, 0.443565, -1.12974, -1.52214, -1.8425 )
+
+[node name="boulder_sharp13" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( 0.0791751, 0.056985, 0.267618, -0.0198216, 0.0300027, 1.10795, 0.00789999, -0.495835, 0.097798, -1.28132, -1.52214, -2.34415 )
+
+[node name="boulder_sharp14" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( 0.0779675, -0.0248486, -0.349745, 0.0226283, -0.156158, 1.03991, -0.0115339, -0.474339, -0.324032, -1.61782, -1.52214, -0.767223 )
+
+[node name="boulder_sharp16" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( 0.293, 0, 0, 0, 0.0498849, 1.07692, 0, -0.572832, 0.0937829, -1.8439, -1.52214, 2.57604 )
+
+[node name="boulder_sharp17" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( 0.284163, -0.0491427, 0.246774, -0.0516322, 0.230711, 0.971672, -0.0493465, -0.524388, 0.404373, -1.69232, -1.52214, 0.663116 )
+
+[node name="boulder_sharp30" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( 0.161909, -0.478162, -0.0602553, 0.0104665, -0.024832, 1.0793, -0.243978, -0.318385, 0.00631441, -1.91549, -1.73262, 1.23711 )
+
+[node name="boulder_sharp2" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.281222, -0.134986, 0.166318, -0.0104, 0.371026, 0.82495, -0.08158, 0.418023, -0.678496, 0.647469, -1.73785, -0.0509491 )
+
+[node name="boulder_sharp7" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.278983, -0.107254, -0.261678, -0.0836675, 0.150014, 0.996868, -0.0318949, 0.544626, -0.326115, 0.232556, -2.12375, -1.63137 )
+
+[node name="boulder_sharp9" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.213351, -0.262856, -0.552061, -0.199741, 0.322196, 0.508516, 0.0208377, 0.397141, -0.777947, -0.0306371, -1.27295, 1.68291 )
+
+[node name="boulder_sharp15" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.0744963, -0.191685, -0.190303, -0.0239528, 0.148938, 1.03968, -0.0245065, 0.43712, -0.437698, -0.0248255, -1.14424, 2.19088 )
+
+[node name="boulder_sharp18" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.0772414, -0.113763, 0.282376, 0.0219872, -0.0337685, 1.09939, -0.0165628, 0.485713, 0.142574, 0.737214, -1.51998, 0.820457 )
+
+[node name="boulder_sharp3" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.183044, 0.375523, -0.462687, 0.0289322, 0.350648, 0.850058, 0.226951, 0.258172, -0.481542, -0.293906, -1.74571, -0.112576 )
+
+[node name="boulder_sharp10" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.085411, 0.30201, -0.864229, -0.174431, 0.318879, 0.628504, 0.219382, 0.371122, 0.163257, 1.0931, -1.34087, 1.15017 )
+
+[node name="boulder_sharp21" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.0536245, 0.345499, -0.352344, -0.0130986, 0.135907, 1.08566, 0.0606369, 0.334902, -0.0770784, 1.57636, -1.25359, 1.33312 )
+
+[node name="boulder_sharp22" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.0420088, 0.398355, 0.366796, 0.03209, -0.0578788, 1.04439, 0.0626857, 0.296587, -0.288838, 0.56513, -1.60822, 0.128311 )
+
+[node name="boulder_sharp19" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.26075, -0.191909, -0.336036, -0.114888, 0.121743, 0.967735, -0.0682596, 0.52818, -0.345152, 1.5113, -2.33388, -2.22063 )
+
+[node name="boulder_sharp20" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.288312, -0.0906492, -0.0897748, -0.0479687, 0.354143, 0.833046, -0.0206097, 0.443837, -0.683033, 1.20697, -1.86898, -0.486813 )
+
+[node name="boulder_sharp31" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet3" instance=ExtResource( 60 )]
+transform = Transform( -0.22296, 0.369411, 0.097901, 0.0643722, 0.0711918, 1.04606, 0.17887, 0.434847, -0.254426, 1.57352, -2.20605, -0.905849 )
+
+[node name="boulder_carpet4" type="Spatial" parent="world/chasm/chasm_upper/trap/Platform_square2"]
+transform = Transform( 0.333, 0, 0, 0, 0.712, 0, 0, 0, 0.5, 1.1349, 0.970232, 3.47113 )
+
+[node name="boulder_sharp" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( 0.293, 0, 0, 0, 0.251838, 0.971803, 0, -0.516916, 0.473455, -1.28132, -1.52214, 0.0704308 )
+
+[node name="boulder_sharp6" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( 0.279618, -0.0540222, 0.306575, -0.0831066, 0.00761247, 1.03651, -0.0274949, -0.572406, -0.0151494, -0.429358, -1.52214, 1.51711 )
+
+[node name="boulder_sharp8" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( 0.206062, 0.130277, 0.728422, -0.206177, 0.205133, 0.664238, -0.0296448, -0.521127, 0.443565, -1.12974, -1.52214, -1.8425 )
+
+[node name="boulder_sharp13" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( 0.0791751, 0.056985, 0.267618, -0.0198216, 0.0300027, 1.10795, 0.00789999, -0.495835, 0.097798, -1.28132, -1.52214, -2.34415 )
+
+[node name="boulder_sharp14" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( 0.0779675, -0.0248486, -0.349745, 0.0226283, -0.156158, 1.03991, -0.0115339, -0.474339, -0.324032, -1.61782, -1.52214, -0.767223 )
+
+[node name="boulder_sharp16" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( 0.293, 0, 0, 0, 0.0498849, 1.07692, 0, -0.572832, 0.0937829, -1.8439, -1.52214, 2.57604 )
+
+[node name="boulder_sharp17" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( 0.284163, -0.0491427, 0.246774, -0.0516322, 0.230711, 0.971672, -0.0493465, -0.524388, 0.404373, -1.69232, -1.52214, 0.663116 )
+
+[node name="boulder_sharp30" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( 0.161909, -0.478162, -0.0602553, 0.0104665, -0.024832, 1.0793, -0.243978, -0.318385, 0.00631441, -1.91549, -1.73262, 1.23711 )
+
+[node name="boulder_sharp2" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( -0.281222, -0.134986, 0.166318, -0.0104, 0.371026, 0.82495, -0.08158, 0.418023, -0.678496, 0.647469, -1.73785, -0.0509491 )
+
+[node name="boulder_sharp7" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( -0.278983, -0.107254, -0.261678, -0.0836675, 0.150014, 0.996868, -0.0318949, 0.544626, -0.326115, 0.232556, -2.12375, -1.63137 )
+
+[node name="boulder_sharp9" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( -0.213351, -0.262856, -0.552061, -0.199741, 0.322196, 0.508516, 0.0208377, 0.397141, -0.777947, -0.0306371, -1.27295, 1.68291 )
+
+[node name="boulder_sharp15" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( -0.0744963, -0.191685, -0.190303, -0.0239528, 0.148938, 1.03968, -0.0245065, 0.43712, -0.437698, -0.0248255, -1.14424, 2.19088 )
+
+[node name="boulder_sharp18" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( -0.0772414, -0.113763, 0.282376, 0.0219872, -0.0337685, 1.09939, -0.0165628, 0.485713, 0.142574, 0.737214, -1.51998, 0.820457 )
+
+[node name="boulder_sharp3" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( -0.183044, 0.375523, -0.462687, 0.0289322, 0.350648, 0.850058, 0.226951, 0.258172, -0.481542, -0.293906, -1.74571, -0.112576 )
+
+[node name="boulder_sharp10" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( -0.085411, 0.30201, -0.864229, -0.174431, 0.318879, 0.628504, 0.219382, 0.371122, 0.163257, 1.0931, -1.34087, 1.15017 )
+
+[node name="boulder_sharp21" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( -0.0536245, 0.345499, -0.352344, -0.0130986, 0.135907, 1.08566, 0.0606369, 0.334902, -0.0770784, 1.57636, -1.25359, 1.33312 )
+
+[node name="boulder_sharp22" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( -0.0420088, 0.398355, 0.366796, 0.03209, -0.0578788, 1.04439, 0.0626857, 0.296587, -0.288838, 0.56513, -1.60822, 0.128311 )
+
+[node name="boulder_sharp19" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( -0.26075, -0.191909, -0.336036, -0.114888, 0.121743, 0.967735, -0.0682596, 0.52818, -0.345152, 1.5113, -2.33388, -2.22063 )
+
+[node name="boulder_sharp20" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( -0.288312, -0.0906492, -0.0897748, -0.0479687, 0.354143, 0.833046, -0.0206097, 0.443837, -0.683033, 1.20697, -1.86898, -0.486813 )
+
+[node name="boulder_sharp31" parent="world/chasm/chasm_upper/trap/Platform_square2/boulder_carpet4" instance=ExtResource( 60 )]
+transform = Transform( -0.22296, 0.369411, 0.097901, 0.0643722, 0.0711918, 1.04606, 0.17887, 0.434847, -0.254426, 1.57352, -2.20605, -0.905849 )
 
 [node name="chasm_lower" parent="world/chasm" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -26.141, 0.0949993 )
@@ -557,6 +884,69 @@ transform = Transform( -1.051, 7.1337e-08, 0, -9.18813e-08, -0.816, 0, 0, 0, 1.0
 
 [node name="Stalagmite_long" parent="world/chasm/chasm_lower/decor" instance=ExtResource( 58 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12839, 0.0415936, -7.58599 )
+
+[node name="boulder_carpet" type="Spatial" parent="world/chasm/chasm_lower"]
+transform = Transform( 0.651, 0, 0, 0, 0.845, 0, 0, 0, 0.873, 2.05872, 0.902374, 13.8382 )
+
+[node name="boulder_sharp" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.293, 0, 0, 0, 0.251838, 0.971803, 0, -0.516916, 0.473455, -1.28132, -1.52214, 0.0704308 )
+
+[node name="boulder_sharp6" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.279618, -0.0540222, 0.306575, -0.0831066, 0.00761247, 1.03651, -0.0274949, -0.572406, -0.0151494, -0.429358, -1.52214, 1.51711 )
+
+[node name="boulder_sharp8" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.206062, 0.130277, 0.728422, -0.206177, 0.205133, 0.664238, -0.0296448, -0.521127, 0.443565, -1.12974, -1.52214, -1.8425 )
+
+[node name="boulder_sharp13" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.0791751, 0.056985, 0.267618, -0.0198216, 0.0300027, 1.10795, 0.00789999, -0.495835, 0.097798, -1.28132, -1.52214, -2.34415 )
+
+[node name="boulder_sharp14" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.0779675, -0.0248486, -0.349745, 0.0226283, -0.156158, 1.03991, -0.0115339, -0.474339, -0.324032, -1.61782, -1.52214, -0.767223 )
+
+[node name="boulder_sharp16" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.293, 0, 0, 0, 0.0498849, 1.07692, 0, -0.572832, 0.0937829, -1.8439, -1.52214, 2.57604 )
+
+[node name="boulder_sharp17" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.284163, -0.0491427, 0.246774, -0.0516322, 0.230711, 0.971672, -0.0493465, -0.524388, 0.404373, -1.69232, -1.52214, 0.663116 )
+
+[node name="boulder_sharp30" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.161909, -0.478162, -0.0602553, 0.0104665, -0.024832, 1.0793, -0.243978, -0.318385, 0.00631441, -1.91549, -1.73262, 1.23711 )
+
+[node name="boulder_sharp2" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.281222, -0.134986, 0.166318, -0.0104, 0.371026, 0.82495, -0.08158, 0.418023, -0.678496, 0.647469, -1.73785, -0.0509491 )
+
+[node name="boulder_sharp7" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.278983, -0.107254, -0.261678, -0.0836675, 0.150014, 0.996868, -0.0318949, 0.544626, -0.326115, 0.232556, -1.80421, -2.17902 )
+
+[node name="boulder_sharp9" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.213351, -0.262856, -0.552061, -0.199741, 0.322196, 0.508516, 0.0208377, 0.397141, -0.777947, -0.0306371, -1.27295, 1.68291 )
+
+[node name="boulder_sharp15" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.0744963, -0.191685, -0.190303, -0.0239528, 0.148938, 1.03968, -0.0245065, 0.43712, -0.437698, -0.0248255, -1.14424, 2.19088 )
+
+[node name="boulder_sharp18" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.0772414, -0.113763, 0.282376, 0.0219872, -0.0337685, 1.09939, -0.0165628, 0.485713, 0.142574, 0.737214, -1.51998, 0.820457 )
+
+[node name="boulder_sharp3" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.183044, 0.375523, -0.462687, 0.0289322, 0.350648, 0.850058, 0.226951, 0.258172, -0.481542, -0.293906, -1.74571, -0.112576 )
+
+[node name="boulder_sharp10" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.085411, 0.30201, -0.864229, -0.174431, 0.318879, 0.628504, 0.219382, 0.371122, 0.163257, 1.0931, -1.34087, 1.15017 )
+
+[node name="boulder_sharp21" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.0536245, 0.345499, -0.352344, -0.0130986, 0.135907, 1.08566, 0.0606369, 0.334902, -0.0770784, -1.36284, -1.90953, -0.859467 )
+
+[node name="boulder_sharp22" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.0420088, 0.398355, 0.366796, 0.03209, -0.0578788, 1.04439, 0.0626857, 0.296587, -0.288838, 0.56513, -1.60822, 0.128311 )
+
+[node name="boulder_sharp19" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.26075, -0.191909, -0.336036, -0.114888, 0.121743, 0.967735, -0.0682596, 0.52818, -0.345152, 1.5113, -2.33388, -2.22063 )
+
+[node name="boulder_sharp20" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.288312, -0.0906492, -0.0897748, -0.0479687, 0.354143, 0.833046, -0.0206097, 0.443837, -0.683033, 1.20697, -1.86898, -0.486813 )
+
+[node name="boulder_sharp31" parent="world/chasm/chasm_lower/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.22296, 0.369411, 0.097901, 0.0993552, 0.157894, 0.97422, 0.163182, 0.412896, -0.448006, 0.827039, -1.78724, -1.54644 )
 
 [node name="ladder" type="Spatial" parent="world/chasm"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.671, 15.363, 5.452 )
@@ -1075,6 +1465,69 @@ transform = Transform( 0.67, 0, 0, 0, 0.595, 0, 0, 0, 0.798, 1.892, -5.714, 20.9
 [node name="boulder_lethal2" parent="world/lower_path/labyrinth_traps" instance=ExtResource( 42 )]
 transform = Transform( 0.67, 0, 0, 0, 0.595, 0, 0, 0, 0.798, 1.892, 5.812, -24.386 )
 
+[node name="boulder_carpet" type="Spatial" parent="world/lower_path/labyrinth_traps"]
+transform = Transform( 0.651, 0, 0, 0, 0.845, 0, 0, 0, 0.873, 2.24125, -10.0933, -19.5658 )
+
+[node name="boulder_sharp" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.293, 0, 0, 0, 0.251838, 0.971803, 0, -0.516916, 0.473455, -1.28132, -1.52214, 0.0704308 )
+
+[node name="boulder_sharp6" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.279618, -0.0540222, 0.306575, -0.0831066, 0.00761247, 1.03651, -0.0274949, -0.572406, -0.0151494, -0.429358, -1.52214, 1.51711 )
+
+[node name="boulder_sharp8" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.206062, 0.130277, 0.728422, -0.206177, 0.205133, 0.664238, -0.0296448, -0.521127, 0.443565, -1.12974, -1.52214, -1.8425 )
+
+[node name="boulder_sharp13" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.0791751, 0.056985, 0.267618, -0.0198216, 0.0300027, 1.10795, 0.00789999, -0.495835, 0.097798, -1.28132, -1.52214, -2.34415 )
+
+[node name="boulder_sharp14" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.0779675, -0.0248486, -0.349745, 0.0226283, -0.156158, 1.03991, -0.0115339, -0.474339, -0.324032, -1.61782, -1.52214, -0.767223 )
+
+[node name="boulder_sharp16" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.293, 0, 0, 0, 0.0498849, 1.07692, 0, -0.572832, 0.0937829, -1.8439, -1.52214, 2.57604 )
+
+[node name="boulder_sharp17" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.284163, -0.0491427, 0.246774, -0.0516322, 0.230711, 0.971672, -0.0493465, -0.524388, 0.404373, -1.69232, -1.52214, 0.663116 )
+
+[node name="boulder_sharp30" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( 0.161909, -0.478162, -0.0602553, 0.0104665, -0.024832, 1.0793, -0.243978, -0.318385, 0.00631441, -1.91549, -1.73262, 1.23711 )
+
+[node name="boulder_sharp2" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.281222, -0.134986, 0.166318, -0.0104, 0.371026, 0.82495, -0.08158, 0.418023, -0.678496, 0.647469, -1.73785, -0.0509491 )
+
+[node name="boulder_sharp7" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.278983, -0.107254, -0.261678, -0.0836675, 0.150014, 0.996868, -0.0318949, 0.544626, -0.326115, 0.232556, -1.80421, -2.17902 )
+
+[node name="boulder_sharp9" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.213351, -0.262856, -0.552061, -0.199741, 0.322196, 0.508516, 0.0208377, 0.397141, -0.777947, -0.0306371, -1.27295, 1.68291 )
+
+[node name="boulder_sharp15" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.0744963, -0.191685, -0.190303, -0.0239528, 0.148938, 1.03968, -0.0245065, 0.43712, -0.437698, -0.0248255, -1.14424, 2.19088 )
+
+[node name="boulder_sharp18" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.0772414, -0.113763, 0.282376, 0.0219872, -0.0337685, 1.09939, -0.0165628, 0.485713, 0.142574, 0.737214, -1.51998, 0.820457 )
+
+[node name="boulder_sharp3" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.183044, 0.375523, -0.462687, 0.0289322, 0.350648, 0.850058, 0.226951, 0.258172, -0.481542, -0.293906, -1.74571, -0.112576 )
+
+[node name="boulder_sharp10" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.085411, 0.30201, -0.864229, -0.174431, 0.318879, 0.628504, 0.219382, 0.371122, 0.163257, 1.0931, -1.34087, 1.15017 )
+
+[node name="boulder_sharp21" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.0536245, 0.345499, -0.352344, -0.0130986, 0.135907, 1.08566, 0.0606369, 0.334902, -0.0770784, -1.36284, -1.90953, -0.859467 )
+
+[node name="boulder_sharp22" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.0420088, 0.398355, 0.366796, 0.03209, -0.0578788, 1.04439, 0.0626857, 0.296587, -0.288838, 0.56513, -1.60822, 0.128311 )
+
+[node name="boulder_sharp19" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.26075, -0.191909, -0.336036, -0.114888, 0.121743, 0.967735, -0.0682596, 0.52818, -0.345152, 1.5113, -2.33388, -2.22063 )
+
+[node name="boulder_sharp20" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.288312, -0.0906492, -0.0897748, -0.0479687, 0.354143, 0.833046, -0.0206097, 0.443837, -0.683033, 1.20697, -1.86898, -0.486813 )
+
+[node name="boulder_sharp31" parent="world/lower_path/labyrinth_traps/boulder_carpet" instance=ExtResource( 60 )]
+transform = Transform( -0.22296, 0.369411, 0.097901, 0.0993552, 0.157894, 0.97422, 0.163182, 0.412896, -0.448006, 0.827039, -1.78724, -1.54644 )
+
 [node name="torches" type="Spatial" parent="world/lower_path"]
 
 [node name="torch_wall" parent="world/lower_path/torches" instance=ExtResource( 29 )]
@@ -1349,6 +1802,42 @@ script = ExtResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5009, 0.935255, 11.4541 )
 shape = SubResource( 3 )
 
+[node name="Killzone2" type="Area" parent="Killzones"]
+transform = Transform( 0.276, 0, 0, 0, 0.798, 0, 0, 0, 0.489, 2.29896, -26.0921, -11.2355 )
+collision_layer = 0
+collision_mask = 16
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Killzones/Killzone2"]
+shape = SubResource( 31 )
+
+[node name="Killzone3" type="Area" parent="Killzones"]
+transform = Transform( 0.276, 0, 0, 0, 0.798, 0, 0, 0, 0.489, 2.29896, -36.894, -81.1569 )
+collision_layer = 0
+collision_mask = 16
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Killzones/Killzone3"]
+shape = SubResource( 31 )
+
+[node name="Killzone4" type="Area" parent="Killzones"]
+transform = Transform( 0.96, 0, 0, 0, 0.798, 0, 0, 0, 1.082, -5.27159, 7.80727, -13.5093 )
+collision_layer = 0
+collision_mask = 16
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Killzones/Killzone4"]
+shape = SubResource( 31 )
+
+[node name="Killzone5" type="Area" parent="Killzones"]
+transform = Transform( 0.916, 0, 0, 0, 0.717, 0, 0, 0, 0.368, -4.93438, 8.19197, -22.9947 )
+collision_layer = 0
+collision_mask = 16
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Killzones/Killzone5"]
+shape = SubResource( 31 )
+
 [node name="PauseMenu" parent="." instance=ExtResource( 10 )]
 level = 5
 
@@ -1468,5 +1957,9 @@ dialogue_file = "res://dialogos/lvl5 - 2.json"
 [connection signal="body_entered" from="Checkpoints/Checkpoint_start" to="Checkpoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint" to="Checkpoints/Checkpoint" method="_on_area_entered"]
 [connection signal="body_entered" from="Killzones/Killzone" to="Killzones/Killzone" method="_on_area_entered"]
+[connection signal="body_entered" from="Killzones/Killzone2" to="Killzones/Killzone2" method="_on_area_entered"]
+[connection signal="body_entered" from="Killzones/Killzone3" to="Killzones/Killzone3" method="_on_area_entered"]
+[connection signal="body_entered" from="Killzones/Killzone4" to="Killzones/Killzone4" method="_on_area_entered"]
+[connection signal="body_entered" from="Killzones/Killzone5" to="Killzones/Killzone5" method="_on_area_entered"]
 [connection signal="ended" from="CutsceneActivator2" to="world/upper_path/temple/shrine/holy_stone" method="_on_CutsceneActivator2_ended"]
 [connection signal="flashbang" from="CutsceneActivator2/TransitionScreen" to="CutsceneActivatorEnd" method="_on_TransitionScreen_flashbang"]
