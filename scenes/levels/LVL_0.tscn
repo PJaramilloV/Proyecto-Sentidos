@@ -76,6 +76,13 @@ extents = Vector3( 1, 1.4913, 1.15282 )
 background_mode = 1
 ambient_light_energy = 0.99
 ambient_light_sky_contribution = 0.0
+fog_color = Color( 0.0823529, 0.0823529, 0.0823529, 1 )
+fog_sun_color = Color( 0, 0, 0, 1 )
+fog_depth_begin = 0.0
+fog_depth_end = 10.0
+fog_depth_curve = 0.812254
+fog_height_min = 0.0
+fog_height_max = 3.6
 
 [sub_resource type="ViewportTexture" id=6]
 viewport_path = NodePath("Sprite3D/Viewport")
@@ -491,6 +498,7 @@ dialogue_file = "res://dialogos/lvl0 - 2.json"
 stream = ExtResource( 59 )
 volume_db = 5.0
 autoplay = true
+bus = "Music/Atmosphere"
 
 [connection signal="body_entered" from="CheckPoints/Checkpoint_start" to="CheckPoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="CheckPoints/Checkpoint" to="CheckPoints/Checkpoint" method="_on_area_entered"]

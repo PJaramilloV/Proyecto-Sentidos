@@ -50,9 +50,10 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Proyecto Sentidos"
+config/name="Profundis"
 run/main_scene="res://scenes/transitions/SceneManager.tscn"
-config/icon="res://icon.png"
+config/icon="res://images/profundis_logo.png"
+config/windows_native_icon="res://images/profundis_logo.ico"
 
 [autoload]
 

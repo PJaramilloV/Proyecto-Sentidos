@@ -174,7 +174,7 @@ transform = Transform( 1.2, 0, 0, 0, 1.20197, -0.00844033, 0, 0.0084544, 1.19997
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43, 3.201, -51.274 )
 
 [node name="chasm_lower" parent="world/chasm" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0.097, -14.047, 30.061 )
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0.097, -14.047, 29.925 )
 
 [node name="hallway_short" parent="world/chasm/chasm_lower" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.0250027, 3.57779, -4.07874 )
@@ -669,6 +669,7 @@ text = "We are getting close"
 stream = ExtResource( 46 )
 volume_db = -4.0
 autoplay = true
+bus = "Music/Atmosphere"
 
 [connection signal="body_entered" from="Checkpoints/Checkpoint_start" to="Checkpoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint" to="Checkpoints/Checkpoint" method="_on_area_entered"]

@@ -1038,6 +1038,7 @@ dialogue_file = "res://dialogos/lvl4 - 2.json"
 stream = ExtResource( 60 )
 volume_db = -5.0
 autoplay = true
+bus = "Music/Atmosphere"
 
 [connection signal="body_entered" from="CheckPoints/Checkpoint_start" to="CheckPoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="CheckPoints/Checkpoint" to="CheckPoints/Checkpoint" method="_on_area_entered"]

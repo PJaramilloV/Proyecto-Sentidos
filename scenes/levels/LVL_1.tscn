@@ -629,6 +629,7 @@ cast_shadow = 0
 stream = ExtResource( 59 )
 volume_db = -4.0
 autoplay = true
+bus = "Music/Atmosphere"
 
 [connection signal="body_entered" from="Checkpoints/Checkpoint_start" to="Checkpoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint" to="Checkpoints/Checkpoint" method="_on_area_entered"]

@@ -328,7 +328,7 @@ transform = Transform( 1, 0, 0, 0, 13.844, 0, 0, 0, 64.187, 3.42112, -4.82089, -
 shape = SubResource( 4 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="FRONTAL_BOUND"]
-transform = Transform( 2.159, 0, 0, 0, 13.844, 0, 0, 0, 4.944, -0.334627, -4.82089, -43.7247 )
+transform = Transform( 3.058, 0, 0, 0, 13.844, 0, 0, 0, 5.27, -0.334627, -4.82089, -43.7247 )
 shape = SubResource( 4 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -428,6 +428,7 @@ align = 1
 stream = ExtResource( 40 )
 volume_db = 4.0
 autoplay = true
+bus = "Music/Atmosphere"
 
 [connection signal="body_entered" from="CheckPoints/Checkpoint_start" to="CheckPoints/Checkpoint_start" method="_on_area_entered"]
 [connection signal="body_entered" from="CheckPoints/Checkpoint" to="CheckPoints/Checkpoint" method="_on_area_entered"]
