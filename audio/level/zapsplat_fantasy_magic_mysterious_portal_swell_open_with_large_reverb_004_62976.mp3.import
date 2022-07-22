@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_fantasy_magic_mysterious_portal_swell_open_with_large_reverb_004_62976.mp3-ce4be418696e1bcba80ed23d75b9d024.mp3str"
+
+[deps]
+
+source_file="res://audio/level/zapsplat_fantasy_magic_mysterious_portal_swell_open_with_large_reverb_004_62976.mp3"
+dest_files=[ "res://.import/zapsplat_fantasy_magic_mysterious_portal_swell_open_with_large_reverb_004_62976.mp3-ce4be418696e1bcba80ed23d75b9d024.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

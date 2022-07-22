@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://resources/tema_1.tres" type="Theme" id=1]
 [ext_resource path="res://resources/buttone_theme.tres" type="StyleBox" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scripts/game_over.gd" type="Script" id=4]
 [ext_resource path="res://resources/button_normal_theme.tres" type="StyleBox" id=5]
 [ext_resource path="res://audio/hud/button-24.wav" type="AudioStream" id=6]
+[ext_resource path="res://audio/level/zapsplat_horror_hit_dark_ominous_scary_choir_ahhs_43854.mp3" type="AudioStream" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -105,3 +106,7 @@ bus = "UI"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fade = SubResource( 2 )
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
